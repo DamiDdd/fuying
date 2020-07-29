@@ -1,5 +1,6 @@
 <template>
   <div id="home">
+    
   </div>
 </template>
 
@@ -12,5 +13,7 @@
 </script>
 
 <style scoped>
-
+  #home{
+    min-height:500px;
+  }
 </style>

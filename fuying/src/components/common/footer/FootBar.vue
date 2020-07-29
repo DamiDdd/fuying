@@ -1,8 +1,6 @@
 <template>
   <div id="foot-bar">
-    <div class="footer-tip"><slot name="tip">tip</slot></div>
-    <div class="footer-icon"><slot name="icon">icon</slot></div>
-    <div class="footer-author"><slot name="author">author</slot></div>
+    <slot></slot>
   </div>
 </template>
 
@@ -14,21 +12,11 @@ export default {
 
 <style scoped>
   #foot-bar{
-    height:500px;
-    width: 100%;
+    height: 480px;
+    width: 1920px;
     background: url('~assets/img/common/footer.png');
     text-align: center;
-  }
-  .footer-tip{
-    height: 100px;
-    /* background: red; */
-  }
-  .footer-author{
-    height: 100px;
-    /* background: darkblue; */
-  }
-  .footer-icon{
-    height: 300px;
-    /* background: green; */
+    color: white;
+    overflow: hidden;
   }
 </style>

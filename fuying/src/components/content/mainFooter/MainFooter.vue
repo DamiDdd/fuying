@@ -1,5 +1,14 @@
 <template>
-  <foot-bar></foot-bar>
+  <foot-bar>
+    <h3 class="footer-tip">fudan fuying</h3>
+    <div class="footer-icon">
+      <img src="~assets/img/common/phone.png">
+      <img src="~assets/img/common/message.png">
+      <img src="~assets/img/common/wechat.png">
+      <img src="~assets/img/common/place.png">
+    </div>
+    <p class="footer-author">Fudan University</p>
+  </foot-bar>
 </template>
 
 <script>
@@ -14,5 +23,17 @@
 </script>
 
 <style scoped>
-
-</style>.
+  .footer-tip{
+    font-size: 36px;
+    padding-top: 200px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .footer-icon img{
+    margin: 0 20px 0 20px;
+  }
+  .footer-author{
+    font-size: 13px;
+    line-height: 13px;
+    margin-top: 50px;
+  }
+</style>

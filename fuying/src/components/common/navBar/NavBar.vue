@@ -20,12 +20,10 @@ export default {
     height: 44px;
     line-height: 44px;
     text-align: center;
-    /* background: gray; */
   }
   
   .nav-logo{
     width: 60px;
-    /* background: red; */
   }
 
   .nav-logo img{
