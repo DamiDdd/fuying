@@ -9,5 +9,7 @@ export default {
 </script>
 
 <style scoped>
-
+  #news{
+    min-height:500px;
+  }
 </style>

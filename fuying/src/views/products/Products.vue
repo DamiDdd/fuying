@@ -9,5 +9,7 @@ export default {
 </script>
 
 <style scoped>
-
+  #products{
+    min-height:500px;
+  }
 </style>

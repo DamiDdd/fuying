@@ -40,5 +40,6 @@
     color: #333;
     float: left;
     min-width: 90px;
+    cursor: pointer;
   }
 </style>

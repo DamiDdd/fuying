@@ -9,5 +9,7 @@ export default {
 </script>
 
 <style scoped>
-
+  #intro{
+    min-height:500px;
+  }
 </style>

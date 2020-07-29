@@ -13,7 +13,8 @@ export default {
 <style scoped>
   #foot-bar{
     height: 480px;
-    width: 1920px;
+    /* width: 1920px; */
+    width: var(--screen-width);
     background: url('~assets/img/common/footer.png');
     text-align: center;
     color: white;

@@ -18,6 +18,7 @@ export default {
     z-index: 10;
     display: flex;
     height: 44px;
+    width: var(--screen-width);
     line-height: 44px;
     text-align: center;
   }
