@@ -7,16 +7,16 @@
 </template>
 
 <script>
-  import MainNavBar from 'content/mainNavBar/MainNavBar'
-  import MainFooter from 'content/mainFooter/MainFooter'
+import MainNavBar from 'content/mainNavBar/MainNavBar'
+import MainFooter from 'content/mainFooter/MainFooter'
 
-  export default {
-    name: 'App',
-    components: {
-      MainNavBar,
-      MainFooter
-    }
+export default {
+  name: 'App',
+  components: {
+    MainNavBar,
+    MainFooter
   }
+}
 </script>
 
 <style >

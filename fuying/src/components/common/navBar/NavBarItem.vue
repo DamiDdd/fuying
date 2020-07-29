@@ -5,31 +5,20 @@
 </template>
 
 <script>
-  export default {
-    name: "NavBarItem",
-    props:{
-      link: {
-        type: String,
-        required: true
-      },
+export default {
+  name: "NavBarItem",
+  props:{
+    link: {
+      type: String,
+      required: true
     },
-    computed: {
-      // isActive() {
-      //   return this.$route.path.indexOf(this.link) !== -1
-      // },
-      // activeStyle() {
-      //   // 这里尝试抓取isActive，控制台报错，router相关
-      //   console.log(this.$router);
-      //   return this.isActive ? {'color' : 'red'} : {}
-      //   // return this.isActive ? {'background' : '~assets/img/logo.png'} : {}
-      // }
+  },
+  methods: {
+    itemClick() {
+      this.$router.replace(this.link)
     },
-    methods: {
-      itemClick() {
-        this.$router.replace(this.link)
-      },
-    }
   }
+}
 </script>
 
 <style scoped>

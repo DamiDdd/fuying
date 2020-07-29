@@ -12,16 +12,16 @@
 </template>
 
 <script>
-  import NavBar from 'common/navBar/NavBar'
-  import NavBarItem from 'common/navBar/NavBarItem'
+import NavBar from 'common/navBar/NavBar'
+import NavBarItem from 'common/navBar/NavBarItem'
 
-  export default {
-    name: "MainNavBar",
-    components:{
-      NavBar,
-      NavBarItem
-    }
+export default {
+  name: "MainNavBar",
+  components:{
+    NavBar,
+    NavBarItem
   }
+}
 </script>
 
 <style scoped>

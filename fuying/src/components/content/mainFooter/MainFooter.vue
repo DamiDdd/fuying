@@ -12,14 +12,14 @@
 </template>
 
 <script>
-  import FootBar from 'common/footer/FootBar'
+import FootBar from 'common/footer/FootBar'
 
-  export default {
-    name: "MainFooter",
-    components:{
-      FootBar
-    }
+export default {
+  name: "MainFooter",
+  components:{
+    FootBar
   }
+}
 </script>
 
 <style scoped>
@@ -30,6 +30,7 @@
   }
   .footer-icon img{
     margin: 0 20px 0 20px;
+    cursor: pointer;
   }
   .footer-author{
     font-size: 13px;
