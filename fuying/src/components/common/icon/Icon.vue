@@ -33,6 +33,5 @@ export default {
     cursor: pointer;
     pointer-events: all;
     margin-top:40px;
-    position: relative;
   }
 </style>

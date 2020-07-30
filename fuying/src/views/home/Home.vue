@@ -1,5 +1,6 @@
 <template>
   <div id="home">
+    <home-head></home-head>
     <home-menu></home-menu>
     <home-ad></home-ad>
   </div>
@@ -8,12 +9,14 @@
 <script>
 import HomeAd from 'content/home/HomeAd'
 import HomeMenu from 'content/home/HomeMenu'
+import HomeHead from 'content/home/HomeHead'
 
 export default {
   name: "Home",
   components: {
     HomeAd,
-    HomeMenu
+    HomeMenu,
+    HomeHead
   }
 }
 </script>
