@@ -4,7 +4,8 @@
 :root {
   --screen-width: 1900px;
   --theme-color: #308bcc;
-  --text-color: #9a9a9a
+  --text-color: #9a9a9a;
+  --div-bottom: 100px;
 }
 
 body{

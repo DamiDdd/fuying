@@ -52,11 +52,11 @@ export default {
   .right-text{
     width: 760px;
     margin-left: 700px;
-    margin-top: 100px;
+    margin-top: var(--div-bottom);
     line-height: 50px;
   }
   button {
-    background-color: #ffce6b; /* Green */
+    background-color: #ffce6b;
     border: none;
     color: #6b6b6b;
     padding: 15px 50px;
