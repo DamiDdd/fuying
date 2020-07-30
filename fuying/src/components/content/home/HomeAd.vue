@@ -24,9 +24,9 @@
 export default {
   name: "HomeAd",
   methods: {
-      buyClick() {
-        this.$router.replace("/products")
-      },
+    buyClick() {
+      this.$router.replace("/products")
+    },
   }
 }
 </script>
