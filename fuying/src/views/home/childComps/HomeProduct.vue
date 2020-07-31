@@ -147,7 +147,6 @@ export default {
 
   #intro-top{
     height: 840px;
-    background: whitesmoke;
   }
 
   #intro-top .left{
@@ -160,7 +159,12 @@ export default {
     height: 840px;
     width: 1000px;
     text-align: center;
-  } 
+  }
+  
+  #intro-top #home-pie{
+    margin-left: 110px;
+    margin-top: -50px;
+  }
 
   #intro-middle{
     height: 260px;
