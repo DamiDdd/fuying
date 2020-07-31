@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import HomeImgsWindow from 'content/home/HomeImgsWindow'
+import HomeImgsWindow from 'views/home/childComps/HomeImgsWindow'
 
 export default {
   name: "HomeProduct",

@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import HomeAd from 'content/home/HomeAd'
-import HomeMenu from 'content/home/HomeMenu'
-import HomeHead from 'content/home/HomeHead'
-import HomeProduct from 'content/home/HomeProduct'
+import HomeAd from 'views/home/childComps/HomeAd'
+import HomeMenu from 'views/home/childComps/HomeMenu'
+import HomeHead from 'views/home/childComps/HomeHead'
+import HomeProduct from 'views/home/childComps/HomeProduct'
 
 export default {
   name: "Home",
