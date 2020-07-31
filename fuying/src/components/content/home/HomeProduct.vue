@@ -37,10 +37,10 @@
             （包括常规指标、免疫力指数、器官功能、代谢功能、机体衰老功能等）
             相关的蛋白信息，准确把握生理状态，这个过程叫做“蛋白质组学-生理刻画”
           </p>
-          <p>根据蛋白信息为您定制更系统的生活方案，让机体保持青春，让生活更加舒适。</p>
+          <p class="content">根据蛋白信息为您定制更系统的生活方案，让机体保持青春，让生活更加舒适。</p>
         </div>
         <div class="right">
-          
+          <home-imgs-window></home-imgs-window>
         </div>
       </div>
     </div>
@@ -48,8 +48,13 @@
 </template>
 
 <script>
+import HomeImgsWindow from 'content/home/HomeImgsWindow'
+
 export default {
   name: "HomeProduct",
+  components: {
+    HomeImgsWindow
+  },
   methods: {
     productClick(){
       this.$router.replace("/products")
@@ -158,13 +163,12 @@ export default {
   
   #intro-bottom{
     height: 900px;
-    background: gray;
   }
 
   #intro-bottom .left{
     height: 900px;
     width: 800px;
-    background: gray;
+    text-indent: 2rem;
   }
 
   #intro-bottom .left p{
