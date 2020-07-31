@@ -1,5 +1,5 @@
 <template>
-  <div id="nav-bar-item" @click="itemClick">
+  <div id="nav-bar-item" @click="itemClick" @mouseenter="changeFocus" @mouseleave="removeFocus">
     <slot name="text"></slot>
   </div>
 </template>
@@ -14,9 +14,20 @@ export default {
     },
   },
   methods: {
+    // check(){
+    //   if(this.$router.path.indexOf(this.link) !== -1){
+    //     console(this.link);
+    //   }
+    // },
     itemClick() {
       this.$router.replace(this.link)
     },
+    changeFocus(e) {
+      e.currentTarget.className = 'focus';
+    },
+    removeFocus(e) {
+      e.currentTarget.className = '';
+    }
   }
 }
 </script>
@@ -30,5 +41,9 @@ export default {
     float: left;
     min-width: 90px;
     cursor: pointer;
+  }
+
+  .focus{
+    background: url("~assets/img/common/topbar-bt-bg.png") no-repeat bottom center;
   }
 </style>

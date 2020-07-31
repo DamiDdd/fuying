@@ -8,6 +8,12 @@ const Login = () => import('views/login/Login')
 const News = () => import('views/news/News')
 const Products = () => import('views/products/Products')
 
+// // 解决路由重复报错问题
+// const originalPush = VueRouter.prototype.push
+// VueRouter.prototype.push = function push(location) {
+//   return originalPush.call(this, location).catch(err => err)
+// }
+
 // 1.安装VueRouter
 Vue.use(VueRouter)
 
