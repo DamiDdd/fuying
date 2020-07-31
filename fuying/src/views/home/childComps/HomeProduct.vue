@@ -18,7 +18,17 @@
     </div>
     <div id="intro">
       <div id="intro-top">
-        
+        <div class="left">
+          <p class="bigtext-blue">
+            <span class="yellow">50%</span>以上的标志物是蛋白质
+          </p>
+          <home-pie></home-pie>
+        </div>
+        <div class="right">
+          <p class="bigtext-blue">
+            超过<span class="yellow">98%</span>的药物靶点是蛋白质
+          </p>
+        </div>
       </div>
       <div id="intro-middle">
         <div class="left">
@@ -40,7 +50,7 @@
           <p class="content">根据蛋白信息为您定制更系统的生活方案，让机体保持青春，让生活更加舒适。</p>
         </div>
         <div class="right">
-          <home-imgs-window></home-imgs-window>
+          <img src="~assets/img/home/index5-p.png">
         </div>
       </div>
     </div>
@@ -48,12 +58,12 @@
 </template>
 
 <script>
-import HomeImgsWindow from 'views/home/childComps/HomeImgsWindow'
+import HomePie from 'components/content/homePie/HomePie'
 
 export default {
   name: "HomeProduct",
   components: {
-    HomeImgsWindow
+    HomePie
   },
   methods: {
     productClick(){
@@ -94,7 +104,7 @@ export default {
     color: var(--text-color);
   }
 
-  .bigtext-blue span{
+  #product-text .bigtext-blue span{
     margin-right: 30px;
     margin-left: 20px;
     cursor: pointer;
@@ -140,6 +150,18 @@ export default {
     background: whitesmoke;
   }
 
+  #intro-top .left{
+    height: 840px;
+    width: 900px;
+    text-align: center;
+  }
+
+  #intro-top .right{
+    height: 840px;
+    width: 1000px;
+    text-align: center;
+  } 
+
   #intro-middle{
     height: 260px;
   }
@@ -167,21 +189,24 @@ export default {
 
   #intro-bottom .left{
     height: 900px;
-    width: 800px;
+    width: 900px;
     text-indent: 2rem;
   }
 
   #intro-bottom .left p{
-    width: 500px;
+    width: 600px;
     line-height: 30px;
-    margin-left: 170px;
+    margin-left: 300px;
     margin-top: 200px;
   }
 
   #intro-bottom .right{
     height: 900px;
-    width: 1100px;
-    background: lightblue;
+    width: 1000px;
+  }
+
+  #intro-bottom .right img{
+    margin-left: 80px;
   }
 
   .yellow{

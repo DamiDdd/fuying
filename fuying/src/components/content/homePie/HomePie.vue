@@ -1,10 +1,12 @@
 <template>
-  <div id="img-window"></div>
+  <div id="home-pie">
+    
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'ImgWindow',
+  name: "HomePie",
 }
 </script>
 
