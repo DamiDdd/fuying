@@ -28,6 +28,7 @@
           <p class="bigtext-blue">
             超过<span class="yellow">98%</span>的药物靶点是蛋白质
           </p>
+          <icon-hexa-win></icon-hexa-win>
         </div>
       </div>
       <div id="intro-middle">
@@ -59,11 +60,13 @@
 
 <script>
 import HomePie from 'components/content/homePie/HomePie'
+import IconHexaWin from 'components/content/homeIcons/IconHexaWin'
 
 export default {
   name: "HomeProduct",
   components: {
-    HomePie
+    HomePie,
+    IconHexaWin
   },
   methods: {
     productClick(){
@@ -129,7 +132,7 @@ export default {
 
   #intro{
     width: var(--screen-width);
-    height: 2000px;
+    height: 1800px;
     /* background: -webkit-linear-gradient(top,white,lightblue,white); */
   }
 
@@ -146,7 +149,7 @@ export default {
   }
 
   #intro-top{
-    height: 840px;
+    height: 640px;
   }
 
   #intro-top .left{
@@ -163,7 +166,7 @@ export default {
   
   #intro-top #home-pie{
     margin-left: 110px;
-    margin-top: -50px;
+    margin-top: -200px;
   }
 
   #intro-middle{
