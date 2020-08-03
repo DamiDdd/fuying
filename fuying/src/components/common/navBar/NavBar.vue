@@ -40,7 +40,6 @@ export default {
 
   .nav-right{
     width: 120px;
-    /* text-align: center; */
-    /* background: beige; */
+    text-align: left;
   }
 </style>

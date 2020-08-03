@@ -4,14 +4,12 @@
     <router-view/>
     <side-bar></side-bar>
     <main-footer></main-footer>
-    <el-tooltip placement="top" content="返回顶部">
-      <back-to-top        
-        transitionName="fade"
-        :customStyle="myBackToTopStyle" 
-        :visibilityHeight="300" 
-        :backPosition="50"></back-to-top>
-    </el-tooltip>
-    
+    <back-to-top        
+      transitionName="fade"
+      :customStyle="myBackToTopStyle" 
+      :visibilityHeight="300" 
+      :backPosition="50">
+    </back-to-top>    
   </div>
 </template>
 

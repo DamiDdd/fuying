@@ -1,5 +1,5 @@
 <template>
-  <div id="icon" @click="iconClick">
+  <div id="icon" @click="goPage">
     <slot name="img"></slot>
     <slot name="text"></slot>
   </div>
@@ -15,8 +15,8 @@ export default {
     },
   },
   methods: {
-    iconClick() {
-      this.$router.replace(this.link)
+    goPage() {
+      window.location.href = this.link;
     },
   }
 }
@@ -24,14 +24,9 @@ export default {
 
 <style scoped>
   #icon{
-    background: url("~assets/img/common/rectangle-withshadow.png") no-repeat;
+    background: gray;
     width: 300px;
     height: 300px;
-    pointer-events: none;
-  }
-  #icon img{
     cursor: pointer;
-    pointer-events: all;
-    margin-top:40px;
   }
 </style>
