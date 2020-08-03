@@ -28,7 +28,7 @@ export default {
   }
 
   #icon-hexa-win div{
-    display: inline;
+    display: flex;
   }
   
   .left-up{
@@ -40,16 +40,8 @@ export default {
     margin-left: -160px;
   }
 
-  .left-down p{
-    margin-left: -18px;
-  }
-
   .middle-up{
     margin-top: 20px;
-  }
-
-  .middle-up img{
-    margin-left: -20px;
   }
 
   .middle-down{    
@@ -57,20 +49,17 @@ export default {
     margin-top: 220px;
   }
 
-  .middle-down img{
-    margin-left: -20px;
-  }
-
   .right{
     margin-top: 100px;
   }
 
   .right img{
-    margin-left: -10px;
+    margin-left: -30px;
+    margin-top: 0px;
   }
 
   .right p{
-    margin-top: -6px;
-  }
+    margin-left: -14px;
+    margin-top: -5px;  }
 
 </style>

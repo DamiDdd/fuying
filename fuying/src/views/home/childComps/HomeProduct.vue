@@ -107,7 +107,7 @@ export default {
     width: 600px;
     height: 300px;
     position: relative;
-    margin-left: 1000px;
+    margin-left: 1200px;
     padding-top: 160px;
     text-align: center;
   }

@@ -54,7 +54,8 @@ export default {
     text-align: center;
   }
   .ad-company{
-    background: url("~assets/img/bg/doctor.png") no-repeat;
+    height: 1000px;
+    background: url("~assets/img/bg/doctor.png") no-repeat bottom left;
   }
   #university{
     height: 380px;
@@ -92,5 +93,6 @@ export default {
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
+    border-radius: 15px;
 }
 </style>

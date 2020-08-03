@@ -16,6 +16,8 @@ export default {
 
 <style scoped>
   #nav-bar {
+    height: 46px;
+    overflow: hidden;
     position: relative;
     z-index: 10;
     display: flex;
