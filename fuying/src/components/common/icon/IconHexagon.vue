@@ -1,3 +1,5 @@
+<!--矩形icon-->
+
 <template>
   <div id="icon-hexagon">
     <div class="hexagon">

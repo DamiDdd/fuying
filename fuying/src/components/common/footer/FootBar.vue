@@ -1,3 +1,5 @@
+<!--页脚组件-->
+
 <template>
   <div id="foot-bar">
     <slot></slot>

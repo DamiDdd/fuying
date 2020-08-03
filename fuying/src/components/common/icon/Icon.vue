@@ -1,3 +1,5 @@
+<!--简易icon-->
+
 <template>
   <div id="icon" @click="goPage">
     <slot name="img"></slot>

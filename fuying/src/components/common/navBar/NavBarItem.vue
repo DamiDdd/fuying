@@ -1,3 +1,5 @@
+<!--导航栏单个菜单-->
+
 <template>
   <div id="nav-bar-item" @click="itemClick" @mouseenter="changeFocus" @mouseleave="removeFocus">
     <slot name="text"></slot>

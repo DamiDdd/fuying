@@ -1,3 +1,5 @@
+<!--六边形icon组，呈现错落效果-->
+
 <template>
   <div id="icon-hexa-win">
     <IconHexagon class="left-up"><img src="~assets/img/home/enzyme.png" slot="img"><p class="content-blue" slot="text">酶</p></IconHexagon>

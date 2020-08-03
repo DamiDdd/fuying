@@ -1,3 +1,5 @@
+<!--顶部导航栏-->
+
 <template>
   <div id="nav-bar">
     <div class="nav-logo"><slot name="logo">logo</slot></div>

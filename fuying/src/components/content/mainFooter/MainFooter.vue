@@ -1,3 +1,5 @@
+<!--主页页脚，相关链接未给出-->
+
 <template>
   <foot-bar>
     <h3 class="footer-tip">fudan fuying</h3>

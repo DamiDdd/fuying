@@ -1,3 +1,5 @@
+<!--主页导航栏-->
+
 <template>
   <nav-bar>
     <img slot="logo" src="~assets/img/common/logo.png">

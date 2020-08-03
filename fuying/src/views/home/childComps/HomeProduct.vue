@@ -1,3 +1,5 @@
+<!--首页第二个页面，展示一些产品-->
+
 <template>
   <div id="home-product">
     <div id="pre-product">

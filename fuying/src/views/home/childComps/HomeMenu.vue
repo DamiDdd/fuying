@@ -1,3 +1,5 @@
+<!--首页第三个页面，提供服务菜单-->
+
 <template>
   <div id="home-menu">
     <p class="title">复瑛健康——探索人类健康的专家</p>

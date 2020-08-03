@@ -1,3 +1,5 @@
+<!--返回顶部组件-->
+
 <template>
   <transition :name="transitionName">
     <div class="page-component-up"
@@ -20,10 +22,12 @@ export default {
     customStyle: {
       type: Object
     },
-    visibilityHeight: { // 纵向滑动多远距离出现滚动条
+    visibilityHeight: { 
+      // 纵向滑动出现滚动条的距离
       type: Number
     },
-    backPosition: { // 返回顶部时，滚动到哪里（距离顶部的距离）
+    backPosition: { 
+      // 返回顶部时，滚动到达位置距离顶部的距离
       type: Number,
       default: 0
     }
@@ -63,17 +67,17 @@ export default {
     },
     /*
       缓动公式（Tween算法）
-       t: 动画已经执行的时间（实际上时执行多少次/帧数）
+       t: 动画已经执行的时间（实际上执行多少次/帧数）
        b: 起始位置
        c: 终止位置
-       d: 从起始位置到终止位置的经过时间（实际上时执行多少次/帧数）
+       d: 从起始位置到终止位置的经过时间（实际上执行多少次/帧数）
     */
     easeInOutQuad(t, b, c, d) {
       // 判断当前时间是否总在总时间的一半以内，是的话执行缓入函数，否则的话执行缓出函数
       if ((t /= d / 2) < 1) { 
         return c / 2 * t * t + b
       } else {
-        // 将总长度设置为一半，并且时间从当前开始递减，对图像进行垂直向上平移
+        // 将总长度设置为一半，并且时间从当前开始递减，对窗口进行垂直向上平移
         return -c / 2 * (--t * (t - 2) - 1) + b
       }
     }

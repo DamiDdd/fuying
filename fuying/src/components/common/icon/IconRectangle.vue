@@ -1,3 +1,5 @@
+<!--六边形icon-->
+
 <template>
   <div id="icon-rectangle" @click="iconClick">
     <slot name="img"></slot>

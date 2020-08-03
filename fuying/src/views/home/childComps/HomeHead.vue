@@ -1,3 +1,5 @@
+<!--首页第一个页面-->
+
 <template>
   <div id="home-head">
     <div class="left-text">

@@ -1,3 +1,5 @@
+<!--首页可交互饼图-->
+
 <template>
   <div id="home-pie">
     <div ref="chart" style="width:700px;height:700px"></div>

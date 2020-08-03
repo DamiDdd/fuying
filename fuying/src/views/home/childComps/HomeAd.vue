@@ -1,3 +1,5 @@
+<!--首页最后一个页面，广告宣传页-->
+
 <template>
   <div id="home-ad">
     <div class="ad-map">
