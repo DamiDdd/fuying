@@ -15,7 +15,7 @@
         <p class="bigtext">蛋白质组学</p>
         <p class="title">蛋白质组学是以蛋白质为研究对象，研究细胞、组织或生物体蛋白质种类、组成及其变化规律的科学</p>
         <p class="bigtext-blue bottom">为什么要检测蛋白质？</p>
-        <img src="~assets/img/common/arrow.png">
+        <img src="~assets/img/common/arrow.png" @click="scrollScreen">
       </div>
     </div>
     <div id="intro">
@@ -76,6 +76,13 @@ export default {
     },
     buyClick(){
       this.$router.replace("login")
+    },
+    scrollScreen(){
+      window.scrollTo({
+        top: 2500,
+        left: 0,
+        behavior: "smooth"
+      })
     }
   }
 }
@@ -119,6 +126,10 @@ export default {
     width: var(--screen-width);
     height: var(--screen-height);
     text-align: center;
+  }
+
+  #pre-intro img{
+    cursor: pointer;
   }
 
   #pre-intro .title{
