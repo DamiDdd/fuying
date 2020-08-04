@@ -40,6 +40,8 @@ export default {
 
   .nav-center{
     flex: 1;
+    /* margin-right: 0; */
+    margin-left: 1330px;
   }
 
   .nav-right{

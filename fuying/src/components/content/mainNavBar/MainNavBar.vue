@@ -32,5 +32,4 @@ export default {
   padding: auto;
   margin: auto;
 }
-
 </style>
