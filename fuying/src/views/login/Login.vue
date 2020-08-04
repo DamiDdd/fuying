@@ -1,28 +1,26 @@
 // Login组件
 
 <template>
+<div id="login-win">
 	<p class="login">
 		<!-- <el-tabs v-model="activeName" @tab-click="handleClick"> -->
 		<el-tabs v-model="activeName" @tab-click="handleClick">
 			<el-tab-pane label="登录" name="first">
 				<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
 					<el-form-item label="名称" prop="name"><el-input v-model="ruleForm.name"></el-input></el-form-item>
- 
 					<el-form-item label="密码" prop="pass"><el-input type="password" v-model="ruleForm.pass" auto-complete="off"></el-input></el-form-item>
- 
 					<el-form-item>
 						<el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
- 
 						<el-button @click="resetForm('ruleForm')">重置</el-button>
 					</el-form-item>
 				</el-form>
 			</el-tab-pane>
- 
 			<el-tab-pane label="注册" name="second">
 				<register></register>
 			</el-tab-pane>
 		</el-tabs>
 	</p>
+</div>
 </template>
  
 <script>
@@ -86,9 +84,16 @@ export default {
 </script>
  
 <style scoped>
+#login-win{
+	width: var(--screen-width);
+	height: 600px;
+	background: url("~assets/img/bg/index1-bg.png") no-repeat top right;
+}
+
 .login {
 	width: 400px;
-	margin: 0 auto;
+	padding-top: 40px;
+	margin: 0 300px;
 }
  
 .el-tabsitem {
