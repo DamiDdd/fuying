@@ -3,6 +3,8 @@
 <template>
 	<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
 		<el-form-item label="用户名" prop="name"><el-input v-model="ruleForm.name"></el-input></el-form-item>
+        <el-form-item label="手机号" prop="phone"><el-input v-model="ruleForm.phone"></el-input></el-form-item>
+        <el-form-item label="电子邮箱" prop="email"><el-input v-model="ruleForm.email"></el-input></el-form-item>        
 		<el-form-item label="密码" prop="pass"><el-input type="password" v-model="ruleForm.pass" auto-complete="off"></el-input></el-form-item>
 		<el-form-item label="确认密码" prop="checkPass"><el-input type="password" v-model="ruleForm.checkPass" auto-complete="off"></el-input></el-form-item>
 		<el-form-item>
@@ -35,19 +37,46 @@ export default {
 			} else {
 				callback();
 			}
+        };
+        
+         
+		var validatePhone = (rule, value, callback) => {
+            var regMobile=/^1\d{10}$/;
+			if (value === '') {
+				callback(new Error('请输入手机号'));
+			} else if (regMobile.test(value) === false) {
+				callback(new Error('手机号输入有误'));
+			} else {
+				callback();
+			}
+        };
+        
+        var validateEmail = (rule, value, callback) => {
+            var regEmail=/^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/;
+			if (value === '') {
+				callback();
+			} else if (regEmail.test(value) === false) {
+				callback(new Error('电子邮箱输入有误'));
+			} else {
+				callback();
+			}
 		};
  
 		return {
 			activeName: 'second',
 			ruleForm: {
-				name: '',
+                name: '',
+                phone: '',
 				pass: '',
-				checkPass: ''
+                checkPass: '',
+                email: '',
 			},
 			rules: {
-				name: [{ required: true, message: '请输入您的名称', trigger: 'blur' }, { min: 2, max: 5, message: '长度在 2 到 5 个字符', trigger: 'blur' }],
+                name: [{ required: true, message: '请输入您的名称', trigger: 'blur' }, { min: 2, max: 5, message: '长度在 2 到 5 个字符', trigger: 'blur' }],
+                phone: [{required: true, validator: validatePhone, trigger: 'blur'}],
 				pass: [{ required: true, validator: validatePass, trigger: 'blur' }],
-				checkPass: [{ required: true, validator: validatePass2, trigger: 'blur' }]
+				checkPass: [{ required: true, validator: validatePass2, trigger: 'blur' }],
+				email: [{ required: false, validator: validateEmail, trigger: 'blur' }]
 			}
 		};
 	},
