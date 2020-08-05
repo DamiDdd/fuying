@@ -261,6 +261,7 @@ export default {
  
 		resetForm(formName) {
             this.$refs[formName].resetFields();
+            this.refreshCode();
         },
 
         // 控制手机验证码是否显示的函数
