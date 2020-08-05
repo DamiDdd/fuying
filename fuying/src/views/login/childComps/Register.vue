@@ -14,7 +14,7 @@
                 <identify :identifyCode="identifyCode"></identify>
             </div>
         </el-form-item>
-        <el-form-item label="短信验证码" prop="phoneVerifycode">
+        <el-form-item v-show="isReady(ruleForm,['email','phoneVerifycode'])" label="短信验证码" prop="phoneVerifycode">
             <el-input v-model="ruleForm.phoneVerifycode" auto-complete="off" class="identifyinput">
             </el-input>
             <div class="identifybox">
@@ -118,6 +118,17 @@ export default {
 			}
         };
 
+        
+        var validateName = (rule, value, callback) => {
+			if (value === '') {
+                callback(new Error('请输入用户名'));
+            } else if(value.length < 2 || value.length > 5) {
+				callback(new Error('长度在 2 到 5 个字符之间'));
+            } else{
+                callback();
+            }
+        };
+
 		return {
             activeName: 'second',
             identifyCodes: '1234567890ABCDEFGHIGKLMNoPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
@@ -134,7 +145,7 @@ export default {
                 phoneVerifycode: '',
 			},
 			rules: {
-                name: [{ required: true, message: '请输入您的名称', trigger: 'blur' }, { min: 2, max: 5, message: '长度在 2 到 5 个字符', trigger: 'blur' }],
+                name: [{ required: true, validator: validateName, trigger: 'blur' }],
                 phone: [{required: true, validator: validatePhone, trigger: 'blur'}],
 				pass: [{ required: true, validator: validatePass, trigger: 'blur' }],
 				checkPass: [{ required: true, validator: validatePass2, trigger: 'blur' }],
@@ -151,6 +162,14 @@ export default {
     },
 
 	methods: {
+        isReady(form,except){     
+            for(let i in form){
+                if(except && except.indexOf(i) !== -1) continue;
+                if(!form[i]) return false;
+            }
+            return true;
+        },
+
         random(min,max){
             return Math.floor(Math.random() * (max-min) + min);
         },
@@ -166,6 +185,7 @@ export default {
             }
         },
 
+        // pending
         btnClick() {
             this.validateBtn();
         },
@@ -183,7 +203,7 @@ export default {
                     time--;
                 }
             },1000)
-            },
+        },
 
 		submitForm(formName) {
 			this.$refs[formName].validate(valid => {
