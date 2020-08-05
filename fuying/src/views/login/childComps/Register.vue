@@ -15,10 +15,11 @@
             </div>
         </el-form-item>
         <el-form-item v-show="isReady(ruleForm,['email','phoneVerifycode'])" label="短信验证码" prop="phoneVerifycode">
+        <!-- <el-form-item label="短信验证码" prop="phoneVerifycode"> -->
             <el-input v-model="ruleForm.phoneVerifycode" auto-complete="off" class="identifyinput">
             </el-input>
             <div class="identifybox">
-                <el-button class="verifyBtn" v-if="btnTitle" @click="btnClick" :disabled="btnDisabled">{{btnTitle}}</el-button>
+                <el-button class="verifyBtn" v-if="btnTitle" @click="btnClick(ruleForm.phone)" :disabled="btnDisabled">{{btnTitle}}</el-button>
             </div>
         </el-form-item>
 		<el-form-item>
@@ -30,6 +31,7 @@
  
 <script>
 import Identify from 'common/identify/Identify'
+import Axios from 'axios'
 
 export default {
     name: "Register",
@@ -38,11 +40,10 @@ export default {
     },
 	data() {
 		var validatePass = (rule, value, callback) => {
-            var regPassword =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/;
 			if (value === '') {
                 callback(new Error('请输入密码'));
                 return false;
-            } else if(regPassword.test(value) === false){
+            } else if(this.regPassword.test(value) === false){
                 callback(new Error('8-16个字符，至少1个大写字母、1个小写字母、1个数字'));
                 return false;
             } 
@@ -70,11 +71,10 @@ export default {
         
          
 		var validatePhone = (rule, value, callback) => {
-            var regMobile=/^1\d{10}$/;
 			if (value === '') {
                 callback(new Error('请输入手机号'));
                 return false;
-			} else if (regMobile.test(value) === false) {
+			} else if (this.regMobile.test(value) === false) {
                 callback(new Error('手机号输入有误'));
                 return false;
 			} else {
@@ -84,10 +84,9 @@ export default {
         };
         
         var validateEmail = (rule, value, callback) => {
-            var regEmail=/^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/;
 			if (value === '') {
                 callback();
-			} else if (regEmail.test(value) === false) {
+			} else if (this.regEmail.test(value) === false) {
 				callback(new Error('电子邮箱输入有误'));
 			} else {
 				callback();
@@ -130,6 +129,11 @@ export default {
         };
 
 		return {
+            regPassword: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/,
+            regEmail: /^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/,
+            regMobile: /^1\d{10}$/,
+            phoneUrl: "https://phenomics.fudan.edu.cn/firmiana/healthprogram/sendValidateCode/?phone=",
+            registerUrl: "https://phenomics.fudan.edu.cn/firmiana/healthprogram/register",
             activeName: 'second',
             identifyCodes: '1234567890ABCDEFGHIGKLMNoPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
             identifyCode: '',
@@ -143,7 +147,7 @@ export default {
                 email: '',
                 verifycode: '',
                 phoneVerifycode: '',
-			},
+            },
 			rules: {
                 name: [{ required: true, validator: validateName, trigger: 'blur' }],
                 phone: [{required: true, validator: validatePhone, trigger: 'blur'}],
@@ -152,7 +156,16 @@ export default {
                 email: [{ required: false, validator: validateEmail, trigger: 'blur' }],
                 verifycode: [{ required: true, validator: validateVerifycode, trigger: 'blur' }],
                 phoneVerifycode: [{required: true, validator: validatePhoneVC, trigger: 'blur'}]
-			}
+            },
+            dataForm: {
+                name: '',
+                phone: '',
+                mail: '',
+                openID: 'newUser',
+                validatecode: '',
+                password: '',
+                loginName: 'pending',
+            }
 		};
 	},
  
@@ -162,14 +175,6 @@ export default {
     },
 
 	methods: {
-        isReady(form,except){     
-            for(let i in form){
-                if(except && except.indexOf(i) !== -1) continue;
-                if(!form[i]) return false;
-            }
-            return true;
-        },
-
         random(min,max){
             return Math.floor(Math.random() * (max-min) + min);
         },
@@ -185,9 +190,20 @@ export default {
             }
         },
 
-        // pending
-        btnClick() {
+        btnClick(phone) {
             this.validateBtn();
+            this.getPhoneVariftcode(phone);
+        },
+
+        // 获取验证码
+        getPhoneVariftcode(phone) {
+            var url = this.phoneUrl + phone;
+            console.log(url);
+            Axios.get(url).then((response) =>{
+                console.log(response);
+            }).catch((error) => {
+                console.log(error);
+            })
         },
 
         validateBtn() {
@@ -208,21 +224,61 @@ export default {
 		submitForm(formName) {
 			this.$refs[formName].validate(valid => {
 				if (valid) {
-					this.$message({
-						type: 'success',
-						message: '注册成功'
-					});
+                    this.packDataForm();
+                    Axios.post(this.registerUrl, this.dataForm, {
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        }
+                    })
+                    .then(function(response){
+                        console.log(response);
+                    })
+                    .catch(function (error){
+                        console.log(error);
+                    });
+
+					// this.$message({
+					// 	type: 'success',
+					// 	message: '注册成功'
+                    // });
+                    
 					// this.activeName = 'first';
 				} else {
 					console.log('error submit!!');
 					return false;
 				}
 			});
-		},
+        },
+        
+        packDataForm() {
+            this.dataForm['name'] = this.ruleForm['name'];
+            this.dataForm['phone'] = this.ruleForm['phone'];
+            this.dataForm['mail'] = this.ruleForm['email'];
+            this.dataForm['validatecode'] = this.ruleForm['phoneVerifycode'];
+            this.dataForm['password'] = this.ruleForm['pass'];
+            console.log(this.dataForm);
+        },
  
 		resetForm(formName) {
             this.$refs[formName].resetFields();
-		}
+        },
+
+        // 控制手机验证码是否显示的函数
+        isReady(form,except){
+            for(let i in form){
+                if(except && except.indexOf(i) !== -1) continue;
+                if(!form[i]) return false;
+            }
+            if(form['verifycode'].toLowerCase() !== this.identifyCode.toLowerCase()){
+                // console.log(1);
+                return false;
+            }
+            if(this.regMobile.test(form['phone']) === false){
+                // console.log(2);
+                return false;
+            }
+            return true;
+        },
 	}
 };
 </script>
