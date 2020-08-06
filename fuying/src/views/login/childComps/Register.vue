@@ -31,6 +31,7 @@
  
 <script>
 import Identify from 'common/identify/Identify'
+// 待修改
 import Axios from 'axios'
 
 export default {
