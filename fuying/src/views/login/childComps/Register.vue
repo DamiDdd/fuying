@@ -134,7 +134,7 @@ export default {
             regEmail: /^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/,
             regMobile: /^1\d{10}$/,
             phoneUrl: "https://phenomics.fudan.edu.cn/firmiana/healthprogram/sendValidateCode/?phone=",
-            registerUrl: "https://phenomics.fudan.edu.cn/firmiana/healthprogram/register",
+            registerUrl: "https://phenomics.fudan.edu.cn/firmiana/healthprogram/register/",
             activeName: 'second',
             identifyCodes: '1234567890ABCDEFGHIGKLMNoPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
             identifyCode: '',
@@ -159,13 +159,13 @@ export default {
                 phoneVerifycode: [{required: true, validator: validatePhoneVC, trigger: 'blur'}]
             },
             dataForm: {
-                name: '',
+                name: 'pending',
                 phone: '',
                 mail: '',
                 openID: 'newUser',
                 validatecode: '',
                 password: '',
-                loginName: 'pending',
+                userName: '',
             }
 		};
 	},
@@ -226,11 +226,17 @@ export default {
 			this.$refs[formName].validate(valid => {
 				if (valid) {
                     this.packDataForm();
-                    Axios.post(this.registerUrl, this.dataForm, {
-                        headers: {
+                    // console.log(this.dataForm);
+                    // 数据封装成后台可解析dict
+                    let params = new URLSearchParams();
+                    for(let key of Object.keys(this.dataForm)){
+                        params.append(key,this.dataForm[key]);
+                    }
+                    Axios.post(this.registerUrl, params,
+                        {headers: {
                             'Content-Type': 'application/x-www-form-urlencoded'
-                        }
-                    })
+                        }}
+                    )
                     .then(function(response){
                         console.log(response);
                     })
@@ -252,12 +258,12 @@ export default {
         },
         
         packDataForm() {
-            this.dataForm['name'] = this.ruleForm['name'];
+            this.dataForm['userName'] = this.ruleForm['name'];
             this.dataForm['phone'] = this.ruleForm['phone'];
             this.dataForm['mail'] = this.ruleForm['email'];
             this.dataForm['validatecode'] = this.ruleForm['phoneVerifycode'];
             this.dataForm['password'] = this.ruleForm['pass'];
-            console.log(this.dataForm);
+            // console.log(this.dataForm);
         },
  
 		resetForm(formName) {
