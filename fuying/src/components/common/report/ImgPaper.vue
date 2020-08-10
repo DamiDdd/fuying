@@ -40,7 +40,7 @@ export default {
     margin-right: auto;
     /* background: gray; */
     border: 1px solid var(--theme-color);
-    margin-bottom: 11px;
+    margin-bottom: 10.6px;
   }
 
   .window{
