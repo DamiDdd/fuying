@@ -40,7 +40,7 @@ import ImgPaper from 'common/report/ImgPaper';
 import downloadPDF from '@/common/downloadPDF';
 
 export default {
-  name: "report",
+  name: "Report",
   components: {
     ImgPaper,
   },
