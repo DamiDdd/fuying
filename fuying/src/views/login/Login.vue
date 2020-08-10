@@ -86,7 +86,7 @@ export default {
 <style scoped>
 #login-win{
 	width: var(--screen-width);
-	height: 600px;
+	height: 700px;
 	background: url("~assets/img/bg/index1-bg.png") no-repeat top right;
 }
 
