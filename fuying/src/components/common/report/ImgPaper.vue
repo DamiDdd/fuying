@@ -40,7 +40,7 @@ export default {
     margin-right: auto;
     /* background: gray; */
     border: 1px solid var(--theme-color);
-    margin-bottom: 30px;
+    margin-bottom: 11px;
   }
 
   .window{
@@ -88,7 +88,7 @@ export default {
 
   .text-div p{
     margin-top: 10px;
-    font-size: 16px;
+    font-size: 14px;
     text-indent: 2rem;
     margin-left: 10px;
   }

@@ -54,4 +54,11 @@ export default {
   #products{
     min-height:500px;
   }
+  #report-div{
+    /* background: gray; */
+    width: var(--paper-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 10px;
+  }
 </style>

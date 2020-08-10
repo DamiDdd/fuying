@@ -22,9 +22,7 @@ function downloadPDF(ele, pdfName){
     let win_out = window.innerWidth; // 获得当前窗口的宽度（包含滚动条）
 
     if(win_out>win_in){
-        // abs = (win_o - win_i)/2;    // 获得滚动条长度的一半
         abs = (win_out - win_in)/2;    // 获得滚动条宽度的一半
-        // console.log(a, '新abs');
     }
 
     canvas.width = eleW * 2;    // 将画布宽&&高放大两倍
@@ -58,7 +56,6 @@ function downloadPDF(ele, pdfName){
         //a4纸的尺寸[595.28,841.89]，html页面生成的canvas在pdf中图片的宽高
         var imgWidth = 595.28;
         var imgHeight = 595.28/contentWidth * contentHeight;
-
         var pageData = canvas.toDataURL('image/jpeg', 1.0);
 
 
