@@ -1,6 +1,6 @@
 <template>
   <div id="products">
-    <button @click="handleDownload">PDF下载</button>
+    <el-button class="pdfBtn" @click="handleDownload">PDF下载</el-button>
     <div id="report-div">
     <img-paper>
       <p slot="title1">1.1.1 生理年龄指数</p>
@@ -54,11 +54,17 @@ export default {
   #products{
     min-height:500px;
   }
+
   #report-div{
     /* background: gray; */
     width: var(--paper-width);
     margin-left: auto;
     margin-right: auto;
     padding-right: 10px;
+  }
+
+  .pdfBtn{
+    margin-left: 900px;
+    margin-bottom: 20px;
   }
 </style>
