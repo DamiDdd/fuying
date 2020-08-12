@@ -56,7 +56,24 @@
         </p>
       </div>
       <div class="main-div">
-        <p></p>
+        <p class="content-blue"  style="margin-bottom: 40px;">技术路线</p>
+        <img class="tech-img" src="~assets/img/report/rout.png">
+        <p class="content-blue" style="margin-bottom: 40px;">技术原理</p>
+        <img class="tech-img" src="~assets/img/report/principle.png">
+      </div>
+      <div class="main-div">
+        <p>蛋白质组检测报告</p>
+        <div class="title-div"><p>一、实验室检测质控</p></div>
+      </div>
+      <div class="main-div">
+        <div class="title-div"><p>二、质谱结果</p></div>
+        <p>质谱图</p>
+        <img class="tech-img" src="~assets/img/report/result.png">
+        <p>数据采集量1.5 G，谱图数81,220张，蛋白质鉴定总数2408。</p>
+      </div>
+      <div class="main-div table-div">
+        <div class="title-div"><p>三、生理刻画结果</p></div>
+        <table-paper><span slot="title">基础套餐评估结果</span></table-paper>
       </div>
       <img-paper>
         <p slot="title1">1.1.1 生理年龄指数</p>
@@ -92,11 +109,13 @@
 <script>
 import ImgPaper from 'common/report/ImgPaper';
 import downloadPDF from '@/common/downloadPDF';
+import TablePaper from 'common/report/TablePaper';
 
 export default {
   name: "Report",
   components: {
     ImgPaper,
+    TablePaper
   },
   methods: {
     handleDownload(){
@@ -159,4 +178,19 @@ export default {
     line-height: 30px;
   }
 
+  .tech-img{
+    width: 550px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .title-div{
+    background: skyblue;
+    height: 30px;
+  }
+
+  .title-div p{
+    margin-top: 0;
+  }
 </style>
