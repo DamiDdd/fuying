@@ -100,7 +100,7 @@
           </div>
           <div class="td-div">          
             <div class="s-div">检测方法</div>
-            <div class="l-div">{{method}}</div>
+            <div class="l-div">{{way}}</div>
           </div>
           <div class="title-div-white"><p>结果解读</p></div>
           <div class="td-div-long">{{explanation}}</div>
@@ -175,7 +175,7 @@ export default {
       resource: "",
       type: "",
       subject: "",
-      method: "",
+      way: "",
       explanation: "",
       resultImg: "", 
     }
@@ -192,7 +192,7 @@ export default {
     this.resource = "???";
     this.type = "???";
     this.subject = "???";
-    this.method = "???";
+    this.way = "???";
     this.explanation = "......";
     this.resultImg = require('../../assets/img/report/temp/result.png');
   },
