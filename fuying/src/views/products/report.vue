@@ -7,12 +7,12 @@
       <div class="main-div logo-div">
         <img class="logo" src="~assets/img/report/logo.png">
         <p class="bigtext-blue">蛋白质组学生理刻画<br>检测报告</p>
-        <p class="smalltext">检测编号: ******</p>
-        <p class="smalltext">报告日期: ******</p>
+        <p class="smalltext">检测编号: {{name}}</p>
+        <p class="smalltext">报告日期: {{date}}</p>
       </div>
       <div class="main-div">
         <p class="bigtext-blue">致受检者书</p>
-        <p class="content">尊敬的 ****** 女士/先生</p>
+        <p class="content">尊敬的 {{name}} 女士/先生</p>
         <p class="content">您好！</p>
         <p class="main-text">
           复瑛健康（上海复瑛生物科技有限公司）是生命健康领域的新兴企业，坚持自主创新和成果转化，立足新一代蛋白质
@@ -33,7 +33,7 @@
           与您一同积极面对可能出现的结果。由于技术发展的局限性，个体间存在的生物学差异等原因，本报告仅对本次送检样本负责。
         </p>
         <p class="main-text">
-          希望您能将您的宝贵意见与建议及时反馈给我们。我们免费的服务电话是********（工作日，8:30-17:30），我们将竭诚
+          希望您能将您的宝贵意见与建议及时反馈给我们。我们免费的服务电话是{{phone}}（工作日，8:30-17:30），我们将竭诚
           为您服务！祝您健康！
         </p>
         <p class="main-text">此致</p>
@@ -112,7 +112,8 @@
       <div class="main-div">
         <div class="title-div"><p>二、质谱结果</p></div>
         <p>质谱图</p>
-        <img class="tech-img" src="~assets/img/report/result.png">
+        <img class="tech-img" :src="resultImg">
+        <!-- <img src="~assets/img/report/temp/result.png" class="tech-img"> -->
         <p>数据采集量1.5 G，谱图数81,220张，蛋白质鉴定总数2408。</p>
       </div>
       <div class="main-div table-div">
@@ -160,6 +161,18 @@ export default {
   components: {
     ImgPaper,
     TablePaper
+  },
+  data(){
+    return{
+      name: "???",
+      date: "???",
+      phone: "???????",
+      resultImg: require('../../assets/img/report/temp/result.png'), 
+    }
+  },
+  mounted(){
+    this.name = "?";
+    this.date = "?";
   },
   methods: {
     handleDownload(){
