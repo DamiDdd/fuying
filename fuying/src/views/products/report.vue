@@ -62,8 +62,52 @@
         <img class="tech-img" src="~assets/img/report/principle.png">
       </div>
       <div class="main-div">
-        <p>蛋白质组检测报告</p>
-        <div class="title-div"><p>一、实验室检测质控</p></div>
+        <p style="text-align: center; line-height: 10px;">蛋白质组检测报告</p>
+        <div class="profile-div">
+          <div class="title-div-white"><p>用户信息</p></div>
+          <div class="td-div">
+            <div class="ss-div">姓名</div>
+            <div class="m-div">***</div>
+            <div class="ss-div">姓名</div>
+            <div class="m-div">***</div>
+            <div class="ss-div">姓名</div>            
+            <div class="m-div">***</div>
+          </div>
+          <div class="td-div-long">
+            病史或临床表现：（用户填写）
+          </div>
+          <div class="title-div-white"><p>样品信息</p></div>
+          <div class="td-div">          
+            <div class="s-div">送样日期</div>
+            <div class="m-div">***</div>
+            <div class="s-div">样品编号</div>
+            <div class="m-div">***</div>
+          </div>
+          <div class="td-div">          
+            <div class="s-div">样品来源</div>
+            <div class="m-div">***</div>
+            <div class="s-div">样品类型</div>
+            <div class="m-div">***</div>
+          </div>
+          <div class="title-div-white"><p>检测信息</p></div>
+          <div class="td-div">
+            <div class="s-div">检测项目</div>
+            <div class="l-div">******</div>            
+          </div>
+          <div class="td-div">            
+            <div class="s-div">检测编号</div>
+            <div class="l-div">******</div>  
+          </div>
+          <div class="td-div">          
+            <div class="s-div">检测方法</div>
+            <div class="l-div">******</div>
+          </div>
+          <div class="title-div-white"><p>结果解读</p></div>
+          <div class="td-div-long">******</div>
+          <div class="title-div-white"><p>细化检测结果</p></div>
+          <div class="title-div"><p>一、实验室检测质控</p></div>
+
+        </div>
       </div>
       <div class="main-div">
         <div class="title-div"><p>二、质谱结果</p></div>
@@ -127,7 +171,6 @@ export default {
 
 <style scoped>
   #report-div{
-    /* background: gray; */
     width: var(--paper-width);
     margin-left: auto;
     margin-right: auto;
@@ -135,7 +178,6 @@ export default {
   }
 
   .btn-div{
-    /* background: gray; */
     width: 300px;
     margin-left: auto;
     margin-right: auto;
@@ -187,10 +229,58 @@ export default {
 
   .title-div{
     background: skyblue;
-    height: 30px;
+    height: 27px;
   }
 
-  .title-div p{
+  .title-div-white{
+    background: var(--theme-color);
+    color: white;
+    height: 27px;
+    text-align: center;
+  }
+
+  .title-div p, .title-div-white p{
     margin-top: 0;
+  }
+
+  .profile-div{
+    border: 1px solid var(--theme-color);
+    width:580px;
+    height: 790px;
+    margin-left: 4px;
+  }
+
+  .td-div{
+    height: 30px;
+    border: 0.1px solid #000;
+    display: flex;
+  }
+
+  .td-div-long{
+    height: 60px;
+    border: 0.1px solid #000;
+    text-indent: 2rem;
+    padding-top: 10px;
+  }
+
+  .s-div, .ss-div, .m-div{
+    text-align: center;
+  }
+  .s-div, .ss-div{
+    background: skyblue;
+    border: 0.1px solid gray;
+  }
+  .ss-div{
+    width:50px;
+  }
+  .s-div{
+    width: 80px;
+  }
+  .m-div{
+    width: 200px;
+    font-weight: bold;
+  }
+  .l-div{
+    width: 400px;
   }
 </style>

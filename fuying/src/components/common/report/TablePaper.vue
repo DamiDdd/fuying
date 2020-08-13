@@ -14,7 +14,7 @@
         <td id="t1-num">1.1</td>
         <td id="t1-title">生理年龄评价</td>
         <td id="t1-score">-3</td>
-        <td id="t1-status">较差</td>
+        <td id="t1-status">?</td>
       </tr>
     </table>
   </div>
@@ -37,6 +37,5 @@ export default {
   #table-div table{
     margin-left: 10px;
     margin-top: 20px;
-    /* background: ; */
   }
 </style>
