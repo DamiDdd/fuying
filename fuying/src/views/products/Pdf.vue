@@ -4,6 +4,7 @@
 			<el-button :theme="'default'" type="submit" :title="'基础按钮'" @click.stop="prePage" class="mr10"> 上一页</el-button>
             <div class="page">{{pageNum}}/{{pageTotalNum}} </div>
             <el-button :theme="'default'" type="submit" :title="'基础按钮'" @click.stop="nextPage" class="mr10"> 下一页</el-button>
+            <el-button :theme="'default'" type="submit" :title="'基础按钮'" @click.stop="printAll" class="mr10"> 打印</el-button>
 		</div>
         <div class="pdf-div">		
             <pdf ref="pdf" 
@@ -67,6 +68,10 @@
             // 其他的一些回调函数。
 			pdfError(error) {
 				console.error(error)
+			},
+			// 打印函数
+			printAll() {
+				this.$refs.pdf.print()
 			},
 		}
 	}
