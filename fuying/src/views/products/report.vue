@@ -7,7 +7,7 @@
       <div class="main-div logo-div">
         <img class="logo" src="~assets/img/report/logo.png">
         <p class="bigtext-blue">蛋白质组学生理刻画<br>检测报告</p>
-        <p class="smalltext">检测编号: {{name}}</p>
+        <p class="smalltext">检测编号: {{number}}</p>
         <p class="smalltext">报告日期: {{date}}</p>
       </div>
       <div class="main-div">
@@ -67,11 +67,11 @@
           <div class="title-div-white"><p>用户信息</p></div>
           <div class="td-div">
             <div class="ss-div">姓名</div>
-            <div class="m-div">***</div>
-            <div class="ss-div">姓名</div>
-            <div class="m-div">***</div>
-            <div class="ss-div">姓名</div>            
-            <div class="m-div">***</div>
+            <div class="m-div">{{name}}</div>
+            <div class="ss-div">性别</div>
+            <div class="m-div">{{sex}}</div>
+            <div class="ss-div">年龄</div>            
+            <div class="m-div">{{age}}</div>
           </div>
           <div class="td-div-long">
             病史或临床表现：（用户填写）
@@ -79,31 +79,31 @@
           <div class="title-div-white"><p>样品信息</p></div>
           <div class="td-div">          
             <div class="s-div">送样日期</div>
-            <div class="m-div">***</div>
+            <div class="m-div">{{sendDate}}</div>
             <div class="s-div">样品编号</div>
-            <div class="m-div">***</div>
+            <div class="m-div">{{sampleNumber}}</div>
           </div>
           <div class="td-div">          
             <div class="s-div">样品来源</div>
-            <div class="m-div">***</div>
+            <div class="m-div">{{resource}}</div>
             <div class="s-div">样品类型</div>
-            <div class="m-div">***</div>
+            <div class="m-div">{{type}}</div>
           </div>
           <div class="title-div-white"><p>检测信息</p></div>
           <div class="td-div">
             <div class="s-div">检测项目</div>
-            <div class="l-div">******</div>            
+            <div class="l-div">{{subject}}</div>            
           </div>
           <div class="td-div">            
             <div class="s-div">检测编号</div>
-            <div class="l-div">******</div>  
+            <div class="l-div">{{number}}</div>  
           </div>
           <div class="td-div">          
             <div class="s-div">检测方法</div>
-            <div class="l-div">******</div>
+            <div class="l-div">{{method}}</div>
           </div>
           <div class="title-div-white"><p>结果解读</p></div>
-          <div class="td-div-long">******</div>
+          <div class="td-div-long">{{explanation}}</div>
           <div class="title-div-white"><p>细化检测结果</p></div>
           <div class="title-div"><p>一、实验室检测质控</p></div>
 
@@ -164,15 +164,37 @@ export default {
   },
   data(){
     return{
-      name: "???",
-      date: "???",
-      phone: "???????",
-      resultImg: require('../../assets/img/report/temp/result.png'), 
+      number: "",
+      name: "",
+      date: "",
+      phone: "",
+      sex: "",
+      age: "",
+      sendDate: "",
+      sampleNumber: "",
+      resource: "",
+      type: "",
+      subject: "",
+      method: "",
+      explanation: "",
+      resultImg: "", 
     }
   },
   mounted(){
-    this.name = "?";
-    this.date = "?";
+    this.number = "123";
+    this.name = "???";
+    this.date = "??/??/??";
+    this.phone = "???????";
+    this.sex = "男";
+    this.age = "22";
+    this.sendDate = "??/??";
+    this.sampleNumber = "??????";
+    this.resource = "???";
+    this.type = "???";
+    this.subject = "???";
+    this.method = "???";
+    this.explanation = "......";
+    this.resultImg = require('../../assets/img/report/temp/result.png');
   },
   methods: {
     handleDownload(){
