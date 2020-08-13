@@ -1,0 +1,98 @@
+<template>
+	<div id="pdf">
+		<div class="tools">
+			<el-button :theme="'default'" type="submit" :title="'基础按钮'" @click.stop="prePage" class="mr10"> 上一页</el-button>
+            <div class="page">{{pageNum}}/{{pageTotalNum}} </div>
+            <el-button :theme="'default'" type="submit" :title="'基础按钮'" @click.stop="nextPage" class="mr10"> 下一页</el-button>
+		</div>
+        <div class="pdf-div">		
+            <pdf ref="pdf" 
+            :src="url" 
+            :page="pageNum"
+            :rotate="pageRotate"  
+            @progress="loadedRatio = $event"
+            @page-loaded="pageLoaded($event)" 
+            @num-pages="pageTotalNum=$event" 
+            @error="pdfError($event)" 
+            @link-clicked="page = $event">
+            </pdf>
+        </div>
+	</div>
+</template>
+
+<script>
+	import pdf from 'vue-pdf'
+	export default {
+		name: 'Pdf',
+		components: {
+			pdf
+		},
+		data() {
+			return {
+				url: "http://storage.xuetangx.com/public_assets/xuetangx/PDF/PlayerAPI_v1.0.6.pdf",
+				pageNum: 1,
+				pageTotalNum: 1,
+				pageRotate: 0,
+				// 加载进度
+				loadedRatio: 0,
+				curPageNum: 0,
+			}
+		},
+		mounted: function() {},
+		methods: {
+            // 上一页函数，
+			prePage() {
+				var page = this.pageNum
+				page = page > 1 ? page - 1 : this.pageTotalNum
+				this.pageNum = page
+			},
+            // 下一页函数
+			nextPage() {
+				var page = this.pageNum
+				page = page < this.pageTotalNum ? page + 1 : 1
+				this.pageNum = page
+			},
+            // 页面顺时针翻转90度。
+			clock() {
+				this.pageRotate += 90
+			},
+            // 页面逆时针翻转90度。
+			counterClock() {
+				this.pageRotate -= 90
+			},
+            // 页面加载回调函数，其中e为当前页数
+			pageLoaded(e) {
+				this.curPageNum = e
+			},
+            // 其他的一些回调函数。
+			pdfError(error) {
+				console.error(error)
+			},
+		}
+	}
+</script>
+
+<style scoped>
+    .pdf-div{
+        width: 1000px;
+        /* height: var(--screen-height); */
+        overflow: hidden;
+        border: 1px solid #000;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .tools{
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .page{
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+</style>

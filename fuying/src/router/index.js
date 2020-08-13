@@ -10,6 +10,7 @@ const Login = () => import('views/login/Login')
 const News = () => import('views/news/News')
 const Products = () => import('views/products/Products')
 const Report = () => import('views/products/Report')
+const Pdf = () => import('views/products/Pdf')
 
 // // 解决路由重复报错问题
 // const originalPush = VueRouter.prototype.push
@@ -49,6 +50,10 @@ const routes = [
   {
     path: '/report',
     component: Report
+  },
+  {
+    path: '/pdf',
+    component: Pdf
   }
 ]
 
