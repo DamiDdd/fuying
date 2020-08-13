@@ -153,7 +153,7 @@
 
 <script>
 import ImgPaper from 'common/report/ImgPaper';
-import downloadPDF from '@/common/downloadPDF';
+import DownloadPDF from '@/common/downloadPDF';
 import TablePaper from 'common/report/TablePaper';
 
 export default {
@@ -198,8 +198,8 @@ export default {
   },
   methods: {
     handleDownload(){
-      downloadPDF.downloadPDF(document.querySelector('#report-div'),'user-report');
-    }
+      DownloadPDF.downloadPDF(document.querySelector('#report-div'),'user-report');
+    },
   }
 }
 </script>
