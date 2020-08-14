@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="98a16dd9-bc38-4978-a5bc-1a526b7feabe" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/pdf_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdf_product_copy.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_product_copy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_pdf.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/test_pdf.pdf" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,28 +13,38 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/pdf_transfer$pdf_product_copy.coverage" NAME="pdf_product_copy Coverage Results" MODIFIED="1597390882569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/" />
-    <SUITE FILE_PATH="coverage/pdf_transfer$pdf_product.coverage" NAME="pdf_product Coverage Results" MODIFIED="1597390716208" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/" />
+    <SUITE FILE_PATH="coverage/pdf_transfer$pdf_product_copy.coverage" NAME="pdf_product_copy Coverage Results" MODIFIED="1597392795239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/" />
+    <SUITE FILE_PATH="coverage/pdf_transfer$pdf_product.coverage" NAME="pdf_product Coverage Results" MODIFIED="1597395650810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/" />
+  </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/pdf_product_copy.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="464">
+                    <caret line="55" selection-start-line="55" selection-end-line="56" selection-end-column="31" />
+                    <folding>
+                      <element signature="e#0#104#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pdf_product.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-              <folding>
-                <element signature="e#1#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pdf_product_copy.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="14" selection-start-line="14" selection-end-line="15" selection-end-column="27" />
+            <state relative-caret-position="175">
+              <caret line="22" column="111" selection-start-line="22" selection-start-column="111" selection-end-line="22" selection-end-column="111" />
               <folding>
                 <element signature="e#0#104#0" expanded="true" />
               </folding>
@@ -60,11 +72,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/pdf_product_copy.py" />
         <option value="$PROJECT_DIR$/pdf_product.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -78,10 +91,6 @@
       <pane id="ProjectPane">
         <subPane>
           <expand>
-            <path>
-              <item name="pdf_transfer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pdf_transfer" type="462c0819:PsiDirectoryNode" />
-            </path>
             <path>
               <item name="pdf_transfer" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
@@ -117,7 +126,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.pdf_product_copy">
+  <component name="RunManager" selected="Python.pdf_product">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="pdf_transfer" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -190,8 +199,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.pdf_product_copy" />
         <item itemvalue="Python.pdf_product" />
+        <item itemvalue="Python.pdf_product_copy" />
       </list>
     </recent_temporary>
   </component>
@@ -206,23 +215,23 @@
       <option name="presentableId" value="Default" />
       <updated>1597369956331</updated>
       <workItem from="1597369961215" duration="2576000" />
-      <workItem from="1597373273071" duration="7699000" />
+      <workItem from="1597373273071" duration="12266000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10275000" />
+    <option name="totallyTimeSpent" value="14842000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2521322" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.51641136" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3308026" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37852496" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -295,8 +304,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pdf_product_copy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" selection-start-line="14" selection-end-line="15" selection-end-column="27" />
+        <state relative-caret-position="464">
+          <caret line="55" selection-start-line="55" selection-end-line="56" selection-end-column="31" />
           <folding>
             <element signature="e#0#104#0" expanded="true" />
           </folding>
@@ -305,10 +314,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pdf_product.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+        <state relative-caret-position="175">
+          <caret line="22" column="111" selection-start-line="22" selection-start-column="111" selection-end-line="22" selection-end-column="111" />
           <folding>
-            <element signature="e#1#41#0" expanded="true" />
+            <element signature="e#0#104#0" expanded="true" />
           </folding>
         </state>
       </provider>

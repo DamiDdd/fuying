@@ -125,7 +125,7 @@ class PDFGenerator:
 
         doc.build(story)
 
-def run():
+def test_data():
     test_pdf = PDFGenerator("C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\test_pdf")
     home_data = {'report_code':'1234',
                 'task_name':'2323',
@@ -142,5 +142,4 @@ def run():
     p0_case_data = [["0","1","2","3","4","5","6","7"],
             ["00","11","22","33","44","55","66","77"]]
     test_pdf.genTaskPDF(home_data,task_data,basic_data,case_set_data,fail_case_data,p0_case_data)
-
-run()
+test_data()
