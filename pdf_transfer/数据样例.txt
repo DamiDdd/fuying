@@ -1,0 +1,18 @@
+数据样例python
+
+tables（dict组成的array）：
+元素结构：{name（string）：检测表名
+	  sum_table(array组成的array)：汇总结果条目，按行排列
+	  img_table（dict组成的array）：{title(string):检测项目名，img_path（string）：图片url（本地绝对or网络地址），
+					description(string）:result描述}}
+
+eg
+        {"name": "基础套餐评估结果2",
+         "sum_table": [['序号', '项目名称', '您的预测评分', '健康状态'],
+                       ['1.1', '生理年龄评价', '-3', '较差'],
+                       ['1.2', '肥胖评价', '-2', '正常'],
+                       ['1.3', '肝功能', '11', '良好']],
+         "img_table": [{"title": "1.1.1 生理年龄指数","img_path": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.1.1.png",
+                        "description": "您的生理年龄指数预测结果为36.60,极高于您的口述年龄，您比同龄人整体更操劳，需注意日常保养，适当锻炼。"},
+                       {"title": "1.2.1 内脏脂肪率指数","img_path": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.2.1.png",
+                        "description": "您的内脏脂肪率指数在万人队列中的位比为92.79%，处在极高位区，表示您的内脏脂肪率指数水平高于92.79%的人群，需注意日常生活及饮食情况，根据自身需求进行相应调整。若感不适请及时就医。"}], }

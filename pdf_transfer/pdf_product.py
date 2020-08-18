@@ -16,6 +16,7 @@ class PDFGenerator:
         self.file_path = filepath
         self.col_width = 40
         self.row_height = 8
+        self.line = "______________________________________________"
         self.theme_color = colors.HexColor(0x308bcc)
         self.content_style = ParagraphStyle(name="ContentStyle", fontName="ping", fontSize=12, leading=25, spaceAfter=20,
                                             underlineWidth=1, alignment=TA_LEFT, )
@@ -34,6 +35,7 @@ class PDFGenerator:
         story = []
 
         for set in tables:
+
             # 生成指标总表
             story.append(Paragraph(set['name'],self.table_title_style))
             story.append(Table(set['sum_table'],colWidths=[self.col_width *mm,self.col_width *mm,self.col_width *mm,self.col_width *mm],
@@ -44,28 +46,44 @@ class PDFGenerator:
             i = 0
             for i in range(set['img_table'].__len__()):
                 img_table = set['img_table'][i]
-                story.append(Paragraph(img_table['title'], self.table_title_style))
                 img = Image(img_table['img_path'])
                 img.drawHeight = 60 * mm
                 img.drawWidth = 100 * mm
+                story.append(Paragraph(img_table['title'], self.table_title_style))
+                story.append(Spacer(1, 4 * mm))
                 story.append(img)
+                story.append(Spacer(1, 10 * mm))
                 story.append(Paragraph(img_table['description'],self.content_style))
                 if i % 2 == 1:
                     story.append(PageBreak())
+                else:
+                    story.append(Paragraph(self.line, self.table_title_style))
+                    story.append(Spacer(1, 4 * mm))
             if i % 2 == 0:
                 story.append(PageBreak())
 
         # 生成pdf
         doc = SimpleDocTemplate(self.file_path + self.filename + ".pdf",
-                                leftMargin=20 * mm, rightMargin=20 * mm, topMargin=20 * mm, bottomMargin=20 * mm)
+                                leftMargin=20 * mm, rightMargin=20 * mm, topMargin=20 * mm, bottomMargin=20 * mm,
+                                showBoundary=1 * mm)
         doc.build(story)
+
 
 
 
 if __name__ == '__main__':
     report_pdfg = PDFGenerator("report","C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\")
+    report = {
+        "name": "陈周",
+        "sex": "男",
+        "age": "32",
+        "health_history": "病史或临床表现：（用户填写）",
+        "sample_date": "2020/07/29",
+        
+
+    }
     tables = [
-        {"name": "基础套餐评估结果",
+        {"name": "基础套餐评估结果1",
         "sum_table": [['序号','项目名称','您的预测评分','健康状态'],
                       ['1.1','生理年龄评价','-3','较差'],
                       ['1.2','肥胖评价','-2','正常'],
@@ -74,19 +92,16 @@ if __name__ == '__main__':
                        "description":"您的生理年龄指数预测结果为36.60,极高于您的口述年龄，您比同龄人整体更操劳，需注意日常保养，适当锻炼。"},
                       {"title":"1.2.1 内脏脂肪率指数","img_path":"C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.2.1.png",
                        "description":"您的内脏脂肪率指数在万人队列中的位比为92.79%，处在极高位区，表示您的内脏脂肪率指数水平高于92.79%的人群，需注意日常生活及饮食情况，根据自身需求进行相应调整。若感不适请及时就医。"},
-                      {"title": "1.2.1 内脏脂肪率指数",
-                       "img_path": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.2.1.png",
+                      {"title": "1.2.1 内脏脂肪率指数","img_path": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.2.1.png",
                        "description": "您的内脏脂肪率指数在万人队列中的位比为92.79%，处在极高位区，表示您的内脏脂肪率指数水平高于92.79%的人群，需注意日常生活及饮食情况，根据自身需求进行相应调整。若感不适请及时就医。"}],},
-        {"name": "基础套餐评估结果",
+        {"name": "基础套餐评估结果2",
          "sum_table": [['序号', '项目名称', '您的预测评分', '健康状态'],
                        ['1.1', '生理年龄评价', '-3', '较差'],
                        ['1.2', '肥胖评价', '-2', '正常'],
                        ['1.3', '肝功能', '11', '良好']],
-         "img_table": [{"title": "1.1.1 生理年龄指数",
-                        "img_path": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.1.1.png",
+         "img_table": [{"title": "1.1.1 生理年龄指数","img_path": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.1.1.png",
                         "description": "您的生理年龄指数预测结果为36.60,极高于您的口述年龄，您比同龄人整体更操劳，需注意日常保养，适当锻炼。"},
-                       {"title": "1.2.1 内脏脂肪率指数",
-                        "img_path": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.2.1.png",
+                       {"title": "1.2.1 内脏脂肪率指数","img_path": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.2.1.png",
                         "description": "您的内脏脂肪率指数在万人队列中的位比为92.79%，处在极高位区，表示您的内脏脂肪率指数水平高于92.79%的人群，需注意日常生活及饮食情况，根据自身需求进行相应调整。若感不适请及时就医。"}], },
     ]
     report_pdfg.generatePDF(tables)

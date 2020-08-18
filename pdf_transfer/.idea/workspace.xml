@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="98a16dd9-bc38-4978-a5bc-1a526b7feabe" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/pdf_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdf_product_copy.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_product_copy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_pdf.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/test_pdf.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/report.pdf" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,18 +13,18 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/pdf_transfer$pdf_product_copy.coverage" NAME="pdf_product_copy Coverage Results" MODIFIED="1597392795239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/" />
-    <SUITE FILE_PATH="coverage/pdf_transfer$pdf_product.coverage" NAME="pdf_product Coverage Results" MODIFIED="1597395650810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/" />
+    <SUITE FILE_PATH="coverage/pdf_transfer$pdf_product.coverage" NAME="pdf_product Coverage Results" MODIFIED="1597719790136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/" />
   </component>
   <component name="DockManager">
     <window id="1">
       <content type="file-editors">
         <state>
-          <leaf>
+          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/pdf_product_copy.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="464">
-                    <caret line="55" selection-start-line="55" selection-end-line="56" selection-end-column="31" />
+                  <state relative-caret-position="265">
+                    <caret line="59" column="26" lean-forward="true" selection-start-line="59" selection-end-line="60" />
                     <folding>
                       <element signature="e#0#104#0" expanded="true" />
                     </folding>
@@ -43,8 +42,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pdf_product.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="22" column="111" selection-start-line="22" selection-start-column="111" selection-end-line="22" selection-end-column="111" />
+            <state relative-caret-position="325">
+              <caret line="79" column="27" selection-start-line="79" selection-start-column="27" selection-end-line="79" selection-end-column="27" />
               <folding>
                 <element signature="e#0#104#0" expanded="true" />
               </folding>
@@ -77,30 +76,18 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="953" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="952" />
+    <option name="y" value="-8" />
+    <option name="width" value="976" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="pdf_transfer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -216,14 +203,15 @@
       <updated>1597369956331</updated>
       <workItem from="1597369961215" duration="2576000" />
       <workItem from="1597373273071" duration="12266000" />
+      <workItem from="1597714614276" duration="5518000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14842000" />
+    <option name="totallyTimeSpent" value="20360000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="952" y="-8" width="976" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.51641136" />
@@ -304,8 +292,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pdf_product_copy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="55" selection-start-line="55" selection-end-line="56" selection-end-column="31" />
+        <state relative-caret-position="265">
+          <caret line="59" column="26" lean-forward="true" selection-start-line="59" selection-end-line="60" />
           <folding>
             <element signature="e#0#104#0" expanded="true" />
           </folding>
@@ -314,8 +302,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pdf_product.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="22" column="111" selection-start-line="22" selection-start-column="111" selection-end-line="22" selection-end-column="111" />
+        <state relative-caret-position="325">
+          <caret line="79" column="27" selection-start-line="79" selection-start-column="27" selection-end-line="79" selection-end-column="27" />
           <folding>
             <element signature="e#0#104#0" expanded="true" />
           </folding>
