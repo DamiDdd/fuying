@@ -20,8 +20,16 @@ class PDFGenerator:
         self.theme_color = colors.HexColor(0x308bcc)
         self.content_style = ParagraphStyle(name="ContentStyle", fontName="ping", fontSize=12, leading=25, spaceAfter=20,
                                             underlineWidth=1, alignment=TA_LEFT, )
+        self.content2_style = ParagraphStyle(name="ContentStyle", fontName="ping", fontSize=12, leading=20, spaceAfter=20,
+                                            underlineWidth=1, alignment=TA_LEFT, )
+        self.normal_style = ParagraphStyle(name="NormalStyle", fontName="ping", fontSize=12, leading=25, spaceAfter=20,
+                                            underlineWidth=1, alignment=TA_CENTER, )
+        self.tabletext_style = ParagraphStyle(name="TabletextStyle", fontName="ping", fontSize=12, leading=18, spaceAfter=20,
+                                            underlineWidth=1, alignment=TA_LEFT, )
         self.table_title_style = ParagraphStyle(name="TableTitleStyle", fontName="pingbold", fontSize=20, leading=25,
                                                 textColor=self.theme_color, spaceAfter=10, alignment=TA_LEFT, )
+        self.title_style = ParagraphStyle(name="TitleStyle", fontName="pingbold", fontSize=40, leading=25,
+                                                textColor=self.theme_color, spaceAfter=10, alignment=TA_CENTER, )
         self.table_style = TableStyle([('FONTNAME', (0, 0), (-1, -1), 'ping'),
                                       ('FONTSIZE', (0, 0), (-1, -1), 12),
                                       ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
@@ -29,16 +37,142 @@ class PDFGenerator:
                                       ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
                                       ('GRID', (0, 0), (-1, -1), 0.5, colors.black),
                                      ])
+        self.table2_style = TableStyle([('FONTNAME', (0, 0), (-1, -1), 'ping'),
+                                      ('FONTSIZE', (0, 0), (-1, -1), 12),
+                                      ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+                                      ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+                                      ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+                                      ('GRID', (0, 0), (-1, -1), 0.5, colors.black),
+                                      ('SPAN', (0, 0), (0, -1))
+                                     ])
+        self.report1_style = TableStyle([('FONTNAME', (0, 0), (-1, -1), 'ping'),
+                                      ('FONTSIZE', (0, 0), (-1, -1), 12),
+                                      ('ALIGN', (0, 0), (0, -1), 'LEFT'),
+                                      ('ALIGN',(0, 0),(-1, 0),'CENTER'),
+                                      ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+                                      ('VALIGN', (0, 2), (-1, 2), 'TOP'),
+                                      ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+                                      ('GRID', (0, 0), (-1, -1), 0.5, colors.black),
+                                      ('BACKGROUND', (0, 0), (-1, 0), self.theme_color),
+                                      ('SPAN', (0, 0), (-1, 0)),
+                                      ('SPAN', (0, 2), (-1, 2)),
+                                      ])
+        self.report2_style = TableStyle([('FONTNAME', (0, 0), (-1, -1), 'ping'),
+                                      ('FONTSIZE', (0, 0), (-1, -1), 12),
+                                      ('ALIGN', (0, 0), (0, -1), 'LEFT'),
+                                      ('ALIGN',(0, 0),(-1, 0),'CENTER'),
+                                      ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+                                      ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+                                      ('GRID', (0, 0), (-1, -1), 0.5, colors.black),
+                                      ('BACKGROUND', (0, 0), (-1, 0), self.theme_color),
+                                      ('SPAN', (0, 0), (-1, 0)),
+                                      ])
+        self.report3_style = TableStyle([('FONTNAME', (0, 0), (-1, -1), 'ping'),
+                                      ('FONTSIZE', (0, 0), (-1, -1), 12),
+                                      ('ALIGN', (0, 0), (0, -1), 'LEFT'),
+                                      ('ALIGN',(0, 0),(-1, 0),'CENTER'),
+                                      ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+                                      ('VALIGN', (0, 4), (-1, 4), 'TOP'),
+                                      ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+                                      ('GRID', (0, 0), (-1, -1), 0.5, colors.black),
+                                      ('BACKGROUND', (0, 0), (-1, 0), self.theme_color),
+                                      ('SPAN', (0, 0), (-1, 0)),
+                                      ('SPAN', (0, 4), (-1, 4)),
+                                      ])
+        self.report4_style = TableStyle([('FONTNAME', (0, 0), (-1, -1), 'ping'),
+                                      ('FONTSIZE', (0, 0), (-1, -1), 12),
+                                      ('ALIGN', (0, 0), (0, -1), 'LEFT'),
+                                      ('ALIGN',(0, 0),(-1, 0),'CENTER'),
+                                      ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+                                      ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+                                      ('GRID', (0, 0), (-1, -1), 0.5, colors.black),
+                                      ('BACKGROUND', (0, 0), (-1, 0), self.theme_color),
+                                      ])
 
-    def generatePDF(self, tables):
+    def generatePDF(self, report, tables):
         # 生成表格
         story = []
 
+        # 生成封面相关信息，其中静态图请替换为本机路径
+        story.append(Spacer(1, 20 * mm))
+        img = Image("C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\logo.png")
+        img.drawWidth = 100 * mm
+        img.drawHeight = 100 * mm
+        story.append(img)
+        story.append(Spacer(1, 20 * mm))
+        story.append(Paragraph("蛋白质组学生理刻画检测报告",self.title_style))
+        story.append(Spacer(1, 20 * mm))
+        story.append(Paragraph("检测编号："+report['test_num']+"\a\a\a"+"报告日期"+report['report_date'],self.normal_style))
+        story.append(PageBreak())
+
+        story.append(Paragraph("致受检者书", self.table_title_style))
+        story.append(Spacer(1, 10 * mm))
+        sex = "女士"
+        if(report['sex'] == "男"):
+            sex = "先生"
+        story.append(Paragraph("尊敬的"+report['name']+sex,self.content_style))
+        story.append(Paragraph("您好！", self.content_style))
+        story.append(Paragraph("\a\a复瑛健康（上海复瑛生物科技有限公司）是生命健康领域的新兴企业，坚持自主创新和成果转化，立足新一代蛋白质组技术，基于数据驱动、健康评估的检测服务公司，旨在将生命科学、临床医学及数据挖掘等创新技术融为一体，推出全新的健康评估模式服务于人类健康。",self.content2_style))
+        story.append(Paragraph("\a\a蛋白质组学生理刻画产品是利用次世代蛋白质组技术配合机器学习的大数据精准分型，1滴指尖血为样本可获得2000+蛋白质检测指标，涵盖100+项生理功能，完成40+大类的生理刻画，检测数据量为常规体检的近百倍，提供更加完备的个人全景生理刻画。",self.content2_style))
+        story.append(Paragraph("\a\a在此我们也特别提醒您注意：受检者委托复瑛健康开展蛋白质组学生理刻画检测服务，系基于受检者生理功能相关评估结果，预测无明显症状的受检者是否存在生理状态不佳的情况，该检测不是一种诊断过程，而是一种简便快速的评估方法，以便提高客户的生活质量。检测结果不作为临床诊断和治疗的依据。",self.content2_style))
+        story.append(Paragraph("\a\a本检测的意义在于通过较完备的个人全景式生理刻画，助您掌握健康状态，希望您对此给予充分的理解与信任，我们愿意与您一同积极面对可能出现的结果。由于技术发展的局限性，个体间存在的生物学差异等原因，本报告仅对本次送检样本负责。",self.content2_style))
+        story.append(Paragraph("\a\a希望您能将您的宝贵意见与建议及时反馈给我们。我们免费的服务电话是********（工作日，8:30-17:30），我们将竭诚为您服务！祝您健康！", self.content2_style))
+        story.append(Paragraph("\a\a此致",self.content2_style))
+        story.append(Paragraph("敬礼",self.content2_style))
+        story.append(Paragraph("上海复瑛生物科技有限公司",self.content2_style))
+        story.append(PageBreak())
+
+        # 生成用户信息表
+        r1_table = [['用户信息'],
+                    ['姓名',report['name'],'性别',report['sex'],'年龄',report['age']],
+                    [Paragraph(report['health_history'],self.tabletext_style)],]
+        r2_table = [['样本信息'],
+                    ['送样日期',report['sample_date'],'样本编号',report['sample_num']],
+                    ['样品来源',report['resource'],'样品类型','type']]
+        r3_table = [['检测信息'],
+                    ['检测项目',report['subject']],
+                    ['检测编号',report['test_num']],
+                    ['检测方法',report['method']],
+                    [Paragraph(report['explanation'],self.tabletext_style)]]
+        r4_table = [['细化检测结果'],
+                    ["一、实验室检测质控"]]
+
+        story.append(Table(r1_table,colWidths=[18 * mm, 35 * mm, 18 * mm, 35 * mm, 18 * mm, 36 * mm],
+                           rowHeights = [self.row_height * mm, self.row_height * mm, 25 * mm], style=self.report1_style))
+        story.append(Table(r2_table, colWidths=[25 * mm, 55 * mm, 25 * mm, 55 * mm],
+                           rowHeights=self.row_height * mm, style=self.report2_style))
+        story.append(Table(r3_table, colWidths=[25 * mm, 135 * mm],
+                           rowHeights=[self.row_height * mm, self.row_height * mm, self.row_height * mm, self.row_height * mm, 30 * mm], style=self.report3_style))
+        story.append(Table(r4_table, colWidths=[160 * mm],
+                           rowHeights= self.row_height * mm, style=self.report4_style))
+
+        for set in report["quality_report"]:
+            set['table'][0].insert(0,set['name'])
+            set['table'][1].insert(0,set['name'])
+            for i in range(2):
+                for j in range(set['table'][i].__len__()):
+                    set['table'][i][j] = Paragraph(set['table'][i][j],self.tabletext_style)
+            table = Table(set['table'],colWidths=(160/set['table'][0].__len__()) * mm,
+                          rowHeights = 15 * mm, style = self.table2_style)
+            story.append(table)
+        story.append(PageBreak())
+
+        story.append(Paragraph("二、质谱结果",self.tabletext_style))
+        img = Image(report['mass_spectrogram_img'])
+        img.drawHeight = 80 * mm
+        img.drawWidth = 160 * mm
+        story.append(img)
+        story.append(Spacer(1, 4 * mm))
+        story.append(Paragraph(report["ms_text"],self.content_style))
+        story.append(PageBreak())
+
+
+        story.append(Paragraph("三、生理刻画结果", self.tabletext_style))
         for set in tables:
 
             # 生成指标总表
             story.append(Paragraph(set['name'],self.table_title_style))
-            story.append(Table(set['sum_table'],colWidths=[self.col_width *mm,self.col_width *mm,self.col_width *mm,self.col_width *mm],
+            story.append(Table(set['sum_table'],colWidths=self.col_width *mm,
                                rowHeights = self.row_height *mm, style=self.table_style))
             story.append(PageBreak())
 
@@ -78,8 +212,28 @@ if __name__ == '__main__':
         "sex": "男",
         "age": "32",
         "health_history": "病史或临床表现：（用户填写）",
+        "report_date": "2020/07/29",
         "sample_date": "2020/07/29",
-        
+        "sample_num": "abc1234",
+        "resource": "委托送检",
+        "type": "手指血",
+        "subject": "全套餐",
+        "test_num": "Exp079824",
+        "method": "次世代非数据依赖采集蛋白质组检测技术",
+        "explanation": "（结果解读）本次检测结果，您的内脏脂肪、总胆固醇、少数代谢功能指数以及个别免疫功能指数存在明显异常，建议您在日常生活中注意健康饮食结构，适当进行运动，预防疾病的发生。若有不适请及时就医",
+        "quality_report": [
+            {"name": "血液样本",
+            "table": [['全血总量（μL）','血浆总量（μL）','血浆颜色','是否合格','操作平台','质控标准'],
+                      ['30','10','淡黄色','是','Thermo','血浆总量>5μL']]},
+            {"name":"蛋白提取",
+            "table": [['血浆上样量（μL）','蛋白质量（μg）','高丰度去除','是否合格','操作平台','质控标准'],
+                      ['2','100','是','是','Thermo','蛋白质量>30μg']]},
+            {"name": "蛋白提取",
+            "table": [['血浆上样量（μL）', '蛋白质量（μg）', '高丰度去除', '是否合格', '操作平台', '质控标准'],
+                      ['2', '100', '是', '是', 'Thermo', '蛋白质量>30μg']]},
+            ],
+        "mass_spectrogram_img": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\mass_spectrogram_img.png",
+        "ms_text": "数据采集量1.5 G，谱图数81,220张，蛋白质鉴定总数2408。",
 
     }
     tables = [
@@ -104,5 +258,5 @@ if __name__ == '__main__':
                        {"title": "1.2.1 内脏脂肪率指数","img_path": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.2.1.png",
                         "description": "您的内脏脂肪率指数在万人队列中的位比为92.79%，处在极高位区，表示您的内脏脂肪率指数水平高于92.79%的人群，需注意日常生活及饮食情况，根据自身需求进行相应调整。若感不适请及时就医。"}], },
     ]
-    report_pdfg.generatePDF(tables)
+    report_pdfg.generatePDF(report,tables)
 
