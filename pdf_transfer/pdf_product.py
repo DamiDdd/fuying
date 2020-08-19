@@ -89,7 +89,7 @@ class PDFGenerator:
                                       ('BACKGROUND', (0, 0), (-1, 0), self.theme_color),
                                       ])
 
-    def generatePDF(self, report, tables):
+    def generatePDF(self, report, tables, result_report=None):
         # 生成表格
         story = []
 
@@ -105,6 +105,7 @@ class PDFGenerator:
         story.append(Paragraph("检测编号："+report['test_num']+"\a\a\a"+"报告日期"+report['report_date'],self.normal_style))
         story.append(PageBreak())
 
+        story.append(Spacer(1,5*mm))
         story.append(Paragraph("致受检者书", self.table_title_style))
         story.append(Spacer(1, 10 * mm))
         sex = "女士"
@@ -119,7 +120,32 @@ class PDFGenerator:
         story.append(Paragraph("\a\a希望您能将您的宝贵意见与建议及时反馈给我们。我们免费的服务电话是********（工作日，8:30-17:30），我们将竭诚为您服务！祝您健康！", self.content2_style))
         story.append(Paragraph("\a\a此致",self.content2_style))
         story.append(Paragraph("敬礼",self.content2_style))
-        story.append(Paragraph("上海复瑛生物科技有限公司",self.content2_style))
+        story.append(Paragraph("上海复瑛生物科技有限公司", self.content2_style))
+        story.append(PageBreak())
+
+        story.append(Spacer(1,5*mm))
+        story.append(Paragraph("产品简介",self.table_title_style))
+        story.append(Spacer(1, 10 * mm))
+        story.append(Paragraph("\a\a蛋白质作为生命活动的执行者，直接反映着一个个体的生理、病理情况。随着人类基因组计划的实施和推进，生命科学研究已进入了后基因组时代。蛋白质组研究是后基因组时代生命科学研究的核心内容之一。蛋白质组学以细胞内全部蛋白质及其活动方式为研究对象。在早期诊断、疾病预防、分型、判断预后等诸多方面都具有巨大的潜力。",self.content_style))
+        story.append(Paragraph("\a\a现阶段，本检测平台总原始数据量达到1G；谱图数达到10万张，肽段数达到5.000个以上，检测体液样本的蛋白质鉴定数可达2,000种以上。",self.content_style))
+        story.append(Paragraph("\a\a根据上万组正常人蛋白质组数据，建立基准数据训练集。通过机器学习将蛋白质组数据同临床表型进行管理关联，建立包含一百种特征的训练模型。将用户样本进行蛋白质组分析后与训练集比对，可对样本进行分类或分型，并据此提供较为可靠的临床辅助结论。",self.content_style))
+        story.append(PageBreak())
+
+        # 这里的图片路径使用时请修改！
+        story.append(Spacer(1, 5*mm))
+        story.append(Paragraph("技术路线",self.table_title_style))
+        story.append(Spacer(1, 5*mm))
+        img = Image("C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\rout.png")
+        img.drawHeight = 70 * mm
+        img.drawWidth = 160 * mm
+        story.append(img)
+        story.append(Spacer(1, 10*mm))
+        story.append(Paragraph("技术原理",self.table_title_style))
+        story.append(Spacer(1, 5*mm))
+        img = Image("C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\principle.png")
+        img.drawHeight = 80 * mm
+        img.drawWidth = 160 * mm
+        story.append(img)
         story.append(PageBreak())
 
         # 生成用户信息表
@@ -172,7 +198,7 @@ class PDFGenerator:
 
             # 生成指标总表
             story.append(Paragraph(set['name'],self.table_title_style))
-            story.append(Table(set['sum_table'],colWidths=self.col_width *mm,
+            story.append(Table(set['sum_table'],colWidths=[20 * mm, 60 * mm, 40 * mm, 40 * mm],
                                rowHeights = self.row_height *mm, style=self.table_style))
             story.append(PageBreak())
 
@@ -195,6 +221,23 @@ class PDFGenerator:
                     story.append(Spacer(1, 4 * mm))
             if i % 2 == 0:
                 story.append(PageBreak())
+
+        # 结果说明
+        if result_report != None:
+            story.append(Spacer(1, 5*mm))
+            story.append(Paragraph("结果说明",self.table_title_style))
+            story.append(Spacer(1, 10 * mm))
+            for str in result_report['result']:
+                story.append(Paragraph(str,self.content_style))
+            story.append(Spacer(1,10 * mm))
+            story.append(Paragraph("1.本次检测结果只对本次送检样本负责，结果仅供参考，不作为临床诊断依据",self.content2_style))
+            story.append(Paragraph("2.如果对检测结果有异议，请在收到报告后七日内与我们联系。",self.content2_style))
+            story.append(Spacer(1, 10 * mm))
+            story.append(Paragraph("检测员：\a\a" + result_report["test_member"] +
+                                   "\a\a复核者：\a\a" + result_report["check_member"] +
+                                   "\a\a报告日期：\a\a" + result_report["report_date"],
+                                   self.content2_style))
+        story.append(PageBreak())
 
         # 生成pdf
         doc = SimpleDocTemplate(self.file_path + self.filename + ".pdf",
@@ -258,5 +301,14 @@ if __name__ == '__main__':
                        {"title": "1.2.1 内脏脂肪率指数","img_path": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.2.1.png",
                         "description": "您的内脏脂肪率指数在万人队列中的位比为92.79%，处在极高位区，表示您的内脏脂肪率指数水平高于92.79%的人群，需注意日常生活及饮食情况，根据自身需求进行相应调整。若感不适请及时就医。"}], },
     ]
-    report_pdfg.generatePDF(report,tables)
+    result_report = {
+        "result": ["（结果解读）本次检测结果，您的内脏脂肪、总胆固醇、少数代谢功能指数以及个别免疫功能指数存在明显异常，建议您在日常生活中注意健康饮食结构，适当进行运动，预防疾病的发生。若有不适请及时就医",
+                   "（2）代谢功能评价中，嘌呤指数，生酮指数，共2项生理指数明显异常于人群队列，且对健康状态有明显负面影响，机体有一定概率出现痛风、低血糖、或糖原贮存不足等情况，日积月累容易导致健康问题，建议您注意日常生活及饮食情况，适当运动，若生活中有感不适请及时就医。",
+                   "（3）基础评价中，生理年龄，内脏脂肪率指数，尿素指数，甘油三酯指数，总胆固醇指数，共5项生理指数明显异常于人群队列，且对健康状态有明显负面影响。建议您生活中保持精神愉悦，少食多餐，粗细粮搭配，适当使用含植物纤维的食物，使用保护心脑血管的食物，并适当运动。",
+                   "健康是动态的，生理指标也随之变化，复瑛健康建议您每半年进行一次蛋白质组学生理刻画，建立个人专属健康档案，有助于提早发现异常状态，预防疾病的发生。上医治未病，中医治己病，下医治大病。复瑛健康助您改善“未病之症”。"],
+        "test_member": "a",
+        "check_member": "b",
+        "report_date": report['report_date']
+    }
+    report_pdfg.generatePDF(report,tables,result_report)
 
