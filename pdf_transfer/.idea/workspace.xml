@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98a16dd9-bc38-4978-a5bc-1a526b7feabe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/readjson.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/数据样例.txt" beforeDir="false" afterPath="$PROJECT_DIR$/数据样例.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdf_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readjson.py" beforeDir="false" afterPath="$PROJECT_DIR$/readjson.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/report.pdf" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,16 +14,16 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/pdf_transfer$pdf_product_copy.coverage" NAME="pdf_product_copy Coverage Results" MODIFIED="1597392795239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/" />
-    <SUITE FILE_PATH="coverage/pdf_transfer$readjson.coverage" NAME="readjson Coverage Results" MODIFIED="1597818740187" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/" />
-    <SUITE FILE_PATH="coverage/pdf_transfer$pdf_product.coverage" NAME="pdf_product Coverage Results" MODIFIED="1597806497549" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/" />
+    <SUITE FILE_PATH="coverage/pdf_transfer$readjson.coverage" NAME="readjson Coverage Results" MODIFIED="1597819760490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/" />
+    <SUITE FILE_PATH="coverage/pdf_transfer$pdf_product.coverage" NAME="pdf_product Coverage Results" MODIFIED="1597819373346" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pdf_product.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="252" selection-start-line="252" selection-end-line="311" selection-end-column="5" />
+            <state relative-caret-position="2325">
+              <caret line="306" column="28" selection-start-line="306" selection-start-column="28" selection-end-line="306" selection-end-column="28" />
               <folding>
                 <element signature="e#0#104#0" expanded="true" />
               </folding>
@@ -34,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/readjson.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="67" column="18" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
+            <state relative-caret-position="411">
+              <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -66,7 +66,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="954" />
     <option name="width" value="973" />
     <option name="height" value="1047" />
@@ -234,15 +234,15 @@
       <workItem from="1597369961215" duration="2576000" />
       <workItem from="1597373273071" duration="12266000" />
       <workItem from="1597714614276" duration="23509000" />
-      <workItem from="1597806854629" duration="2649000" />
+      <workItem from="1597806854629" duration="4935000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41000000" />
+    <option name="totallyTimeSpent" value="43286000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="954" y="0" width="973" height="1047" extended-state="0" />
+    <frame x="954" y="0" width="973" height="1047" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.5136911" />
@@ -331,20 +331,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tables.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/pdf_product.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="252" selection-start-line="252" selection-end-line="311" selection-end-column="5" />
+        <state relative-caret-position="2325">
+          <caret line="306" column="28" selection-start-line="306" selection-start-column="28" selection-end-line="306" selection-end-column="28" />
           <folding>
             <element signature="e#0#104#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/report.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/result_report.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/readjson.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="67" column="18" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
+        <state relative-caret-position="411">
+          <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
         </state>
       </provider>
     </entry>
