@@ -9,7 +9,8 @@
       <nav-bar-item link="/news"><div slot="text">新闻</div></nav-bar-item>
       <nav-bar-item link="/products"><div slot="text">产品</div></nav-bar-item>
     </div>
-    <nav-bar-item link="/login" slot="right" class="login"><div slot="text">登录/注册</div></nav-bar-item>
+    <nav-bar-item v-show="!isLogin()" link="/login" slot="right" class="login"><div slot="text">登录/注册</div></nav-bar-item>
+    <nav-bar-item v-show="isLogin()" link="/exit" slot="right" class="login"><div slot="text">退出登录</div></nav-bar-item>
   </nav-bar>
 </template>
 
@@ -22,6 +23,11 @@ export default {
   components:{
     NavBar,
     NavBarItem
+  },
+  methods:{
+    isLogin(){
+      return this.$store.state.isLogin;
+    },
   }
 }
 </script>

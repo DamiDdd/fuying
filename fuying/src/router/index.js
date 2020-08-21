@@ -12,6 +12,7 @@ const News = () => import('views/news/News')
 const Products = () => import('views/products/Products')
 const Report = () => import('views/products/Report')
 const Pdf = () => import('views/products/Pdf')
+const Exit = () => import('views/exit/Exit')
 
 // // 解决路由重复报错问题
 // const originalPush = VueRouter.prototype.push
@@ -64,6 +65,13 @@ const routes = [
     meta:{
       isLogin: true,
     }
+  },
+  {
+    path: '/exit',
+    component: Exit,
+    meta:{
+      isLogin : true,
+    }
   }
 ]
 
@@ -97,6 +105,7 @@ router.beforeEach((to, from, next) => {
   }
   // 未登录状态
   else{
+    store.state.isLogin = false;
     // 对登录状态无要求的页面
     if(to.meta.isLogin == null){
       next();

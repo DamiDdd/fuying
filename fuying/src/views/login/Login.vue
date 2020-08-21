@@ -118,12 +118,6 @@ export default {
 					}).catch((error)=>{
 						console.log(error);
 					})
-
-					// this.$message({
-					// 	type: 'success',
-					// 	message: '登录成功'
-					// });
-					// this.$router.push('home');
 				} else {
 					console.log('error submit!!');
 					return false;

@@ -21,6 +21,10 @@ export default {
     HomeHead,
     HomeProduct,
   },
+  // mounted(){
+  //   console.log(localStorage);
+  //   console.log(this.$store.state.isLogin);
+  // }
 }
 </script>
 
