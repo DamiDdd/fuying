@@ -22,7 +22,7 @@ export default {
     //   }
     // },
     itemClick() {
-      this.$router.replace(this.link)
+      this.$router.push(this.link)
     },
     changeFocus(e) {
       e.currentTarget.className = 'focus';

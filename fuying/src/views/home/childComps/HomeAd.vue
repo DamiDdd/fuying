@@ -39,7 +39,7 @@ export default {
   name: "HomeAd",
   methods: {
     buyClick() {
-      this.$router.replace("/products")
+      this.$router.push("/products")
     },
     goPage(url) {
       window.location.href = url

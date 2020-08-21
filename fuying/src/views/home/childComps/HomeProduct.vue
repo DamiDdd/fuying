@@ -72,10 +72,10 @@ export default {
   },
   methods: {
     productClick(){
-      this.$router.replace("/products")
+      this.$router.push("/products")
     },
     buyClick(){
-      this.$router.replace("login")
+      this.$router.push("login")
     },
     scrollScreen(){
       window.scrollTo({
