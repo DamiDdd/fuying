@@ -7,7 +7,7 @@
 		<el-tabs v-model="activeName">
 			<el-tab-pane label="登录" name="first">
 				<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-					<el-form-item label="用户名" prop="name"><el-input v-model="ruleForm.name"></el-input></el-form-item>
+					<el-form-item label="手机号" prop="phone"><el-input v-model="ruleForm.phone"></el-input></el-form-item>
 					<el-form-item label="密码" prop="pass"><el-input type="password" v-model="ruleForm.pass" auto-complete="off"></el-input></el-form-item>
 					<el-form-item>
 						<el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
@@ -25,6 +25,7 @@
  
 <script>
 import Register from 'views/login/childComps/Register';
+import Axios from 'axios'
  
 export default {
 	data() {
@@ -39,16 +40,31 @@ export default {
 				callback();
 			}
 		};
+
+		var validatePhone = (rule, value, callback) => {
+			if (value === '') {
+                callback(new Error('请输入手机号'));
+                return false;
+			} else if (this.regMobile.test(value) === false) {
+                callback(new Error('手机号输入有误'));
+                return false;
+			} else {
+                callback();
+                return true;
+			}
+        };
  
 		return {
 			activeName: 'first',
+			regMobile: /^1\d{10}$/,
+			loginUrl: "https://phenomics.fudan.edu.cn/firmiana/healthprogram/WebLogin/",
 			ruleForm: {
-				name: '',
+				phone: '',
 				pass: '',
 				checkPass: ''
 			},
 			rules: {
-				name: [{ required: true, message: '请输入您的名称', trigger: 'blur' }, { min: 2, max: 5, message: '长度在 2 到 5 个字符', trigger: 'blur' }],
+				phone: [{required: true, validator: validatePhone, trigger: 'blur'}],
 				pass: [{ required: true, validator: validatePass, trigger: 'blur' }]
 			}
 		};
@@ -63,13 +79,51 @@ export default {
 		},
 		//提交表单
 		submitForm(formName) {
+			// console.log(this.$store.state.isLogin);
 			this.$refs[formName].validate(valid => {
 				if (valid) {
-					this.$message({
-						type: 'success',
-						message: '登录成功'
-					});
-					this.$router.push('home');
+					var url = this.loginUrl + "?phone=" + this.ruleForm["phone"] + "&password="+this.ruleForm["pass"];
+					console.log(url);
+					Axios.get(url).then((response) => {
+						console.log(response);
+						if(response.status === 200){
+							// console.log(response.data)
+							let data = response.data;
+							if(data["success"]){
+								this.$message({
+									type: 'success',
+									message: '登陆成功'
+								});
+								this.$store.dispatch("setUser",true);
+								console.log(this.$store.state.isLogin);
+								// 本地存储登录信息
+								localStorage.setItem("userPhone",this.ruleForm["phone"]);
+								this.$router.replace("/home");
+							}
+							else{
+								if(!data["registered"]){
+									this.$message({
+										type: 'warning',
+										message: '手机号未注册'
+									});
+								}
+								else if(data["msg"] === "Wrong Password"){
+									this.$message({
+										type: 'warning',
+										message: '密码错误'
+									});
+								}
+							}
+						}
+					}).catch((error)=>{
+						console.log(error);
+					})
+
+					// this.$message({
+					// 	type: 'success',
+					// 	message: '登录成功'
+					// });
+					// this.$router.push('home');
 				} else {
 					console.log('error submit!!');
 					return false;

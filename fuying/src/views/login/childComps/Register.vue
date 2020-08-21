@@ -15,7 +15,6 @@
             </div>
         </el-form-item>
         <el-form-item v-show="isReady(ruleForm,['email','phoneVerifycode'])" label="短信验证码" prop="phoneVerifycode">
-        <!-- <el-form-item label="短信验证码" prop="phoneVerifycode"> -->
             <el-input v-model="ruleForm.phoneVerifycode" auto-complete="off" class="identifyinput">
             </el-input>
             <div class="identifybox">
@@ -70,7 +69,6 @@ export default {
 			}
         };
         
-         
 		var validatePhone = (rule, value, callback) => {
 			if (value === '') {
                 callback(new Error('请输入手机号'));
@@ -278,11 +276,9 @@ export default {
                 if(!form[i]) return false;
             }
             if(form['verifycode'].toLowerCase() !== this.identifyCode.toLowerCase()){
-                // console.log(1);
                 return false;
             }
             if(this.regMobile.test(form['phone']) === false){
-                // console.log(2);
                 return false;
             }
             return true;
