@@ -10,6 +10,10 @@ export default {
     this.$store.state.isLogin = true;
     console.log(localStorage);
     this.$router.push('/home');
+    this.$message({
+			type: 'success',
+			message: '您已退出登录'
+		});
   }
 }
 </script>

@@ -94,6 +94,10 @@ router.beforeEach((to, from, next) => {
     else{
       // 需要退出登录才能进入的页面
       if(!to.meta.isLogin){
+        Vue.prototype.$message({
+          type: 'warning',
+          message: '请先退出登录',
+        });
         next({
           path: '/home',
         })
@@ -113,6 +117,10 @@ router.beforeEach((to, from, next) => {
     else{
       // 需要登录才能进入的页面
       if(to.meta.isLogin){
+        Vue.prototype.$message({
+          type: 'warning',
+          message: '请先登录',
+        });
         next({
           path: '/login',
         })

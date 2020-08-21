@@ -98,7 +98,7 @@ export default {
 								console.log(this.$store.state.isLogin);
 								// 本地存储登录信息
 								localStorage.setItem("userPhone",this.ruleForm["phone"]);
-								this.$router.replace("/home");
+								this.$router.push("/home");
 							}
 							else{
 								if(!data["registered"]){
