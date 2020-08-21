@@ -39,7 +39,7 @@ export default {
     MainFooter,
     SideBar,
     BackToTop,
-  }
+  },
 }
 </script>
 

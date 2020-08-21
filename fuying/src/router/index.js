@@ -2,6 +2,7 @@
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '../store'
 
 // 设置懒加载
 const Home = () => import('views/home/Home')
@@ -38,9 +39,9 @@ const routes = [
   {
     path: '/login',
     component: Login,
-    // meta:{
-    //   isLogin: false,
-    // }
+    meta:{
+      isLogin: false,
+    },
   },
   {
     path: '/news',
@@ -52,11 +53,17 @@ const routes = [
   },  
   {
     path: '/report',
-    component: Report
+    component: Report,
+    meta:{
+      isLogin: true,
+    }
   },
   {
     path: '/pdf',
-    component: Pdf
+    component: Pdf,
+    meta:{
+      isLogin: true,
+    }
   }
 ]
 
@@ -64,6 +71,48 @@ const routes = [
 const router = new VueRouter({
   mode: 'history',
   routes
+})
+
+
+router.beforeEach((to, from, next) => {
+  let getPhone = localStorage.getItem("userPhone");
+  if(getPhone !== null){
+    store.state.isLogin = true;
+    // console.log(store.state.isLogin);
+    // 对登录状态无要求的页面
+    if(to.meta.isLogin == null){
+      next();
+    }
+    else{
+      // 需要退出登录才能进入的页面
+      if(!to.meta.isLogin){
+        next({
+          path: '/home',
+        })
+      }
+      else{
+        next();
+      }
+    }
+  }
+  // 未登录状态
+  else{
+    // 对登录状态无要求的页面
+    if(to.meta.isLogin == null){
+      next();
+    }
+    else{
+      // 需要登录才能进入的页面
+      if(to.meta.isLogin){
+        next({
+          path: '/login',
+        })
+      }
+      else{
+        next();
+      }
+    }
+  }
 })
 
 // 4.导出
