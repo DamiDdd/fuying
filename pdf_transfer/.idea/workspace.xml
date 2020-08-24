@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98a16dd9-bc38-4978-a5bc-1a526b7feabe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pdf_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readjson.py" beforeDir="false" afterPath="$PROJECT_DIR$/readjson.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/report.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/report.pdf" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,27 +15,15 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/pdf_transfer$pdf_product_copy.coverage" NAME="pdf_product_copy Coverage Results" MODIFIED="1597392795239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/" />
     <SUITE FILE_PATH="coverage/pdf_transfer$readjson.coverage" NAME="readjson Coverage Results" MODIFIED="1597819760490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/" />
-    <SUITE FILE_PATH="coverage/pdf_transfer$pdf_product.coverage" NAME="pdf_product Coverage Results" MODIFIED="1597819373346" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/" />
+    <SUITE FILE_PATH="coverage/pdf_transfer$pdf_product.coverage" NAME="pdf_product Coverage Results" MODIFIED="1598237363087" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:/" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pdf_product.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2325">
-              <caret line="306" column="28" selection-start-line="306" selection-start-column="28" selection-end-line="306" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#104#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/readjson.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
+            <state relative-caret-position="175">
+              <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -52,6 +40,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>ttf</find>
+      <find>doc</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -61,14 +50,15 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/pdf_product_copy.py" />
-        <option value="$PROJECT_DIR$/pdf_product.py" />
         <option value="$PROJECT_DIR$/readjson.py" />
+        <option value="$PROJECT_DIR$/pdf_product.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="954" />
-    <option name="width" value="973" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -119,7 +109,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.readjson">
+  <component name="RunManager" selected="Python.pdf_product">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="pdf_transfer" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -215,8 +205,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.readjson" />
         <item itemvalue="Python.pdf_product" />
+        <item itemvalue="Python.readjson" />
         <item itemvalue="Python.pdf_product_copy" />
       </list>
     </recent_temporary>
@@ -235,22 +225,22 @@
       <workItem from="1597373273071" duration="12266000" />
       <workItem from="1597714614276" duration="23509000" />
       <workItem from="1597806854629" duration="4935000" />
+      <workItem from="1598234295612" duration="2958000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43286000" />
+    <option name="totallyTimeSpent" value="46244000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="954" y="0" width="973" height="1047" extended-state="1" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.5136911" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3822563" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.38177875" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -334,16 +324,6 @@
     <entry file="file://$PROJECT_DIR$/tables.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pdf_product.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2325">
-          <caret line="306" column="28" selection-start-line="306" selection-start-column="28" selection-end-line="306" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#104#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/report.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -352,8 +332,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/readjson.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
+        <state relative-caret-position="496">
+          <caret line="63" selection-start-line="63" selection-end-line="64" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdf_product.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
         </state>
       </provider>
     </entry>

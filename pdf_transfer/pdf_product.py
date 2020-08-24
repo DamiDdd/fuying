@@ -5,6 +5,7 @@ from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER, TA_LEFT
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
+from PyPDF2 import PdfFileWriter, PdfFileReader
 # 字体库添加中文字体
 pdfmetrics.registerFont(TTFont('pingbold', 'PingBold.ttf'))
 pdfmetrics.registerFont(TTFont('ping', 'ping.ttf'))
@@ -245,6 +246,36 @@ class PDFGenerator:
                                 showBoundary=1 * mm)
         doc.build(story)
 
+    def MergePDF(self, pdf_array, outfile):
+
+        output = PdfFileWriter()
+        outputPages = 0
+
+        if pdf_array:
+            for pdf_file in pdf_array:
+                print("%s" % pdf_file)
+
+                # 读取源PDF文件
+                input = PdfFileReader(open(pdf_file, "rb"))
+
+                # 获得源PDF文件中页面总数
+                pageCount = input.getNumPages()
+                outputPages += pageCount
+                print("页数：%d" % pageCount)
+
+                # 分别将page添加到输出output中
+                for iPage in range(pageCount):
+                    output.addPage(input.getPage(iPage))
+
+            print("合并后的总页数:%d." % outputPages)
+            # 写入到目标PDF文件
+            outputStream = open(outfile, "wb")
+            output.write(outputStream)
+            outputStream.close()
+            print("PDF文件合并完成！")
+
+        else:
+            print("没有可以合并的PDF文件！")
 
 
 
@@ -311,4 +342,7 @@ if __name__ == '__main__':
         "report_date": report['report_date']
     }
     report_pdfg.generatePDF(report,tables,result_report)
+    pdf1 = "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\report.pdf"
+    pdf2 = "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\template_ending.pdf"
+    report_pdfg.MergePDF([pdf1,pdf2],"C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\report_res.pdf")
 
