@@ -14,6 +14,7 @@ const Report = () => import('views/products/Report')
 const Pdf = () => import('views/products/Pdf')
 const Exit = () => import('views/exit/Exit')
 const ReportEdit = () => import('views/manager/ReportEdit')
+const Profile = () => import('views/profile/Profile')
 
 // // 解决路由重复报错问题
 // const originalPush = VueRouter.prototype.push
@@ -80,7 +81,14 @@ const routes = [
     meta:{
       isLogin : true,
     }
-  }
+  },
+  {
+    path: '/profile',
+    component: Profile,
+    meta:{
+      isLogin : true,
+    }
+  },
 ]
 
 // 3.创建路由对象

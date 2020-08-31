@@ -10,7 +10,9 @@
       <nav-bar-item link="/products"><div slot="text">产品</div></nav-bar-item>
     </div>
     <nav-bar-item v-show="!isLogin()" link="/login" slot="right" class="login"><div slot="text">登录/注册</div></nav-bar-item>
-    <nav-bar-item v-show="isLogin()" link="/exit" slot="right" class="login"><div slot="text">退出登录</div></nav-bar-item>
+    <div v-show="isLogin()" slot="right">
+      <nav-bar-item link="/profile" class="login"><div slot="text">个人中心</div></nav-bar-item>
+    </div>
   </nav-bar>
 </template>
 
