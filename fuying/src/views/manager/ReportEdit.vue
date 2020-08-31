@@ -49,7 +49,11 @@
           <div class="td-div-long"><textarea type="text" v-model="dataForm.explanation"></textarea></div>
           <div class="title-div-white"><p>细化检测结果</p></div>
           <div class="title-div"><p>一、实验室检测质控</p></div>
-
+          <el-upload class="upload-demo" style="display: inline-block;" action="" :on-change="leading"
+            :show-file-list="true" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
+            :auto-upload="false">
+            <el-button type="primary" icon="el-icon-upload" circle size="mini"></el-button>
+          </el-upload>
         </div>
       </div>
       <div class="main-div">
@@ -111,6 +115,52 @@ export default {
     this.dataForm.ms_text = "数据采集量1.5 G，谱图数81,220张，蛋白质鉴定总数2408。";
   },
   methods: {
+    // 这个excel上传组件我还没弄明白，待查
+    leading(file) { // 导入
+      this.importfxx(file.raw)
+    },
+    importfxx(obj) { //导入方法
+      // 通过DOM取文件数据
+      // let _this = this
+      let rABS = false; //是否将文件读取为二进制字符串
+      let f = obj
+      let reader = new FileReader();
+      FileReader.prototype.readAsBinaryString = function(f) {
+        let binary = "";
+        let rABS = false; //是否将文件读取为二进制字符串
+        // let pt = this;
+        let wb; //读取完成的数据
+        let outdata;
+        let reader = new FileReader();
+        reader.onload = function() {
+          let bytes = new Uint8Array(reader.result);
+          let length = bytes.byteLength;
+          for (let i = 0; i < length; i++) {
+          binary += String.fromCharCode(bytes[i]);
+          }
+          let XLSX = require('xlsx');
+          if (rABS) {
+            wb = XLSX.read(btoa(binary), { //手动转化
+            // wb = XLSX.read(btoa(fixdata(binary)), { //手动转化
+              type: 'base64'
+            });
+          } else {
+            wb = XLSX.read(binary, {
+              type: 'binary'
+            });
+          }
+          outdata = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]); //outdata就是res
+          console.log(outdata)
+        }
+        reader.readAsArrayBuffer(f);
+      }
+      if (rABS) {
+        reader.readAsArrayBuffer(f);
+      } else {
+        reader.readAsBinaryString(f);
+      }
+    },
+
     handleUpload(){
       console.log(this.dataForm.mass_spectrogram_img);
     },
@@ -262,5 +312,10 @@ export default {
   .upload-input{
     width: 400px;
     padding-left: 20px;
+  }
+
+  .upload-demo{
+    padding-left: 20px;
+    padding-top: 10px;
   }
 </style>

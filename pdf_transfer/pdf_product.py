@@ -246,6 +246,20 @@ class PDFGenerator:
             story.append(Paragraph("您的将康档案记录评估健康 " + result_report["sum_num"] + "次；评估异常" + result_report["error_num"] + "次", self.side_style))
             story.append(PageBreak())
 
+            # 功能报告*
+            for set in result_report["score_report"]:
+                type = set['type']
+                table = set['table']
+                for row in table:
+                    row.insert(0,type)
+                for i in range(table.__len__()):
+                    for j in range(table[i].__len__()):
+                        table[i][j] = Paragraph(table[i][j], self.tabletext_style)
+                table = Table(table, colWidths=[10*mm,40*mm,20*mm,80*mm],
+                              rowHeights=40 * mm, style=self.table2_style)
+                story.append(table)
+            story.append(PageBreak())
+
             story.append(Spacer(1, 5*mm))
             story.append(Paragraph("结果说明",self.table_title_style))
             story.append(Spacer(1, 10 * mm))
@@ -358,6 +372,19 @@ if __name__ == '__main__':
         "sum_num" : "1",
         "error_num" : "0",
         "score_img" : "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\score.png",
+        "score_report" : [{"type":"基础评价",
+                           "table" : [["甘油三酯指数","偏高","均衡饮食、避免过度疲劳、戒烟戒酒，定期体检监测内分泌系统功能、心脑血管情况"],
+                                      ["载脂蛋白指数","偏低","清淡饮食、减少淀粉、糖类、油脂摄入，避免过度疲劳、戒烟戒酒，根据自身情况合理制定运动计划，适当增加日常运动量，定期体检监测内分系统功能、心脑血管情况"],
+                                      ["总胆固醇指数","偏低","合理安排作息、均衡饮食、避免过度疲劳、戒烟戒酒，定期体检监测肝功能、内分泌系统情况"]],},
+                          {"type": "代谢功能评价",
+                           "table": [["L-丝氨酸合成指数", "偏高", "均衡饮食、避免过度疲劳、戒烟戒酒，定期体检监测内分泌系统功能、心脑血管情况"],
+                                     ["L-苏氨酸降解指数", "偏低",
+                                      "清淡饮食、减少淀粉、糖类、油脂摄入，避免过度疲劳、戒烟戒酒，根据自身情况合理制定运动计划，适当增加日常运动量，定期体检监测内分系统功能、心脑血管情况"]],},
+                           {"type": "免疫功能评价",
+                            "table": [["中枢 CD4+ T 细胞指数", "偏高", "定期体检排除病毒、细菌感染、自身免疫性疾病可能，均衡饮食、避免暴饮暴食、避免过度疲劳、戒烟戒酒，并根据自身条件合理制定运动计划，循序渐进锻炼身体"],
+                                      ["总CD8+T 细胞指数", "偏高",
+                                       "定期体检排除病毒、细菌感染、自身免疫性疾病可能，均衡饮食、避免暴饮暴食、避免过度疲劳、戒烟戒酒，并根据自身条件合理制定运动计划，循序渐进锻炼身体"]],}],
+
         "result": ["(1)免疫系统评价中，中枢CD4+T细胞指数，效应性CD4+T细胞指数，记忆性CD4+T细胞指数，M1型巨噬细胞指数，γδT细胞指数，单核细胞指数，共6项生理指数明显异常于人群队列，且对健康状态有明显负面影响，机体出现部分免疫效应的概率较大。建议您注意日常生活及饮食情况，适当运动，适当补充营养物质，以提高机体免疫力，预防疾病的发生，若生活中有感不适请及时就医。",
                    "(2)代谢功能评价中，嘌呤指数，生酮指数，共2项生理指数明显异常于人群队列，且对健康状态有明显负面影响，机体有一定概率出现痛风、低血糖、或糖原贮存不足等情况，日积月累容易导致健康问题，建议您注意日常生活及饮食情况，适当运动，若生活中有感不适请及时就医。",
                    "(3)基础评价中，生理年龄，内脏脂肪率指数，尿素指数，甘油三酯指数，总胆固醇指数，共5项生理指数明显异常于人群队列，且对健康状态有明显负面影响。建议您生活中保持精神愉悦，少食多餐，粗细粮搭配，适当使用含植物纤维的食物，使用保护心脑血管的食物，并适当运动。",
