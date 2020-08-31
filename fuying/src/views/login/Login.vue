@@ -28,6 +28,7 @@ import Register from 'views/login/childComps/Register';
 import Axios from 'axios'
  
 export default {
+	name: "Login",
 	data() {
 		var validatePass = (rule, value, callback) => {
 			if (value === '') {
@@ -52,7 +53,7 @@ export default {
                 callback();
                 return true;
 			}
-        };
+		};
  
 		return {
 			activeName: 'first',
@@ -61,14 +62,14 @@ export default {
 			ruleForm: {
 				phone: '',
 				pass: '',
-				checkPass: ''
 			},
 			rules: {
 				phone: [{required: true, validator: validatePhone, trigger: 'blur'}],
-				pass: [{ required: true, validator: validatePass, trigger: 'blur' }]
+				pass: [{ required: true, validator: validatePass, trigger: 'blur' }],
 			}
 		};
 	},
+
  
 	methods: {
 		//选项卡切换
@@ -101,6 +102,7 @@ export default {
 								this.$router.push("/home");
 							}
 							else{
+								// 可以改进，后台直接返回汉语错误信息，前台通过msg展示即可
 								if(!data["registered"]){
 									this.$message({
 										type: 'warning',
@@ -126,7 +128,7 @@ export default {
 		}
 	},
 	components: {
-		Register
+		Register,
 	}
 };
 </script>

@@ -223,6 +223,7 @@ export default {
 		submitForm(formName) {
 			this.$refs[formName].validate(valid => {
 				if (valid) {
+                    let that = this
                     this.packDataForm();
                     // console.log(this.dataForm);
                     // 数据封装成后台可解析dict
@@ -237,6 +238,28 @@ export default {
                     )
                     .then(function(response){
                         console.log(response);
+                        if(response.status === 200){
+							let data = response.data;
+							if(data["success"]){
+								that.$message({
+									type: 'success',
+									message: '注册成功，已为您自动登录'
+								});
+								that.$store.dispatch("setUser",true);
+								console.log(that.$store.state.isLogin);
+								// 本地存储登录信息
+								localStorage.setItem("userPhone",that.ruleForm["phone"]);
+								that.$router.push("/home");
+							}
+							else{
+								if(data["msg"] === "验证码错误"){
+									that.$message({
+										type: 'warning',
+										message: '验证码错误'
+									});
+								}
+							}
+						}
                     })
                     .catch(function (error){
                         console.log(error);
