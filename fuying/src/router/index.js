@@ -13,6 +13,7 @@ const Products = () => import('views/products/Products')
 const Report = () => import('views/products/Report')
 const Pdf = () => import('views/products/Pdf')
 const Exit = () => import('views/exit/Exit')
+const ReportEdit = () => import('views/manager/ReportEdit')
 
 // // 解决路由重复报错问题
 // const originalPush = VueRouter.prototype.push
@@ -72,6 +73,13 @@ const routes = [
     meta:{
       isLogin : true,
     }
+  },
+  {
+    path: '/reportEdit',
+    component: ReportEdit,
+    meta:{
+      isLogin : true,
+    }
   }
 ]
 
@@ -81,7 +89,7 @@ const router = new VueRouter({
   routes
 })
 
-
+// 设置各种进入权限判断
 router.beforeEach((to, from, next) => {
   let getPhone = localStorage.getItem("userPhone");
   if(getPhone !== null){

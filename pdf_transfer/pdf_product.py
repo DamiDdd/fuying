@@ -31,6 +31,10 @@ class PDFGenerator:
                                                 textColor=self.theme_color, spaceAfter=10, alignment=TA_LEFT, )
         self.title_style = ParagraphStyle(name="TitleStyle", fontName="pingbold", fontSize=40, leading=25,
                                                 textColor=self.theme_color, spaceAfter=10, alignment=TA_CENTER, )
+        # 附加样式*
+        self.side_style = ParagraphStyle(name="SideStyle", fontName="ping", fontSize=12, leading=20, spaceAfter=20,
+                                         underlineWidth=1, alignment=TA_LEFT)
+
         self.table_style = TableStyle([('FONTNAME', (0, 0), (-1, -1), 'ping'),
                                       ('FONTSIZE', (0, 0), (-1, -1), 12),
                                       ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
@@ -225,6 +229,23 @@ class PDFGenerator:
 
         # 结果说明
         if result_report != None:
+            # 预测分数*
+            img = Image(result_report["score_img"], kind="absolute", hAlign="CENTER")
+            img.drawHeight = 90 * mm
+            img.drawWidth = 100 * mm
+            img.vAlign = "TOP"
+            story.append(Spacer(1, 5*mm))
+            story.append(Paragraph("了解预测分数", self.table_title_style))
+            story.append(Spacer(1, 4*mm))
+            story.append(img)
+            story.append(Spacer(1, 8*mm))
+            story.append(Paragraph("健康评分主要是根据个人蛋白质组表达水平与万人队列相匹配，并根据"
+                                   "相关生理指数高低与健康状态相关联，通过计算显示整体健康评分。", self.side_style))
+            story.append(Paragraph("基础分：500 分；健康情况正常：1 分；健康情况极差：-3 分；健康情况较差："
+                                   "-1 分；健康情况良好：1 分；健康情况优秀：3 分。",self.side_style))
+            story.append(Paragraph("您的将康档案记录评估健康 " + result_report["sum_num"] + "次；评估异常" + result_report["error_num"] + "次", self.side_style))
+            story.append(PageBreak())
+
             story.append(Spacer(1, 5*mm))
             story.append(Paragraph("结果说明",self.table_title_style))
             story.append(Spacer(1, 10 * mm))
@@ -333,6 +354,10 @@ if __name__ == '__main__':
                         "description": "您的内脏脂肪率指数在万人队列中的位比为92.79%，处在极高位区，表示您的内脏脂肪率指数水平高于92.79%的人群，需注意日常生活及饮食情况，根据自身需求进行相应调整。若感不适请及时就医。"}], },
     ]
     result_report = {
+        # 添加属性*
+        "sum_num" : "1",
+        "error_num" : "0",
+        "score_img" : "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\score.png",
         "result": ["(1)免疫系统评价中，中枢CD4+T细胞指数，效应性CD4+T细胞指数，记忆性CD4+T细胞指数，M1型巨噬细胞指数，γδT细胞指数，单核细胞指数，共6项生理指数明显异常于人群队列，且对健康状态有明显负面影响，机体出现部分免疫效应的概率较大。建议您注意日常生活及饮食情况，适当运动，适当补充营养物质，以提高机体免疫力，预防疾病的发生，若生活中有感不适请及时就医。",
                    "(2)代谢功能评价中，嘌呤指数，生酮指数，共2项生理指数明显异常于人群队列，且对健康状态有明显负面影响，机体有一定概率出现痛风、低血糖、或糖原贮存不足等情况，日积月累容易导致健康问题，建议您注意日常生活及饮食情况，适当运动，若生活中有感不适请及时就医。",
                    "(3)基础评价中，生理年龄，内脏脂肪率指数，尿素指数，甘油三酯指数，总胆固醇指数，共5项生理指数明显异常于人群队列，且对健康状态有明显负面影响。建议您生活中保持精神愉悦，少食多餐，粗细粮搭配，适当使用含植物纤维的食物，使用保护心脑血管的食物，并适当运动。",
