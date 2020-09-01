@@ -93,7 +93,7 @@ export default {
 							if(data["success"]){
 								this.$message({
 									type: 'success',
-									message: '登陆成功'
+									message: '登陆成功 欢迎'+this.ruleForm["phone"],
 								});
 								this.$store.dispatch("setUser",true);
 								console.log(this.$store.state.isLogin);
