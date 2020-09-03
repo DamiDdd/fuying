@@ -59,4 +59,7 @@ export default {
   .reduce, .add, .type{
     cursor: pointer;
   }
+  .reduce, .num, .add{
+    float: left;
+  }
 </style>

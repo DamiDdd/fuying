@@ -1,18 +1,21 @@
 <template>
   <div id="detail">
     <div class="num-control">
+      <slider></slider>
       <good-view :item="good"></good-view>
     </div>
   </div>
 </template>
 
 <script>
-import GoodView from "components/common/mall/GoodView"
+import GoodView from "components/content/detail/GoodView"
+import Slider from "components/common/slide/Slider";
 
 export default {
   name: "Detail",
   components:{
     GoodView,
+    Slider,
   },
   data(){
     return{
