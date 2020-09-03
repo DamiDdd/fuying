@@ -20,21 +20,7 @@ export default {
   },
   data(){
     return {
-      goodsList:
-      [
-        {
-          id: "1",
-          title:"基础套餐",
-          imgurl: "https://www.fenghbio.cn/themes/echq/images/con1.jpg",
-          desc: "基础套餐【19类刻画，44项生理指数;套餐价格仅为500元，购买享受特色服务",
-        },
-        {
-          id: "2",
-          title: "bbb",
-          imgurl: "https://www.fenghbio.cn/themes/echq/images/con1.jpg",
-          desc: "hhh",
-        },
-      ],
+      goodsList:[],
     }
   },
   mounted(){

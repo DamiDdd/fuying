@@ -15,6 +15,7 @@ const Pdf = () => import('views/profile/Pdf')
 const Exit = () => import('views/exit/Exit')
 const ReportEdit = () => import('views/manager/ReportEdit')
 const Profile = () => import('views/profile/Profile')
+const Detail = () => import('views/good/Detail')
 
 // // 解决路由重复报错问题
 // const originalPush = VueRouter.prototype.push
@@ -88,6 +89,10 @@ const routes = [
     meta:{
       isLogin : true,
     }
+  },
+  {
+    path: '/detail',
+    component: Detail,
   },
 ]
 
