@@ -19,16 +19,9 @@ export default {
     ItemWindow,
   },
   data(){
-    return{
-    }
-  },
-  mounted(){
-  },
-  props:{
-    goodsList:{
-      type: Array,
-      default(){ 
-        return [
+    return {
+      goodsList:
+      [
         {
           id: "1",
           title:"基础套餐",
@@ -41,39 +34,19 @@ export default {
           imgurl: "https://www.fenghbio.cn/themes/echq/images/con1.jpg",
           desc: "hhh",
         },
-        {      
-          id: "3",
-          title:"ccc",          
-          imgurl: "https://www.fenghbio.cn/themes/echq/images/con1.jpg",
-          desc: "hhh",
-        },
-        {
-          id: "1",
-          title:"aaa",
-          imgurl: "https://www.fenghbio.cn/themes/echq/images/con1.jpg",
-          desc: "hhh",
-        },
-        {
-          id: "1",
-          title:"aaa",
-          imgurl: "https://www.fenghbio.cn/themes/echq/images/con1.jpg",
-          desc: "hhh",
-        },
-        {
-          id: "1",
-          title:"aaa",
-          imgurl: "https://www.fenghbio.cn/themes/echq/images/con3.jpg",
-          desc: "hhh",
-        },        
-        {
-          id: "1",
-          title:"aaa",
-          imgurl: "https://www.fenghbio.cn/themes/echq/images/con2.jpg",
-          desc: "hhh",
-        },
-        ]
-      },
+      ],
     }
+  },
+  mounted(){
+    // 在这里通过URL获取后端的所有商品信息
+    this.$set(this.goodsList,this.goodsList.length,{          
+      id: "1",
+      title:"基础套餐",
+      imgurl: "https://www.fenghbio.cn/themes/echq/images/con1.jpg",
+      desc: "基础套餐【19类刻画，44项生理指数;套餐价格仅为500元，购买享受特色服务",})
+    console.log(this.goodsList.length)
+  },
+  props:{
   },
 }
 </script>
