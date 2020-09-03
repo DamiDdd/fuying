@@ -1,7 +1,7 @@
 <template>
   <div id="detail">
     <div class="num-control">
-      <slider :imgWidth=300></slider>
+      <slider :imgWidth=600></slider>
       <good-view :item="good"></good-view>
     </div>
   </div>

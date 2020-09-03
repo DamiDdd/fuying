@@ -62,4 +62,8 @@ export default {
   .reduce, .num, .add{
     float: left;
   }
+  .type{
+    width: 300px;
+    border: 1px solid;
+  }
 </style>
