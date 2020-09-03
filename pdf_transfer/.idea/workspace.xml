@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98a16dd9-bc38-4978-a5bc-1a526b7feabe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../fuying/src/components/common/mall/ItemWindow.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../fuying/src/components/common/mall/ItemWindow.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fuying/src/views/products/Products.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../fuying/src/views/products/Products.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pdf_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/report.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report_res.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/report_res.pdf" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,11 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pdf_product.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="317" column="14" selection-start-line="317" selection-start-column="14" selection-end-line="317" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#104#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="75">
+              <caret line="9" column="32" selection-start-line="8" selection-end-line="9" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -231,11 +226,12 @@
       <workItem from="1598838308010" duration="10400000" />
       <workItem from="1598942795812" duration="59000" />
       <workItem from="1599024156303" duration="5664000" />
+      <workItem from="1599039016972" duration="69000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66860000" />
+    <option name="totallyTimeSpent" value="66929000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
@@ -347,11 +343,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pdf_product.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="317" column="14" selection-start-line="317" selection-start-column="14" selection-end-line="317" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#104#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="75">
+          <caret line="9" column="32" selection-start-line="8" selection-end-line="9" selection-end-column="34" />
         </state>
       </provider>
     </entry>
