@@ -1,6 +1,6 @@
 <template>
   <div id="slider">
-    <div class="window" @mouseover="stop" @mouseleave="play">
+    <div class="window" :style="{width:imgWidth+'px'}" @mouseover="stop" @mouseleave="play">
       <ul class="container" :style="containerStyle">
         <li>
           <img :style="{width:imgWidth+'px'}" :src="sliders[sliders.length - 1].img" alt="">
@@ -20,7 +20,7 @@
           <svg class="icon" width="30px" height="30.00px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M557.179 904c-8.189 0-16.379-3.124-22.628-9.372-12.496-12.497-12.496-32.759 0-45.256L871.924 512 534.551 174.627c-12.496-12.497-12.496-32.758 0-45.255 12.498-12.497 32.758-12.497 45.256 0l360 360c12.496 12.497 12.496 32.758 0 45.255l-360 360c-6.249 6.249-14.439 9.373-22.628 9.373z"  /></svg>
         </li>
       </ul>
-      <ul class="dots">
+      <ul class="dots" v-show="morethanone">
         <li v-for="(dot, i) in sliders" :key="i"
         :class="{dotted: i === (currentIndex-1)}"
         @click = jump(i+1)
@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import notfound from '../../../assets/img/common/notfound.png'
+
 export default {
   name: 'slider',
   props: {
@@ -52,10 +54,15 @@ export default {
     sliders:{
       type: Array,
       default(){
-        return [{
-          img:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599128436987&di=fb96b4b13f8107675eb1e46ec461535d&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fa1098535f9b8bde03b5cfcfec48627320d1f12a15100f-o1IY9b_fw658',
-        },{
-          img:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599128436986&di=8771b1e83895e6cd2b3ac15d83adda55&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F1%2F57bd44387447f.jpg'  
+        return [
+        {
+          img:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599128436987&di=fb96b4b13f8107675eb1e46ec461535d&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fa1098535f9b8bde03b5cfcfec48627320d1f12a15100f-o1IY9b_fw658'
+        },
+        {
+          img:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599128436986&di=8771b1e83895e6cd2b3ac15d83adda55&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F1%2F57bd44387447f.jpg'
+        },
+        {
+          img: notfound
         }]  
       }
     }
@@ -84,6 +91,9 @@ export default {
     },
     interval() {
       return this.initialInterval * 1000
+    },
+    morethanone(){
+      return this.sliders.length > 1
     }
   },
   mounted() {
@@ -160,7 +170,7 @@ export default {
   }
   .window{
     position:relative;
-    width:600px;
+    /* width:600px; */
     height:400px;
     margin:0 auto;
     overflow:hidden;
