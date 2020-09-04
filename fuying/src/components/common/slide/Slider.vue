@@ -170,7 +170,7 @@ export default {
   }
   .window{
     position:relative;
-    /* width:600px; */
+    /* width: imgWidth; */
     height:400px;
     margin:0 auto;
     overflow:hidden;

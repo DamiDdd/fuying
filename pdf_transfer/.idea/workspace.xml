@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98a16dd9-bc38-4978-a5bc-1a526b7feabe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../fuying/src/components/common/mall/ItemWindow.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../fuying/src/components/common/mall/ItemWindow.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fuying/src/views/products/Products.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../fuying/src/views/products/Products.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fuying/src/components/common/slide/Slider.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../fuying/src/components/common/slide/Slider.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fuying/src/views/goods/Detail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../fuying/src/views/goods/Detail.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +41,7 @@
       <find>ttf</find>
       <find>doc</find>
       <find>#</find>
+      <find>:</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -55,7 +56,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -66,6 +67,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -77,7 +79,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -227,14 +228,15 @@
       <workItem from="1598942795812" duration="59000" />
       <workItem from="1599024156303" duration="5664000" />
       <workItem from="1599039016972" duration="69000" />
+      <workItem from="1599185139589" duration="735000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66929000" />
+    <option name="totallyTimeSpent" value="67664000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.5131291" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -311,9 +313,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pdf_product_copy.py" />
-    <entry file="file://$PROJECT_DIR$/tables.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/report.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -338,6 +337,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
           <caret line="408" column="28" selection-start-line="408" selection-start-column="28" selection-end-line="408" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tables.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="915" selection-start-column="914" selection-end-column="915" />
         </state>
       </provider>
     </entry>

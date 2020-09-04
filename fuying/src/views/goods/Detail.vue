@@ -26,13 +26,15 @@ export default {
         desc: "desc",
         type:[
           {
+            id: "1",
             name:"基础生理刻画套餐",
             tip:"包括基础",
-            price:"100",
+            price: 100,
           },{
+            id: "2",
             name:"升级生理刻画套餐",
             tip:"包括升级版",  
-            price:"200",
+            price: 200,
           }
         ],
       }
@@ -51,12 +53,20 @@ export default {
   }
   .num-control{
     margin-left:200px;
+    margin-top: 100px;
   }
   .left{
-    /* float: left; */
-    background: blue;
+    float: left;
+    /* background: blue; */
+    width: 800px;
   }
   .right{
-    background:gray;
+    float: left;
+    position: absolute;
+    margin-left: 800px;
+    width: 800px;
+    min-height: 400px;
+    background: url("~assets/img/bg/item-bg.jpg") top right;
+    background-size: 100% 100%;
   }
 </style>
