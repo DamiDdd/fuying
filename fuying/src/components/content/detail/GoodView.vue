@@ -1,6 +1,6 @@
 <template>
   <div class="cartcontrol">
-    <div class="title">{{item.title}}</div>
+    <div class="main">{{item.title}}</div>
     <div class="text">{{item.desc}}</div>
     <div class="type" v-for="(i,index) in item.type" :key="index" @click="typeChoose(index)">{{i.name}}</div>
     <div class="tip">
@@ -56,6 +56,10 @@ export default {
 </script>
 
 <style scoped>
+  .cartcontrol{
+    width: 400px;
+    height: 200px;
+  }
   .reduce, .add, .type{
     cursor: pointer;
   }

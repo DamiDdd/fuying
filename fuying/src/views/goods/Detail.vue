@@ -1,8 +1,8 @@
 <template>
   <div id="detail">
     <div class="num-control">
-      <slider :imgWidth=600></slider>
-      <good-view :item="good"></good-view>
+      <div class="left"><slider :imgWidth=600></slider></div>
+      <div class="right"><good-view :item="good"></good-view></div>
     </div>
   </div>
 </template>
@@ -51,5 +51,12 @@ export default {
   }
   .num-control{
     margin-left:200px;
+  }
+  .left{
+    /* float: left; */
+    background: blue;
+  }
+  .right{
+    background:gray;
   }
 </style>
