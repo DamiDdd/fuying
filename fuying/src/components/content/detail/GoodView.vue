@@ -14,6 +14,8 @@
     <div class="reduce" @click="deleteCart"><img src="~assets/img/common/delete.jpg"></div>
     <div class="num">{{item.count}}</div>
     <div class="add" @click="addCart"><img src="~assets/img/common/add.jpg"></div>
+    <button class="add2cart">加入购物车</button>
+    <button class="purchase">立即购买</button>
   </div>
 </template>
 
@@ -60,7 +62,7 @@ export default {
         this.item.count--;
     },
     typeChoose(index){
-      console.log(index);
+      // console.log(index);
       this.item.count = 1;
       this.index = index;
     },
@@ -91,7 +93,7 @@ export default {
   .reduce, .add, .type{
     cursor: pointer;
   }
-  .reduce, .num, .add{
+  .reduce, .num{
     float: left;
   }
   .label{
@@ -104,6 +106,7 @@ export default {
   .type{
     /* width: 130px; */
     height: 30px;
+    /* float: left; */
     border: 1px solid wheat;
     margin-left: 20px;
     padding-top: 10px;
@@ -140,5 +143,28 @@ export default {
   }
   .active{
     border: 1px solid red;
+    background: url("~assets/img/common/bingo.jpg") no-repeat bottom right;
+    background-size: 12px 12px;
+  }
+  button {
+    border: none;
+    padding: 15px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 15px;
+    outline: none;
+  }
+  .add2cart{
+    background-color: #ffce6b;
+    color: #6b6b6b;
+  }
+  .purchase{
+    margin-top: 20px;
+    background-color: #ffb3a7;
+    color:  white;
   }
 </style>

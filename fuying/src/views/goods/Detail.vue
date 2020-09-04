@@ -4,6 +4,16 @@
       <div class="left"><slider :imgWidth=600></slider></div>
       <div class="right"><good-view :item="good"></good-view></div>
     </div>
+    <div class="img-window">
+      <div class="label">
+        <!-- <div class="type" v-for="(i,index) in good.imgs" :key="index" @click="typeChoose(index)" :class="active(index)">{{i.name}}</div> -->
+        <div class="type" v-for="(i,index) in good.imgs" :key="index">{{i.name}}</div>
+      </div>
+      <div class="imgs">
+        <!-- {{good.imgs[this.index].imgs}} -->
+        <!-- <img v-for="" src="" alt=""> -->
+      </div> 
+    </div>
   </div>
 </template>
 
@@ -35,19 +45,32 @@ export default {
             name:"升级",
             tip:"包括升级版",  
             price: 200,
-          },
-          // {
-          //   id: "2",
-          //   name:"升级生理刻画套餐",
-          //   tip:"包括升级版",  
-          //   price: 200,
-          // },{
-          //   id: "2",
-          //   name:"升级生理刻画套餐",
-          //   tip:"包括升级版",  
-          //   price: 200,
-          // }
+          }
         ],
+        imgs:[
+          {
+            name:"1",
+            imgs:[
+              "",
+              "",
+              ""
+            ],
+          },
+          {
+            name:"2",
+            imgs:[
+              "",
+              ""
+            ],
+          },
+          {
+            name:"3",
+            imgs:[
+              "",
+              ""
+            ],
+          },
+        ]
       }
     }
   },
@@ -60,9 +83,12 @@ export default {
 
 <style scoped>
   #detail{
-    min-height: 500px;
+    min-height: var(--screen-height);
+    width: var(--screen-width);
+    /* background: gray; */
   }
   .num-control{
+    min-height: 600px;
     margin-left:200px;
     margin-top: 100px;
   }
@@ -77,11 +103,17 @@ export default {
     position: absolute;
     margin-left: 800px;
     width: 800px;
-    min-height: 450px;
+    min-height: 600px;
     background: url("~assets/img/bg/item-bg.jpg") top right;
     background-size: 100% 100%;
   }
   .cartcontrol{
+    height: 700px;
     margin-left: 100px; 
+  }
+  .img-window{
+    margin-top: 130px;
+    min-height: 600px;
+    /* background: #000; */
   }
 </style>

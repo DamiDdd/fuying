@@ -94,5 +94,6 @@ export default {
     font-weight: bold;
     cursor: pointer;
     border-radius: 15px;
-}
+    outline: none;
+  }
 </style>
