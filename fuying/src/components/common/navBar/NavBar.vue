@@ -16,19 +16,18 @@ export default {
 
 <style scoped>
   #nav-bar {
-    height: 46px;
-    overflow: hidden;
+    height: 50px;
+    overflow: auto;
     position: relative;
     z-index: 10;
     display: flex;
-    height: 44px;
     width: var(--screen-width);
     line-height: 44px;
     text-align: center;
   }
   
   .nav-logo{
-    width: 60px;
+    width: 3%;
   }
 
   .nav-logo img{
@@ -40,8 +39,9 @@ export default {
 
   .nav-center{
     flex: 1;
+    /* float: left; */
     /* margin-right: 0; */
-    margin-left: 1330px;
+    margin-left: 70%;
   }
 
   .nav-right{

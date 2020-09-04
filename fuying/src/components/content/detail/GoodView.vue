@@ -1,17 +1,19 @@
 <template>
   <div class="cartcontrol">
-    <div class="main">{{item.title}}</div>
+    <div class="main title">{{item.title}}</div>
     <div class="text">{{item.desc}}</div>
-    <div class="type" v-for="(i,index) in item.type" :key="index" @click="typeChoose(index)">{{i.name}}</div>
-    <div class="tip">
+    <div class="label"><div class="type" v-for="(i,index) in item.type" :key="index" @click="typeChoose(index)" :class="active(index)">{{i.name}}</div></div>
+    <div class="text">
       {{item.type[this.index].tip}}
     </div>    
     <div class="price">
-      {{item.type[this.index].price}}
+      <span class="price-1">价格</span>
+      <span class="price-2">¥</span>
+      <span class="price-3">{{sumPrice}}</span>
     </div>
-    <div class="reduce" @click="deleteCart">-</div>
+    <div class="reduce" @click="deleteCart"><img src="~assets/img/common/delete.jpg"></div>
     <div class="num">{{item.count}}</div>
-    <div class="add" @click="addCart">+</div>
+    <div class="add" @click="addCart"><img src="~assets/img/common/add.jpg"></div>
   </div>
 </template>
 
@@ -29,7 +31,7 @@ export default {
       //  默认赋值count为0
       default(){
         return{
-          count: 0,
+          count: 1,
         }
       }
     }
@@ -38,17 +40,28 @@ export default {
     itemnum(){
       return this.item.count > 0;
     },
+    sumPrice(){
+      return this.item.count * this.item.type[this.index].price;
+    },
   },
   methods:{
+    active(index){
+      if(this.index == index)
+        return "active";
+      else{        
+        return "";
+      }
+    },
     addCart(){
       this.item.count++;
     },
     deleteCart(){
-      if(this.item.count>0)
+      if(this.item.count>1)
         this.item.count--;
     },
     typeChoose(index){
       console.log(index);
+      this.item.count = 1;
       this.index = index;
     },
   }
@@ -57,8 +70,23 @@ export default {
 
 <style scoped>
   .cartcontrol{
-    width: 400px;
-    height: 200px;
+    width: 550px;
+    /* background: gray; */
+    overflow: hidden;
+  }
+  .cartcontrol div{
+    margin-top: 20px;
+  }
+  .main{
+    font-size: 40px;
+  }
+  .text{
+    /* background: gray; */
+    height: 50px;
+    font-size: 18px;
+    line-height: 23px;
+    color:gray;
+    overflow: auto;
   }
   .reduce, .add, .type{
     cursor: pointer;
@@ -66,8 +94,51 @@ export default {
   .reduce, .num, .add{
     float: left;
   }
+  .label{
+    /* background: gray; */
+    width: 600px;
+    height: 80px;
+    display: flex;
+    overflow: auto;
+  }
   .type{
-    width: 300px;
-    border: 1px solid;
+    /* width: 130px; */
+    height: 30px;
+    border: 1px solid wheat;
+    margin-left: 20px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .type:first-of-type{
+    margin-left: 0px;
+  }
+  .price{
+    color:red;
+    font-weight: bold;
+  }
+  .price-1{
+    font-size: 20px;
+  }
+  .price-2{
+    font-size: 20px;
+    margin-left: 20px;
+  }
+  .price-3{
+    font-size: 40px;
+    margin-left: 10px;
+  }
+  .reduce img, .add img{
+    width: 40px;
+  }
+  .num{
+    font-size: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: center;
+    width:80px;
+  }
+  .active{
+    border: 1px solid red;
   }
 </style>

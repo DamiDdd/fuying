@@ -22,8 +22,8 @@ export default {
       // 传参
       good:{
         title: "title",
-        count: 0,
-        desc: "desc",
+        count: 1,
+        desc: "desc, i think i should add some words here to fill this div. desc, i think i should add some words here to fill this div",
         type:[
           {
             id: "1",
@@ -32,17 +32,28 @@ export default {
             price: 100,
           },{
             id: "2",
-            name:"升级生理刻画套餐",
+            name:"升级",
             tip:"包括升级版",  
             price: 200,
-          }
+          },
+          // {
+          //   id: "2",
+          //   name:"升级生理刻画套餐",
+          //   tip:"包括升级版",  
+          //   price: 200,
+          // },{
+          //   id: "2",
+          //   name:"升级生理刻画套餐",
+          //   tip:"包括升级版",  
+          //   price: 200,
+          // }
         ],
       }
     }
   },
   mounted(){
     //  在这里申请拿到商品数据
-    this.good['count'] = 0;
+    this.good['count'] = 1;
   }
 }
 </script>
@@ -59,14 +70,18 @@ export default {
     float: left;
     /* background: blue; */
     width: 800px;
+    min-height: 450px;
   }
   .right{
     float: left;
     position: absolute;
     margin-left: 800px;
     width: 800px;
-    min-height: 400px;
+    min-height: 450px;
     background: url("~assets/img/bg/item-bg.jpg") top right;
     background-size: 100% 100%;
+  }
+  .cartcontrol{
+    margin-left: 100px; 
   }
 </style>
