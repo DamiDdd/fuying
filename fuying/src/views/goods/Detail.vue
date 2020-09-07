@@ -1,17 +1,17 @@
 <template>
   <div id="detail">
     <div class="num-control">
+      <!-- slider未传入图片参数时，默认显示没有相关信息图样 -->
       <div class="left"><slider :imgWidth=600></slider></div>
       <div class="right"><good-view :item="good"></good-view></div>
     </div>
     <div class="img-window">
       <div class="label">
         <!-- <div class="type" v-for="(i,index) in good.imgs" :key="index" @click="typeChoose(index)" :class="active(index)">{{i.name}}</div> -->
-        <div class="type" v-for="(i,index) in good.imgs" :key="index">{{i.name}}</div>
+        <div class="type" v-for="(i,index) in good.imgs" :key="index" @click="tagChoose(index)" :class="judgeActive(index)">{{i.name}}</div>
       </div>
       <div class="imgs">
-        <!-- {{good.imgs[this.index].imgs}} -->
-        <!-- <img v-for="" src="" alt=""> -->
+        <img v-for="(i,index) in good.imgs[this.index].imgs" :key="index" :src="i">
       </div> 
     </div>
   </div>
@@ -29,11 +29,14 @@ export default {
   },
   data(){
     return{
+      index:0,
+
       // 传参
       good:{
         title: "title",
         count: 1,
         desc: "desc, i think i should add some words here to fill this div. desc, i think i should add some words here to fill this div",
+        index: 0,
         type:[
           {
             id: "1",
@@ -49,25 +52,23 @@ export default {
         ],
         imgs:[
           {
-            name:"1",
+            name:"服务详情",
             imgs:[
-              "",
-              "",
-              ""
+              "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1020757406,2710278676&fm=26&gp=0.jpg",
+              "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1020757406,2710278676&fm=26&gp=0.jpg"
             ],
           },
           {
-            name:"2",
+            name:"检测参数",
             imgs:[
-              "",
-              ""
+              "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1020757406,2710278676&fm=26&gp=0.jpg"
             ],
           },
           {
-            name:"3",
+            name:"检测流程",
             imgs:[
-              "",
-              ""
+              "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1020757406,2710278676&fm=26&gp=0.jpg",
+              "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1588620919,359805583&fm=26&gp=0.jpg"
             ],
           },
         ]
@@ -77,6 +78,20 @@ export default {
   mounted(){
     //  在这里申请拿到商品数据
     this.good['count'] = 1;
+  },
+  methods:{
+    tagChoose(index){
+      this.index = index;
+      console.log(this.index)
+    },
+    judgeActive(index){
+      if(this.index === index){
+        return "active"
+      }
+      else{
+        return ""
+      }
+    }
   }
 }
 </script>
@@ -113,7 +128,40 @@ export default {
   }
   .img-window{
     margin-top: 130px;
+    margin-left: 19%;
     min-height: 600px;
-    /* background: #000; */
+    width: 70%;
+    /* background: gray; */
+  }
+  .label{
+    margin-left: 5%;
+  }
+  .type{
+    float: left;
+    width: 10%;
+    height: 30px;
+    text-align: center;
+    /* background: url("~assets/img/common/topbar-bt-bg.png") no-repeat top center; */
+    /* background-size: 90% 10%; */
+    border:1px solid #ccc; 
+    border-style:none solid;
+    padding-top: 8px;
+    cursor: pointer;  
+  }
+  .active{
+    background: url("~assets/img/common/topbar-bt-bg.png") no-repeat top center;
+    background-size: 90% 4%;
+  }
+  .imgs{
+    padding-top: 45px;
+    /* border: 1px solid; */
+  }
+  .imgs img{
+    width: 90%;
+    margin-left: 5%;
+    padding-top: 0.5%;
+  }
+  .imgs img:first-of-type{
+    padding-top:0;
   }
 </style>
