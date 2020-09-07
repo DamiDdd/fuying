@@ -1,6 +1,6 @@
 <template>
   <div id="item-window">
-    <div class="i-div">
+    <div id="i-div" class="unfocus" @mouseenter="changeFocus" @mouseleave="removeFocus">
       <div class="title"><slot name="title"></slot></div>
       <div class="img"><slot name="img"></slot></div>
       <div class="desc"><slot name="desc"></slot></div>
@@ -12,31 +12,57 @@
 
 export default {
   name: "ItemWindow",
-  components:{
-  },
   methods:{
+    changeFocus(e){
+      e.currentTarget.className = 'focus';
+    },
+    removeFocus(e) {
+      e.currentTarget.className = 'unfocus';
+    }
   }
 }
 </script>
 
 <style scoped>
-  .i-div{
-    width: 400px;
-    height: 350px;
-    /* overflow: hidden; */
-    margin-left: 100px;
-    margin-top: 20px;
-    background: url("~assets/img/bg/item-bg.jpg") repeat top right;
-    float: left;
+  #item-window{
+    margin-bottom: 1%;
+  }
+
+  #i-div{
+    width: 80%;
+    height: 220px;
+    display: flex;
+    overflow: hidden;
+    background: url("~assets/img/bg/item-bg.jpg") no-repeat;
+    background-size: 100% 100%;
+    cursor: pointer;
+  }
+  .title{
+    /* background: gray; */
+    margin-left: 20px;
+    width: 14%;
+    font-size: 36px;
   }
   .img img{
-    width: 400px;
-    height: 270px;
+    height: 180px;
+    margin-top: 10%;
   }
   .desc{
-    background: gray;
-    /* 预备设置遮罩层 */
-    /* margin-top: -300px; */
+    /* background: gray; */
+    height: 50%;
+    width: 50%;
+    margin-left: 13%;
+    margin-top: 3%;
+    font-size: 20px;
+    font-weight: 550;
+  }
+  .focus{
+    border: 2px solid green;
+    border-radius: 15px;
+  }
+  .unfocus{
+    border: 1px solid gray;
+    border-radius: 15px;
   }
   
 </style>
