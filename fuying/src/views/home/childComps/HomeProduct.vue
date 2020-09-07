@@ -75,7 +75,7 @@ export default {
       this.$router.push("/products")
     },
     buyClick(){
-      this.$router.push("login")
+      this.$router.push("/products")
     },
     scrollScreen(){
       window.scrollTo({

@@ -161,6 +161,7 @@ export default {
   .add2cart{
     background-color: #ffce6b;
     color: #6b6b6b;
+    margin-right: 2%;
   }
   .purchase{
     margin-top: 20px;

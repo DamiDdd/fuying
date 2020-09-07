@@ -8,7 +8,9 @@
     <div class="img-window">
       <div class="label">
         <!-- <div class="type" v-for="(i,index) in good.imgs" :key="index" @click="typeChoose(index)" :class="active(index)">{{i.name}}</div> -->
-        <div class="type" v-for="(i,index) in good.imgs" :key="index" @click="tagChoose(index)" :class="judgeActive(index)">{{i.name}}</div>
+        <div class="type" v-for="(i,index) in good.imgs" :key="index" @click="tagChoose(index)" :class="judgeActive(index)">
+          <div @mouseenter="changeFocus" @mouseleave="removeFocus">{{i.name}}</div>
+        </div>
       </div>
       <div class="imgs">
         <img v-for="(i,index) in good.imgs[this.index].imgs" :key="index" :src="i">
@@ -91,6 +93,12 @@ export default {
       else{
         return ""
       }
+    },
+    changeFocus(e){
+      e.currentTarget.className = 'focus';
+    },
+    removeFocus(e) {
+      e.currentTarget.className = '';
     }
   }
 }
@@ -163,5 +171,8 @@ export default {
   }
   .imgs img:first-of-type{
     padding-top:0;
+  }
+  .focus{
+    font-weight: 600;
   }
 </style>

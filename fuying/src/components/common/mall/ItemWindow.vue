@@ -44,7 +44,8 @@ export default {
     font-size: 36px;
   }
   .img img{
-    height: 180px;
+    height: 160px;
+    max-width: 180px;
     margin-top: 10%;
   }
   .desc{
