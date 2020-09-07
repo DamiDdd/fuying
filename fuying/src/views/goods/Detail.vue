@@ -112,14 +112,18 @@ export default {
   }
   .num-control{
     min-height: 600px;
+    width: 80%;
     margin-left:200px;
     margin-top: 100px;
+    background: url("~assets/img/bg/item-bg.jpg") top right;
+    background-size: 100% 100%;
   }
   .left{
     float: left;
     /* background: blue; */
     width: 800px;
     min-height: 450px;
+    margin-top: 80px;
   }
   .right{
     float: left;
@@ -127,8 +131,6 @@ export default {
     margin-left: 800px;
     width: 800px;
     min-height: 600px;
-    background: url("~assets/img/bg/item-bg.jpg") top right;
-    background-size: 100% 100%;
   }
   .cartcontrol{
     height: 700px;

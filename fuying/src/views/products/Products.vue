@@ -1,7 +1,7 @@
 <template>
   <div id="products">
     <div class="main-div">
-      <div v-for="(item,index) in goodsList" :key="index" @click="enterDetail(item.id)">
+      <div class="icon" v-for="(item,index) in goodsList" :key="index" @click="enterDetail(item.id)">
         <item-window>
           <p slot="title">{{item.title}}</p>
           <img :src="item.imgurl" slot="img">
@@ -54,11 +54,23 @@ export default {
 
 <style scoped>
   #products{
-    min-height:500px;
+    min-height:700px;
   }
 
   .main-div{
     padding-left: 20%;
     padding-top: 2%;
+  }
+  .icon{
+    width: 100%;
+  }
+
+  .icon:nth-of-type(odd){
+    /* background: #000; */
+    margin-left: -20px;
+  }
+  .icon:nth-of-type(even){
+    /* background: gray; */
+    margin-left: 40px;
   }
 </style>
