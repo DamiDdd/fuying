@@ -2,10 +2,13 @@
 	<div id="pdf">
 		<div class="tools">
 			<el-button :theme="'default'" type="submit" :title="'基础按钮'" @click.stop="prePage" class="mr10"> 上一页</el-button>
-            <div class="page">{{pageNum}}/{{pageTotalNum}} </div>
+            <div class="page">
+				{{pageNum}}/{{pageTotalNum}} 
+			</div>
             <el-button :theme="'default'" type="submit" :title="'基础按钮'" @click.stop="nextPage" class="mr10"> 下一页</el-button>
             <el-button :theme="'default'" type="submit" :title="'基础按钮'" @click.stop="printAll" class="mr10"> 打印</el-button>
 		</div>
+		<div class="tips">其中数据请参考，建议下载后本地查看</div>
         <div class="pdf-div">		
             <pdf ref="pdf" 
             :src="url" 
@@ -101,5 +104,19 @@
         margin-top: 10px;
         margin-left: 10px;
         margin-right: 10px;
+		display: flex;
     }
+	.page input{
+		margin-top: -10px;
+        width: 30px;
+		float: left;
+    }
+	.tips{
+		width: 40%;
+		margin-left: 32%;
+		text-align: center;
+		margin-bottom: 20px;
+		font-size: 14px;
+		color: gray;
+	}
 </style>
