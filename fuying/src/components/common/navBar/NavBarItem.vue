@@ -47,5 +47,6 @@ export default {
 
   .focus{
     background: url("~assets/img/common/topbar-bt-bg.png") no-repeat bottom center;
+    font-weight: bold;
   }
 </style>

@@ -145,6 +145,7 @@ export default {
     border: 1px solid red;
     background: url("~assets/img/common/bingo.jpg") no-repeat bottom right;
     background-size: 12px 12px;
+    font-weight: 600;
   }
   button {
     border: none;
