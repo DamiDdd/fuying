@@ -14,8 +14,8 @@
     <div class="reduce" @click="deleteCart"><img src="~assets/img/common/delete.jpg"></div>
     <div class="num">{{item.count}}</div>
     <div class="add" @click="addCart"><img src="~assets/img/common/add.jpg"></div>
-    <button class="add2cart">加入购物车</button>
-    <button class="purchase">立即购买</button>
+    <button id="add2cart" @mouseenter="changeFocus" @mouseleave="removeFocus">加入购物车</button>
+    <button id="purchase" @mouseenter="changeFocus" @mouseleave="removeFocus">立即购买</button>
   </div>
 </template>
 
@@ -66,6 +66,12 @@ export default {
       this.item.count = 1;
       this.index = index;
     },
+    changeFocus(e) {
+      e.currentTarget.className = 'focus';
+    },
+    removeFocus(e) {
+      e.currentTarget.className = 'unfocus';
+    }
   }
 }
 </script>
@@ -159,14 +165,17 @@ export default {
     border-radius: 15px;
     outline: none;
   }
-  .add2cart{
+  #add2cart{
     background-color: #ffce6b;
     color: #6b6b6b;
     margin-right: 2%;
   }
-  .purchase{
+  #purchase{
     margin-top: 20px;
     background-color: #ffb3a7;
     color:  white;
+  }
+  .focus{
+    border: 0.5px solid gray;
   }
 </style>

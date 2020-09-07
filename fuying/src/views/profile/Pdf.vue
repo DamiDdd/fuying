@@ -23,6 +23,8 @@
 
 <script>
 	import pdf from 'vue-pdf'
+	import report from '../../assets/img/report/report_res.pdf'
+
 	export default {
 		name: 'Pdf',
 		components: {
@@ -30,7 +32,7 @@
 		},
 		data() {
 			return {
-				url: "http://storage.xuetangx.com/public_assets/xuetangx/PDF/PlayerAPI_v1.0.6.pdf",
+				url: report,
 				pageNum: 1,
 				pageTotalNum: 1,
 				pageRotate: 0,
