@@ -43,7 +43,9 @@ export default {
       return this.item.count > 0;
     },
     sumPrice(){
-      return this.item.count * this.item.type[this.index].price;
+      let price = this.item.count * this.item.type[this.index].price;
+      price = parseFloat(price).toFixed(2);
+      return price;
     },
   },
   methods:{
