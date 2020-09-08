@@ -1,6 +1,6 @@
 <template>
   <div id="detail">
-  <cart-icon       :iconStyle="cartIconStyle"></cart-icon>
+  <cart-icon :iconStyle="cartIconStyle"></cart-icon>
     <div class="num-control">
       <!-- slider未传入图片参数时，默认显示没有相关信息图样 -->
       <div class="left"><slider :imgWidth=600></slider></div>

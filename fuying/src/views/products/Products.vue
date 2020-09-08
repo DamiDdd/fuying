@@ -1,5 +1,6 @@
 <template>
   <div id="products">
+    <cart-icon :iconStyle="cartIconStyle"></cart-icon>
     <div class="main-div">
       <div class="icon" v-for="(item,index) in goodsList" :key="index" @click="enterDetail(item.id)">
         <item-window>
@@ -16,15 +17,23 @@
 import ItemWindow from "components/common/mall/ItemWindow"
 import lab from '../../assets/img/common/lab.png'
 import detect from '../../assets/img/common/detect.png'
+import CartIcon from 'components/common/cart/CartIcon'
 
 
 export default {
   name: "Products",
   components:{
     ItemWindow,
+    CartIcon,
   },
   data(){
     return {
+      cartIconStyle: {
+        'right': '94px',
+        'bottom': '200px',
+        'background': '#fff',
+        'border-radius':'25px',
+      },
       goodsList:[],
     }
   },

@@ -1,5 +1,5 @@
 <template>
-  <div id="cart-icon" :style="iconStyle">
+  <div id="cart-icon" :style="iconStyle" @click="jump2cart">
     <img v-show="isLogin()" src="~assets/img/common/purchase-active.png">
     <img v-show="!isLogin()" src="~assets/img/common/purchase.png">
   </div>
@@ -17,6 +17,9 @@ export default {
     isLogin(){
       return this.$store.state.isLogin;
     },
+    jump2cart(){
+      this.$router.push("/cart");
+    }
   }
 }
 </script>

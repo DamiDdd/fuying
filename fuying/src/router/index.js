@@ -16,6 +16,7 @@ const Exit = () => import('views/exit/Exit')
 const ReportEdit = () => import('views/manager/ReportEdit')
 const Profile = () => import('views/profile/Profile')
 const Detail = () => import('views/goods/Detail')
+const Cart = () => import('views/cart/Cart')
 
 // // 解决路由重复报错问题
 // const originalPush = VueRouter.prototype.push
@@ -93,6 +94,13 @@ const routes = [
   {
     path: '/detail',
     component: Detail,
+  },
+  {
+    path: '/cart',
+    component: Cart,
+    meta:{
+      isLogin: true,
+    }
   },
 ]
 
