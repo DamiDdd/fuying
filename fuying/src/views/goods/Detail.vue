@@ -34,6 +34,7 @@ export default {
   },
   data(){
     return{
+      goodId: 0,
       index:0,
       cartIconStyle: {
         'right': '94px',
@@ -86,6 +87,8 @@ export default {
     }
   },
   mounted(){
+    this.goodId = this.$route.query.goodId;
+    console.log(this.goodId);
     //  在这里申请拿到商品数据
     this.good['count'] = 1;
   },

@@ -40,12 +40,12 @@ export default {
   mounted(){
     // 在这里通过URL获取后端的所有商品信息
     this.$set(this.goodsList,this.goodsList.length,{          
-      id: "1",
+      id: "001",
       title:"基础套餐",
       imgurl: lab,
       desc: "基础套餐【19类刻画，44项生理指数;套餐价格仅为500元，购买享受特色服务",})
     this.$set(this.goodsList,this.goodsList.length,{          
-      id: "2",
+      id: "002",
       title:"基础套餐",
       imgurl: detect,
       desc: "基础套餐【19类刻画，44项生理指数;套餐价格仅为500元，购买享受特色服务",})
@@ -54,8 +54,8 @@ export default {
   methods:{
     // detail的跳转函数
     enterDetail (id){
-      console.log(id);
-      this.$router.push("/detail");
+      // console.log(id);
+      this.$router.push({path:'/detail',query:{goodId:id}});
     }
   },
 }
