@@ -108,8 +108,9 @@ export default {
   #detail{
     min-height: var(--screen-height);
     width: var(--screen-width);
-    background: url("~assets/img/bg/item-bg.jpg") top right;
-    background-size: 100% 100%;
+    background: -webkit-linear-gradient(top,white,lightblue,white);
+    /* background: url("~assets/img/bg/item-bg.jpg") top right;
+    background-size: 100% 100%; */
     /* background: gray; */
   }
   .num-control{
