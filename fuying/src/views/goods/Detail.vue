@@ -1,5 +1,6 @@
 <template>
   <div id="detail">
+  <cart-icon       :iconStyle="cartIconStyle"></cart-icon>
     <div class="num-control">
       <!-- slider未传入图片参数时，默认显示没有相关信息图样 -->
       <div class="left"><slider :imgWidth=600></slider></div>
@@ -22,17 +23,24 @@
 <script>
 import GoodView from "components/content/detail/GoodView"
 import Slider from "components/common/slide/Slider";
+import CartIcon from 'components/common/cart/CartIcon'
 
 export default {
   name: "Detail",
   components:{
     GoodView,
     Slider,
+    CartIcon
   },
   data(){
     return{
       index:0,
-
+      cartIconStyle: {
+        'right': '94px',
+        'bottom': '200px',
+        'background': '#fff',
+        'border-radius':'25px',
+      },
       // 传参
       good:{
         title: "title",
@@ -111,7 +119,6 @@ export default {
     background: -webkit-linear-gradient(top,white,lightblue,white);
     /* background: url("~assets/img/bg/item-bg.jpg") top right;
     background-size: 100% 100%; */
-    /* background: gray; */
   }
   .num-control{
     min-height: 600px;
