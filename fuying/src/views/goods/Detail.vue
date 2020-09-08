@@ -108,15 +108,15 @@ export default {
   #detail{
     min-height: var(--screen-height);
     width: var(--screen-width);
+    background: url("~assets/img/bg/item-bg.jpg") top right;
+    background-size: 100% 100%;
     /* background: gray; */
   }
   .num-control{
     min-height: 600px;
     width: 80%;
     margin-left:200px;
-    margin-top: 100px;
-    background: url("~assets/img/bg/item-bg.jpg") top right;
-    background-size: 100% 100%;
+    padding-top: 100px;
   }
   .left{
     float: left;
@@ -164,6 +164,7 @@ export default {
   }
   .imgs{
     padding-top: 45px;
+    padding-bottom: 200px;
     /* border: 1px solid; */
   }
   .imgs img{
