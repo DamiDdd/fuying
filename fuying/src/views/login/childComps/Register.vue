@@ -103,7 +103,6 @@ export default {
                 return false;
 			} else {
                 callback();
-                // console.log(true);
                 return true;
 			}
         };
@@ -197,7 +196,6 @@ export default {
         // 获取验证码
         getPhoneVariftcode(phone) {
             var url = this.phoneUrl + phone;
-            console.log(url);
             Axios.get(url).then((response) =>{
                 console.log(response);
             }).catch((error) => {
@@ -246,7 +244,7 @@ export default {
 									message: '注册成功，已为您自动登录'
 								});
 								that.$store.dispatch("setUser",true);
-								console.log(that.$store.state.isLogin);
+								// console.log(that.$store.state.isLogin);
 								// 本地存储登录信息
 								localStorage.setItem("userPhone",that.ruleForm["phone"]);
 								that.$router.push("/home");

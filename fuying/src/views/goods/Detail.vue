@@ -89,7 +89,6 @@ export default {
   mounted(){
     this.goodId = this.$route.query.goodId;
     this.good['count'] = 1;
-    // console.log(this.goodId);
     //  在这里申请拿到商品数据
     if(this.goodId === "001"){
       this.good['type'][0]['price'] = 150.72;
@@ -98,7 +97,6 @@ export default {
   methods:{
     tagChoose(index){
       this.index = index;
-      console.log(this.index)
     },
     judgeActive(index){
       if(this.index === index){

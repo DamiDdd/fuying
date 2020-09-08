@@ -8,8 +8,8 @@ export default {
   mounted(){
     localStorage.removeItem("userPhone");
     this.$store.state.isLogin = false;
-    console.log(localStorage);
-    console.log(this.$store.state.isLogin);
+    // console.log(localStorage);
+    // console.log(this.$store.state.isLogin);
     this.$router.push('/home');
     this.$message({
 			type: 'success',

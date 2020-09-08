@@ -64,7 +64,6 @@ export default {
         this.item.count--;
     },
     typeChoose(index){
-      // console.log(index);
       this.item.count = 1;
       this.index = index;
     },

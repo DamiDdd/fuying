@@ -84,9 +84,8 @@ export default {
 			this.$refs[formName].validate(valid => {
 				if (valid) {
 					var url = this.loginUrl + "?phone=" + this.ruleForm["phone"] + "&password="+this.ruleForm["pass"];
-					console.log(url);
 					Axios.get(url).then((response) => {
-						console.log(response);
+						// console.log(response);
 						if(response.status === 200){
 							// console.log(response.data)
 							let data = response.data;
@@ -96,7 +95,7 @@ export default {
 									message: '登陆成功 欢迎'+this.ruleForm["phone"],
 								});
 								this.$store.dispatch("setUser",true);
-								console.log(this.$store.state.isLogin);
+								// console.log(this.$store.state.isLogin);
 								// 本地存储登录信息
 								localStorage.setItem("userPhone",this.ruleForm["phone"]);
 								this.$router.push("/home");
