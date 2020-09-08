@@ -71,7 +71,7 @@ export default {
     },
     removeFocus(e) {
       e.currentTarget.className = 'unfocus';
-    }
+    },
   }
 }
 </script>
