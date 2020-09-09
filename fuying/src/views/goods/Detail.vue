@@ -172,7 +172,8 @@ export default {
   }
   .active{
     background: url("~assets/img/common/topbar-bt-bg.png") no-repeat top center;
-    background-size: 90% 4%;
+    background-size: 90% 10%;
+    font-weight: 600;
   }
   .imgs{
     padding-top: 45px;
