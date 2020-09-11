@@ -102,6 +102,11 @@ export default {
 								// console.log(this.$store.state.isLogin);
 								// 本地存储登录信息
 								localStorage.setItem("userPhone",this.ruleForm["phone"]);
+								if(data["admin"]){
+									console.log("admin");
+									this.$store.dispatch("setAdmin",true);
+									localStorage.setItem("admin",this.ruleForm["phone"]);
+								}
 								this.$router.push("/home");
 							}
 							else{

@@ -83,6 +83,7 @@ const routes = [
     component: ReportEdit,
     meta:{
       isLogin : true,
+      isAdmin : true,
     }
   },
   {
@@ -90,6 +91,7 @@ const routes = [
     component: UploadCommend,
     meta:{
       isLogin : true,
+      isAdmin : true,
     }
   },
   {
@@ -138,6 +140,29 @@ router.beforeEach((to, from, next) => {
         next({
           path: '/home',
         })
+      }
+      // 需要管理员权限的页面
+      else if(to.meta.isAdmin){
+        let getAdmin = localStorage.getItem("admin");
+        // 有管理员权限
+        if(getAdmin !== null){
+          store.state.isAdmin = true;
+          Vue.prototype.$message({
+            type: 'success',
+            message: '欢迎 admin：'+getAdmin,
+          });
+          next();
+        }
+        // 无管理员权限
+        else{
+          Vue.prototype.$message({
+            type: 'warning',
+            message: '无权限',
+          });
+          next({
+            path: from.fullPath,
+          });
+        }
       }
       else{
         next();

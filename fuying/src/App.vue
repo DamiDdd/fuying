@@ -57,7 +57,11 @@ export default {
         if(localStorage.getItem("userPhone") !== null){
           localStorage.removeItem("userPhone");
           this.$store.state.isLogin = false;
-          console.log(localStorage);
+          if(localStorage.getItem("admin")!=null){
+            localStorage.removeItem("admin");
+            this.$store.state.isAdmin = false;
+          }
+          // console.log(localStorage);
           this.$router.push('/home');
           this.$message({
             type: 'success',
