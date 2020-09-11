@@ -14,6 +14,10 @@
     <div v-for="(item,index) in goods" :key="index">
       <cart-view :good="goods[index]"></cart-view>
     </div>
+    <div class="tips" v-if="!emptyCart">
+      <div class="price">{{sum}}</div>
+      <button id="purchase">结算</button>
+    </div>
     <div v-if="emptyCart" class="empty" @click="jump2mall">您的购物车空空如也,去商城看看吧！</div>
   </div>
 </template>
@@ -42,6 +46,14 @@ export default {
       }
       return sign;
     },
+    sum(){
+      let sum = 0;
+      sum = parseFloat(sum);
+      this.goods.forEach(element => {
+        sum = parseFloat(sum + parseFloat(element.priceSum));
+      });
+      return sum.toFixed(2);
+    }
   },
   data(){
     return{
@@ -54,7 +66,7 @@ export default {
           typeId: "2",
           typeTitle: "升级版",
           imgurl: lab,
-          price: 200,
+          price: 200.17,
           count: 1,
           priceSum: 400,
         },
@@ -64,7 +76,7 @@ export default {
           typeId: "1",
           typeTitle: "基础版",
           imgurl: lab,
-          price: 100,
+          price: 100.04,
           count: 1,
           priceSum: 200,
         },
