@@ -15,8 +15,9 @@
       <cart-view :good="goods[index]"></cart-view>
     </div>
     <div class="tips" v-if="!emptyCart">
+      <div class="price-tag">总价：</div>
       <div class="price">{{sum}}</div>
-      <button id="purchase">结算</button>
+      <button id="purchase" @click="submitPurchase">结算</button>
     </div>
     <div v-if="emptyCart" class="empty" @click="jump2mall">您的购物车空空如也,去商城看看吧！</div>
   </div>
@@ -50,7 +51,9 @@ export default {
       let sum = 0;
       sum = parseFloat(sum);
       this.goods.forEach(element => {
-        sum = parseFloat(sum + parseFloat(element.priceSum));
+        if(element.flag){
+          sum = parseFloat(sum + parseFloat(element.priceSum));
+        }
       });
       return sum.toFixed(2);
     }
@@ -66,7 +69,7 @@ export default {
           typeId: "2",
           typeTitle: "升级版",
           imgurl: lab,
-          price: 200.17,
+          price: 200.20,
           count: 1,
           priceSum: 400,
         },
@@ -76,7 +79,7 @@ export default {
           typeId: "1",
           typeTitle: "基础版",
           imgurl: lab,
-          price: 100.04,
+          price: 100.10,
           count: 1,
           priceSum: 200,
         },
@@ -102,7 +105,22 @@ export default {
     },
     jump2mall(){
       this.$router.push('/products');
-    }
+    },
+    submitPurchase(){
+      let flag = false;
+      this.goods.forEach(element => {
+        if(element.flag){
+          console.log(element);
+          flag = true;
+        }
+      })
+      if(!flag){
+        this.$message({
+          type: 'warning',
+          message: '请选择至少一项服务',
+        });
+      }
+    },
   },
 }
 </script>
@@ -149,5 +167,34 @@ export default {
   }
   .delete{
     width: 12%;
+  }
+  .price-tag{
+    width: 76%;
+    text-align: right;
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 10px;
+    /* color: red; */
+  }
+  .price{
+    width: 12%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    padding-top: 5px;
+    color: red;
+  }
+  #purchase{
+    width: 12%;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 15px;
+    outline: none;
+    background-color: #ffce6b;
   }
 </style>

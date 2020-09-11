@@ -53,12 +53,12 @@ export default {
             id: "1",
             name:"基础生理刻画套餐",
             tip:"包括基础",
-            price: 100,
+            price: 100.10,
           },{
             id: "2",
             name:"升级",
             tip:"包括升级版",  
-            price: 200,
+            price: 200.20,
           }
         ],
         imgs:[
@@ -90,9 +90,7 @@ export default {
     this.goodId = this.$route.query.goodId;
     this.good['count'] = 1;
     //  在这里申请拿到商品数据
-    if(this.goodId === "001"){
-      this.good['type'][0]['price'] = 150.72;
-    }
+    
   },
   methods:{
     tagChoose(index){
