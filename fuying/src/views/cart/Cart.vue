@@ -1,6 +1,9 @@
 <template>
   <div id="cart">
     <p class="title">我的购物车</p>
+    <div class="tips">
+      <input type="checkbox" @click="chooseAll">
+    </div>
     <div v-for="(item,index) in goods" :key="index">
       <cart-view :good="goods[index]"></cart-view>
     </div>
@@ -26,7 +29,7 @@ export default {
       else{
         this.goods.forEach(element => {
           if(element.count > 0){
-            console.log(element.count);
+            // console.log(element.count);
             sign = false;
           }
         });
@@ -62,12 +65,22 @@ export default {
     }
   },
   mounted(){
-    // this.goods.forEach(element => {
-      
-    // });
     // 在这里拿到cart数据
+
+    // 初始化flag参数
+    this.goods.forEach(element => {
+      this.$set(element,"flag",false);
+    });
+    // console.log(this.goods);
   },
   methods:{
+    chooseAll(){
+      this.goods.forEach(element => {
+        if(element.count > 0){
+          element.flag = !element.flag;
+        }
+    });
+    },
     jump2mall(){
       this.$router.push('/products');
     }

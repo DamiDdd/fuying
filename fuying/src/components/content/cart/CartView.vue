@@ -1,6 +1,6 @@
 <template>
   <div v-if="countExist" id="cart-view">
-    <div class="flag"></div>
+    <div class="flag"><input type="checkbox" v-model="good.flag"></div>
     <div class="img"><img :src="good.imgurl"></div>
     <div class="title1" @click="jump2detail">{{good.goodTitle}}</div>
     <div class="title2">{{good.typeTitle}}</div>
@@ -61,6 +61,7 @@ export default {
     },
     deleteConfirmed(){
       this.good.count = 0;
+      this.good.flag = false;
       console.log(this.good.count);
       // 向后台传输数据
     }

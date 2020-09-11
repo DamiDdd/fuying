@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="98a16dd9-bc38-4978-a5bc-1a526b7feabe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../fuying/src/components/common/slide/Slider.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../fuying/src/components/common/slide/Slider.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fuying/src/views/goods/Detail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../fuying/src/views/goods/Detail.vue" afterDir="false" />
-    </list>
+    <list default="true" id="98a16dd9-bc38-4978-a5bc-1a526b7feabe" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,11 +226,12 @@
       <workItem from="1599024156303" duration="5664000" />
       <workItem from="1599039016972" duration="69000" />
       <workItem from="1599185139589" duration="735000" />
+      <workItem from="1599705227693" duration="319000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67664000" />
+    <option name="totallyTimeSpent" value="67983000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
