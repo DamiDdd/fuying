@@ -1,5 +1,5 @@
 <template>
-  <div v-if="countExist" id="cart-view">
+  <div v-if="countExist" id="cart-view" :style="choose">
     <div class="flag"><input type="checkbox" v-model="good.flag"></div>
     <div class="img"><img :src="good.imgurl"></div>
     <div class="title1" @click="jump2detail">{{good.goodTitle}}</div>
@@ -34,6 +34,14 @@ export default {
   computed:{
     countExist(){
       return this.good.count > 0;
+    },
+    choose(){
+      if(this.good.flag){
+        return "border: 1px solid black";
+      }
+      else{
+        return "";
+      }
     }
   },
   mounted(){
@@ -62,7 +70,7 @@ export default {
     deleteConfirmed(){
       this.good.count = 0;
       this.good.flag = false;
-      console.log(this.good.count);
+      // console.log(this.good.count);
       // 向后台传输数据
     }
   }
@@ -74,7 +82,7 @@ export default {
     width: 60%;
     min-width: 800px;
     height: 120px;
-    border: 1px solid;
+    border: 1px solid mediumaquamarine;
     margin-left: 400px;
     display: flex;
     margin-bottom: 10px;
