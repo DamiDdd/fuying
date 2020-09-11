@@ -2,7 +2,7 @@
   <div id="products">
     <cart-icon :iconStyle="cartIconStyle"></cart-icon>
     <div class="main-div">
-      <div class="icon" v-for="(item,index) in goodsList" :key="index" @click="enterDetail(item.id)">
+      <div class="icon" v-for="(item,index) in goodList" :key="index" @click="enterDetail(item.id)">
         <item-window>
           <p slot="title">{{item.title}}</p>
           <img :src="item.imgurl" slot="img">
@@ -15,9 +15,10 @@
 
 <script>
 import ItemWindow from "components/common/mall/ItemWindow"
-import lab from '../../assets/img/common/lab.png'
-import detect from '../../assets/img/common/detect.png'
+// import lab from '../../assets/img/common/lab.png'
+// import detect from '../../assets/img/common/detect.png'
 import CartIcon from 'components/common/cart/CartIcon'
+import Axios from 'axios'
 
 
 export default {
@@ -25,6 +26,9 @@ export default {
   components:{
     ItemWindow,
     CartIcon,
+  },
+  props:{
+    urlHead:String,
   },
   data(){
     return {
@@ -34,22 +38,35 @@ export default {
         'background': '#fff',
         'border-radius':'25px',
       },
-      goodsList:[],
+      productUrl: this.urlHead + "getProducts",
+      goodList:[],
     }
   },
   mounted(){
     // 在这里通过URL获取后端的所有商品信息
-    this.$set(this.goodsList,this.goodsList.length,{          
-      id: "001",
-      title:"基础套餐",
-      imgurl: lab,
-      desc: "基础套餐【19类刻画，44项生理指数;套餐价格仅为500元，购买享受特色服务",})
-    this.$set(this.goodsList,this.goodsList.length,{          
-      id: "002",
-      title:"基础套餐",
-      imgurl: detect,
-      desc: "基础套餐【19类刻画，44项生理指数;套餐价格仅为500元，购买享受特色服务",})
-    // console.log(this.goodsList.length)
+    Axios.get(this.productUrl).then((response) => {
+      if(response.status === 200){
+        this.goodList = response.data['goodList'];
+      }
+      else{
+        this.$message({
+          type: 'warning',
+					message: '后台出错',
+				});
+      }
+    });
+
+    // this.$set(this.goodList,this.goodList.length,{          
+    //   id: "001",
+    //   title:"基础套餐",
+    //   imgurl: lab,
+    //   desc: "基础套餐【19类刻画，44项生理指数;套餐价格仅为500元，购买享受特色服务",})
+    // this.$set(this.goodList,this.goodList.length,{          
+    //   id: "002",
+    //   title:"基础套餐",
+    //   imgurl: detect,
+    //   desc: "基础套餐【19类刻画，44项生理指数;套餐价格仅为500元，购买享受特色服务",})
+    // console.log(this.goodList.length)
   },
   methods:{
     // detail的跳转函数

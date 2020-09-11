@@ -42,6 +42,7 @@ export default {
     margin-left: 20px;
     width: 14%;
     font-size: 36px;
+    line-height: 50px;
   }
   .img img{
     height: 160px;
