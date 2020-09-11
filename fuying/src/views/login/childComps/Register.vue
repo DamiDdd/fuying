@@ -246,19 +246,24 @@ export default {
 							if(data["success"]){
 								that.$message({
 									type: 'success',
-									message: '注册成功，已为您自动登录'
-								});
-								that.$store.dispatch("setUser",true);
-								// console.log(that.$store.state.isLogin);
-								// 本地存储登录信息
-								localStorage.setItem("userPhone",that.ruleForm["phone"]);
-								that.$router.push("/home");
+									message: '注册成功,请登录'
+                                });
+                                // 自动登录代码因为接口不返回是否为管理员，暂时停用，需手动登录
+								// that.$store.dispatch("setUser",true);
+								// // 本地存储登录信息
+								// localStorage.setItem("userPhone",that.ruleForm["phone"]);
 							}
 							else{
 								if(data["msg"] === "验证码错误"){
 									that.$message({
 										type: 'warning',
 										message: '验证码错误'
+									});
+                                }
+                                else if(data["msg"] === "此手机号已注册"){
+									that.$message({
+										type: 'warning',
+										message: that.ruleForm["phone"]+'已注册'
 									});
 								}
 							}

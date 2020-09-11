@@ -1,11 +1,18 @@
 <template>
   <div id="upload-commend">
-    <input type="text" placeholder="请输入用户编号" v-model="user">
-    <button @click="searchUser">查询</button>
+    <div>
+      <input type="text" placeholder="请输入用户编号" v-model="user">
+      <button @click="searchUser">查询</button>
+    </div>
+    <div>
+      <div>该用户的健康得分为：{{scoreSum}}</div>
+    </div>
   </div>
 </template>
 
 <script>
+import Axios from 'axios'
+
 export default {
   name: "UploadCommend",
   props:{
@@ -13,13 +20,53 @@ export default {
   },
   data(){
     return{
-      user: "",
-      findUrl: this.urlHead + "getevaluation?exp="+this.user,
+      user: "", // 080578
+      findUrl: this.urlHead + "getevaluation?exp=",
+      mainData: [],
+      scoreSum: 500,
     }
   },
   methods:{
     searchUser(){
+      let url = this.findUrl +this.user;
+      if(this.user.length === 0){
+          this.$message({
+						type: 'warning',
+						message: '请输入用户编号',
+					});
+      }
+      else{
+        Axios.get(url).then((response) => {
+          console.log(response);
+          if(response.status == 200){
+            // 此处重置评分
+            this.scoreSum = 500;
+            let data = response.data;
+            this.solveData(data);
+          }
+          else if(response.status === 500){
+            this.$message({
+							type: 'warning',
+							message: '未查询到相应用户',
+						});
+          }
+        }).catch((error) => {
+          console.log(error);
+        })
+      }
+    },
 
+    solveData(data){
+      console.log(data);
+      // 这里为了功能划分清晰，采用了读两遍的方式，后续提升速度可以合并
+      data.forEach(element => {
+        let table = element['sum_table'];
+        let length = element['sum_table'].length;
+        this.scoreSum += parseInt(table[length-1][2]);
+      });
+      // data.forEach(element => {
+      //   let 
+      // })
     }
   }
 }
