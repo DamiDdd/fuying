@@ -16,7 +16,7 @@
 				</el-form>
 			</el-tab-pane>
 			<el-tab-pane label="注册" name="second">
-				<register></register>
+				<register :urlHead="urlHead"></register>
 			</el-tab-pane>
 		</el-tabs>
 	</p>
@@ -29,6 +29,9 @@ import Axios from 'axios'
  
 export default {
 	name: "Login",
+	props:{
+		urlHead:String,
+	},
 	data() {
 		var validatePass = (rule, value, callback) => {
 			if (value === '') {
@@ -58,7 +61,8 @@ export default {
 		return {
 			activeName: 'first',
 			regMobile: /^1\d{10}$/,
-			loginUrl: "https://phenomics.fudan.edu.cn/firmiana/healthprogram/WebLogin/",
+			// loginUrl: "https://phenomics.fudan.edu.cn/firmiana/healthprogram/WebLogin/",
+			loginUrl: this.urlHead+"WebLogin/",
 			ruleForm: {
 				phone: '',
 				pass: '',

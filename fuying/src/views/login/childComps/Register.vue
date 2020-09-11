@@ -38,6 +38,9 @@ export default {
     components: {
         Identify
     },
+    props:{
+		urlHead:String,
+	},
 	data() {
 		var validatePass = (rule, value, callback) => {
 			if (value === '') {
@@ -130,8 +133,10 @@ export default {
             regPassword: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/,
             regEmail: /^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/,
             regMobile: /^1\d{10}$/,
-            phoneUrl: "https://phenomics.fudan.edu.cn/firmiana/healthprogram/sendValidateCode/?phone=",
-            registerUrl: "https://phenomics.fudan.edu.cn/firmiana/healthprogram/register/",
+            // phoneUrl: "https://phenomics.fudan.edu.cn/firmiana/healthprogram/sendValidateCode/?phone=",
+            // registerUrl: "https://phenomics.fudan.edu.cn/firmiana/healthprogram/register/",            
+            phoneUrl: this.urlHead+"sendValidateCode/?phone=",
+            registerUrl: this.urlHead+"register/",
             activeName: 'second',
             identifyCodes: '1234567890ABCDEFGHIGKLMNoPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
             identifyCode: '',

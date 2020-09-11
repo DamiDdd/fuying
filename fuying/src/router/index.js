@@ -17,6 +17,7 @@ const ReportEdit = () => import('views/manager/ReportEdit')
 const Profile = () => import('views/profile/Profile')
 const Detail = () => import('views/goods/Detail')
 const Cart = () => import('views/cart/Cart')
+const UploadCommend = () => import('views/manager/UploadCommend')
 
 // // 解决路由重复报错问题
 // const originalPush = VueRouter.prototype.push
@@ -80,6 +81,13 @@ const routes = [
   {
     path: '/reportEdit',
     component: ReportEdit,
+    meta:{
+      isLogin : true,
+    }
+  },
+  {
+    path: '/uploadCommend',
+    component: UploadCommend,
     meta:{
       isLogin : true,
     }
