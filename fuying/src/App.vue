@@ -62,7 +62,6 @@ export default {
             localStorage.removeItem("admin");
             this.$store.state.isAdmin = false;
           }
-          // console.log(localStorage);
           this.$router.push('/home');
           this.$message({
             type: 'success',
