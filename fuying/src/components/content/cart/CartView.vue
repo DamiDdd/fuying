@@ -48,7 +48,6 @@ export default {
   },
   mounted(){
     this.good.price = parseFloat(this.good.price).toFixed(2);
-    this.good.priceSum = parseFloat(this.good.count * this.good.price).toFixed(2);
   },
   methods:{
     deleteReverse(){

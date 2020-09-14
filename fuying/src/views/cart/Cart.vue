@@ -76,7 +76,6 @@ export default {
           imgurl: lab,
           price: 200.20,
           count: 1,
-          priceSum: 400,
         },
         {
           goodId: "00001",
@@ -86,7 +85,6 @@ export default {
           imgurl: lab,
           price: 100.10,
           count: 1,
-          priceSum: 200,
         },
       ],
     }
@@ -98,6 +96,7 @@ export default {
     // 初始化flag参数, !pending--重置下priceSum
     this.goods.forEach(element => {
       this.$set(element,"flag",false);
+      this.$set(element,"priceSum",parseFloat(element.count * element.price).toFixed(2))
     });
   },
   methods:{
