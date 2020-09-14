@@ -1,3 +1,5 @@
+<!--详情页面-->
+
 <template>
   <div id="detail">
   <cart-icon :iconStyle="cartIconStyle"></cart-icon>
@@ -8,7 +10,6 @@
     </div>
     <div class="img-window">
       <div class="label">
-        <!-- <div class="type" v-for="(i,index) in good.imgs" :key="index" @click="typeChoose(index)" :class="active(index)">{{i.name}}</div> -->
         <div class="type" v-for="(i,index) in good.imgs" :key="index" @click="tagChoose(index)" :class="judgeActive(index)">
           <div @mouseenter="changeFocus" @mouseleave="removeFocus">{{i.name}}</div>
         </div>
@@ -42,6 +43,7 @@ export default {
       detailUrl: this.urlHead +"getproductsdetail?id=",
       goodId: 0,
       index:0,
+      // 关于iconStyle的细节设定
       cartIconStyle: {
         'right': '94px',
         'bottom': '200px',
@@ -50,44 +52,28 @@ export default {
       },
       // 传参
       good:{
-        title: "title",
+        title: "",
         count: 1,
-        desc: "desc, i think i should add some words here to fill this div. desc, i think i should add some words here to fill this div",
+        desc: "",
         index: 0,
         type:[
-          {
-            id: "1",
-            name:"基础生理刻画套餐",
-            tip:"包括基础",
-            price: 100.10,
-          },{
-            id: "2",
-            name:"升级",
-            tip:"包括升级版",  
-            price: 200.20,
-          }
+          // 数据样例
+          // {
+          //   id: "1",
+          //   name:"基础生理刻画套餐",
+          //   tip:"包括基础",
+          //   price: 100.10,
+          // },
         ],
         imgs:[
-          {
-            name:"服务详情",
-            imgs:[
-              "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1020757406,2710278676&fm=26&gp=0.jpg",
-              "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1020757406,2710278676&fm=26&gp=0.jpg"
-            ],
-          },
-          {
-            name:"检测参数",
-            imgs:[
-              "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1020757406,2710278676&fm=26&gp=0.jpg"
-            ],
-          },
-          {
-            name:"检测流程",
-            imgs:[
-              "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1020757406,2710278676&fm=26&gp=0.jpg",
-              "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1588620919,359805583&fm=26&gp=0.jpg"
-            ],
-          },
+          // 数据样例
+          // {
+          //   name:"服务详情",
+          //   imgs:[
+          //     "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1020757406,2710278676&fm=26&gp=0.jpg",
+          //     "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1020757406,2710278676&fm=26&gp=0.jpg"
+          //   ],
+          // },
         ]
       }
     }
@@ -141,8 +127,6 @@ export default {
     min-height: var(--screen-height);
     width: var(--screen-width);
     background: -webkit-linear-gradient(top,white,lightblue,white);
-    /* background: url("~assets/img/bg/item-bg.jpg") top right;
-    background-size: 100% 100%; */
   }
   .num-control{
     min-height: 600px;
@@ -152,7 +136,6 @@ export default {
   }
   .left{
     float: left;
-    /* background: blue; */
     width: 800px;
     min-height: 450px;
     margin-top: 80px;
@@ -173,7 +156,6 @@ export default {
     margin-left: 19%;
     min-height: 600px;
     width: 70%;
-    /* background: gray; */
   }
   .label{
     margin-left: 5%;
@@ -183,13 +165,12 @@ export default {
     width: 10%;
     height: 30px;
     text-align: center;
-    /* background: url("~assets/img/common/topbar-bt-bg.png") no-repeat top center; */
-    /* background-size: 90% 10%; */
     border:1px solid #ccc; 
     border-style:none solid;
     padding-top: 8px;
     cursor: pointer;  
   }
+  /* 设定图片菜单选中样式 */
   .active{
     background: url("~assets/img/common/topbar-bt-bg.png") no-repeat top center;
     background-size: 90% 10%;
@@ -198,7 +179,6 @@ export default {
   .imgs{
     padding-top: 45px;
     padding-bottom: 200px;
-    /* border: 1px solid; */
   }
   .imgs img{
     width: 90%;

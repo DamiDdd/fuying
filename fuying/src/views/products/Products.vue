@@ -1,3 +1,5 @@
+<!--商品总览页面-->
+
 <template>
   <div id="products">
     <cart-icon :iconStyle="cartIconStyle"></cart-icon>
@@ -15,8 +17,6 @@
 
 <script>
 import ItemWindow from "components/common/mall/ItemWindow"
-// import lab from '../../assets/img/common/lab.png'
-// import detect from '../../assets/img/common/detect.png'
 import CartIcon from 'components/common/cart/CartIcon'
 import Axios from 'axios'
 
@@ -55,23 +55,10 @@ export default {
 				});
       }
     });
-
-    // this.$set(this.goodList,this.goodList.length,{          
-    //   id: "001",
-    //   title:"基础套餐",
-    //   imgurl: lab,
-    //   desc: "基础套餐【19类刻画，44项生理指数;套餐价格仅为500元，购买享受特色服务",})
-    // this.$set(this.goodList,this.goodList.length,{          
-    //   id: "002",
-    //   title:"基础套餐",
-    //   imgurl: detect,
-    //   desc: "基础套餐【19类刻画，44项生理指数;套餐价格仅为500元，购买享受特色服务",})
-    // console.log(this.goodList.length)
   },
   methods:{
     // detail的跳转函数
     enterDetail (id){
-      // console.log(id);
       this.$router.push({path:'/detail',query:{goodId:id}});
     }
   },
@@ -91,12 +78,11 @@ export default {
     width: 100%;
   }
 
+  /* 显示交错效果 */
   .icon:nth-of-type(odd){
-    /* background: #000; */
     margin-left: -20px;
   }
   .icon:nth-of-type(even){
-    /* background: gray; */
     margin-left: 40px;
   }
 </style>

@@ -1,3 +1,5 @@
+<!--购物车页面-->
+
 <template>
   <div id="cart">
     <p class="title">我的购物车</p>
@@ -33,6 +35,7 @@ export default {
     CartView,
   },
   computed:{
+    // 判断是否为空购物车
     emptyCart(){
       let sign = true;
       if(this.goods.length == 0){
@@ -64,7 +67,7 @@ export default {
       all: false,
       goods:[
         {
-          goodId: "001",
+          goodId: "00001",
           goodTitle: "生理刻画基本套餐",
           typeId: "2",
           typeTitle: "升级版",
@@ -74,7 +77,7 @@ export default {
           priceSum: 400,
         },
         {
-          goodId: "001",
+          goodId: "00001",
           goodTitle: "生理刻画基本套餐",
           typeId: "1",
           typeTitle: "基础版",
@@ -89,7 +92,7 @@ export default {
   mounted(){
     // 在这里拿到cart数据
 
-    // 初始化flag参数
+    // 初始化flag参数, !pending--重置下priceSum
     this.goods.forEach(element => {
       this.$set(element,"flag",false);
     });
@@ -106,6 +109,7 @@ export default {
     jump2mall(){
       this.$router.push('/products');
     },
+    // 提交订单至付款页面
     submitPurchase(){
       let flag = false;
       this.goods.forEach(element => {
@@ -120,6 +124,7 @@ export default {
           message: '请选择至少一项服务',
         });
       }
+      // else{}
     },
   },
 }

@@ -1,3 +1,5 @@
+<!--前端生成报告所用的组件，备用-->
+
 <template>
   <div id="table-div">        
     <table width="570" border="0" cellspacing="0" cellpadding="0">

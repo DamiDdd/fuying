@@ -1,3 +1,5 @@
+<!--详情视图-->
+
 <template>
   <div class="cartcontrol">
     <div class="main title">{{item.title}}</div>
@@ -11,7 +13,7 @@
       <span class="price-2">¥</span>
       <span class="price-3">{{sumPrice}}</span>
     </div>
-    <div class="reduce" @click="deleteCart"><img src="~assets/img/common/delete.jpg"></div>
+    <div class="reduce" @click="reduceCart"><img src="~assets/img/common/delete.jpg"></div>
     <div class="num">{{item.count}}</div>
     <div class="add" @click="addCart"><img src="~assets/img/common/add.jpg"></div>
     <button id="add2cart" @mouseenter="changeFocus" @mouseleave="removeFocus">加入购物车</button>
@@ -30,7 +32,7 @@ export default {
   props:{
     item:{
       type: Object,
-      //  默认赋值count为0
+      //  默认赋值count为1
       default(){
         return{
           count: 1,
@@ -39,9 +41,6 @@ export default {
     }
   },
   computed:{
-    itemnum(){
-      return this.item.count > 0;
-    },
     sumPrice(){
       let price = this.item.count * this.item.type[this.index].price;
       price = parseFloat(price).toFixed(2);
@@ -59,7 +58,7 @@ export default {
     addCart(){
       this.item.count++;
     },
-    deleteCart(){
+    reduceCart(){
       if(this.item.count>1)
         this.item.count--;
     },
@@ -80,7 +79,6 @@ export default {
 <style scoped>
   .cartcontrol{
     width: 550px;
-    /* background: gray; */
     overflow: hidden;
   }
   .cartcontrol div{
@@ -90,7 +88,6 @@ export default {
     font-size: 40px;
   }
   .text{
-    /* background: gray; */
     height: 50px;
     font-size: 18px;
     line-height: 23px;
@@ -104,16 +101,13 @@ export default {
     float: left;
   }
   .label{
-    /* background: gray; */
     width: 600px;
     height: 80px;
     display: flex;
     overflow: auto;
   }
   .type{
-    /* width: 130px; */
     height: 30px;
-    /* float: left; */
     border: 1px solid wheat;
     margin-left: 20px;
     padding-top: 10px;

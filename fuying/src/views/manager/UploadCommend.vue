@@ -1,3 +1,5 @@
+<!--管理员用户评价页面-->
+
 <template>
   <div id="upload-commend">
     <div>
@@ -20,13 +22,14 @@ export default {
   },
   data(){
     return{
-      user: "", // 080578
+      user: "", // fortest 080578
       findUrl: this.urlHead + "getevaluation?exp=",
       mainData: [],
       scoreSum: 500,
     }
   },
   methods:{
+    // 查找这个用户的相关数据
     searchUser(){
       let url = this.findUrl +this.user;
       if(this.user.length === 0){

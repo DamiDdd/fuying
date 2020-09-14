@@ -19,12 +19,6 @@ const Detail = () => import('views/goods/Detail')
 const Cart = () => import('views/cart/Cart')
 const UploadCommend = () => import('views/manager/UploadCommend')
 
-// // 解决路由重复报错问题
-// const originalPush = VueRouter.prototype.push
-// VueRouter.prototype.push = function push(location) {
-//   return originalPush.call(this, location).catch(err => err)
-// }
-
 // 1.安装VueRouter
 Vue.use(VueRouter)
 
@@ -125,7 +119,6 @@ router.beforeEach((to, from, next) => {
   let getPhone = localStorage.getItem("userPhone");
   if(getPhone !== null){
     store.state.isLogin = true;
-    // console.log(store.state.isLogin);
     // 对登录状态无要求的页面
     if(to.meta.isLogin == null){
       next();

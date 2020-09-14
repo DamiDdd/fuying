@@ -39,8 +39,6 @@ export default {
 
   .nav-center{
     flex: 1;
-    /* float: left; */
-    /* margin-right: 0; */
     margin-left: 70%;
   }
 

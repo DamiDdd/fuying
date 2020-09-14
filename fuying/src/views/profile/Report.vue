@@ -1,3 +1,5 @@
+<!--前端生成报告的页面，备用-->
+
 <template>
   <div id="report">
     <div class="btn-div">

@@ -48,9 +48,11 @@ export default {
     window.setInterval(this.tTime,1000)
   },
   methods:{
+    // 监听鼠标点击事件
     clicked(){
       this.ltime = new Date().getTime()
     },
+    // 自动退出函数
     tTime(){
       this.ctime = new Date().getTime()
       if(this.ctime - this.ltime > this.tOut){

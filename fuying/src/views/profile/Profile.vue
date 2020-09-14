@@ -1,3 +1,5 @@
+<!--个人档案页面-->
+
 <template>
   <div id="profile">
     {{this.phone}}

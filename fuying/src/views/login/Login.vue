@@ -1,4 +1,4 @@
-// Login组件
+<!--Login组件-->
 
 <template>
 <div id="login-win">
@@ -33,6 +33,7 @@ export default {
 		urlHead:String,
 	},
 	data() {
+		// data中最好不要有函数，未查到ui的其他使用方法，待修改
 		var validatePass = (rule, value, callback) => {
 			if (value === '') {
 				callback(new Error('请输入密码'));
@@ -61,7 +62,6 @@ export default {
 		return {
 			activeName: 'first',
 			regMobile: /^1\d{10}$/,
-			// loginUrl: "https://phenomics.fudan.edu.cn/firmiana/healthprogram/WebLogin/",
 			loginUrl: this.urlHead+"WebLogin/",
 			ruleForm: {
 				phone: '',

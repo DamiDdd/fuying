@@ -1,19 +1,22 @@
+<!--退出组件-->
+
 <template>
-  <div></div>
+  <div>exiting...</div>
 </template>
 
 <script>
 export default {
   name: "Exit",
   mounted(){
+    // 删除本地phone标识
     localStorage.removeItem("userPhone");
     this.$store.state.isLogin = false;
+    // 删除本地admin标识
     if(localStorage.getItem("admin")!=null){
       localStorage.removeItem("admin");
       this.$store.state.isAdmin = false;
     }
-    // console.log(localStorage);
-    // console.log(this.$store.state.isLogin);
+    // 自动返回首页
     this.$router.push('/home');
     this.$message({
 			type: 'success',

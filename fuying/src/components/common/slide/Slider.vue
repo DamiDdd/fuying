@@ -1,3 +1,5 @@
+<!--轮播图片组件-->
+
 <template>
   <div id="slider">
     <div class="window" :style="{width:imgWidth+'px'}" @mouseover="stop" @mouseleave="play">
@@ -32,6 +34,7 @@
 </template>
 
 <script>
+// 本地notfound图片
 import notfound from '../../../assets/img/common/notfound.png'
 
 export default {
@@ -55,6 +58,7 @@ export default {
       type: Array,
       default(){
         return [
+          // 用于测试
         // {
         //   img:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599128436987&di=fb96b4b13f8107675eb1e46ec461535d&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fa1098535f9b8bde03b5cfcfec48627320d1f12a15100f-o1IY9b_fw658'
         // },
@@ -92,11 +96,13 @@ export default {
     this.init()
   },
   methods:{
+    // 初始化，绑定blue/focus事件
     init() {
       this.play()
       window.onblur = function() { this.stop() }.bind(this)
       window.onfocus = function() { this.play() }.bind(this)
     },
+    // 移动图片
     move(offset, direction, speed) {
     //   console.log(speed)
       if (!this.transitionEnd) return
@@ -108,6 +114,7 @@ export default {
       const destination = this.distance + offset * direction
       this.animate(destination, direction, speed)
     },
+    // 滑动
     animate(des, direc, speed) {
       if (this.temp) {
         window.clearInterval(this.temp);
@@ -125,12 +132,14 @@ export default {
         }
       }, 20)
     },
+    // 点击数字跳转
     jump(index) {
       const direction = (index - this.currentIndex) >= 0 ? -1 : 1;
       const offset = Math.abs(index - this.currentIndex) * this.imgWidth;
       const jumpSpeed = Math.abs(index - this.currentIndex) === 0 ? this.speed : Math.abs(index - this.currentIndex) * this.speed ;
       this.move(offset, direction, jumpSpeed)
     },
+    // 控制自动播放和暂停
     play() {
       if (this.timer) {
         window.clearInterval(this.timer)
@@ -162,6 +171,7 @@ export default {
   }
   .window{
     position:relative;
+    /* width作为传入参数更新 */
     /* width: imgWidth; */
     height:400px;
     margin:0 auto;

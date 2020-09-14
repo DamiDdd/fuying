@@ -1,3 +1,5 @@
+<!--服务总览页view-->
+
 <template>
   <div id="item-window">
     <div id="i-div" class="unfocus" @mouseenter="changeFocus" @mouseleave="removeFocus">
@@ -27,7 +29,6 @@ export default {
   #item-window{
     margin-bottom: 1%;
   }
-
   #i-div{
     width: 80%;
     height: 220px;
@@ -38,7 +39,6 @@ export default {
     cursor: pointer;
   }
   .title{
-    /* background: gray; */
     margin-left: 20px;
     width: 14%;
     font-size: 36px;
@@ -50,7 +50,6 @@ export default {
     margin-top: 10%;
   }
   .desc{
-    /* background: gray; */
     height: 50%;
     width: 50%;
     margin-left: 13%;

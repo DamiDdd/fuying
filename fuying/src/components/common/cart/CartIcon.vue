@@ -1,3 +1,5 @@
+<!--购物车icon组件-->
+
 <template>
   <div id="cart-icon" :style="iconStyle" @click="jump2cart">
     <img v-show="isLogin()" src="~assets/img/common/purchase-active.png">
@@ -14,6 +16,7 @@ export default {
     }
   },
   methods:{
+    // 获取本地登录状态
     isLogin(){
       return this.$store.state.isLogin;
     },

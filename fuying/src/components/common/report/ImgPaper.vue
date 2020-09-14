@@ -1,3 +1,5 @@
+<!--前端生成报告所用的组件，备用-->
+
 <template>
   <div id="img-paper">
     <div class="window">

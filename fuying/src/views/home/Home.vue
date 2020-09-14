@@ -1,3 +1,5 @@
+<!--首页视图-->
+
 <template>
   <div id="home">
     <home-head></home-head>
@@ -21,10 +23,6 @@ export default {
     HomeHead,
     HomeProduct,
   },
-  // mounted(){
-  //   console.log(localStorage);
-  //   console.log(this.$store.state.isLogin);
-  // }
 }
 </script>
 

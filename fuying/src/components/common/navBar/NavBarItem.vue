@@ -16,11 +16,6 @@ export default {
     },
   },
   methods: {
-    // check(){
-    //   if(this.$router.path.indexOf(this.link) !== -1){
-    //     console(this.link);
-    //   }
-    // },
     itemClick() {
       this.$router.push(this.link)
     },

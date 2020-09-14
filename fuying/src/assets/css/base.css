@@ -3,7 +3,6 @@
 /* 通用常量 */
 :root {
   --screen-width: 1900px;
-  /* --screen-width: 100%; */
   --screen-height: 800px;
   --paper-height: 836px;
   --paper-height-half: 418px;
@@ -19,6 +18,7 @@ body{
   margin: 0;
 }
 
+/* 常用的几种字体样式 */
 .title{
   font-size: 28px;
   color: var(--theme-color);
