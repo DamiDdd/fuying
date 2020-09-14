@@ -205,4 +205,10 @@ export default {
     outline: none;
     background-color: #ffce6b;
   }
+  .empty{
+    cursor: pointer;
+  }
+  .empty:hover{
+    color:red;
+  }
 </style>
