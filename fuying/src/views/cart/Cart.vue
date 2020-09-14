@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import lab from '../../assets/img/common/lab.png'
+// import lab from '../../assets/img/common/lab.png'
 import CartView from 'components/content/cart/CartView'
 import GLOBAL from '@/common/const'
 import Axios from 'axios'
@@ -69,24 +69,24 @@ export default {
       carturl: GLOBAL.urlHead+"getCartweb?id=",
       all: false,
       goods:[
-        {
-          product_id: "00001",
-          product: "生理刻画基本套餐",
-          detail_id: "2",
-          detail: "升级版",
-          product_img: lab,
-          price: 200,
-          num: 1,
-        },
-        {
-          product_id: "00001",
-          product: "生理刻画基本套餐",
-          detail_id: "1",
-          detail: "基础版",
-          product_img: lab,
-          price: 100,
-          num: 1,
-        },
+        // {
+        //   product_id: "00001",
+        //   product: "生理刻画基本套餐",
+        //   detail_id: "2",
+        //   detail: "升级版",
+        //   product_img: lab,
+        //   price: 200,
+        //   num: 1,
+        // },
+        // {
+        //   product_id: "00001",
+        //   product: "生理刻画基本套餐",
+        //   detail_id: "1",
+        //   detail: "基础版",
+        //   product_img: lab,
+        //   price: 100,
+        //   num: 1,
+        // },
       ],
     }
   },
@@ -98,6 +98,15 @@ export default {
       if(response.status === 200){
         let data = response.data;
         console.log(data);
+        data.forEach(element => {
+          this.$set(this.goods,this.goods.length,element);
+        });
+        // 初始化flag参数, !pending--重置下priceSum
+        this.goods.forEach(element => {
+          this.$set(element,"price",parseFloat(element.price).toFixed(2));
+          this.$set(element,"flag",false);
+          this.$set(element,"priceSum",parseFloat(element.num * element.price).toFixed(2))
+        });
       }
       else{
         this.$message({
@@ -105,13 +114,6 @@ export default {
 					message: '后台出错',
 				});
       }
-    });
-
-    // 初始化flag参数, !pending--重置下priceSum
-    this.goods.forEach(element => {
-      this.$set(element,"price",parseFloat(element.price).toFixed(2));
-      this.$set(element,"flag",false);
-      this.$set(element,"priceSum",parseFloat(element.num * element.price).toFixed(2))
     });
   },
   methods:{
@@ -128,6 +130,7 @@ export default {
     },
     // 提交订单至付款页面
     submitPurchase(){
+      // console.log(this.goods);
       let flag = false;
       this.goods.forEach(element => {
         if(element.flag){
