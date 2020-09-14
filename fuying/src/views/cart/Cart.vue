@@ -29,6 +29,7 @@
 import lab from '../../assets/img/common/lab.png'
 import CartView from 'components/content/cart/CartView'
 import GLOBAL from '@/common/const'
+import Axios from 'axios'
 
 export default {
   name: 'Cart',
@@ -93,6 +94,19 @@ export default {
     // 在这里拿到cart数据
     this.carturl += this.phone;
     console.log(this.carturl);
+    Axios.get(this.carturl).then((response) => {
+      if(response.status === 200){
+        let data = response.data;
+        console.log(data);
+      }
+      else{
+        this.$message({
+          type: 'warning',
+					message: '后台出错',
+				});
+      }
+    });
+
     // 初始化flag参数, !pending--重置下priceSum
     this.goods.forEach(element => {
       this.$set(element,"price",parseFloat(element.price).toFixed(2));
