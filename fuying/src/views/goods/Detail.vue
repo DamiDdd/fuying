@@ -26,6 +26,7 @@ import GoodView from "components/content/detail/GoodView"
 import Slider from "components/common/slide/Slider";
 import CartIcon from 'components/common/cart/CartIcon'
 import Axios from 'axios'
+import GLOBAL from '@/common/const'
 
 
 export default {
@@ -35,12 +36,9 @@ export default {
     Slider,
     CartIcon
   },
-  props:{
-    urlHead:String,
-  },
   data(){
     return{
-      detailUrl: this.urlHead +"getproductsdetail?id=",
+      detailUrl: GLOBAL.urlHead +"getproductsdetail?id=",
       goodId: 0,
       index:0,
       // 关于iconStyle的细节设定
@@ -81,10 +79,11 @@ export default {
   mounted(){
     this.goodId = this.$route.query.goodId;
     this.good['count'] = 1;
+    this.detailUrl += this.goodId
     //  在这里申请拿到商品数据
-    Axios.get(this.detailUrl+this.goodId).then((response) => {
+    Axios.get(this.detailUrl).then((response) => {
       if(response.status === 200){
-        console.log(response.data);
+        // console.log(response.data);
         let data = response.data;
         this.good.desc = data.desc;
         this.good.imgs = data.imgs;

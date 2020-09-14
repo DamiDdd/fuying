@@ -32,15 +32,14 @@
 import Identify from 'common/identify/Identify'
 // 待修改
 import Axios from 'axios'
+import GLOBAL from '@/common/const'
+
 
 export default {
     name: "Register",
     components: {
         Identify
     },
-    props:{
-		urlHead:String,
-	},
 	data() {
 		var validatePass = (rule, value, callback) => {
 			if (value === '') {
@@ -133,8 +132,8 @@ export default {
             regPassword: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/,
             regEmail: /^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/,
             regMobile: /^1\d{10}$/,
-            phoneUrl: this.urlHead+"sendValidateCode/?phone=",
-            registerUrl: this.urlHead+"register/",
+            phoneUrl: GLOBAL.urlHead+"sendValidateCode/?phone=",
+            registerUrl: GLOBAL.urlHead+"register/",
             activeName: 'second',
             identifyCodes: '1234567890ABCDEFGHIGKLMNoPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
             identifyCode: '',

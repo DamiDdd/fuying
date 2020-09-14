@@ -1,7 +1,7 @@
 <template>
   <div id="app" @click="clicked">
     <main-nav-bar></main-nav-bar>
-    <router-view :urlHead="urlHead"/>
+    <router-view/>
     <side-bar></side-bar>
     <main-footer></main-footer>
     <back-to-top        
@@ -23,7 +23,6 @@ export default {
   name: 'App',
   data() {
     return {
-      urlHead: "https://phenomics.fudan.edu.cn/firmiana/healthprogram/", //域
       ltime: new Date().getTime(),  // 最后一次点击时间
       ctime: new Date().getTime(),  // current time
       tOut: 10 * 60 * 1000, // ms,无操作退出时间，十分钟

@@ -19,6 +19,7 @@
 import ItemWindow from "components/common/mall/ItemWindow"
 import CartIcon from 'components/common/cart/CartIcon'
 import Axios from 'axios'
+import GLOBAL from '@/common/const'
 
 
 export default {
@@ -26,9 +27,6 @@ export default {
   components:{
     ItemWindow,
     CartIcon,
-  },
-  props:{
-    urlHead:String,
   },
   data(){
     return {
@@ -38,7 +36,7 @@ export default {
         'background': '#fff',
         'border-radius':'25px',
       },
-      productUrl: this.urlHead + "getProducts",
+      productUrl: GLOBAL.urlHead + "getProducts",
       goodList:[],
     }
   },

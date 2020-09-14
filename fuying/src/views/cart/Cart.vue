@@ -28,6 +28,7 @@
 <script>
 import lab from '../../assets/img/common/lab.png'
 import CartView from 'components/content/cart/CartView'
+import GLOBAL from '@/common/const'
 
 export default {
   name: 'Cart',
@@ -64,6 +65,7 @@ export default {
   data(){
     return{
       phone: localStorage.getItem("userPhone"),
+      carturl: GLOBAL.urlHead+"getCartweb?id=",
       all: false,
       goods:[
         {
@@ -91,7 +93,8 @@ export default {
   },
   mounted(){
     // 在这里拿到cart数据
-
+    this.carturl += this.phone;
+    console.log(this.carturl);
     // 初始化flag参数, !pending--重置下priceSum
     this.goods.forEach(element => {
       this.$set(element,"flag",false);

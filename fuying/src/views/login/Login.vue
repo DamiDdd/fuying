@@ -25,13 +25,12 @@
  
 <script>
 import Register from 'views/login/childComps/Register';
-import Axios from 'axios'
+import Axios from 'axios';
+import GLOBAL from '@/common/const'
+
  
 export default {
 	name: "Login",
-	props:{
-		urlHead:String,
-	},
 	data() {
 		// data中最好不要有函数，未查到ui的其他使用方法，待修改
 		var validatePass = (rule, value, callback) => {
@@ -62,7 +61,7 @@ export default {
 		return {
 			activeName: 'first',
 			regMobile: /^1\d{10}$/,
-			loginUrl: this.urlHead+"WebLogin/",
+			loginUrl: GLOBAL.urlHead+"WebLogin/",
 			ruleForm: {
 				phone: '',
 				pass: '',
@@ -88,6 +87,7 @@ export default {
 			this.$refs[formName].validate(valid => {
 				if (valid) {
 					var url = this.loginUrl + "?phone=" + this.ruleForm["phone"] + "&password="+this.ruleForm["pass"];
+					// console.log(url);
 					Axios.get(url).then((response) => {
 						// console.log(response);
 						if(response.status === 200){

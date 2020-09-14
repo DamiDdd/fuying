@@ -14,16 +14,15 @@
 
 <script>
 import Axios from 'axios'
+import GLOBAL from '@/common/const'
+
 
 export default {
   name: "UploadCommend",
-  props:{
-    urlHead:String,
-  },
   data(){
     return{
       user: "", // fortest 080578
-      findUrl: this.urlHead + "getevaluation?exp=",
+      findUrl: GLOBAL.urlHead + "getevaluation?exp=",
       mainData: [],
       scoreSum: 500,
     }
