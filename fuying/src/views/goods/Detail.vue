@@ -24,6 +24,8 @@
 import GoodView from "components/content/detail/GoodView"
 import Slider from "components/common/slide/Slider";
 import CartIcon from 'components/common/cart/CartIcon'
+import Axios from 'axios'
+
 
 export default {
   name: "Detail",
@@ -32,8 +34,12 @@ export default {
     Slider,
     CartIcon
   },
+  props:{
+    urlHead:String,
+  },
   data(){
     return{
+      detailUrl: this.urlHead +"getproductsdetail?id=",
       goodId: 0,
       index:0,
       cartIconStyle: {
@@ -90,7 +96,23 @@ export default {
     this.goodId = this.$route.query.goodId;
     this.good['count'] = 1;
     //  在这里申请拿到商品数据
-    
+    Axios.get(this.detailUrl+this.goodId).then((response) => {
+      if(response.status === 200){
+        console.log(response.data);
+        let data = response.data;
+        this.good.desc = data.desc;
+        this.good.imgs = data.imgs;
+        this.good.type = data.type;
+        this.good.title = data.title;
+      }
+      else{
+        this.$message({
+          type: 'warning',
+					message: '后台出错',
+				});
+      }
+    });
+
   },
   methods:{
     tagChoose(index){
