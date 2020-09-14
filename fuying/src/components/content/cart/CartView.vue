@@ -23,6 +23,9 @@
 </template>
 
 <script>
+import GLOBAL from '@/common/const'
+import Axios from 'axios'
+
 export default {
   name: "CartView",
   props:{
@@ -31,6 +34,8 @@ export default {
   data(){
     return{
       deleteBtn: false,
+      counturl: GLOBAL.urlHead+"updateCartWeb?",
+      phone: localStorage.getItem("userPhone"),
     }
   },
   computed:{
@@ -55,11 +60,25 @@ export default {
     jump2detail(){
       this.$router.push({path:'/detail',query:{goodId:this.good.product_id}});
     },
+    changeNum(){
+      let url = this.counturl + "id=" + this.phone + 
+        "&detail_id=" + this.good.detail_id + 
+        "&num=" + this.good.num;
+      Axios.get(url).then((response) => {
+        if(!response.status === 200){
+          this.$message({
+            type: 'warning',
+            message: '后台出错',
+          });
+        }
+      });
+    },
     // 添加数量
     addCart(){
       this.good.num++;
       this.good.priceSum = parseFloat(this.good.num * this.good.price).toFixed(2);
       // 向后台传输最新数据
+      this.changeNum();
     },
     // 减少数量
     reduceCart(){
@@ -67,6 +86,7 @@ export default {
         this.good.num--;
         this.good.priceSum = parseFloat(this.good.num * this.good.price).toFixed(2);
         // 向后台传输最新数据
+        this.changeNum();
       }
     },
     // 删除购物车条目
@@ -74,6 +94,7 @@ export default {
       this.good.num = 0;
       this.good.flag = false;
       // 向后台传输数据
+      this.changeNum();
     }
   }
 }

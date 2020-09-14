@@ -69,6 +69,7 @@ export default {
       carturl: GLOBAL.urlHead+"getCartweb?id=",
       all: false,
       goods:[
+        // 数据样例
         // {
         //   product_id: "00001",
         //   product: "生理刻画基本套餐",

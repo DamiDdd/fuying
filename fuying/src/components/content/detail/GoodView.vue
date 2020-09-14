@@ -16,17 +16,22 @@
     <div class="reduce" @click="reduceCart"><img src="~assets/img/common/delete.jpg"></div>
     <div class="num">{{item.count}}</div>
     <div class="add" @click="addCart"><img src="~assets/img/common/add.jpg"></div>
-    <button id="add2cart" @mouseenter="changeFocus" @mouseleave="removeFocus">加入购物车</button>
+    <button id="add2cart" @click="changeNum" @mouseenter="changeFocus" @mouseleave="removeFocus">加入购物车</button>
     <button id="purchase" @mouseenter="changeFocus" @mouseleave="removeFocus">立即购买</button>
   </div>
 </template>
 
 <script>
+import GLOBAL from '@/common/const'
+import Axios from 'axios'
+
 export default {
   name:"GoodView",
   data(){
     return{
-      index: 0
+      index: 0,
+      counturl: GLOBAL.urlHead+"updateCartWeb?",
+      phone: localStorage.getItem("userPhone"),
     }
   },
   props:{
@@ -54,6 +59,20 @@ export default {
       else{        
         return "";
       }
+    },
+    changeNum(){
+      let url = this.counturl + "id=" + this.phone + 
+        "&detail_id=" + this.item.type[this.index].id + 
+        "&num=" + this.item.count;
+      console.log(url);
+      Axios.get(url).then((response) => {
+        if(!response.status === 200){
+          this.$message({
+            type: 'warning',
+            message: '后台出错',
+          });
+        }
+      });
     },
     addCart(){
       this.item.count++;
