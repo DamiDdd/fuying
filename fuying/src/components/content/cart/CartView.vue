@@ -3,13 +3,13 @@
 <template>
   <div v-if="countExist" id="cart-view" :style="chooseStyle">
     <div class="flag"><input type="checkbox" v-model="good.flag"></div>
-    <div class="img"><img :src="good.imgurl"></div>
-    <div class="title1" @click="jump2detail">{{good.goodTitle}}</div>
-    <div class="title2">{{good.typeTitle}}</div>
+    <div class="img"><img :src="good.product_img"></div>
+    <div class="title1" @click="jump2detail">{{good.product}}</div>
+    <div class="title2">{{good.detail}}</div>
     <div class="price-single">{{good.price}}</div>
     <div class="num-control">
       <div class="reduce" @click="reduceCart"><img src="~assets/img/common/delete.jpg"></div>
-      <div class="num">{{good.count}}</div>
+      <div class="num">{{good.num}}</div>
       <div class="add" @click="addCart"><img src="~assets/img/common/add.jpg"></div>
     </div>
     <div class="price-sum">{{good.priceSum}}</div>
@@ -35,7 +35,7 @@ export default {
   },
   computed:{
     countExist(){
-      return this.good.count > 0;
+      return this.good.num > 0;
     },
     chooseStyle(){
       if(this.good.flag){
@@ -47,32 +47,31 @@ export default {
     }
   },
   mounted(){
-    this.good.price = parseFloat(this.good.price).toFixed(2);
   },
   methods:{
     deleteReverse(){
       this.deleteBtn = !this.deleteBtn;
     },
     jump2detail(){
-      this.$router.push({path:'/detail',query:{goodId:this.good.goodId}});
+      this.$router.push({path:'/detail',query:{goodId:this.good.product_id}});
     },
     // 添加数量
     addCart(){
-      this.good.count++;
-      this.good.priceSum = parseFloat(this.good.count * this.good.price).toFixed(2);
+      this.good.num++;
+      this.good.priceSum = parseFloat(this.good.num * this.good.price).toFixed(2);
       // 向后台传输最新数据
     },
     // 减少数量
     reduceCart(){
-      if(this.good.count>1){
-        this.good.count--;
-        this.good.priceSum = parseFloat(this.good.count * this.good.price).toFixed(2);
+      if(this.good.num>1){
+        this.good.num--;
+        this.good.priceSum = parseFloat(this.good.num * this.good.price).toFixed(2);
         // 向后台传输最新数据
       }
     },
     // 删除购物车条目
     deleteConfirmed(){
-      this.good.count = 0;
+      this.good.num = 0;
       this.good.flag = false;
       // 向后台传输数据
     }

@@ -44,7 +44,7 @@ export default {
       }
       else{
         this.goods.forEach(element => {
-          if(element.count > 0){
+          if(element.num > 0){
             sign = false;
           }
         });
@@ -69,22 +69,22 @@ export default {
       all: false,
       goods:[
         {
-          goodId: "00001",
-          goodTitle: "生理刻画基本套餐",
-          typeId: "2",
-          typeTitle: "升级版",
-          imgurl: lab,
-          price: 200.20,
-          count: 1,
+          product_id: "00001",
+          product: "生理刻画基本套餐",
+          detail_id: "2",
+          detail: "升级版",
+          product_img: lab,
+          price: 200,
+          num: 1,
         },
         {
-          goodId: "00001",
-          goodTitle: "生理刻画基本套餐",
-          typeId: "1",
-          typeTitle: "基础版",
-          imgurl: lab,
-          price: 100.10,
-          count: 1,
+          product_id: "00001",
+          product: "生理刻画基本套餐",
+          detail_id: "1",
+          detail: "基础版",
+          product_img: lab,
+          price: 100,
+          num: 1,
         },
       ],
     }
@@ -95,14 +95,15 @@ export default {
     console.log(this.carturl);
     // 初始化flag参数, !pending--重置下priceSum
     this.goods.forEach(element => {
+      this.$set(element,"price",parseFloat(element.price).toFixed(2));
       this.$set(element,"flag",false);
-      this.$set(element,"priceSum",parseFloat(element.count * element.price).toFixed(2))
+      this.$set(element,"priceSum",parseFloat(element.num * element.price).toFixed(2))
     });
   },
   methods:{
     chooseAll(){
       this.goods.forEach(element => {
-        if(element.count > 0){
+        if(element.num > 0){
           // 在all改变前执行
           element.flag = !this.all;
         }
@@ -176,7 +177,7 @@ export default {
     width: 12%;
   }
   .price-tag{
-    width: 76%;
+    width: 70%;
     text-align: right;
     font-weight: bold;
     font-size: 20px;
@@ -184,7 +185,7 @@ export default {
     /* color: red; */
   }
   .price{
-    width: 12%;
+    width: 18%;
     text-align: center;
     font-weight: bold;
     font-size: 30px;

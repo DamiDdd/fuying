@@ -84,6 +84,7 @@ export default {
     Axios.get(this.detailUrl).then((response) => {
       if(response.status === 200){
         // console.log(response.data);
+        // 不需要双向绑定
         let data = response.data;
         this.good.desc = data.desc;
         this.good.imgs = data.imgs;
