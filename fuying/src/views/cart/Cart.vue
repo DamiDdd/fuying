@@ -22,12 +22,16 @@
       <button id="purchase" @click="submitPurchase">结算</button>
     </div>
     <div v-if="emptyCart" class="empty" @click="jump2mall">您的购物车空空如也,去商城看看吧！</div>
+    <modal :show="modal" :title="titleM" v-on:hideModal="hideModal" v-on:submit="solveMsg">
+      <p>lalala</p>
+    </modal>
   </div>
 </template>
 
 <script>
 // import lab from '../../assets/img/common/lab.png'
 import CartView from 'components/content/cart/CartView'
+import Modal from 'components/common/modal/Modal'
 import GLOBAL from '@/common/const'
 import Axios from 'axios'
 
@@ -35,6 +39,7 @@ export default {
   name: 'Cart',
   components:{
     CartView,
+    Modal,
   },
   computed:{
     // 判断是否为空购物车
@@ -68,6 +73,8 @@ export default {
       phone: localStorage.getItem("userPhone"),
       carturl: GLOBAL.urlHead+"getCartweb?id=",
       all: false,
+      modal: false,
+      titleM: "补充您的订单信息",
       goods:[
         // 数据样例
         // {
@@ -94,11 +101,10 @@ export default {
   mounted(){
     // 在这里拿到cart数据
     this.carturl += this.phone;
-    console.log(this.carturl);
     Axios.get(this.carturl).then((response) => {
       if(response.status === 200){
         let data = response.data;
-        console.log(data);
+        // console.log(data);
         data.forEach(element => {
           this.$set(this.goods,this.goods.length,element);
         });
@@ -109,12 +115,13 @@ export default {
           this.$set(element,"priceSum",parseFloat(element.num * element.price).toFixed(2))
         });
       }
-      else{
-        this.$message({
-          type: 'warning',
-					message: '后台出错',
-				});
-      }
+    }).catch((error)=>{
+      this.$message({
+        type: 'warning',
+        message: '后台出错',
+      });
+      console.log(error);
+      return false;
     });
   },
   methods:{
@@ -131,7 +138,6 @@ export default {
     },
     // 提交订单至付款页面
     submitPurchase(){
-      // console.log(this.goods);
       let flag = false;
       this.goods.forEach(element => {
         if(element.flag){
@@ -145,8 +151,13 @@ export default {
           message: '请选择至少一项服务',
         });
       }
-      // else{}
+      else{
+        this.modal = true;
+      }
     },
+    hideModal(){
+      this.modal = false;
+    }
   },
 }
 </script>

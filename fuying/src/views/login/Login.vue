@@ -16,7 +16,7 @@
 				</el-form>
 			</el-tab-pane>
 			<el-tab-pane label="注册" name="second">
-				<register :urlHead="urlHead"></register>
+				<register></register>
 			</el-tab-pane>
 		</el-tabs>
 	</p>
@@ -103,7 +103,6 @@ export default {
 								// 本地存储登录信息
 								localStorage.setItem("userPhone",this.ruleForm["phone"]);
 								if(data["admin"]){
-									console.log("admin");
 									this.$store.dispatch("setAdmin",true);
 									localStorage.setItem("admin",this.ruleForm["phone"]);
 								}

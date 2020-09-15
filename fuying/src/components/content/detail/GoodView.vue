@@ -61,17 +61,32 @@ export default {
       }
     },
     changeNum(){
+      if(this.phone === null){
+        this.$message({
+          type: 'warning',
+          message: '请先登录',
+        });
+        return false;
+      }
       let url = this.counturl + "id=" + this.phone + 
         "&detail_id=" + this.item.type[this.index].id + 
         "&num=" + this.item.count;
-      console.log(url);
+      // console.log(url);
       Axios.get(url).then((response) => {
-        if(!response.status === 200){
+        if(response.status === 200){
           this.$message({
-            type: 'warning',
-            message: '后台出错',
+            type: 'success',
+            message: '加入购物车成功',
           });
+          return true;
         }
+      }).catch((error)=>{
+        this.$message({
+          type: 'warning',
+          message: '后台出错',
+        });
+        console.log(error);
+        return false;
       });
     },
     addCart(){
