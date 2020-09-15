@@ -41,93 +41,6 @@ export default {
         Identify
     },
 	data() {
-		var validatePass = (rule, value, callback) => {
-			if (value === '') {
-                callback(new Error('请输入密码'));
-                return false;
-            } else if(this.regPassword.test(value) === false){
-                callback(new Error('8-16个字符，至少1个大写字母、1个小写字母、1个数字'));
-                return false;
-            } 
-            else {
-				if (this.ruleForm.checkPass !== '') {
-					this.$refs.ruleForm.validateField('checkPass');
-                }
-                callback();
-                return true;
-			}
-		};
- 
-		var validatePass2 = (rule, value, callback) => {
-			if (value === '') {
-                callback(new Error('请再次输入密码'));
-                return false;
-			} else if (value !== this.ruleForm.pass) {
-                callback(new Error('两次输入密码不一致!'));
-                return false;
-			} else {
-                callback();
-                return true;
-			}
-        };
-        
-		var validatePhone = (rule, value, callback) => {
-			if (value === '') {
-                callback(new Error('请输入手机号'));
-                return false;
-			} else if (this.regMobile.test(value) === false) {
-                callback(new Error('手机号输入有误'));
-                return false;
-			} else {
-                callback();
-                return true;
-			}
-        };
-        
-        var validateEmail = (rule, value, callback) => {
-			if (value === '') {
-                callback();
-			} else if (this.regEmail.test(value) === false) {
-				callback(new Error('电子邮箱输入有误'));
-			} else {
-				callback();
-			}
-        };
-        
-        var validateVerifycode = (rule, value, callback) => {
-            let val = value.toLowerCase();
-            let idcodeStr = this.identifyCode.toLowerCase();
-			if (value === '') {
-                callback(new Error('请输入验证码'));
-                return false;
-			} else if (val !== idcodeStr) {
-                callback(new Error('验证码不正确'));
-                return false;
-			} else {
-                callback();
-                return true;
-			}
-        };
-
-        var validatePhoneVC = (rule, value, callback) => {
-			if (value === '') {
-                callback(new Error('请输入验证码'));
-            } else {
-				callback();
-			}
-        };
-
-        
-        var validateName = (rule, value, callback) => {
-			if (value === '') {
-                callback(new Error('请输入用户名'));
-            } else if(value.length < 2 || value.length > 5) {
-				callback(new Error('长度在 2 到 5 个字符之间'));
-            } else{
-                callback();
-            }
-        };
-
 		return {
             regPassword: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/,
             regEmail: /^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/,
@@ -149,13 +62,13 @@ export default {
                 phoneVerifycode: '',
             },
 			rules: {
-                name: [{ required: true, validator: validateName, trigger: 'blur' }],
-                phone: [{required: true, validator: validatePhone, trigger: 'blur'}],
-				pass: [{ required: true, validator: validatePass, trigger: 'blur' }],
-				checkPass: [{ required: true, validator: validatePass2, trigger: 'blur' }],
-                email: [{ required: false, validator: validateEmail, trigger: 'blur' }],
-                verifycode: [{ required: true, validator: validateVerifycode, trigger: 'blur' }],
-                phoneVerifycode: [{required: true, validator: validatePhoneVC, trigger: 'blur'}]
+                name: [{ required: true, validator: this.validateName, trigger: 'blur' }],
+                phone: [{required: true, validator: this.validatePhone, trigger: 'blur'}],
+				pass: [{ required: true, validator: this.validatePass, trigger: 'blur' }],
+				checkPass: [{ required: true, validator: this.validatePass2, trigger: 'blur' }],
+                email: [{ required: false, validator: this.validateEmail, trigger: 'blur' }],
+                verifycode: [{ required: true, validator: this.validateVerifycode, trigger: 'blur' }],
+                phoneVerifycode: [{required: true, validator: this.validatePhoneVC, trigger: 'blur'}]
             },
             dataForm: {
                 name: 'pending',
@@ -175,6 +88,93 @@ export default {
     },
 
 	methods: {
+        validatePass(rule, value, callback){
+			if (value === '') {
+                callback(new Error('请输入密码'));
+                return false;
+            } else if(this.regPassword.test(value) === false){
+                callback(new Error('8-16个字符，至少1个大写字母、1个小写字母、1个数字'));
+                return false;
+            } 
+            else {
+				if (this.ruleForm.checkPass !== '') {
+					this.$refs.ruleForm.validateField('checkPass');
+                }
+                callback();
+                return true;
+			}
+		},
+ 
+		validatePass2(rule, value, callback){
+			if (value === '') {
+                callback(new Error('请再次输入密码'));
+                return false;
+			} else if (value !== this.ruleForm.pass) {
+                callback(new Error('两次输入密码不一致!'));
+                return false;
+			} else {
+                callback();
+                return true;
+			}
+        },
+        
+		validatePhone(rule, value, callback){
+			if (value === '') {
+                callback(new Error('请输入手机号'));
+                return false;
+			} else if (this.regMobile.test(value) === false) {
+                callback(new Error('手机号输入有误'));
+                return false;
+			} else {
+                callback();
+                return true;
+			}
+        },
+        
+        validateEmail(rule, value, callback){
+			if (value === '') {
+                callback();
+			} else if (this.regEmail.test(value) === false) {
+				callback(new Error('电子邮箱输入有误'));
+			} else {
+				callback();
+			}
+        },
+        
+        validateVerifycode(rule, value, callback){
+            let val = value.toLowerCase();
+            let idcodeStr = this.identifyCode.toLowerCase();
+			if (value === '') {
+                callback(new Error('请输入验证码'));
+                return false;
+			} else if (val !== idcodeStr) {
+                callback(new Error('验证码不正确'));
+                return false;
+			} else {
+                callback();
+                return true;
+			}
+        },
+
+        validatePhoneVC(rule, value, callback){
+			if (value === '') {
+                callback(new Error('请输入验证码'));
+            } else {
+				callback();
+			}
+        },
+
+        
+        validateName(rule, value, callback){
+			if (value === '') {
+                callback(new Error('请输入用户名'));
+            } else if(value.length < 2 || value.length > 5) {
+				callback(new Error('长度在 2 到 5 个字符之间'));
+            } else{
+                callback();
+            }
+        },
+
         random(min,max){
             return Math.floor(Math.random() * (max-min) + min);
         },

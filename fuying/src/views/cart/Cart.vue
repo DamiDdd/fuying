@@ -23,7 +23,29 @@
     </div>
     <div v-if="emptyCart" class="empty" @click="jump2mall">您的购物车空空如也,去商城看看吧！</div>
     <modal :show="modal" :title="titleM" v-on:hideModal="hideModal" v-on:submit="solveMsg">
-      <p>lalala</p>
+      <div class="in-content">
+        <table class="el-table el-table--fit el-table--border table-detail">
+          <thead>
+            <tr>
+              <th width="200px">套餐</th>
+              <th width="200px">服务内容</th>
+              <th width="200px">单价</th>
+              <th width="200px">数目</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item,index) in goods" :key="index" v-show="item.flag">
+              <td v-text="item.product"></td>
+              <td v-text="item.detail"></td>
+              <td v-text="item.price"></td>
+              <td v-text="item.num"></td>
+            </tr>
+            <tr>
+              <td colspan="4" v-text="'总价：'+this.sum" class="sp"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </modal>
   </div>
 </template>
@@ -57,6 +79,7 @@ export default {
       }
       return sign;
     },
+    // 求选中的总价
     sum(){
       let sum = 0;
       sum = parseFloat(sum);
@@ -74,7 +97,7 @@ export default {
       carturl: GLOBAL.urlHead+"getCartweb?id=",
       all: false,
       modal: false,
-      titleM: "补充您的订单信息",
+      titleM: "完善您的订单信息",
       goods:[
         // 数据样例
         // {
@@ -136,7 +159,7 @@ export default {
     jump2mall(){
       this.$router.push('/products');
     },
-    // 提交订单至付款页面
+    // 提交订单第一步，唤出弹窗
     submitPurchase(){
       let flag = false;
       this.goods.forEach(element => {
@@ -157,7 +180,10 @@ export default {
     },
     hideModal(){
       this.modal = false;
-    }
+    },
+    solveMsg(){
+      this.modal = false;
+    },
   },
 }
 </script>
@@ -239,5 +265,12 @@ export default {
   }
   .empty:hover{
     color:red;
+  }
+  .in-content{
+    width: 800px;
+  }
+  .sp{
+    text-align: right;
+    padding-right: 10%;
   }
 </style>

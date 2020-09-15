@@ -32,8 +32,25 @@ import GLOBAL from '@/common/const'
 export default {
 	name: "Login",
 	data() {
-		// data中最好不要有函数，未查到ui的其他使用方法，待修改
-		var validatePass = (rule, value, callback) => {
+		return {
+			activeName: 'first',
+			regMobile: /^1\d{10}$/,
+			loginUrl: GLOBAL.urlHead+"WebLogin/",
+			ruleForm: {
+				phone: '',
+				pass: '',
+			},
+			rules: {
+				phone: [{required: true, validator: this.validatePhone, trigger: 'blur'}],
+				pass: [{ required: true, validator: this.validatePass, trigger: 'blur' }],
+			}
+		};
+	},
+
+ 
+	methods: {
+		// 验证密码
+		validatePass(rule, value, callback){
 			if (value === '') {
 				callback(new Error('请输入密码'));
 			} else {
@@ -43,9 +60,10 @@ export default {
  
 				callback();
 			}
-		};
-
-		var validatePhone = (rule, value, callback) => {
+		},
+		
+		// 验证手机号
+		validatePhone(rule, value, callback){
 			if (value === '') {
                 callback(new Error('请输入手机号'));
                 return false;
@@ -56,25 +74,7 @@ export default {
                 callback();
                 return true;
 			}
-		};
- 
-		return {
-			activeName: 'first',
-			regMobile: /^1\d{10}$/,
-			loginUrl: GLOBAL.urlHead+"WebLogin/",
-			ruleForm: {
-				phone: '',
-				pass: '',
-			},
-			rules: {
-				phone: [{required: true, validator: validatePhone, trigger: 'blur'}],
-				pass: [{ required: true, validator: validatePass, trigger: 'blur' }],
-			}
-		};
-	},
-
- 
-	methods: {
+		},
 		//选项卡切换
 		// handleClick(tab, event) {},
 		//重置表单
