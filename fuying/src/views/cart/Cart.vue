@@ -45,6 +45,11 @@
             </tr>
           </tbody>
         </table>
+        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+          <el-form-item label="姓名" prop="user_name"><el-input v-model="ruleForm.user_name"></el-input></el-form-item>
+          <el-form-item label="手机号" prop="user_phone"><el-input v-model="ruleForm.user_phone"></el-input></el-form-item>
+          <el-form-item label="地址" prop="user_address"><el-input v-model="ruleForm.user_address"></el-input></el-form-item>
+        </el-form>  
       </div>
     </modal>
   </div>
@@ -95,6 +100,7 @@ export default {
     return{
       phone: localStorage.getItem("userPhone"),
       carturl: GLOBAL.urlHead+"getCartweb?id=",
+      uploadUrl: GLOBAL.urlHead+"payCartWeb",
       all: false,
       modal: false,
       titleM: "完善您的订单信息",
@@ -109,16 +115,25 @@ export default {
         //   price: 200,
         //   num: 1,
         // },
-        // {
-        //   product_id: "00001",
-        //   product: "生理刻画基本套餐",
-        //   detail_id: "1",
-        //   detail: "基础版",
-        //   product_img: lab,
-        //   price: 100,
-        //   num: 1,
-        // },
       ],
+      ruleForm: {
+        user_name: '',
+        user_phone: localStorage.getItem("userPhone"),
+				user_address: '',
+      },
+			rules: {
+        user_name: [{ required: true, validator: this.validateName, trigger: 'blur' }],
+        user_phone: [{required: true, validator: this.validatePhone, trigger: 'blur'}],
+				user_address: [{ required: true, validator: this.validateAddress, trigger: 'blur' }],
+      },
+      dataForm: {
+        id: '',
+        user_name: '',
+        user_phone: '',
+        user_address: '',
+        pay_list: [],
+        tot_num: 0,
+      }
     }
   },
   mounted(){
@@ -148,6 +163,37 @@ export default {
     });
   },
   methods:{
+    validatePhone(rule, value, callback){
+      let regMobile = /^1\d{10}$/;
+			if (value === '') {
+        callback(new Error('请输入手机号'));
+        return false;
+			} else if (regMobile.test(value) === false) {
+        callback(new Error('手机号输入有误'));
+        return false;
+			} else {
+        callback();
+        return true;
+			}
+    },
+    validateName(rule, value, callback){
+			if (value === '') {
+        callback(new Error('请输入姓名'));
+        return false;
+			} else {
+        callback();
+        return true;
+			}
+    },
+    validateAddress(rule, value, callback){
+			if (value === '') {
+        callback(new Error('请输入地址'));
+        return false;
+			} else {
+        callback();
+        return true;
+			}
+		},
     chooseAll(){
       this.goods.forEach(element => {
         if(element.num > 0){
@@ -164,7 +210,7 @@ export default {
       let flag = false;
       this.goods.forEach(element => {
         if(element.flag){
-          console.log(element);
+          // console.log(element);
           flag = true;
         }
       })
@@ -178,12 +224,68 @@ export default {
         this.modal = true;
       }
     },
+    resetdata(){
+      this.$refs['ruleForm'].resetFields();
+      this.dataForm['pay_list'] = [];
+    },
     hideModal(){
+      // 重置已填写内容
+      this.resetdata();
       this.modal = false;
     },
     solveMsg(){
-      this.modal = false;
+      this.$refs['ruleForm'].validate(valid => {
+				if (valid) {
+          // let that = this
+          this.packDataForm();
+          console.log(this.dataForm);
+          // 数据封装成后台可解析dict
+          let params = new URLSearchParams();
+          for(let key of Object.keys(this.dataForm)){
+            params.append(key,this.dataForm[key]);
+          }
+          console.log(params);
+          // 衔接出现问题，waiting for debug
+          Axios.get(this.uploadUrl, params,
+            {headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            }}
+          ).then(function(response){
+            console.log(response);
+            if(response.status === 200){
+              let data = response.data;
+              console.log(data);
+            }
+          }).catch(function (error){
+            console.log(error);
+          });
+          this.$refs['ruleForm'].resetFields();
+          this.modal = false;
+				} else {
+					console.log('error submit!!');
+					return false;
+				}
+			});
+    },        
+    packDataForm() {
+      this.dataForm['id'] = localStorage.getItem("userPhone");
+      this.dataForm['user_name'] = this.ruleForm['user_name'];
+      this.dataForm['user_phone'] = this.ruleForm['user_phone'];
+      this.dataForm['user_address'] = this.ruleForm['user_address'];
+      this.dataForm['tot_num'] = this.sum;
+      this.dataForm['pay_list'] = [];
+      this.goods.forEach(element => {
+        if(element.flag){
+          // console.log(element);
+          let temp = {
+            "detail_id": element.detail_id,
+            "num": element.num,
+          }
+          this.dataForm['pay_list'][this.dataForm['pay_list'].length]=temp;
+        }
+      })
     },
+    
   },
 }
 </script>
@@ -272,5 +374,8 @@ export default {
   .sp{
     text-align: right;
     padding-right: 10%;
+  }
+  .demo-ruleForm{
+    margin-top: 20px;
   }
 </style>
