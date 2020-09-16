@@ -56,7 +56,6 @@
 </template>
 
 <script>
-// import lab from '../../assets/img/common/lab.png'
 import CartView from 'components/content/cart/CartView'
 import Modal from 'components/common/modal/Modal'
 import GLOBAL from '@/common/const'
@@ -210,7 +209,6 @@ export default {
       let flag = false;
       this.goods.forEach(element => {
         if(element.flag){
-          // console.log(element);
           flag = true;
         }
       })
@@ -238,20 +236,17 @@ export default {
 				if (valid) {
           // let that = this
           this.packDataForm();
-          console.log(this.dataForm);
           // 数据封装成后台可解析dict
           let params = new URLSearchParams();
           for(let key of Object.keys(this.dataForm)){
             params.append(key,this.dataForm[key]);
           }
-          console.log(params);
           // 衔接出现问题，waiting for debug
-          Axios.get(this.uploadUrl, params,
+          Axios.post(this.uploadUrl, params,
             {headers: {
               'Content-Type': 'application/x-www-form-urlencoded'
             }}
           ).then(function(response){
-            console.log(response);
             if(response.status === 200){
               let data = response.data;
               console.log(data);
@@ -276,7 +271,6 @@ export default {
       this.dataForm['pay_list'] = [];
       this.goods.forEach(element => {
         if(element.flag){
-          // console.log(element);
           let temp = {
             "detail_id": element.detail_id,
             "num": element.num,
@@ -284,6 +278,7 @@ export default {
           this.dataForm['pay_list'][this.dataForm['pay_list'].length]=temp;
         }
       })
+      this.dataForm['pay_list'] = JSON.stringify(this.dataForm['pay_list']);
     },
     
   },
