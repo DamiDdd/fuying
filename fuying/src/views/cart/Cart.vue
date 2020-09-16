@@ -63,6 +63,7 @@ import Axios from 'axios'
 
 export default {
   name: 'Cart',
+  inject: ['reload'],
   components:{
     CartView,
     Modal,
@@ -232,6 +233,7 @@ export default {
       this.modal = false;
     },
     solveMsg(){
+      let that = this;
       this.$refs['ruleForm'].validate(valid => {
 				if (valid) {
           // let that = this
@@ -250,6 +252,7 @@ export default {
             if(response.status === 200){
               let data = response.data;
               console.log(data);
+              that.reload();
             }
           }).catch(function (error){
             console.log(error);

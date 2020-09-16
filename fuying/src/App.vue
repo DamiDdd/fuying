@@ -1,7 +1,7 @@
 <template>
   <div id="app" @click="clicked">
     <main-nav-bar></main-nav-bar>
-    <router-view/>
+    <router-view v-if="isRouterAlive"/>
     <side-bar></side-bar>
     <main-footer></main-footer>
     <back-to-top        
@@ -21,6 +21,11 @@ import BackToTop from 'common/backToTop/BackToTop'
 
 export default {
   name: 'App',
+  provide(){
+    return{
+      reload: this.reload,
+    }
+  },
   data() {
     return {
       ltime: new Date().getTime(),  // 最后一次点击时间
@@ -34,7 +39,8 @@ export default {
         'border-radius': '20px',
         'line-height': '40px', 
         'background': '#fff'
-      }
+      },
+      isRouterAlive: true, // 控制路由页面显示信息
     }
   },
   components: {
@@ -69,6 +75,12 @@ export default {
           });
         }
       }
+    },
+    reload(){
+      this.isRouterAlive = false;
+      this.$nextTick(function(){
+        this.isRouterAlive = true;
+      })
     }
   }
 }
