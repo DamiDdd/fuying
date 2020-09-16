@@ -117,7 +117,7 @@ export default {
     },
     removeFocus(e) {
       e.currentTarget.className = '';
-    }
+    },
   }
 }
 </script>

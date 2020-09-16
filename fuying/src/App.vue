@@ -76,6 +76,7 @@ export default {
         }
       }
     },
+    // 刷新页面函数，通过inject注入引用
     reload(){
       this.isRouterAlive = false;
       this.$nextTick(function(){

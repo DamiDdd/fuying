@@ -251,8 +251,10 @@ export default {
           ).then(function(response){
             if(response.status === 200){
               let data = response.data;
-              console.log(data);
-              that.reload();
+              // console.log(data);
+              if(data['success']){
+                that.reload();
+              }
             }
           }).catch(function (error){
             console.log(error);
