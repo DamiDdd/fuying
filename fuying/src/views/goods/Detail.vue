@@ -83,7 +83,7 @@ export default {
     //  在这里申请拿到商品数据
     Axios.get(this.detailUrl).then((response) => {
       if(response.status === 200){
-        // console.log(response.data);
+        console.log(response.data);
         // 不需要双向绑定
         let data = response.data;
         this.good.desc = data.desc;

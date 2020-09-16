@@ -17,7 +17,7 @@
     <div class="num">{{item.count}}</div>
     <div class="add" @click="addCart"><img src="~assets/img/common/add.jpg"></div>
     <button id="add2cart" @click="changeNum" @mouseenter="changeFocus" @mouseleave="removeFocus">加入购物车</button>
-    <button id="purchase" @mouseenter="changeFocus" @mouseleave="removeFocus">立即购买</button>
+    <button id="purchase" @click="jump2cart" @mouseenter="changeFocus" @mouseleave="removeFocus">立即购买</button>
   </div>
 </template>
 
@@ -53,6 +53,19 @@ export default {
     },
   },
   methods:{
+    jump2cart(){
+      if(this.phone === null){
+        this.$message({
+          type: 'warning',
+          message: '请先登录',
+        });
+        return 0;
+      }
+      else{
+        this.changeNum();
+        this.$router.push('/cart');
+      }
+    },
     active(index){
       if(this.index == index)
         return "active";
@@ -66,7 +79,7 @@ export default {
           type: 'warning',
           message: '请先登录',
         });
-        return false;
+        return 0;
       }
       let url = this.counturl + "id=" + this.phone + 
         "&detail_id=" + this.item.type[this.index].id + 
@@ -78,7 +91,7 @@ export default {
             type: 'success',
             message: '加入购物车成功',
           });
-          return true;
+          return 1;
         }
       }).catch((error)=>{
         this.$message({
@@ -86,7 +99,7 @@ export default {
           message: '后台出错',
         });
         console.log(error);
-        return false;
+        return 0;
       });
     },
     addCart(){
