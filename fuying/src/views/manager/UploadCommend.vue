@@ -21,7 +21,7 @@ export default {
   name: "UploadCommend",
   data(){
     return{
-      user: "", // fortest 080578
+      user: "", // for test 080578
       findUrl: GLOBAL.urlHead + "getevaluation?exp=",
       mainData: [],
       scoreSum: 500,
@@ -46,14 +46,13 @@ export default {
             let data = response.data;
             this.solveData(data);
           }
-          else if(response.status === 500){
-            this.$message({
-							type: 'warning',
-							message: '未查询到相应用户',
-						});
-          }
         }).catch((error) => {
           console.log(error);
+          this.$message({
+						type: 'warning',
+						message: '未查询到相应用户',
+          });
+          this.scoreSum = 500;
         })
       }
     },

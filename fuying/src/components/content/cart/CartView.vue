@@ -34,7 +34,7 @@ export default {
   data(){
     return{
       deleteBtn: false,
-      counturl: GLOBAL.urlHead+"updateCartWeb?",
+      counturl: GLOBAL.urlHead+"updateCartWeb",
       phone: localStorage.getItem("userPhone"),
     }
   },
@@ -61,7 +61,7 @@ export default {
       this.$router.push({path:'/detail',query:{goodId:this.good.product_id}});
     },
     changeNum(){
-      let url = this.counturl + "id=" + this.phone + 
+      let url = this.counturl + "?id=" + this.phone + 
         "&detail_id=" + this.good.detail_id + 
         "&num=" + this.good.num;
       Axios.get(url).then((response) => {
