@@ -31,6 +31,7 @@ export default {
   }
   #i-div{
     width: 80%;
+    min-width: 1000px;
     height: 220px;
     display: flex;
     overflow: hidden;

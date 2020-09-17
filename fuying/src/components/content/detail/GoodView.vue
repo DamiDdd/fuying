@@ -16,7 +16,7 @@
     <div class="reduce" @click="reduceCart"><img src="~assets/img/common/delete.jpg"></div>
     <div class="num">{{item.count}}</div>
     <div class="add" @click="addCart"><img src="~assets/img/common/add.jpg"></div>
-    <button id="add2cart" @click="changeNum" @mouseenter="changeFocus" @mouseleave="removeFocus">加入购物车</button>
+    <button id="add2cart" @click="changeNum()" @mouseenter="changeFocus" @mouseleave="removeFocus">加入购物车</button>
     <button id="purchase" @click="jump2cart" @mouseenter="changeFocus" @mouseleave="removeFocus">立即购买</button>
   </div>
 </template>
