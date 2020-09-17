@@ -27,11 +27,13 @@ import Axios from 'axios'
 
 export default {
   name:"GoodView",
+  // inject: ['reload'],
   data(){
     return{
       index: 0,
       counturl: GLOBAL.urlHead+"updateCartWeb?",
       phone: localStorage.getItem("userPhone"),
+      count: 0,
     }
   },
   props:{
@@ -62,8 +64,24 @@ export default {
         return 0;
       }
       else{
-        this.changeNum();
-        this.$router.push('/cart');
+        // 此处设置2s时延用于后台更新数据，在自动跳转时有数据更新不及时导致显示错误的问题
+        this.changeNum("正在跳转，请稍后...");
+        const TIME_COUNT = 1;
+        if(!this.timer){
+          this.count = TIME_COUNT;
+          this.timer = setInterval(()=>{
+            if(this.count > 0 && this.count <= TIME_COUNT){
+              this.count--;
+              // console.log(this.count);
+            }
+            else{
+              clearInterval(this.timer);
+              this.timer = null;
+              this.$router.push('/cart');
+            }
+          },1000)
+        }
+        // this.reload();
       }
     },
     active(index){
@@ -73,7 +91,7 @@ export default {
         return "";
       }
     },
-    changeNum(){
+    changeNum(msg="加入购物车成功"){
       if(this.phone === null){
         this.$message({
           type: 'warning',
@@ -89,7 +107,7 @@ export default {
         if(response.status === 200){
           this.$message({
             type: 'success',
-            message: '加入购物车成功',
+            message: msg,
           });
           return 1;
         }

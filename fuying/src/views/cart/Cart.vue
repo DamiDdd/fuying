@@ -283,6 +283,7 @@ export default {
           this.dataForm['pay_list'][this.dataForm['pay_list'].length]=temp;
         }
       })
+      // 字符串化数组
       this.dataForm['pay_list'] = JSON.stringify(this.dataForm['pay_list']);
     },
     

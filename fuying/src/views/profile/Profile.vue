@@ -17,6 +17,9 @@ export default {
   data(){
     return {
       phone: localStorage.getItem("userPhone"),
+      name: '',
+      email: '',
+      address: '',
     }
   },
   methods:{
