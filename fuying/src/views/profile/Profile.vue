@@ -93,6 +93,10 @@ export default {
 </script>
 
 <style scoped>
+  #profile{
+    background: url("~assets/img/bg/doctor.png") no-repeat bottom left;
+  }
+
   .main{
     width: 75%;
     min-width: 1200px;
