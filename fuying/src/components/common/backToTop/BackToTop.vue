@@ -2,12 +2,13 @@
 
 <template>
   <transition :name="transitionName">
-    <div class="page-component-up"
+    <button class="page-component-up"
       @click="backToTop"
       v-show="visible"
-      :style="customStyle">
+      :style="customStyle"
+      :disabled="btnDisabled">
     <p class="tipText">TOP</p>
-    </div>
+    </button>
   </transition>
 </template>
 
@@ -35,7 +36,8 @@ export default {
   data() {
     return {
       visible: false,
-      interval: null
+      interval: null,
+      btnDisabled: false,
     }
   },
   mounted() {
@@ -52,6 +54,7 @@ export default {
       this.visible = window.pageYOffset > this.visibilityHeight
     },
     backToTop() {
+      this.btnDisabled = true;
       let distanceY = window.pageYOffset
       let i = 0
       this.interval = setInterval(() => {
@@ -64,6 +67,9 @@ export default {
         }
         i++
       }, 17)
+      setTimeout(()=>{
+        this.btnDisabled = false;
+      },2000)
     },
     /*
       缓动公式（Tween算法）
