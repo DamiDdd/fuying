@@ -31,7 +31,7 @@ export default {
       ltime: new Date().getTime(),  // 最后一次点击时间
       ctime: new Date().getTime(),  // current time
       tOut: 10 * 60 * 1000, // ms,无操作退出时间，十分钟
-      myBackToTopStyle: {
+      myBackToTopStyle: { // 返回顶部的函数
         'right': '100px',
         'bottom': '150px',
         'width': '40px',

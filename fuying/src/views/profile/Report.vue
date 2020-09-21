@@ -199,6 +199,7 @@ export default {
     this.resultImg = require('../../assets/img/report/temp/result.png');
   },
   methods: {
+    // 纯前端依赖的下载函数
     handleDownload(){
       DownloadPDF.downloadPDF(document.querySelector('#report-div'),'user-report');
     },

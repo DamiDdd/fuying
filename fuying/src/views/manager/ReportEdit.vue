@@ -123,14 +123,12 @@ export default {
     },
     importfxx(obj) { //导入方法
       // 通过DOM取文件数据
-      // let _this = this
       let rABS = false; //是否将文件读取为二进制字符串
       let f = obj
       let reader = new FileReader();
       FileReader.prototype.readAsBinaryString = function(f) {
         let binary = "";
         let rABS = false; //是否将文件读取为二进制字符串
-        // let pt = this;
         let wb; //读取完成的数据
         let outdata;
         let reader = new FileReader();
@@ -163,9 +161,11 @@ export default {
       }
     },
 
+    // 待处理,上传数据接口
     handleUpload(){
       console.log(this.dataForm.mass_spectrogram_img);
     },
+    // 改变image
     changeImage(e) {
       var file = e.target.files[0]
       var reader = new FileReader()

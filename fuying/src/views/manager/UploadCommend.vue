@@ -57,6 +57,7 @@ export default {
       }
     },
 
+    // 处理数据
     solveData(data){
       console.log(data);
       // 这里为了功能划分清晰，采用了读两遍的方式，后续提升速度可以合并
