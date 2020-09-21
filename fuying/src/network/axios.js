@@ -1,2 +1,0 @@
-import originAxios from 'axios'
-

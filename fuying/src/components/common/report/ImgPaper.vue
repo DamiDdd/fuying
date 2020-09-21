@@ -40,7 +40,6 @@ export default {
     width: var(--paper-width);
     margin-left: auto;
     margin-right: auto;
-    /* background: gray; */
     border: 1px solid var(--theme-color);
     margin-bottom: 10.6px;
   }
@@ -57,7 +56,6 @@ export default {
   .title-div{
     height: 27px;
     width: calc(var(--paper-width) - 10px);
-    /* background: #000; */
     border-width: 0 0 0.5px 0;
     border-style: solid;
     border-color: gray;
@@ -73,7 +71,6 @@ export default {
   .img-div{
     height: 300px;
     width: calc(var(--paper-width) - 10px);
-    /* background: gray; */
   }
 
   .img-div img{
@@ -85,7 +82,6 @@ export default {
     height: 60px;
     overflow: hidden;
     width: calc(var(--paper-width) - 10px);
-    /* background: gray; */
   }
 
   .text-div p{

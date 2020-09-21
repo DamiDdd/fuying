@@ -148,6 +148,7 @@ export default {
         });
         // 初始化flag参数, !pending--重置下priceSum
         this.goods.forEach(element => {
+          // 保留两位小数
           this.$set(element,"price",parseFloat(element.price).toFixed(2));
           this.$set(element,"flag",false);
           this.$set(element,"priceSum",parseFloat(element.num * element.price).toFixed(2))
@@ -193,7 +194,8 @@ export default {
         callback();
         return true;
 			}
-		},
+    },
+    // 全选or全部取消
     chooseAll(){
       this.goods.forEach(element => {
         if(element.num > 0){
@@ -202,6 +204,7 @@ export default {
         }
     });
     },
+    // 跳转至商城
     jump2mall(){
       this.$router.push('/products');
     },
@@ -223,15 +226,18 @@ export default {
         this.modal = true;
       }
     },
+    // 重置地址信息
     resetdata(){
       this.$refs['ruleForm'].resetFields();
       this.dataForm['pay_list'] = [];
     },
+    // 隐藏蒙版
     hideModal(){
       // 重置已填写内容
       this.resetdata();
       this.modal = false;
     },
+    // 提交地址相关信息
     solveMsg(){
       let that = this;
       this.$refs['ruleForm'].validate(valid => {
@@ -266,7 +272,8 @@ export default {
 					return false;
 				}
 			});
-    },        
+    },
+    // 打包函数 
     packDataForm() {
       this.dataForm['id'] = localStorage.getItem("userPhone");
       this.dataForm['user_name'] = this.ruleForm['user_name'];

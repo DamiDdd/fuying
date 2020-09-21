@@ -39,9 +39,11 @@ export default {
     }
   },
   computed:{
+    // 数目是否为0
     countExist(){
       return this.good.num > 0;
     },
+    // 控制focus样式
     chooseStyle(){
       if(this.good.flag){
         return "border: 1px solid black";
@@ -51,15 +53,16 @@ export default {
       }
     }
   },
-  mounted(){
-  },
   methods:{
+    // 确认按钮的开启关闭
     deleteReverse(){
       this.deleteBtn = !this.deleteBtn;
     },
+    // 跳转至详情页
     jump2detail(){
       this.$router.push({path:'/detail',query:{goodId:this.good.product_id}});
     },
+    // 更新购物车数目状态
     changeNum(){
       let url = this.counturl + "?id=" + this.phone + 
         "&detail_id=" + this.good.detail_id + 

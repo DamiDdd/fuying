@@ -9,10 +9,12 @@
 export default {
   name: 'Identify',
   props: {
+    // 本次验证码
     identifyCode: {
       type: String,
       default: '1234'
     },
+    // min-max,限定fontsize的范围
     fontSizeMin: {
       type: Number,
       default: 28
@@ -21,6 +23,7 @@ export default {
       type: Number,
       default: 40
     },
+    // 限定bgcolor范围
     backgroundColorMin: {
       type: Number,
       default: 180
@@ -29,6 +32,7 @@ export default {
       type: Number,
       default: 240
     },
+    // 限定color范围
     colorMin: {
       type: Number,
       default: 50
@@ -37,6 +41,7 @@ export default {
       type: Number,
       default: 160
     },
+    // 限定linecolor范围
     lineColorMin: {
       type: Number,
       default: 40
@@ -45,6 +50,7 @@ export default {
       type: Number,
       default: 180
     },
+    // 限定dotcolor范围
     dotColorMin: {
       type: Number,
       default: 0
@@ -53,10 +59,12 @@ export default {
       type: Number,
       default: 255
     },
+    // 限定宽度
     contentWidth: {
       type: Number,
       default: 112
     },
+    // 限定高度
     contentHeight: {
       type: Number,
       default: 40

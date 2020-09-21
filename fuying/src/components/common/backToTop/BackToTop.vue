@@ -17,10 +17,12 @@ export default {
   name: 'BackToTop',
   props: {
     transitionName: {
+      // 过渡样式
       type: String,
       default: 'fade'
     },
     customStyle: {
+      // 自设定icon样式
       type: Object
     },
     visibilityHeight: { 
@@ -41,19 +43,25 @@ export default {
     }
   },
   mounted() {
+    // 监听滚动事件
     window.addEventListener('scroll', this.handleScroll)
   },
   beforeDestroy() {
+    // 重置计时器
     window.removeEventListener('scroll', this.handleScroll)
     if(this.interval) {
       clearInterval(this.interval)
     }
   },
   methods: {
+    // 控制icon是否可见
     handleScroll() {
       this.visible = window.pageYOffset > this.visibilityHeight
     },
+
+    // 滚动
     backToTop() {
+      // 加锁，避免重复点击timer出错
       this.btnDisabled = true;
       let distanceY = window.pageYOffset
       let i = 0

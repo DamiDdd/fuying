@@ -48,6 +48,7 @@ export default {
     }
   },
   computed:{
+    // 计算选中的总价
     sumPrice(){
       let price = this.item.count * this.item.type[this.index].price;
       price = parseFloat(price).toFixed(2);
@@ -55,6 +56,7 @@ export default {
     },
   },
   methods:{
+    // 加入购物车，再跳转至购物车页面
     jump2cart(){
       if(this.phone === null){
         this.$message({
@@ -64,7 +66,8 @@ export default {
         return 0;
       }
       else{
-        // 此处设置2s时延用于后台更新数据，在自动跳转时有数据更新不及时导致显示错误的问题
+        // 此处设置2s时延用于后台更新数据，
+        // 在自动跳转时有数据更新不及时导致显示错误的问题
         this.changeNum("正在跳转，请稍后...");
         const TIME_COUNT = 1;
         if(!this.timer){
@@ -72,7 +75,6 @@ export default {
           this.timer = setInterval(()=>{
             if(this.count > 0 && this.count <= TIME_COUNT){
               this.count--;
-              // console.log(this.count);
             }
             else{
               clearInterval(this.timer);
@@ -81,7 +83,6 @@ export default {
             }
           },1000)
         }
-        // this.reload();
       }
     },
     active(index){
@@ -91,6 +92,7 @@ export default {
         return "";
       }
     },
+    // 改变购物车数目，传入参数msg成功提示信息
     changeNum(msg="加入购物车成功"){
       if(this.phone === null){
         this.$message({
@@ -102,7 +104,6 @@ export default {
       let url = this.counturl + "id=" + this.phone + 
         "&detail_id=" + this.item.type[this.index].id + 
         "&num=" + this.item.count;
-      // console.log(url);
       Axios.get(url).then((response) => {
         if(response.status === 200){
           this.$message({

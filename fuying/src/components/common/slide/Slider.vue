@@ -40,10 +40,12 @@ import notfound from '../../../assets/img/common/notfound.png'
 export default {
   name: 'slider',
   props: {
+    // 初始切换速度
     initialSpeed: {
       type: Number,
       default: 30
     },
+    // timer
     initialInterval: {
       type: Number,
       default: 3

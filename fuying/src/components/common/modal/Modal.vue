@@ -1,3 +1,5 @@
+<!--蒙板组件-->
+
 <template>
     <div class="modal-bg" v-show="show" @mousemove="modalMove" @mouseup="cancelMove">
         <div class="modal-container">
@@ -19,10 +21,12 @@
 export default {
     name: 'Modal',
     props: {
+        // 控制显示的组件
         show: {
             type: Boolean,
             default: false
         },
+        // 标题
         title: {
             type: String,
             default: ''
@@ -40,20 +44,24 @@ export default {
         this.node = document.querySelector('.modal-container')
     },
     methods: {
+        // 调用，隐藏蒙版
         hideModal() {
             this.$emit('hideModal')
         },
 
+        // 调用submit，提交
         submit() {
             this.$emit('submit')
         },
 
+        // 用于悬浮窗位置初始化
         setStartingPoint(e) {
             this.x = e.clientX - this.node.offsetLeft
             this.y = e.clientY - this.node.offsetTop
             this.isCanMove = true
         },
 
+        // 悬浮窗移动
         modalMove(e) {
             if (this.isCanMove) {
                 this.node.style.left = e.clientX - this.x + 'px';
@@ -61,6 +69,7 @@ export default {
             } 
         },
 
+        // 悬浮窗固定
         cancelMove() {
             this.isCanMove = false
         }

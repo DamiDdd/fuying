@@ -11,6 +11,7 @@
 export default {
   name: "CartIcon",
   props:{
+    // icon自定样式
     iconStyle:{
       type: Object,
     }
@@ -20,6 +21,7 @@ export default {
     isLogin(){
       return this.$store.state.isLogin;
     },
+    // 跳转至cart
     jump2cart(){
       this.$router.push("/cart");
     }

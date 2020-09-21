@@ -27,6 +27,7 @@ export default {
     NavBarItem
   },
   methods:{
+    // 获取本地登录状态
     isLogin(){
       return this.$store.state.isLogin;
     },

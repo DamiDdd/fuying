@@ -1,3 +1,5 @@
+// 备用，下载pdf插件
+
 import html2canvas from 'html2canvas';
 import JsPDF from 'jspdf';
 

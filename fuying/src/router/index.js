@@ -23,6 +23,9 @@ const UploadCommend = () => import('views/manager/UploadCommend')
 Vue.use(VueRouter)
 
 // 2.配置路由信息
+// meta中包含的属性
+// isLogin：对登录状态的要求
+// isAdmin：对管理员权限的要求
 const routes = [
   {
     path: '/',

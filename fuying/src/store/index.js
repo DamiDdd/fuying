@@ -8,8 +8,8 @@ import getters from './getters'
 Vue.use(Vuex)
 
 const state = {
-  isLogin: false,
-  isAdmin: false,
+  isLogin: false, // 登录状态
+  isAdmin: false, // 管理员权限状态
 }
 
 const store = new Vuex.Store({
