@@ -57,7 +57,6 @@ export default {
 				if (this.ruleForm.checkPass !== '') {
 					this.$refs.ruleForm.validateField('checkPass');
 				}
- 
 				callback();
 			}
 		},
@@ -75,7 +74,7 @@ export default {
                 return true;
 			}
 		},
-		//选项卡切换
+		//选项卡切换,弃用
 		// handleClick(tab, event) {},
 		//重置表单
 		resetForm(formName) {

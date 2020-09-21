@@ -88,6 +88,7 @@ export default {
     },
 
 	methods: {
+        // 验证密码合理性
         validatePass(rule, value, callback){
 			if (value === '') {
                 callback(new Error('请输入密码'));
@@ -105,6 +106,7 @@ export default {
 			}
 		},
  
+         // 验证再次输入密码合理性
 		validatePass2(rule, value, callback){
 			if (value === '') {
                 callback(new Error('请再次输入密码'));
@@ -118,6 +120,7 @@ export default {
 			}
         },
         
+        // 验证手机号合理性
 		validatePhone(rule, value, callback){
 			if (value === '') {
                 callback(new Error('请输入手机号'));
@@ -131,6 +134,7 @@ export default {
 			}
         },
         
+        // 验证电子邮箱合理性
         validateEmail(rule, value, callback){
 			if (value === '') {
                 callback();
@@ -140,7 +144,8 @@ export default {
 				callback();
 			}
         },
-        
+
+        // 验证码合理性
         validateVerifycode(rule, value, callback){
             let val = value.toLowerCase();
             let idcodeStr = this.identifyCode.toLowerCase();
@@ -156,6 +161,7 @@ export default {
 			}
         },
 
+        // 手机验证码合理性
         validatePhoneVC(rule, value, callback){
 			if (value === '') {
                 callback(new Error('请输入验证码'));
@@ -164,7 +170,7 @@ export default {
 			}
         },
 
-        
+        // 用户名合理性
         validateName(rule, value, callback){
 			if (value === '') {
                 callback(new Error('请输入用户名'));
@@ -175,21 +181,25 @@ export default {
             }
         },
 
+        // 随机数
         random(min,max){
             return Math.floor(Math.random() * (max-min) + min);
         },
 
+        // 刷新函数
         refreshCode() {
             this.identifyCode = '';
             this.makeCode(this.identifyCodes,4);
         },
 
+        // 制作验证码(的数值部分)
         makeCode(o,length) {
             for(let i = 0; i < length; i++){
                 this.identifyCode += this.identifyCodes[this.random(0,this.identifyCodes.length)];
             }
         },
 
+        // 处理获取验证码按钮点击事件
         btnClick(phone) {
             this.validateBtn();
             this.getPhoneVariftcode(phone);
@@ -205,6 +215,7 @@ export default {
             })
         },
 
+        // 控制时延
         validateBtn() {
             let time = 60;
             let timer = setInterval(() => {
@@ -220,6 +231,7 @@ export default {
             },1000)
         },
 
+        // 提交注册表单 
 		submitForm(formName) {
 			this.$refs[formName].validate(valid => {
 				if (valid) {
@@ -283,6 +295,7 @@ export default {
 			});
         },
         
+        // 打包数据
         packDataForm() {
             this.dataForm['userName'] = this.ruleForm['name'];
             this.dataForm['phone'] = this.ruleForm['phone'];
@@ -292,6 +305,7 @@ export default {
             // console.log(this.dataForm);
         },
  
+        // 重置表单
 		resetForm(formName) {
             this.$refs[formName].resetFields();
             this.refreshCode();

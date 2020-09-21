@@ -38,9 +38,11 @@
 export default {
   name: "HomeAd",
   methods: {
+    // 跳转商城
     buyClick() {
       this.$router.push("/products")
     },
+    // 跳转外部链接
     goPage(url) {
       window.location.href = url
     }
