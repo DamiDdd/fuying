@@ -2,15 +2,17 @@
 
 /* 通用常量 */
 :root {
-  --screen-width: 1900px;
-  --screen-height: 800px;
-  --paper-height: 836px;
-  --paper-height-half: 418px;
-  --paper-width: 590px;
-  --theme-color: #308bcc;
-  --text-color: #9a9a9a;
-  --div-bottom: 100px;
-  --big-text: 38px;
+  --screen-width: 1900px; /* 屏幕宽度 */
+  --screen-height: 800px; /* 屏幕高度 */
+  --paper-height: 836px; /* A4纸张高度 */
+  --paper-height-half: 418px; /* A4纸张一半高度 */
+  --paper-width: 590px; /* A4纸张宽度 */
+  --theme-color: #308bcc; /* 设定主题色 */
+  --text-color: #9a9a9a; /* 文本主题色 */
+  --div-bottom: 100px; /* 默认底部边距 */
+  --small-text: 18px; /* 较小文本 */
+  --normal-text: 20px; /* 常规文本font-size */
+  --big-text: 38px; /* 较大文本font-size */
 }
 
 body{
@@ -20,43 +22,43 @@ body{
 
 /* 常用的几种字体样式 */
 .title{
-  font-size: 28px;
+  font-size: var(--normal-text);
   color: var(--theme-color);
   font-weight: bold;
 }
 
 .content{
+  font-size: var(--normal-text);
   color: var(--text-color);
-  font-size: 20px;
   font-weight: bold;
 }
 
 .content-blue{
+  font-size: var(--normal-text);
   color: var(--theme-color);
-  font-size: 20px;
   font-weight: bold;
 }
 
 .smalltext{
+  font-size: var(--small-text);
   color: var(--text-color);
-  font-size: 18px;
   font-weight: bold;
 }
 
 .smalltext-blue{
+  font-size: var(--small-text);
   color: var(--theme-color);
-  font-size: 18px;
   font-weight: bold;
 }
 
 .bigtext{
-  color: var(--text-color);
   font-size: var(--big-text);
+  color: var(--text-color);
   font-weight: bold;
 }
 
 .bigtext-blue{
-  color: var(--theme-color);
   font-size: var(--big-text);
+  color: var(--theme-color);
   font-weight: bold;
 }
