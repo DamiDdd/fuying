@@ -9,8 +9,8 @@
       <nav-bar-item link="/news"><div slot="text">新闻</div></nav-bar-item>
       <nav-bar-item link="/products"><div slot="text">产品</div></nav-bar-item>
     </div>
-    <nav-bar-item v-show="!isLogin()" link="/login" slot="right" class="login"><div slot="text">登录/注册</div></nav-bar-item>
-    <div v-show="isLogin()" slot="right">
+    <nav-bar-item v-show="!isLogin" link="/login" slot="right" class="login"><div slot="text">登录/注册</div></nav-bar-item>
+    <div v-show="isLogin" slot="right">
       <nav-bar-item link="/profile" class="login"><div slot="text">个人中心</div></nav-bar-item>
     </div>
   </nav-bar>
@@ -26,12 +26,11 @@ export default {
     NavBar,
     NavBarItem
   },
-  methods:{
-    // 获取本地登录状态
+  computed:{
     isLogin(){
       return this.$store.state.isLogin;
-    },
-  }
+    }
+  },
 }
 </script>
 

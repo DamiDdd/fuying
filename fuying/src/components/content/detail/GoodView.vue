@@ -33,7 +33,6 @@ export default {
       index: 0,
       counturl: GLOBAL.urlHead+"updateCartWeb?",
       phone: localStorage.getItem("userPhone"),
-      count: 0,
     }
   },
   props:{
