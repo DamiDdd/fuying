@@ -7,7 +7,7 @@
         <div class="left-top">
           <p class="content-blue">功能列表</p>
           <el-button @click="jump('/cart')">查看购物车</el-button>
-          <el-button >查看订单</el-button>
+          <el-button @click="callOn">查看订单</el-button>
           <el-button @click="jump('/pdf')">查看报告</el-button>
           <el-button class="warning" @click="jump('/exit')">退出登录</el-button>
         </div>
@@ -48,12 +48,41 @@
         </div> -->
       </div>
     </div>
+    <modal :show="modal" :title="titleM" v-on:hideModal="hideModal" v-on:submit="confirm">
+      <div class="in-content">
+        <table class="el-table el-table--fit el-table--border table-detail">
+          <thead>
+            <tr>
+              <th width="160px">服务</th>
+              <th width="160px">下单日期</th>
+              <th width="160px">数目</th>
+              <th width="160px">总价</th>
+              <th width="160px">状态</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item,index) in orderInList" :key="index">
+              <td @click="jump2detail(item.product_id)" class="good">{{item.product}}-{{item.detail}}</td>
+              <td v-text="item.date"></td>
+              <td v-text="item.num"></td>
+              <td v-text="item.priceSum"></td>
+              <td v-text="item.status"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </modal>
   </div>
 </template>
 
 <script>
+import Modal from 'components/common/modal/Modal'
+
 export default {
   name : "Profile",
+  components:{
+    Modal,
+  },
   data(){
     return {
       phone: localStorage.getItem("userPhone"),
@@ -68,6 +97,33 @@ export default {
         phone: "13333333333",
         address: "上海",
       }],
+      modal: false,
+      titleM: "您的订单",
+      orderInList:[{
+        order_id: "A01",
+        product: "基础套餐",
+        product_id: "00001",
+        detail: "升级版",
+        detail_id: "1",
+        product_img: "",
+        price: 200,
+        num: 2,
+        priceSum: 400,
+        date: "2020/9/1 10:00",
+        status: "pending",
+      },{
+        order_id: "A02",
+        product: "基础套餐",
+        product_id: "00001",
+        detail: "基础版",
+        detail_id: "2",
+        product_img: "",
+        price: 100,
+        num: 2,
+        priceSum: 200,
+        date: "2020/9/1 10:00",
+        status: "pending",
+      }]
     }
   },
   computed:{
@@ -82,10 +138,22 @@ export default {
   },
   methods:{
     jump(link) {
-      this.$router.push(link)
+      this.$router.push(link);
+    },
+    jump2detail(goodId){
+      this.$router.push({path:'/detail',query:{goodId:goodId}});
     },
     submitMsg(){
       console.log(this.name + this.email);
+    },
+    callOn(){
+      this.modal = true;
+    },
+    hideModal(){
+      this.modal = false;
+    },
+    confirm(){
+      this.modal = false;
     }
   }
 }
@@ -217,5 +285,17 @@ export default {
   .data_table{
     margin-left: 5%;
     width: 700px;
+  }
+
+  .in-content{
+    width: 800px;
+  }
+  
+  .good{
+    cursor: pointer;
+  }
+
+  .good:hover{
+    font-weight: bold;
   }
 </style>
