@@ -23,6 +23,12 @@ module.exports = {
               limit: 10000,
           })
     },
-    publicPath: './'
+    publicPath: './',
+    // build: {
+    //   env: env,
+    //   index: path.resolve(__dirname, '../dist/health/index.html'),
+    //   assetsRoot: path.resolve(__dirname, '../dist/health'),
+    //   assetsPublicPath: '/health/',
+    // }
   }
   

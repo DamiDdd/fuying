@@ -22,7 +22,7 @@
       <div id="intro-top">
         <div class="left">
           <p class="bigtext-blue">
-            <span class="yellow">50%</span>以上的标志物是蛋白质
+            <span class="yellow sp1">50%</span>以上的标志物是蛋白质
           </p>
           <home-pie></home-pie>
         </div>
@@ -107,7 +107,7 @@ export default {
     width: 600px;
     height: 300px;
     position: relative;
-    margin-left: 1200px;
+    margin-left: 60%;
     padding-top: 160px;
     text-align: center;
   }
@@ -178,12 +178,13 @@ export default {
   }
   
   #intro-top #home-pie{
-    margin-left: 110px;
+    margin-left: 20%;
     margin-top: -200px;
   }
 
   #intro-middle{
     height: 260px;
+    width: 100%; 
   }
 
   #intro-middle .left{
@@ -193,7 +194,7 @@ export default {
 
   #intro-middle .left img{
     height: 200px;
-    margin-left: 220px;
+    margin-left: 20%;
     margin-top: 30px;
   }
 
@@ -222,7 +223,8 @@ export default {
 
   #intro-bottom .right{
     height: 900px;
-    width: 1000px;
+    width: 600px;
+    margin-right: 14%;
   }
 
   #intro-bottom .right img{
@@ -230,6 +232,9 @@ export default {
   }
 
   .yellow{
-    color: #ffb658
+    color: #ffb658;
+  }
+  .sp1{
+    margin-left: 15%;
   }
 </style>

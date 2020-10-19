@@ -27,7 +27,8 @@ export default {
     width: 600px;
     height: 400px;
     position: relative;
-    margin-left: 300px;
+    margin-left: 15%;
+    /* margin-left: 300px; */
     padding-top: 260px;
   }
 

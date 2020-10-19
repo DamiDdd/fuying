@@ -73,14 +73,16 @@ export default {
   }
   .ad-map .content{
     text-align: left;
-    margin-left: 750px;
+    margin-left: 35%;
+    /* margin-left: 750px; */
   }
   .ad-map img, .ad-company img{
     padding-top: 20px;
   }
   .right-text{
     width: 760px;
-    margin-left: 700px;
+    /* margin-left: 700px; */
+    margin-left: 30%;
     margin-top: var(--div-bottom);
     line-height: 50px;
   }
