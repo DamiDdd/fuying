@@ -113,7 +113,7 @@ const routes = [
 
 // 3.创建路由对象
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history', //注释后默认为hash模式
   base: '/health/',
   routes
 })

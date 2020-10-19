@@ -23,12 +23,9 @@ module.exports = {
               limit: 10000,
           })
     },
-    publicPath: './',
-    // build: {
-    //   env: env,
-    //   index: path.resolve(__dirname, '../dist/health/index.html'),
-    //   assetsRoot: path.resolve(__dirname, '../dist/health'),
-    //   assetsPublicPath: '/health/',
-    // }
+    // publicPath: './',
+    publicPath: process.env.NODE_ENV === 'production' ? './health' : '/',
+    //放置静态资源目录
+    assetsDir: "static",
   }
   
