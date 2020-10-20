@@ -173,7 +173,7 @@ export default {
 
   #intro-top .right{
     height: 840px;
-    width: 1000px;
+    width: 700px;
     text-align: center;
   }
   
@@ -189,18 +189,19 @@ export default {
 
   #intro-middle .left{
     height: 260px;
-    width: 1100px;
+    width: 1000px;
   }
 
   #intro-middle .left img{
     height: 200px;
-    margin-left: 20%;
+    margin-left: 12%;
     margin-top: 30px;
   }
 
   #intro-middle .right{
+    margin-left: -200px;
     height: 260px;
-    width: 800px;
+    width: 40%;
     margin-top: 50px;
   }
   
@@ -210,21 +211,23 @@ export default {
 
   #intro-bottom .left{
     height: 900px;
-    width: 900px;
+    width: 700px;
     text-indent: 2rem;
   }
 
   #intro-bottom .left p{
-    width: 600px;
+    width: 470px;
     line-height: 30px;
-    margin-left: 300px;
+    /* margin-left: 300px; */
+    margin-left: 30%;
     margin-top: 200px;
   }
 
   #intro-bottom .right{
     height: 900px;
-    width: 600px;
-    margin-right: 14%;
+    width: 700px;
+    margin-right: 120px;
+    /* margin-right: 14%; */
   }
 
   #intro-bottom .right img{

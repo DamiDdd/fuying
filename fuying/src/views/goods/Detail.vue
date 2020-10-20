@@ -126,6 +126,7 @@ export default {
   #detail{
     min-height: var(--screen-height);
     width: var(--screen-width);
+    min-width: var(--min-width);
     background: -webkit-linear-gradient(top,white,lightblue,white);
   }
   .num-control{
@@ -136,15 +137,15 @@ export default {
   }
   .left{
     float: left;
-    width: 800px;
+    width: 600px;
     min-height: 450px;
     margin-top: 80px;
   }
   .right{
     float: left;
     position: absolute;
-    margin-left: 800px;
-    width: 800px;
+    margin-left: 700px;
+    width: 600px;
     min-height: 600px;
   }
   .cartcontrol{

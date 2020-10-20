@@ -4,6 +4,7 @@
 :root {
   /* --screen-width: 1900px; 屏幕宽度 */
   --screen-width: 100%; /* 屏幕宽度 */
+  --min-width: 1600px; /* 最小屏幕宽度 */
   --screen-height: 800px; /* 屏幕高度 */
   --paper-height: 836px; /* A4纸张高度 */
   --paper-height-half: 418px; /* A4纸张一半高度 */

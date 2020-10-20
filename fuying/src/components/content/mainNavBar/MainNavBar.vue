@@ -2,7 +2,7 @@
 
 <template>
   <nav-bar>
-    <img slot="logo" src="~assets/img/common/logo.png">
+    <!-- <img slot="logo" src="~assets/img/common/logo.png"> -->
     <div slot="center">
       <nav-bar-item link="/home"><div slot="text">首页</div></nav-bar-item>
       <nav-bar-item link="/intro"><div slot="text">介绍</div></nav-bar-item>

@@ -1,7 +1,7 @@
 <!--侧边栏-->
 
 <template>
-  <div id="side-bar" class="smalltext">蛋白质组学生理刻</div>
+  <div id="side-bar" class="smalltext">蛋白质组学生理刻画</div>
 </template>
 
 <script>

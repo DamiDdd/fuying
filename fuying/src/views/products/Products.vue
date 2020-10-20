@@ -69,11 +69,12 @@ export default {
   }
 
   .main-div{
-    padding-left: 20%;
+    padding-left: 13%;
     padding-top: 2%;
   }
   .icon{
     width: 100%;
+    min-width: 1000px;
   }
 
   /* 显示交错效果 */

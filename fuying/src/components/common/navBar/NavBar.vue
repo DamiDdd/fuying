@@ -22,6 +22,7 @@ export default {
     z-index: 10;
     display: flex;
     width: var(--screen-width);
+    min-width: var(--min-width);
     line-height: 44px;
     text-align: center;
   }
@@ -39,7 +40,8 @@ export default {
 
   .nav-center{
     flex: 1;
-    margin-left: 70%;
+    margin-left: 2%;
+    /* margin-left: 70%; */
   }
 
   .nav-right{

@@ -2,14 +2,13 @@
 
 <template>
   <foot-bar>
-    <h3 class="footer-tip">fudan fuying</h3>
+    <h3 class="footer-tip">fuying</h3>
     <div class="footer-icon">
       <img src="~assets/img/common/phone.png">
       <img src="~assets/img/common/message.png">
       <img src="~assets/img/common/wechat.png">
       <img src="~assets/img/common/place.png">
     </div>
-    <p class="footer-author">Fudan University</p>
   </foot-bar>
 </template>
 

@@ -100,21 +100,6 @@ export default {
   },
   mounted(){
     //   init,waiting for modifying
-    this.dataForm.name = "陈周";
-    this.dataForm.sex = "男";
-    this.dataForm.age = "32";
-    this.dataForm.headlth_history = "病史或临床表现：（用户填写）";
-    this.dataForm.report_date = "2020/07/29";
-    this.dataForm.sample_date = "2020/07/20";
-    this.dataForm.sample_num = "abc1234";
-    this.dataForm.resource = "委托送检";
-    this.dataForm.type = "手指血";
-    this.dataForm.subject = "全套餐";
-    this.dataForm.test_num = "Exp079824";
-    this.dataForm.method = "次世代非数据依赖采集蛋白质组检测技术"
-    this.dataForm.explanation = "（结果解读）本次检测结果，您的内脏脂肪、总胆固醇、少数代谢功能指数以及个别免疫功能指数存在明显异常，建议您在日常生活中注意健康饮食结构，适当进行运动，预防疾病的发生。若有不适请及时就医";
-    this.dataForm.mass_spectrogram_img = require('../../assets/img/report/temp/result.png');
-    this.dataForm.ms_text = "数据采集量1.5 G，谱图数81,220张，蛋白质鉴定总数2408。";
   },
   methods: {
     // 这个excel上传组件我还没弄明白，待查

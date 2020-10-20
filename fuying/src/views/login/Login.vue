@@ -142,6 +142,7 @@ export default {
 <style scoped>
 #login-win{
 	width: var(--screen-width);
+	min-width: var(--min-width);
 	height: 700px;
 	background: url("~assets/img/bg/index1-bg.png") no-repeat top right;
 }
@@ -149,7 +150,7 @@ export default {
 .login {
 	width: 400px;
 	padding-top: 40px;
-	margin: 0 300px;
+	margin: 0 10%;
 }
  
 .el-tabsitem {

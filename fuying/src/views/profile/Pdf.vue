@@ -115,7 +115,7 @@
     }
 	.tips{
 		width: 40%;
-		margin-left: 32%;
+		margin-left: 31%;
 		text-align: center;
 		margin-bottom: 20px;
 		font-size: 14px;

@@ -14,7 +14,7 @@
         <div v-show="admin" class="left-bottom">
           <p class="content-blue">管理员</p>
           <el-button @click="jump('/reportEdit')">管理员上传信息</el-button>    
-          <el-button @click="jump('/uploadCommend')">管理员上传评价</el-button>
+          <!-- <el-button @click="jump('/uploadCommend')">管理员上传评价</el-button> -->
         </div>
       </div>
       <div class="right">
@@ -28,7 +28,7 @@
             </div>
             <div class="btn">
               <el-button>修改密码</el-button>
-              <el-button @click="submitMsg">提交修改</el-button>
+              <!-- <el-button @click="submitMsg">提交修改</el-button> -->
             </div>
           </div>
           <div class="image">
@@ -165,18 +165,19 @@ export default {
   }
 
   .main{
-    width: 75%;
-    min-width: 1200px;
+    width: 100%;
+    min-width: var(--min-width);
     height: 1000px;
     /* border: 1px solid; */
-    margin-left: 14%;
+    /* margin-left: 14%; */
     margin-top: 80px;
     display: flex;
   }
 
   .left{
-    width: 35%;
+    width: 30%;
     height: 100%;
+    margin-left: 14%;
   }
 
   .left div button{
@@ -190,7 +191,7 @@ export default {
   }
 
   .right{
-    width: 65%;
+    width: 50%;
     height: 100%;
   }
 
@@ -254,7 +255,7 @@ export default {
 
   .btn{
     display: flex;
-    margin-left: 20%;
+    margin-left: 30%;
   }
 
   .btn button{
@@ -284,7 +285,7 @@ export default {
 
   .data_table{
     margin-left: 5%;
-    width: 700px;
+    width: 95%;
   }
 
   .in-content{
