@@ -44,7 +44,7 @@
             <el-table-column prop="phone" label="电话" width="180"></el-table-column>
             <el-table-column prop="address" label="地址" width="320"></el-table-column>
             <el-table-column label="操作" width="100"></el-table-column>
-  </el-table>
+          </el-table>
         </div>
         <!-- <div class="right-bottom">
         </div> -->
@@ -68,7 +68,26 @@
               <td v-text="item.date"></td>
               <td v-text="item.num"></td>
               <td v-text="item.priceSum"></td>
-              <td v-text="item.status"></td>
+              <td class="available" v-show="available(item.status)" @click="solveStatus(item.status)" v-text="item.status"></td>
+              <td v-show="!available(item.status)" v-text="item.status"></td>
+            </tr>
+          </tbody>
+        </table>
+        <table v-show="transport" class="el-table el-table--fit el-table--border table-detail transport">
+          <thead>
+            <tr>
+              <th width="100px">订单号</th>
+              <th width="100px">物流号</th>
+              <th width="100px">时间</th>
+              <th width="200px">运输信息<span class="after" @click="unspread">^收起</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item,index) in transportMsg" :key="index">
+              <td v-text="item.orderID"></td>
+              <td v-text="item.ExpressNumber"></td>
+              <td v-text="item.time"></td>
+              <td v-text="item.context"></td>
             </tr>
           </tbody>
         </table>
@@ -91,8 +110,10 @@ export default {
     return {
       phone: localStorage.getItem("userPhone"),
       orderUrl: GLOBAL.urlHead + "getOrders?phone=",
+      transportUrl: GLOBAL.urlHead + "getExpressList?orderID=HP202007130523330061782&phone=18818273750",
       name: '',
       email: '',
+      transport: false,
       addressTable:[{
         name: "a",
         phone: "13333333333",
@@ -127,8 +148,9 @@ export default {
         num: 2,
         priceSum: 200,
         date: "2020/9/1 10:00",
-        status: "pending",
-      }]
+        status: "运输中",
+      }],
+      transportMsg:[],
     }
   },
   mounted(){
@@ -141,9 +163,41 @@ export default {
       else{
         return false;
       }
-    }
+    },
   },
   methods:{
+    available(status){
+      if(status === "运输中")
+        return true;
+      else{
+        return false;
+      }
+    },
+    solveStatus(status){
+      switch(status){
+        case "运输中":
+          this.transport = true;
+          Axios.post(this.transportUrl).then((response) => {
+            if(response.status === 200){
+              let data = response.data;
+              // console.log(data);
+              this.transportMsg = data;
+            }
+          }).catch((error)=>{
+            this.$message({
+              type: 'warning',
+              message: '后台出错',
+            });
+            console.log(error);
+          });
+          break;
+        default:
+          break;
+      }
+    },
+    unspread(){
+      this.transport = false;
+    },
     jump(link) {
       this.$router.push(link);
     },
@@ -319,5 +373,23 @@ export default {
 
   .good:hover{
     font-weight: bold;
+  }
+
+  .transport{
+    margin-top: 80px;
+  }
+
+  .after{
+    float: right;
+    margin-right: 10px;
+    color: lightblue;
+    cursor: pointer;
+  }
+
+  .available{
+    cursor: pointer;
+  }
+  .available:hover{
+    color: lightblue;
   }
 </style>
