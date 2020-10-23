@@ -8,7 +8,7 @@
           <p class="content-blue">功能列表</p>
           <el-button @click="jump('/cart')">查看购物车</el-button>
           <el-button @click="callOn">查看订单</el-button>
-          <el-button @click="jump('/pdf')">查看报告</el-button>
+          <!-- <el-button @click="jump('/pdf')">查看报告</el-button> -->
           <el-button class="warning" @click="jump('/exit')">退出登录</el-button>
         </div>
         <div v-show="admin" class="left-bottom">
@@ -22,9 +22,11 @@
           <p class="content-blue">个人信息</p>
           <div class="info">
             <div class="info-content">
-              <p>用户名：<input type="text" v-model="name"></p>
+              <!-- <p>用户名：<input type="text" v-model="name"></p> -->
+              <p>用户名：{{name}}</p>
               <p>手机号：{{phone}}</p>
-              <p>邮箱：<input type="text" v-model="email"></p>
+              <!-- <p>邮箱：<input type="text" v-model="email"></p> -->
+              <p>邮箱：{{email}}</p>
             </div>
             <div class="btn">
               <el-button>修改密码</el-button>
@@ -77,6 +79,8 @@
 
 <script>
 import Modal from 'components/common/modal/Modal'
+import GLOBAL from '@/common/const'
+import Axios from 'axios'
 
 export default {
   name : "Profile",
@@ -86,6 +90,7 @@ export default {
   data(){
     return {
       phone: localStorage.getItem("userPhone"),
+      orderUrl: GLOBAL.urlHead + "getOrders?phone=",
       name: '',
       email: '',
       addressTable:[{
@@ -126,6 +131,8 @@ export default {
       }]
     }
   },
+  mounted(){
+  },
   computed:{
     admin(){
       if(localStorage.getItem("admin")!=null){
@@ -148,6 +155,20 @@ export default {
     },
     callOn(){
       this.modal = true;
+      let url = this.orderUrl + this.phone;
+      Axios.get(url).then((response) => {
+        if(response.status === 200){
+          let data = response.data;
+          console.log(data);
+
+        }
+      }).catch((error)=>{
+        this.$message({
+          type: 'warning',
+          message: '后台出错',
+        });
+        console.log(error);
+      });
     },
     hideModal(){
       this.modal = false;
