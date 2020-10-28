@@ -226,9 +226,11 @@ export default {
     },
     hideModal(){
       this.modal = false;
+      this.transport = false;
     },
     confirm(){
       this.modal = false;
+      this.transport = false;
     }
   }
 }
@@ -391,5 +393,6 @@ export default {
   }
   .available:hover{
     color: lightblue;
+    font-weight: bold;
   }
 </style>
