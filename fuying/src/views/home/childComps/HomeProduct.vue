@@ -167,13 +167,19 @@ export default {
 
   #intro-top .left{
     height: 840px;
-    width: 900px;
+    width: 700px;
+    /* margin-left: 100px; */
     text-align: center;
+  }
+
+  #intro-top .left p{
+    margin-left: 120px; 
   }
 
   #intro-top .right{
     height: 840px;
     width: 700px;
+    padding-right: 100px;
     text-align: center;
   }
   
