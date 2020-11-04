@@ -30,7 +30,6 @@
  
 <script>
 import Identify from 'common/identify/Identify'
-// 待修改
 import Axios from 'axios'
 import GLOBAL from '@/common/const'
 

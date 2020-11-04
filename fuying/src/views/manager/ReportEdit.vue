@@ -2,9 +2,6 @@
 
 <template>
   <div id="report-edit">
-    <div class="btn-div">
-      <el-button class="pdfBtn" @click="handleUpload">数据上传</el-button>
-    </div>
     <div id="report-div">
       <div class="main-div">
         <p style="text-align: center; line-height: 10px;">蛋白质组检测报告</p>
@@ -19,7 +16,7 @@
             <div class="m-div"><input type="text" v-model="dataForm.age"></div>
           </div>
           <div class="td-div-long">
-            <textarea type="text" v-model="dataForm.headlth_history"></textarea>
+            <textarea type="text" v-model="dataForm.health_history" placeholder="健康历史"></textarea>
           </div>
           <div class="title-div-white"><p>样品信息</p></div>
           <div class="td-div">          
@@ -41,7 +38,7 @@
           </div>
           <div class="td-div">            
             <div class="s-div">检测编号</div>
-            <div class="l-div"><input type="text" v-model="dataForm.test_num"></div>  
+            <div class="l-div"><input type="text" v-model="dataForm.exp"></div>  
           </div>
           <div class="td-div">          
             <div class="s-div">检测方法</div>
@@ -51,11 +48,64 @@
           <div class="td-div-long"><textarea type="text" v-model="dataForm.explanation"></textarea></div>
           <div class="title-div-white"><p>细化检测结果</p></div>
           <div class="title-div"><p>一、实验室检测质控</p></div>
-          <el-upload class="upload-demo" style="display: inline-block;" action="" :on-change="leading"
+          <!-- <el-upload class="upload-demo" style="display: inline-block;" action="" :on-change="leading"
             :show-file-list="true" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
             :auto-upload="false">
             <el-button type="primary" icon="el-icon-upload" circle size="mini"></el-button>
-          </el-upload>
+          </el-upload> -->
+          <table class="short-input" border="1">
+            <tr>
+              <th rowspan="2">血液样本</th>
+              <th>全血总量(μL)</th>
+              <th>血浆总量(μL)</th>
+              <th>血浆颜色</th>
+              <th>是否合格</th>
+              <th>操作平台</th>
+              <th>质控标准</th>
+            </tr>
+            <tr height="40">
+              <td><input type="text" v-model="dataForm.total_blood"></td>
+              <td><input type="text" v-model="dataForm.total_plasma"></td>
+              <td><input type="text" v-model="dataForm.plasma_color"></td>
+              <td><input type="text" v-model="dataForm.qualify_1"></td>
+              <td><input type="text" v-model="dataForm.platform_1"></td>
+              <td><input type="text" v-model="dataForm.standard_1"></td>
+            </tr>
+            <tr>
+              <th rowspan="2">蛋白提取</th>
+              <th>血浆上样量(μL)</th>
+              <th>蛋白质量(μg)</th>
+              <th>高丰度去除</th>
+              <th>是否合格</th>
+              <th>操作平台</th>
+              <th>质控标准</th>
+            </tr>
+            <tr height="40">
+              <td><input type="text" v-model="dataForm.plasma_sample"></td>
+              <td><input type="text" v-model="dataForm.protein_q"></td>
+              <td><input type="text" v-model="dataForm.high_abundance_removal"></td>
+              <td><input type="text" v-model="dataForm.qualify_2"></td>
+              <td><input type="text" v-model="dataForm.platform_2"></td>
+              <td><input type="text" v-model="dataForm.standard_2"></td>
+            </tr>            
+            <tr>
+              <th rowspan="2">蛋白检测</th>
+              <th>上样量(μg)</th>
+              <th>蛋白鉴定量(μg)</th>
+              <th>质量偏差</th>
+              <th>是否合格</th>
+              <th>操作平台</th>
+              <th>质控标准</th>
+            </tr>
+            <tr height="40">
+              <td><input type="text" v-model="dataForm.sample_amount"></td>
+              <td><input type="text" v-model="dataForm.protein_identification_q"></td>
+              <td><input type="text" v-model="dataForm.bias"></td>
+              <td><input type="text" v-model="dataForm.qualify_3"></td>
+              <td><input type="text" v-model="dataForm.platform_3"></td>
+              <td><input type="text" v-model="dataForm.standard_3"></td>
+            </tr>  
+          </table>
         </div>
       </div>
       <div class="main-div">
@@ -64,13 +114,18 @@
         <input class="upload-input" type="file" accept="image/gif,image/jpeg,image/jpg,image/png" @change="changeImage($event)" ref="avatarInput">
         <img class="tech-img" :src="dataForm.mass_spectrogram_img">
         <!-- <img src="~assets/img/report/temp/result.png" class="tech-img"> -->
-        <p><textarea type="text" v-model="dataForm.ms_text"></textarea></p>
+        <p><textarea type="text" v-model="dataForm.ms_text" placeholder="质谱分析"></textarea></p>
       </div>
+    </div>
+    <div class="btn-div">
+      <el-button class="pdfBtn" @click="handleUpload">数据上传</el-button>
     </div>
   </div>
 </template>
 
 <script>
+import Axios from 'axios'
+import GLOBAL from '@/common/const'
 
 export default {
   name: "ReportEdit",
@@ -78,23 +133,42 @@ export default {
   },
   data(){
     return{
+      uploadurl:GLOBAL.urlHead2+"update_report",
       dataForm: {
         name: "",
         sex: "",
         age: "",
-        headlth_history: "",
-        report_date: "",
-        sample_date: "",
+        health_history: "",
+        // report_date: "",
+        sample_date: "2020-11-11",
         sample_num: "",
-        resource: "",
-        type: "",
-        subject: "",
-        test_num: "",
-        method: "",
+        resource: "委托送检",
+        type: "指尖血",
+        subject: "全套餐",
+        exp: "Exp000000",
+        method: "次世代非数据依赖采集蛋白质组检测技术",
         explanation: "",
         // quality_report: "",
         mass_spectrogram_img: "",
         ms_text: "",
+        total_blood: "",
+        total_plasma: "",
+        plasma_color: "淡黄色",
+        qualify_1: "是",
+        platform_1: "Thermo",
+        standard_1: "血浆总量>5μL",
+        plasma_sample: "",
+        protein_q: "",
+        high_abundance_removal: "是",
+        qualify_2: "是",
+        platform_2: "Thermo",
+        standard_2: "蛋白质量>30μg",
+        sample_amount: "",
+        protein_identification_q: "",
+        bias: "",
+        qualify_3: "是",
+        platform_3: "Thermo",
+        standard_3: "蛋白测定量>2000个；质量偏差<5ppm",
       },
     }
   },
@@ -102,7 +176,7 @@ export default {
     //   init,waiting for modifying
   },
   methods: {
-    // 这个excel上传组件我还没弄明白，待查
+    // excel上传组件,停用
     leading(file) { // 导入
       this.importfxx(file.raw)
     },
@@ -148,7 +222,19 @@ export default {
 
     // 待处理,上传数据接口
     handleUpload(){
-      console.log(this.dataForm.mass_spectrogram_img);
+      console.log(this.dataForm);
+      console.log(this.uploadurl);
+      let params = new URLSearchParams();
+      for(let key of Object.keys(this.dataForm)){
+        params.append(key,this.dataForm[key]);
+      }
+      Axios.post(this.uploadurl, params,
+        {headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }}
+      ).then(function(response){
+        console.log(response);
+      });
     },
     // 改变image
     changeImage(e) {
@@ -253,10 +339,14 @@ export default {
   }
 
   .td-div-long{
-    height: 100px;
+    height: 80px;
     border: 0.1px solid #000;
     text-indent: 2rem;
     padding-top: 10px;
+  }
+
+  .td-div-long textarea{
+    height: 60px;
   }
 
   .s-div, .ss-div, .m-div{
@@ -304,5 +394,9 @@ export default {
   .upload-demo{
     padding-left: 20px;
     padding-top: 10px;
+  }
+
+  .short-input input{
+    width: 76px;
   }
 </style>
