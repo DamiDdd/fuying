@@ -28,12 +28,12 @@ export default {
   }
   
   .nav-logo{
-    width: 3%;
+    width: 6%;
   }
 
   .nav-logo img{
-    width: 24px;
-    height: 24px;
+    /* width: 24px; */
+    height: 50px;
     margin-top: 5px;
     vertical-align: middle;
   }

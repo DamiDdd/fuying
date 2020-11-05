@@ -11,7 +11,11 @@
             <div class="ss-div">姓名</div>
             <div class="m-div"><input type="text" v-model="dataForm.name"></div>
             <div class="ss-div">性别</div>
-            <div class="m-div"><input type="text" v-model="dataForm.sex"></div>
+            <div class="m-div">              
+              <select v-model="dataForm.sex">
+                <option  v-for="(i,index) in sex" :key="index" >{{i.label}}</option>
+              </select>     
+            </div>
             <div class="ss-div">年龄</div>            
             <div class="m-div"><input type="text" v-model="dataForm.age"></div>
           </div>
@@ -67,7 +71,10 @@
               <td><input type="text" v-model="dataForm.total_blood"></td>
               <td><input type="text" v-model="dataForm.total_plasma"></td>
               <td><input type="text" v-model="dataForm.plasma_color"></td>
-              <td><input type="text" v-model="dataForm.qualify_1"></td>
+              <!-- <td><input type="text" v-model="dataForm.qualify_1"></td> -->
+              <td><select v-model="dataForm.qualify_1">
+                <option  v-for="(i,index) in judge" :key="index" >{{i.label}}</option>
+                </select></td>
               <td><input type="text" v-model="dataForm.platform_1"></td>
               <td><input type="text" v-model="dataForm.standard_1"></td>
             </tr>
@@ -83,8 +90,12 @@
             <tr height="40">
               <td><input type="text" v-model="dataForm.plasma_sample"></td>
               <td><input type="text" v-model="dataForm.protein_q"></td>
-              <td><input type="text" v-model="dataForm.high_abundance_removal"></td>
-              <td><input type="text" v-model="dataForm.qualify_2"></td>
+              <td><select v-model="dataForm.high_abundance_removal">
+                <option  v-for="(i,index) in judge" :key="index" >{{i.label}}</option>
+                </select></td>     
+              <td><select v-model="dataForm.qualify_2">
+                <option  v-for="(i,index) in judge" :key="index" >{{i.label}}</option>
+                </select></td>              
               <td><input type="text" v-model="dataForm.platform_2"></td>
               <td><input type="text" v-model="dataForm.standard_2"></td>
             </tr>            
@@ -101,7 +112,9 @@
               <td><input type="text" v-model="dataForm.sample_amount"></td>
               <td><input type="text" v-model="dataForm.protein_identification_q"></td>
               <td><input type="text" v-model="dataForm.bias"></td>
-              <td><input type="text" v-model="dataForm.qualify_3"></td>
+              <td><select v-model="dataForm.qualify_3">
+                <option  v-for="(i,index) in judge" :key="index" >{{i.label}}</option>
+                </select></td>               
               <td><input type="text" v-model="dataForm.platform_3"></td>
               <td><input type="text" v-model="dataForm.standard_3"></td>
             </tr>  
@@ -134,6 +147,14 @@ export default {
   data(){
     return{
       uploadurl:GLOBAL.urlHead2+"update_report",
+      sex:[
+        {label:"男"},
+        {label:"女"},
+      ],
+      judge:[
+        {label:"是"},
+        {label:"否"},
+      ],
       dataForm: {
         name: "",
         sex: "",
