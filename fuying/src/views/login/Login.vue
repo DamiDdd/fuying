@@ -12,6 +12,7 @@
 					<el-form-item>
 						<el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
 						<el-button @click="resetForm('ruleForm')">重置</el-button>
+						<span class="after-text">扫码登录</span>
 					</el-form-item>
 				</el-form>
 			</el-tab-pane>
@@ -156,5 +157,15 @@ export default {
 .el-tabsitem {
 	text-align: center;
 	width: 60px;
+}
+
+.after-text{
+	color: gray;
+	padding-left:8%;
+}
+.after-text:hover{
+	color: lightblue;
+	font-weight: bold;
+	cursor: pointer;
 }
 </style>

@@ -1,7 +1,7 @@
 <!--管理员上传用户信息用于建表-->
 
 <template>
-  <div id="report-edit">
+  <div id="report-edit">   
     <div id="report-div">
       <div class="main-div">
         <p style="text-align: center; line-height: 10px;">蛋白质组检测报告</p>
@@ -25,7 +25,17 @@
           <div class="title-div-white"><p>样品信息</p></div>
           <div class="td-div">          
             <div class="s-div">送样日期</div>
-            <div class="m-div"><input type="text" v-model="dataForm.sample_date"></div>
+            <div class="m-div">
+              <!-- <input type="text" v-model="dataForm.sample_date"> -->
+              <el-date-picker
+                class="picker"
+                v-model="dataForm.sample_date"
+                type="date"
+                format="yyyy-MM-dd"
+                value-format="yyyy-MM-dd"
+                placeholder="选择日期时间">
+              </el-date-picker>
+            </div>
             <div class="s-div">样品编号</div>
             <div class="m-div"><input type="text" v-model="dataForm.sample_num"></div>
           </div>
@@ -161,7 +171,7 @@ export default {
         age: "",
         health_history: "",
         // report_date: "",
-        sample_date: "2020-11-11",
+        sample_date: "",
         sample_num: "",
         resource: "委托送检",
         type: "指尖血",
@@ -194,6 +204,11 @@ export default {
     }
   },
   mounted(){
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth()+1;
+    let day = date.getDay()+1;
+    this.dataForm.sample_date = year+"-"+month+"-"+day;
     //   init,waiting for modifying
   },
   methods: {
@@ -419,5 +434,12 @@ export default {
 
   .short-input input{
     width: 76px;
+  }
+
+  .picker{
+    width: 200px;
+    /* height: 10px; */
+    font-size: 10px;
+    margin-top: -10px;
   }
 </style>
