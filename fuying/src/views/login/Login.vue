@@ -93,6 +93,7 @@ export default {
 		//重置表单
 		resetForm(formName) {
 			this.$refs[formName].resetFields();
+			this.scan = false;
 		},
 		//提交表单
 		submitForm(formName) {
