@@ -207,9 +207,8 @@ export default {
     let date = new Date();
     let year = date.getFullYear();
     let month = date.getMonth()+1;
-    let day = date.getDay()+1;
+    let day = date.getDate();
     this.dataForm.sample_date = year+"-"+month+"-"+day;
-    //   init,waiting for modifying
   },
   methods: {
     // excel上传组件,停用
@@ -256,10 +255,10 @@ export default {
       }
     },
 
-    // 待处理,上传数据接口
+    // 上传数据接口
     handleUpload(){
-      console.log(this.dataForm);
-      console.log(this.uploadurl);
+      // console.log(this.dataForm);
+      // console.log(this.uploadurl);
       let params = new URLSearchParams();
       for(let key of Object.keys(this.dataForm)){
         params.append(key,this.dataForm[key]);

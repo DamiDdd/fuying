@@ -25,6 +25,7 @@ export default {
     min-width: var(--min-width);
     line-height: 44px;
     text-align: center;
+    overflow: hidden;
   }
   
   .nav-logo{

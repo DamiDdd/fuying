@@ -61,6 +61,8 @@ export default {
     tTime(){
       this.ctime = new Date().getTime()
       if(this.ctime - this.ltime > this.tOut){
+        // 重置上次点击时间
+        this.ltime = this.ctime;
         if(localStorage.getItem("userPhone") !== null){
           localStorage.removeItem("userPhone");
           this.$store.state.isLogin = false;
