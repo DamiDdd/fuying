@@ -12,7 +12,10 @@
 					<el-form-item>
 						<el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
 						<el-button @click="resetForm('ruleForm')">重置</el-button>
-						<span class="after-text">扫码登录</span>
+						<span class="after-text" @click="showScan">扫码登录</span>
+						<div id="weixin" v-show="scan">
+							<wxLogin></wxLogin>
+						</div>
 					</el-form-item>
 				</el-form>
 			</el-tab-pane>
@@ -28,6 +31,7 @@
 import Register from 'views/login/childComps/Register';
 import Axios from 'axios';
 import GLOBAL from '@/common/const'
+import WxLogin from 'vue-wxlogin';
 
  
 export default {
@@ -37,6 +41,7 @@ export default {
 			activeName: 'first',
 			regMobile: /^1\d{10}$/,
 			loginUrl: GLOBAL.urlHead+"WebLogin/",
+			scan: false,
 			ruleForm: {
 				phone: '',
 				pass: '',
@@ -48,8 +53,16 @@ export default {
 		};
 	},
 
+	mounted(){
+
+	},
  
 	methods: {
+		//展示二维码
+		showScan(){
+			this.scan = !this.scan;
+		},
+
 		// 验证密码
 		validatePass(rule, value, callback){
 			if (value === '') {
@@ -136,6 +149,7 @@ export default {
 	},
 	components: {
 		Register,
+		WxLogin,
 	}
 };
 </script>
