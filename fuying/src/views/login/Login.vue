@@ -14,7 +14,7 @@
 						<el-button @click="resetForm('ruleForm')">重置</el-button>
 						<span class="after-text" @click="showScan">扫码登录</span>
 						<div id="weixin" v-show="scan">
-							<wxLogin></wxLogin>
+							<wxLogin>test</wxLogin>
 						</div>
 					</el-form-item>
 				</el-form>
