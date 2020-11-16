@@ -18,6 +18,7 @@ const Profile = () => import('views/profile/Profile')
 const Detail = () => import('views/goods/Detail')
 const Cart = () => import('views/cart/Cart')
 const UploadCommend = () => import('views/manager/UploadCommend')
+const ForgetPass = () => import('views/login/ForgetPass')
 
 // 1.安装VueRouter
 Vue.use(VueRouter)
@@ -107,6 +108,13 @@ const routes = [
     component: Cart,
     meta:{
       isLogin: true,
+    }
+  },
+  {
+    path: '/forgetPass',
+    component: ForgetPass,
+    meta:{
+      isLogin: false,
     }
   },
 ]

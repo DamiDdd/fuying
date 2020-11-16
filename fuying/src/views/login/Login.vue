@@ -13,12 +13,15 @@
 						<el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
 						<el-button @click="resetForm('ruleForm')">重置</el-button>
 						<span class="after-text" @click="showScan">扫码登录</span>
+						<span class="after-text" @click="forget">忘记密码？</span>
 						<div id="weixin" v-show="scan">
-							<wxLogin>test</wxLogin>
+							<!-- <wxLogin>test</wxLogin> -->
+							<div>test</div>
 						</div>
 					</el-form-item>
 				</el-form>
 			</el-tab-pane>
+			<!-- <el-tab-pane label="注册" name="second" :disabled=true> -->
 			<el-tab-pane label="注册" name="second">
 				<register></register>
 			</el-tab-pane>
@@ -31,7 +34,7 @@
 import Register from 'views/login/childComps/Register';
 import Axios from 'axios';
 import GLOBAL from '@/common/const'
-import WxLogin from 'vue-wxlogin';
+// import WxLogin from 'vue-wxlogin';
 
  
 export default {
@@ -52,15 +55,15 @@ export default {
 			}
 		};
 	},
-
-	mounted(){
-
-	},
  
 	methods: {
 		//展示二维码
 		showScan(){
 			this.scan = !this.scan;
+		},
+
+		forget(){
+			this.$router.push("/forgetPass");
 		},
 
 		// 验证密码
@@ -150,7 +153,7 @@ export default {
 	},
 	components: {
 		Register,
-		WxLogin,
+		// WxLogin,
 	}
 };
 </script>
@@ -168,15 +171,10 @@ export default {
 	padding-top: 40px;
 	margin: 0 10%;
 }
- 
-.el-tabsitem {
-	text-align: center;
-	width: 60px;
-}
 
 .after-text{
 	color: gray;
-	padding-left:8%;
+	padding-left:4%;
 }
 .after-text:hover{
 	color: lightblue;
