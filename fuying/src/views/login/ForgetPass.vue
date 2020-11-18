@@ -119,6 +119,8 @@ export default {
                 this.identifyCode += this.identifyCodes[this.random(0,this.identifyCodes.length)];
             }
         },
+        
+        // 获取验证码
         getVerify(){
             let that = this;
             var url = this.validateUrl + this.phone;
@@ -197,7 +199,8 @@ export default {
                         console.log(response);
                         if(response.status === 200){
 							let data = response.data;
-							console.log(data);
+                            console.log(data);
+                            this.step++;
                         }
                         // 异常保护未做，wait
                     })
