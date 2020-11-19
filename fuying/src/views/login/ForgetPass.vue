@@ -34,7 +34,11 @@
                 <el-button type="primary" @click="submitForm('ruleForm')" class="bottom-btn">提交</el-button>
             </div>
         </el-tab-pane>
-        <el-tab-pane label="" name="fourth" :disabled="true"></el-tab-pane>
+        <el-tab-pane label="" name="fourth" :disabled="true">
+            <div class="windows">
+                <p class="content-blue">{{msg}}</p>
+            </div>
+        </el-tab-pane>
       </el-tabs>
     </div>
   </div>
@@ -73,6 +77,7 @@ export default {
 				checkPass: [{ required: true, validator: this.validatePass2, trigger: 'blur' }],
                 phoneVerifycode: [{required: true, validator: this.validatePhoneVC, trigger: 'blur'}]
             },
+            msg: "修改密码成功！4s后为您跳转至登录页",
         }
     },
     mounted() {
@@ -179,11 +184,26 @@ export default {
 			}
         },
 
-         // 提交注册表单 
+        
+        // 控制时延
+        jumpControl() {
+            let time = 3;
+            let timer = setInterval(() => {
+                if(time == 0) {
+                    clearInterval(timer);
+                    this.$router.push({path: '/login'});
+                } else {
+                    this.msg = "修改密码成功！" +  time + '秒后为您跳转至登录页';
+                    time--;
+                }
+            },1000)
+        },
+
+         // 提交修改密码表单 
 		submitForm(formName) {
 			this.$refs[formName].validate(valid => {
 				if (valid) {
-                    // let that = this;
+                    let that = this;
                     // console.log(this.ruleForm);
                     // 数据封装成后台可解析dict
                     let params = new URLSearchParams();
@@ -196,13 +216,26 @@ export default {
                         }}
                     )
                     .then(function(response){
-                        console.log(response);
+                        // console.log(response);
                         if(response.status === 200){
-							let data = response.data;
+                            let data = response.data;
                             console.log(data);
-                            this.step++;
+                            // 异常保护
+                            that.step++;
+                            if(data['success'] === true)
+                            {
+                                that.jumpControl();
+                            }
+                            else{
+                                that.msg = data['msg'] + "！请刷新重试";
+                            }
                         }
-                        // 异常保护未做，wait
+                        else{
+                            that.$message({
+                                type: 'warning',
+                                message: '后台错误',
+                            });
+                        }
                     })
                     .catch(function (error){
                         console.log(error);
