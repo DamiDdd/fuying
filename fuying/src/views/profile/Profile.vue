@@ -111,6 +111,7 @@ export default {
       phone: localStorage.getItem("userPhone"),
       orderUrl: GLOBAL.urlHead + "getOrders?phone=",
       transportUrl: GLOBAL.urlHead + "getExpressList",
+      pdfUrl: GLOBAL.urlHead + "getPDF/?",
       name: '',
       email: '',
       transport: false,
@@ -137,18 +138,6 @@ export default {
         priceSum: 400,
         date: "2020/9/1 10:00",
         status: "pending",
-      },{
-        order_id: "A02",
-        product: "基础套餐",
-        product_id: "00001",
-        detail: "基础版",
-        detail_id: "2",
-        product_img: "",
-        price: 100,
-        num: 2,
-        priceSum: 200,
-        date: "2020/9/1 10:00",
-        status: "运输中",
       }],
       transportMsg:[],
     }
@@ -167,7 +156,7 @@ export default {
   },
   methods:{
     available(status){
-      if(status === "运输中" || status === "已完成")
+      if(status === "in_transit" || status === "report")
         return true;
       else{
         return false;
@@ -175,8 +164,7 @@ export default {
     },
     solveStatus(order_id,phone,status){
       switch(status){
-        case "运输中":
-        case "已完成":
+        case "in_transit":
           this.transport = true;
           Axios.post(this.transportUrl+"?orderID="+order_id+"&phone="+phone).then((response) => {
             if(response.status === 200){
@@ -191,6 +179,10 @@ export default {
             });
             console.log(error);
           });
+          break;
+        case "report":
+          var url = this.pdfUrl+"orderID="+order_id+"&phone="+phone;
+          window.open(url);
           break;
         default:
           break;
@@ -368,6 +360,8 @@ export default {
 
   .in-content{
     width: 800px;
+    height: 500px;
+    overflow: scroll;
   }
   
   .good{

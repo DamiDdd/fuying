@@ -46,7 +46,9 @@
 				curPageNum: 0,
 			}
 		},
-		mounted: function() {},
+		mounted() {
+			
+		},
 		methods: {
             // 上一页函数，
 			prePage() {
