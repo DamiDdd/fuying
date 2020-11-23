@@ -15,7 +15,7 @@
 						<span class="after-text" @click="showScan">扫码登录</span>
 						<span class="after-text" @click="forget">忘记密码？</span>
 						<div id="weixin" v-show="scan">
-							<!-- <wxLogin>test</wxLogin> -->
+							<!-- <wxLogin></wxLogin> -->
 							<div>test</div>
 						</div>
 					</el-form-item>

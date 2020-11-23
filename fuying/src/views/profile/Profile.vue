@@ -68,7 +68,7 @@
               <td v-text="item.date"></td>
               <td v-text="item.num"></td>
               <td v-text="item.priceSum"></td>
-              <td class="available" v-show="available(item.status)" @click="solveStatus(item.status)" v-text="item.status"></td>
+              <td class="available" v-show="available(item.status)" @click="solveStatus(item.order_id,item.phone,item.status)" v-text="item.status"></td>
               <td v-show="!available(item.status)" v-text="item.status"></td>
             </tr>
           </tbody>
@@ -110,7 +110,7 @@ export default {
     return {
       phone: localStorage.getItem("userPhone"),
       orderUrl: GLOBAL.urlHead + "getOrders?phone=",
-      transportUrl: GLOBAL.urlHead + "getExpressList?orderID=HP202007130523330061782&phone=18818273750",
+      transportUrl: GLOBAL.urlHead + "getExpressList",
       name: '',
       email: '',
       transport: false,
@@ -167,17 +167,18 @@ export default {
   },
   methods:{
     available(status){
-      if(status === "运输中")
+      if(status === "运输中" || status === "已完成")
         return true;
       else{
         return false;
       }
     },
-    solveStatus(status){
+    solveStatus(order_id,phone,status){
       switch(status){
         case "运输中":
+        case "已完成":
           this.transport = true;
-          Axios.post(this.transportUrl).then((response) => {
+          Axios.post(this.transportUrl+"?orderID="+order_id+"&phone="+phone).then((response) => {
             if(response.status === 200){
               let data = response.data;
               // console.log(data);
@@ -214,7 +215,7 @@ export default {
         if(response.status === 200){
           let data = response.data;
           console.log(data);
-
+          this.orderInList = data;
         }
       }).catch((error)=>{
         this.$message({
