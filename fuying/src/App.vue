@@ -65,6 +65,8 @@ export default {
         this.ltime = this.ctime;
         if(localStorage.getItem("userPhone") !== null){
           localStorage.removeItem("userPhone");
+          localStorage.removeItem("userEmail");
+          localStorage.removeItem("userName");
           this.$store.state.isLogin = false;
           if(localStorage.getItem("admin")!=null){
             localStorage.removeItem("admin");

@@ -10,6 +10,8 @@ export default {
   mounted(){
     // 删除本地phone标识
     localStorage.removeItem("userPhone");
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userName");
     this.$store.state.isLogin = false;
     // 删除本地admin标识
     if(localStorage.getItem("admin")!=null){

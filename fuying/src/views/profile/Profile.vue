@@ -40,10 +40,10 @@
         <div class="right-middle">
           <p class="content-blue">收件人管理</p>
           <el-table :data="addressTable" class="data_table">
-            <el-table-column prop="name" label="收件人姓名" width="100"></el-table-column>
+            <el-table-column prop="user" label="收件人姓名" width="180"></el-table-column>
             <el-table-column prop="phone" label="电话" width="180"></el-table-column>
-            <el-table-column prop="address" label="地址" width="320"></el-table-column>
-            <el-table-column label="操作" width="100"></el-table-column>
+            <el-table-column prop="address" label="地址" width="400"></el-table-column>
+            <!-- <el-table-column label="操作" width="100"></el-table-column> -->
           </el-table>
         </div>
         <!-- <div class="right-bottom">
@@ -109,20 +109,17 @@ export default {
   data(){
     return {
       phone: localStorage.getItem("userPhone"),
+      name: localStorage.getItem("userName"),
+      email: localStorage.getItem("userEmail"),
       orderUrl: GLOBAL.urlHead + "getOrders?phone=",
       transportUrl: GLOBAL.urlHead + "getExpressList",
+      addUrl: GLOBAL.urlHead + "getCommonlyAddress/?phone=",
       pdfUrl: GLOBAL.urlHead + "getPDF/?",
-      name: '',
-      email: '',
       transport: false,
       addressTable:[{
-        name: "a",
+        user: "a",
         phone: "13333333333",
         address: "北京",
-      },{
-        name: "b",
-        phone: "13333333333",
-        address: "上海",
       }],
       modal: false,
       titleM: "您的订单",
@@ -143,6 +140,20 @@ export default {
     }
   },
   mounted(){
+    let url = this.addUrl + this.phone;
+    Axios.get(url).then((response) => {
+      if(response.status === 200){
+        let data = response.data;
+        // console.log(data);
+        this.addressTable = data;
+      }
+    }).catch((error)=>{
+      this.$message({
+        type: 'warning',
+        message: '后台出错',
+      });
+      console.log(error);
+    });
   },
   computed:{
     admin(){
@@ -356,12 +367,14 @@ export default {
   .data_table{
     margin-left: 5%;
     width: 95%;
+    height: 300px;
+    overflow: auto;
   }
 
   .in-content{
     width: 800px;
     height: 500px;
-    overflow: scroll;
+    overflow: auto;
   }
   
   .good{

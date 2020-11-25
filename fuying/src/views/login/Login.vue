@@ -119,6 +119,8 @@ export default {
 								// console.log(this.$store.state.isLogin);
 								// 本地存储登录信息
 								localStorage.setItem("userPhone",this.ruleForm["phone"]);
+								localStorage.setItem("userEmail",data["user_email"]);
+								localStorage.setItem("userName",data["user_name"]);
 								if(data["admin"]){
 									this.$store.dispatch("setAdmin",true);
 									localStorage.setItem("admin",this.ruleForm["phone"]);
