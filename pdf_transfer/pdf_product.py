@@ -25,7 +25,7 @@ class PDFGenerator:
         self.content_style = ParagraphStyle(name="ContentStyle", fontName="ping", fontSize=12, leading=25, spaceAfter=20,
                                             underlineWidth=1, alignment=TA_LEFT, )
         self.content2_style = ParagraphStyle(name="ContentStyle", fontName="ping", fontSize=12, leading=20, spaceAfter=20,
-                                            underlineWidth=1, alignment=TA_LEFT, )
+                                            underlineWidth=1, alignment=TA_LEFT )
         self.normal_style = ParagraphStyle(name="NormalStyle", fontName="ping", fontSize=12, leading=25, spaceAfter=20,
                                             underlineWidth=1, alignment=TA_CENTER, )
         self.tabletext_style = ParagraphStyle(name="TabletextStyle", fontName="ping", fontSize=12, leading=18, spaceAfter=20,
@@ -34,6 +34,10 @@ class PDFGenerator:
                                                 textColor=self.theme_color, spaceAfter=10, alignment=TA_LEFT, )
         self.title_style = ParagraphStyle(name="TitleStyle", fontName="pingbold", fontSize=40, leading=25,
                                                 textColor=self.theme_color, spaceAfter=10, alignment=TA_CENTER, )
+        self.small_title_style = ParagraphStyle(name="TitleStyle", fontName="pingbold", fontSize=14, leading=25,
+                                                textColor=self.theme_color, spaceAfter=10, alignment=TA_CENTER, )
+        self.small_tips_style = ParagraphStyle(name="TitleStyle", fontName="pingbold", fontSize=10, leading=25,
+                                                textColor=self.theme_color, spaceAfter=10, alignment=TA_LEFT, )
         # 附加样式
         self.side_style = ParagraphStyle(name="SideStyle", fontName="ping", fontSize=12, leading=20, spaceAfter=20,
                                          underlineWidth=1, alignment=TA_LEFT)
@@ -100,111 +104,11 @@ class PDFGenerator:
     def generatePDF(self, report, tables, result_report=None):
         # 生成表格
         story = []
-
-        # 生成封面相关信息，其中静态图请替换为本机路径
-        story.append(Spacer(1, 20 * mm))
-        img = Image("C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\logo.png")
-        img.drawWidth = 100 * mm
-        img.drawHeight = 100 * mm
-        story.append(img)
-        story.append(Spacer(1, 20 * mm))
-        story.append(Paragraph("蛋白质组学生理刻画检测报告",self.title_style))
-        story.append(Spacer(1, 20 * mm))
-        story.append(Paragraph("检测编号："+report['test_num']+"\a\a\a"+"报告日期"+report['report_date'],self.normal_style))
-        story.append(PageBreak())
-
-        story.append(Spacer(1,5*mm))
-        story.append(Paragraph("致受检者书", self.table_title_style))
-        story.append(Spacer(1, 10 * mm))
-        sex = "女士"
-        if(report['sex'] == "男"):
-            sex = "先生"
-        story.append(Paragraph("尊敬的"+report['name']+sex,self.content_style))
-        story.append(Paragraph("您好！", self.content_style))
-        # story.append(Paragraph("\a\a复瑛健康（上海复瑛生物科技有限公司）是生命健康领域的新兴企业，坚持自主创新和成果转化，立足新一代蛋白质组技术，基于数据驱动、健康评估的检测服务公司，旨在将生命科学、临床医学及数据挖掘等创新技术融为一体，推出全新的健康评估模式服务于人类健康。",self.content2_style))
-        story.append(Paragraph("\a\a复彦健康是生命健康领域的新兴企业，坚持自主创新和成果转化，立足新一代蛋白质组技术，基于数据驱动、健康评估的检测服务公司，旨在将生命科学、临床医学及数据挖掘等创新技术融为一体，推出全新的健康评估模式服务于人类健康。",self.content2_style))
-        story.append(Paragraph("\a\a蛋白质组学生理刻画产品是利用次世代蛋白质组技术配合机器学习的大数据精准分型，1滴指尖血为样本可获得2000+蛋白质检测指标，涵盖100+项生理功能，完成40+大类的生理刻画，检测数据量为常规体检的近百倍，提供更加完备的个人全景生理刻画。",self.content2_style))
-        # story.append(Paragraph("\a\a在此我们也特别提醒您注意：受检者委托复瑛健康开展蛋白质组学生理刻画检测服务，系基于受检者生理功能相关评估结果，预测无明显症状的受检者是否存在生理状态不佳的情况，该检测不是一种诊断过程，而是一种简便快速的评估方法，以便提高客户的生活质量。检测结果不作为临床诊断和治疗的依据。",self.content2_style))
-        story.append(Paragraph("\a\a在此我们也特别提醒您注意：受检者委托复彦健康开展蛋白质组学生理刻画检测服务，系基于受检者生理功能相关评估结果，预测无明显症状的受检者是否存在生理状态不佳的情况，该检测不是一种诊断过程，而是一种简便快速的评估方法，以便提高客户的生活质量。检测结果不作为临床诊断和治疗的依据。",self.content2_style))
-        story.append(Paragraph("\a\a本检测的意义在于通过较完备的个人全景式生理刻画，助您掌握健康状态，希望您对此给予充分的理解与信任，我们愿意与您一同积极面对可能出现的结果。由于技术发展的局限性，个体间存在的生物学差异等原因，本报告仅对本次送检样本负责。",self.content2_style))
-        story.append(Paragraph("\a\a希望您能将您的宝贵意见与建议及时反馈给我们。我们免费的服务电话是********（工作日，8:30-17:30），我们将竭诚为您服务！祝您健康！", self.content2_style))
-        story.append(Paragraph("\a\a此致",self.content2_style))
-        story.append(Paragraph("敬礼",self.content2_style))
-        # story.append(Paragraph("上海复瑛生物科技有限公司", self.content2_style))
-        story.append(Paragraph("复彦健康", self.content2_style))
-        story.append(PageBreak())
-
-        story.append(Spacer(1,5*mm))
-        story.append(Paragraph("产品简介",self.table_title_style))
-        story.append(Spacer(1, 10 * mm))
-        story.append(Paragraph("\a\a蛋白质作为生命活动的执行者，直接反映着一个个体的生理、病理情况。随着人类基因组计划的实施和推进，生命科学研究已进入了后基因组时代。蛋白质组研究是后基因组时代生命科学研究的核心内容之一。蛋白质组学以细胞内全部蛋白质及其活动方式为研究对象。在早期诊断、疾病预防、分型、判断预后等诸多方面都具有巨大的潜力。",self.content_style))
-        story.append(Paragraph("\a\a现阶段，本检测平台总原始数据量达到1G；谱图数达到10万张，肽段数达到5.000个以上，检测体液样本的蛋白质鉴定数可达2,000种以上。",self.content_style))
-        story.append(Paragraph("\a\a根据上万组正常人蛋白质组数据，建立基准数据训练集。通过机器学习将蛋白质组数据同临床表型进行管理关联，建立包含一百种特征的训练模型。将用户样本进行蛋白质组分析后与训练集比对，可对样本进行分类或分型，并据此提供较为可靠的临床辅助结论。",self.content_style))
-        story.append(PageBreak())
-
-        # 这里的图片路径使用时请修改！
-        story.append(Spacer(1, 5*mm))
-        story.append(Paragraph("技术路线",self.table_title_style))
-        story.append(Spacer(1, 5*mm))
-        img = Image("C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\rout.png")
-        img.drawHeight = 70 * mm
-        img.drawWidth = 160 * mm
-        story.append(img)
-        story.append(Spacer(1, 10*mm))
-        story.append(Paragraph("技术原理",self.table_title_style))
-        story.append(Spacer(1, 5*mm))
-        img = Image("C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\principle.png")
-        img.drawHeight = 80 * mm
-        img.drawWidth = 160 * mm
-        story.append(img)
-        story.append(PageBreak())
-
-        # 生成用户信息表
-        r1_table = [['用户信息'],
-                    ['姓名',report['name'],'性别',report['sex'],'年龄',report['age']],
-                    [Paragraph(report['health_history'],self.tabletext_style)],]
-        r2_table = [['样本信息'],
-                    ['送样日期',report['sample_date'],'样本编号',report['sample_num']],
-                    ['样品来源',report['resource'],'样品类型','type']]
-        r3_table = [['检测信息'],
-                    ['检测项目',report['subject']],
-                    ['检测编号',report['test_num']],
-                    ['检测方法',report['method']],
-                    [Paragraph(report['explanation'],self.tabletext_style)]]
-        r4_table = [['细化检测结果'],
-                    ["一、实验室检测质控"]]
-
-        story.append(Table(r1_table,colWidths=[18 * mm, 35 * mm, 18 * mm, 35 * mm, 18 * mm, 36 * mm],
-                           rowHeights = [self.row_height * mm, self.row_height * mm, 25 * mm], style=self.report1_style))
-        story.append(Table(r2_table, colWidths=[25 * mm, 55 * mm, 25 * mm, 55 * mm],
-                           rowHeights=self.row_height * mm, style=self.report2_style))
-        story.append(Table(r3_table, colWidths=[25 * mm, 135 * mm],
-                           rowHeights=[self.row_height * mm, self.row_height * mm, self.row_height * mm, self.row_height * mm, 30 * mm], style=self.report3_style))
-        story.append(Table(r4_table, colWidths=[160 * mm],
-                           rowHeights= self.row_height * mm, style=self.report4_style))
-
-        for set in report["quality_report"]:
-            set['table'][0].insert(0,set['name'])
-            set['table'][1].insert(0,set['name'])
-            for i in range(2):
-                for j in range(set['table'][i].__len__()):
-                    set['table'][i][j] = Paragraph(set['table'][i][j],self.tabletext_style)
-            table = Table(set['table'],colWidths=(160/set['table'][0].__len__()) * mm,
-                          rowHeights = 15 * mm, style = self.table2_style)
-            story.append(table)
-        story.append(PageBreak())
-
-        story.append(Paragraph("二、质谱结果",self.tabletext_style))
-        img = Image(report['mass_spectrogram_img'])
-        img.drawHeight = 80 * mm
-        img.drawWidth = 160 * mm
-        story.append(img)
-        story.append(Spacer(1, 4 * mm))
-        story.append(Paragraph(report["ms_text"],self.content_style))
-        story.append(PageBreak())
-
-
-        story.append(Paragraph("三、生理刻画结果", self.tabletext_style))
+        title = {
+            "report_title": "蛋白质组学生理刻画检测报告",
+            "logo": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\logo.png",
+        }
+        self.autoCover(story, title, report)
         for set in tables:
 
             # 生成指标总表
@@ -286,6 +190,171 @@ class PDFGenerator:
                                 leftMargin=20 * mm, rightMargin=20 * mm, topMargin=20 * mm, bottomMargin=20 * mm,
                                 showBoundary=1 * mm)
         doc.build(story)
+
+    def generatePDF2(self, report, tables, result_report=None):
+        # 生成表格
+        story = []
+        title = {
+            "report_title": "蛋白质组学肿瘤风险预测检测报告",
+            "logo": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\logo2.png",
+        }
+        self.autoCover(story, title, report)
+
+        # 生成详细说明
+        for set in tables:
+            story.append(Paragraph(set['name'],self.table_title_style))
+            img1 = Image(set['img1'])
+            img1.drawHeight = 80 * mm
+            img1.drawWidth = 100 * mm
+            story.append(Spacer(1, 4 * mm))
+            story.append(img1)
+            story.append(Paragraph(set['name']+"模型",self.small_title_style))
+            story.append(Spacer(1, 8 * mm))
+            img2 = Image(set['img2'])
+            img2.drawHeight = 80 * mm
+            img2.drawWidth = 100 * mm
+            story.append(img2)
+            story.append(Spacer(1, 4 * mm))
+            story.append(Paragraph(set['description'], self.content_style))
+            story.append(Paragraph("此检验结果仅对本次标本负责，仅供临床参考",self.small_tips_style))
+            story.append(PageBreak())
+
+        # 结果说明
+        if result_report != None:
+            story.append(Spacer(1, 5*mm))
+            story.append(Paragraph("结果说明",self.table_title_style))
+            story.append(Spacer(1, 10 * mm))
+            for str in result_report['result']:
+                story.append(Paragraph(str,self.content_style))
+            story.append(Spacer(1,10 * mm))
+            story.append(Paragraph("健康是动态的，生理指标也随之变化，建议您根据情况每半年至一年进行一次蛋白质组学生理检测，一次检测，复瑛健康能够为您提供:", self.content_style))
+            story.append(Paragraph("1、	按需提供蛋白质组学生理刻画，建立个人专属健康档案。", self.content2_style))
+            story.append(Paragraph("2、	按需提供蛋白质组学肿瘤风险预测，为优质生活保驾护航。", self.content2_style))
+            story.append(Paragraph("3、	个人数据终身免费存储，无需重复采样即可体验未来新产品。", self.content2_style))
+            story.append(Paragraph("上医治未病，中医治己病，下医治大病。", self.content_style))
+            story.append(Paragraph("复瑛健康祝您身体健康，生活幸福。", self.content_style))
+            story.append(Spacer(1,10 * mm))
+            story.append(Paragraph("1.本次检测结果只对本次送检样本负责，结果仅供参考，不作为临床诊断依据",self.content2_style))
+            story.append(Paragraph("2.如果对检测结果有异议，请在收到报告后七日内与我们联系。",self.content2_style))
+            story.append(Spacer(1, 10 * mm))
+            story.append(Paragraph("检测员：\a\a" + result_report["test_member"] +
+                                   "\a\a复核者：\a\a" + result_report["check_member"] +
+                                   "\a\a报告日期：\a\a" + result_report["report_date"],
+                                   self.content2_style))
+            story.append(PageBreak())
+
+        # 生成pdf
+        doc = SimpleDocTemplate(self.file_path + self.filename + "2" + ".pdf",
+                                leftMargin=20 * mm, rightMargin=20 * mm, topMargin=20 * mm, bottomMargin=20 * mm,
+                                showBoundary=1 * mm)
+        doc.build(story)
+
+
+    def autoCover(self, story, title, report):
+        # 生成封面相关信息，其中静态图请替换为本机路径
+        story.append(Spacer(1, 20 * mm))
+        img = Image(title['logo'])
+        img.drawWidth = 100 * mm
+        img.drawHeight = 100 * mm
+        story.append(img)
+        story.append(Spacer(1, 20 * mm))
+        story.append(Paragraph(title['report_title'],self.title_style))
+        story.append(Spacer(1, 20 * mm))
+        story.append(Paragraph("检测编号："+report['test_num']+"\a\a\a"+"报告日期"+report['report_date'],self.normal_style))
+        story.append(PageBreak())
+
+        story.append(Spacer(1,5*mm))
+        story.append(Paragraph("致受检者书", self.table_title_style))
+        story.append(Spacer(1, 10 * mm))
+        sex = "女士"
+        if(report['sex'] == "男"):
+            sex = "先生"
+        story.append(Paragraph("尊敬的"+report['name']+sex,self.content_style))
+        story.append(Paragraph("您好！", self.content_style))
+        # story.append(Paragraph("\a\a复瑛健康（上海复瑛生物科技有限公司）是生命健康领域的新兴企业，坚持自主创新和成果转化，立足新一代蛋白质组技术，基于数据驱动、健康评估的检测服务公司，旨在将生命科学、临床医学及数据挖掘等创新技术融为一体，推出全新的健康评估模式服务于人类健康。",self.content2_style))
+        story.append(Paragraph("\a\a复彦健康是生命健康领域的新兴企业，坚持自主创新和成果转化，立足新一代蛋白质组技术，基于数据驱动、健康评估的检测服务公司，旨在将生命科学、临床医学及数据挖掘等创新技术融为一体，推出全新的健康评估模式服务于人类健康。",self.content2_style))
+        story.append(Paragraph("\a\a蛋白质组学生理刻画产品是利用次世代蛋白质组技术配合机器学习的大数据精准分型，1滴指尖血为样本可获得2000+蛋白质检测指标，涵盖100+项生理功能，完成40+大类的生理刻画，检测数据量为常规体检的近百倍，提供更加完备的个人全景生理刻画。",self.content2_style))
+        # story.append(Paragraph("\a\a在此我们也特别提醒您注意：受检者委托复瑛健康开展蛋白质组学生理刻画检测服务，系基于受检者生理功能相关评估结果，预测无明显症状的受检者是否存在生理状态不佳的情况，该检测不是一种诊断过程，而是一种简便快速的评估方法，以便提高客户的生活质量。检测结果不作为临床诊断和治疗的依据。",self.content2_style))
+        story.append(Paragraph("\a\a在此我们也特别提醒您注意：受检者委托复彦健康开展蛋白质组学生理刻画检测服务，系基于受检者生理功能相关评估结果，预测无明显症状的受检者是否存在生理状态不佳的情况，该检测不是一种诊断过程，而是一种简便快速的评估方法，以便提高客户的生活质量。检测结果不作为临床诊断和治疗的依据。",self.content2_style))
+        story.append(Paragraph("\a\a本检测的意义在于通过较完备的个人全景式生理刻画，助您掌握健康状态，希望您对此给予充分的理解与信任，我们愿意与您一同积极面对可能出现的结果。由于技术发展的局限性，个体间存在的生物学差异等原因，本报告仅对本次送检样本负责。",self.content2_style))
+        story.append(Paragraph("\a\a希望您能将您的宝贵意见与建议及时反馈给我们。我们免费的服务电话是********（工作日，8:30-17:30），我们将竭诚为您服务！祝您健康！", self.content2_style))
+        story.append(Paragraph("\a\a此致",self.content2_style))
+        story.append(Paragraph("敬礼",self.content2_style))
+        # story.append(Paragraph("上海复瑛生物科技有限公司", self.content2_style))
+        story.append(Paragraph("复彦健康", self.content2_style))
+        story.append(PageBreak())
+
+        story.append(Spacer(1,5*mm))
+        story.append(Paragraph("产品简介",self.table_title_style))
+        story.append(Spacer(1, 10 * mm))
+        story.append(Paragraph("\a\a蛋白质作为生命活动的执行者，直接反映着一个个体的生理、病理情况。随着人类基因组计划的实施和推进，生命科学研究已进入了后基因组时代。蛋白质组研究是后基因组时代生命科学研究的核心内容之一。蛋白质组学以细胞内全部蛋白质及其活动方式为研究对象。在早期诊断、疾病预防、分型、判断预后等诸多方面都具有巨大的潜力。",self.content_style))
+        story.append(Paragraph("\a\a现阶段，本检测平台总原始数据量达到1G；谱图数达到10万张，肽段数达到5.000个以上，检测体液样本的蛋白质鉴定数可达2,000种以上。",self.content_style))
+        story.append(Paragraph("\a\a根据上万组正常人蛋白质组数据，建立基准数据训练集。通过机器学习将蛋白质组数据同临床表型进行管理关联，建立包含一百种特征的训练模型。将用户样本进行蛋白质组分析后与训练集比对，可对样本进行分类或分型，并据此提供较为可靠的临床辅助结论。",self.content_style))
+        story.append(PageBreak())
+
+        # 这里的图片路径使用时请修改！
+        story.append(Spacer(1, 5*mm))
+        story.append(Paragraph("技术路线",self.table_title_style))
+        story.append(Spacer(1, 5*mm))
+        img = Image("C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\rout.png")
+        img.drawHeight = 70 * mm
+        img.drawWidth = 160 * mm
+        story.append(img)
+        story.append(Spacer(1, 10*mm))
+        story.append(Paragraph("技术原理",self.table_title_style))
+        story.append(Spacer(1, 5*mm))
+        img = Image("C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\principle.png")
+        img.drawHeight = 80 * mm
+        img.drawWidth = 160 * mm
+        story.append(img)
+        story.append(PageBreak())
+
+        # 生成用户信息表
+        r1_table = [['用户信息'],
+                    ['姓名',report['name'],'性别',report['sex'],'年龄',report['age']],
+                    [Paragraph(report['health_history'],self.tabletext_style)],]
+        r2_table = [['样本信息'],
+                    ['送样日期',report['sample_date'],'样本编号',report['sample_num']],
+                    ['样品来源',report['resource'],'样品类型','type']]
+        r3_table = [['检测信息'],
+                    ['检测项目',report['subject']],
+                    ['检测编号',report['test_num']],
+                    ['检测方法',report['method']],
+                    [Paragraph(report['explanation'],self.tabletext_style)]]
+        r4_table = [['细化检测结果'],
+                    ["一、实验室检测质控"]]
+
+        story.append(Table(r1_table,colWidths=[18 * mm, 35 * mm, 18 * mm, 35 * mm, 18 * mm, 36 * mm],
+                           rowHeights = [self.row_height * mm, self.row_height * mm, 25 * mm], style=self.report1_style))
+        story.append(Table(r2_table, colWidths=[25 * mm, 55 * mm, 25 * mm, 55 * mm],
+                           rowHeights=self.row_height * mm, style=self.report2_style))
+        story.append(Table(r3_table, colWidths=[25 * mm, 135 * mm],
+                           rowHeights=[self.row_height * mm, self.row_height * mm, self.row_height * mm, self.row_height * mm, 30 * mm], style=self.report3_style))
+        story.append(Table(r4_table, colWidths=[160 * mm],
+                           rowHeights= self.row_height * mm, style=self.report4_style))
+
+        for set in report["quality_report"]:
+            set['table'][0].insert(0,set['name'])
+            set['table'][1].insert(0,set['name'])
+            for i in range(2):
+                for j in range(set['table'][i].__len__()):
+                    set['table'][i][j] = Paragraph(set['table'][i][j],self.tabletext_style)
+            table = Table(set['table'],colWidths=(160/set['table'][0].__len__()) * mm,
+                          rowHeights = 18 * mm, style = self.table2_style)
+            story.append(table)
+        story.append(PageBreak())
+
+        story.append(Paragraph("二、质谱结果",self.tabletext_style))
+        img = Image(report['mass_spectrogram_img'])
+        img.drawHeight = 80 * mm
+        img.drawWidth = 160 * mm
+        story.append(img)
+        story.append(Spacer(1, 4 * mm))
+        story.append(Paragraph(report["ms_text"],self.content_style))
+        story.append(PageBreak())
+
+
+        story.append(Paragraph("三、生理刻画结果", self.tabletext_style))
 
     def MergePDF(self, pdf_array, outfile):
 
@@ -442,3 +511,76 @@ if __name__ == '__main__':
     pdf1 = "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\report.pdf"
     pdf2 = "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\template_ending.pdf"
     report_pdfg.MergePDF([pdf1,pdf2],"C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\report_res.pdf")
+
+    report2 = {
+        "name": "XXX",
+        "sex": "女",
+        "age": "29",
+        "health_history": "病史或临床表现：（用户填写）",
+        "report_date": "2020/06/30",
+        "sample_date": "2020/06/30",
+        "sample_num": "888888",
+        "resource": "XX医院",
+        "type": "静脉血/手指血/切片",
+        "subject": "蛋白质组学肿瘤风险预测",
+        "test_num": "Exp000001",
+        "method": "次世代非数据依赖采集蛋白质组检测技术",
+        "explanation": "（结果解读）本次检测结果",
+        "quality_report": [
+            {"name": "血液样本",
+            "table": [['全血总量（μL）','血浆总量（μL）','血浆颜色','是否合格','操作平台','质控标准'],
+                      ['50','30','淡黄色','是','Thermo','血浆总量≥30μL']]},
+            {"name":"蛋白提取",
+            "table": [['血浆上样量（μL）','蛋白质量（μg）','高丰度去除','是否合格','操作平台','质控标准'],
+                      ['2','100','是','是','Thermo','蛋白质量≥30μg']]},
+            {"name": "蛋白检测",
+            "table": [['上样量（μL）', '蛋白测定量（个）', '质量偏差（中位数）', '是否合格', '操作平台', '质控标准'],
+                      ['500', '2890', '2', '是', 'Thermo Orbitrap Fusion Lumos', '蛋白测定量>2000个，质量偏差<5ppm']]},
+            ],
+        "mass_spectrogram_img": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\000001\\mass_spectrogram_img.png",
+        "ms_text": "数据采集量1 G，谱图数81,220张，蛋白质鉴定总数2328。",
+    }
+    tables2 = [
+        {"name": "泛癌风险预测",
+         "img1": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\000001\\1.png",
+         "img2": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\000001\\0.png",
+         "description": "您的泛癌风险预测结果为****，该定性模型准确率已经万人队列检验。本次结果提示您的胃癌患病风险较低，建议您保持良好的生活的习惯，定期进行体检。",
+         },
+        {"name": "肺癌风险预测",
+         "img1": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\000001\\2.png",
+         "img2": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\000001\\0.png",
+         "description": "您的肺癌风险预测结果为****，该定性模型准确率已经万人队列检验。本次结果提示您的胃癌患病风险较低，建议您保持良好的生活的习惯，定期进行体检。",
+         },
+        {"name": "胃癌风险预测",
+         "img1": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\000001\\3.png",
+         "img2": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\000001\\0.png",
+         "description": "您的胃癌风险预测结果为****，该定性模型准确率已经万人队列检验。本次结果提示您的胃癌患病风险较低，建议您保持良好的生活的习惯，定期进行体检。",
+         },
+        {"name": "膀胱癌风险预测",
+         "img1": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\000001\\4.png",
+         "img2": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\000001\\0.png",
+         "description": "您的膀胱癌风险预测结果为****，该定性模型准确率已经万人队列检验。本次结果提示您的胃癌患病风险较低，建议您保持良好的生活的习惯，定期进行体检。",
+         },
+        {"name": "淋巴癌风险预测",
+         "img1": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\000001\\5.png",
+         "img2": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\000001\\0.png",
+         "description": "您的淋巴癌风险预测结果为****，该定性模型准确率已经万人队列检验。本次结果提示您的胃癌患病风险较低，建议您保持良好的生活的习惯，定期进行体检。",
+         },
+        {"name": "肾癌风险预测",
+         "img1": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\000001\\6.png",
+         "img2": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\000001\\0.png",
+         "description": "您的肾癌风险预测结果为****，该定性模型准确率已经万人队列检验。本次结果提示您的胃癌患病风险较低，建议您保持良好的生活的习惯，定期进行体检。",
+         },
+    ]
+    result_report2 = {
+        "result": [
+            "本次检测结果提示您整体身体素质良好，患肿瘤风险较低，请继续保持良好的生活习惯，坚持定期体检。",],
+        "test_member": "a",
+        "check_member": "b",
+        "report_date": report2['report_date']
+    }
+    report_pdfg.generatePDF2(report2, tables2, result_report2)
+    pdf1 = "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\report2.pdf"
+    pdf2 = "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\template_ending2.pdf"
+    report_pdfg.MergePDF([pdf1,pdf2],"C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\report_res2.pdf")
+
