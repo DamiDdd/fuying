@@ -1,0 +1,112 @@
+<view class="main">
+  <view class="goods-box">
+    <image src="{{img}}" mode='widthFix'class="goods-thumb"></image>
+    <navigator url="../cart/cart">
+      <view class="carts-icon {{scaleCart?'on':''}}">
+        <image src="https://phenomics.fudan.edu.cn/firmiana/static/we/images/cart2.png"></image>
+        <text class="carts-icon-num" wx:if="{{hasCarts}}">{{totalNum}}</text>
+      </view>
+    </navigator>
+    <view class="goods-title">{{name}}</view>
+    <block wx:if="{{stock}}">
+      <text class="goods-stock">{{content.InStock}}--</text>
+      <block wx:if="{{Type == 'bodyFluid'}}">
+        <view class="srv-title">{{content.healthAssessment}}:</view>
+        <button class="assess-btn {{assessSelected?'on':''}}" plain='true' bindtap='bindAssessmentChange'>
+          {{content.healthStatusAssessment}}
+        </button>
+        <!-- <view class="srv-title">{{content.riskPrediction}}:</view>
+        <view class="btn-container">
+          <block wx:for="{{content.riskArr}}">
+            <button class="subservice-btn " plain='true' data-id="{{index}}" bindtap='bindriskChange' style="{{index == idx_risk? 'border:0.5rpx solid #9AC0CD;color:#9AC0CD;' : 'border:0.5rpx solid #ededed'}}">
+              <text class="chose-p">{{item.name}}</text>
+            </button>
+          </block>
+        </view>
+        <view class="srv-title">{{content.prognosisPrediction}}:</view> -->
+        <!-- <button disabled class="assess-btn" plain='true'>{{content.notSupported}}</button> -->
+      </block>
+      <block wx:elif="{{Type == 'cell'}}">
+        <view class="srv-title">{{content.healthAssessment}}:</view>
+        <button class="assess-btn {{assessSelected?'on':''}}" plain='true' bindtap='bindAssessmentChange'>
+          {{content.healthStatusAssessment}}¥500
+        </button>
+        <view class="srv-title">{{content.riskPrediction}}:</view>
+        <view class="btn-container">
+          <block wx:for="{{content.riskArr}}">
+            <button class="subservice-btn " plain='true' data-id="{{index}}" bindtap='bindriskChange' style="{{index == idx_risk? 'border:0.5rpx solid #9AC0CD;color:#9AC0CD;' : 'border:0.5rpx solid #ededed'}}">
+              <text class="chose-p">{{item.name}}</text>
+              <text class="chose-p">¥{{item.price}}</text>
+            </button>
+          </block>
+        </view>
+        <view class="srv-title">{{content.prognosisPrediction}}：</view>
+        <view class="btn-container">
+          <block wx:for="{{content.prognosisArr}}">
+            <button class="subservice-btn " plain='true' data-id="{{index}}" bindtap='bindprognosisChange' style="{{index == idx_pro? 'border:0.5rpx solid #9AC0CD;color:#9AC0CD;' : 'border:0.5rpx solid #ededed'}}">
+              <text class="chose-p">{{item.name}}</text>
+              <text class="chose-p">¥{{item.price}}</text>
+            </button>
+          </block>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="srv-title">{{content.healthStatusAssessment}}:</view>
+        <button disabled class="assess-btn {{assessSelected?'on':''}}" plain='true'>
+          {{content.notSupported}}
+        </button>
+        <view class="srv-title">{{content.riskPrediction}}：</view>
+        <view class="btn-container">
+          <block wx:for="{{content.riskArr}}">
+            <button class="subservice-btn " plain='true' data-id="{{index}}" bindtap='bindriskChange' style="{{index == idx_risk? 'border:0.5rpx solid #9AC0CD;color:#9AC0CD;' : 'border:0.5rpx solid #ededed'}}">
+              <text class="chose-p">{{item.name}}</text>
+              <text class="chose-p">¥{{item.price}}</text>
+            </button>
+          </block>
+        </view>
+        <view class="srv-title">{{content.prognosisPrediction}}：</view>
+        <view class="btn-container">
+          <block wx:for="{{content.prognosisArr}}">
+            <button class="subservice-btn" plain='true' data-id="{{index}}" bindtap='bindprognosisChange' style="{{index == idx_pro? 'border:0.5rpx solid #9AC0CD;color:#9AC0CD;' : 'border:0.5rpx solid #ededed'}}">
+              <text class="chose-p">{{item.name}}</text>
+              <text class="chose-p">¥{{item.price}}</text>
+            </button>
+          </block>
+        </view>
+      </block>
+    </block>
+    <view class="goods-stock" wx:else>
+      <text class="goods-stock">{{content.soldOut}}</text>
+    </view>
+    <view class='goods-operation'>
+      <text class="goods-operation-add" bindtap="deleteCount">-</text>
+      <text class="goods-operation-num">{{content.number}} {{num}}</text>
+      <text class="goods-operation-add" bindtap="addCount">+</text>
+      <text class="goods-to-cart" catchtap="addToCart">{{content.addtoChecklist}}</text>
+      <image src="https://phenomics.fudan.edu.cn/firmiana/static/we/images/cart1.png" class="goods-cart-img" catchtap="addToCart"></image>
+    </view>
+    <!-- <image wx:if="{{show}}" src="/images/cart1.png" class="to-carts-icon"></image> -->
+  </view>
+  <view class="goods-tab-box">
+    <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">
+      产品详情
+    </view>
+    <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">
+      检测参数
+    </view>
+    <view class="goods-tab-nav {{curIndex === 2 ?'on':''}}" bindtap="bindTap" data-index="2">
+      检测流程
+    </view>
+    <view class="goods-content">
+      <view wx:if="{{curIndex === 0}}" class="srv-detail">
+        <image mode="widthFix" src="https://phenomics.fudan.edu.cn/firmiana/static/hp/service1.png"></image>
+      </view>
+      <view wx:if="{{curIndex === 1}}">
+        <image mode="widthFix" src="https://phenomics.fudan.edu.cn/firmiana/static/hp/service4.png"></image>
+      </view>
+      <view wx:if="{{curIndex === 2}}">
+        <image mode="widthFix" src="https://phenomics.fudan.edu.cn/firmiana/static/hp/service3.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
