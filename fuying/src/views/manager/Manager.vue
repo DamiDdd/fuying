@@ -52,8 +52,8 @@ export default {
       total: 0,
       selected_data: [],
       show_data:[],
-      pdfUrl: GLOBAL.urlHead + "getPDF/?",
-      getAllUrl: GLOBAL.urlHead2 + "get_all_report",
+      pdfUrl: GLOBAL.urlHead2 + "get_pdf/?",
+      getAllUrl: GLOBAL.urlHead2 + "get_all_report/",
     }
   },
 
@@ -79,7 +79,6 @@ export default {
     //     {orderID: "000002", username: "abb", createtime: "2021-01-12 00:00:01", status: "waiting"},
     //     {orderID: "teset123", username: "cdd", createtime: "2021-01-12 00:00:02", status: "finished", sampleID: "EXP000001", phone: "18818273750"},
     //     {orderID: "test123", username: "abb", createtime: "2021-01-12 00:00:03", status: "finished", sampleID: "EXP000002", phone: "18818273750"},
-    
     // ]; 
   },
 
@@ -131,6 +130,7 @@ export default {
     handleCurrentChange(newPage){
       this.currentPage = newPage;
       this.getShowData();
+      
     },
   }
 }

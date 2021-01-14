@@ -113,9 +113,9 @@ export default {
       name: localStorage.getItem("userName"),
       email: localStorage.getItem("userEmail"),
       orderUrl: GLOBAL.urlHead + "getOrders?phone=",
-      transportUrl: GLOBAL.urlHead + "getExpressList",
+      transportUrl: GLOBAL.urlHead + "getExpressList/",
       addUrl: GLOBAL.urlHead + "getCommonlyAddress/?phone=",
-      pdfUrl: GLOBAL.urlHead + "getPDF/?",
+      pdfUrl: GLOBAL.urlHead2 + "get_pdf/",
       transport: false,
       addressTable:[{
         user: "a",
