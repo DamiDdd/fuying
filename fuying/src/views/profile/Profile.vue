@@ -30,7 +30,7 @@
               <p>邮箱：{{email}}</p>
             </div>
             <div class="btn">
-              <el-button>修改密码</el-button>
+              <!-- <el-button>修改密码</el-button> -->
               <!-- <el-button @click="submitMsg">提交修改</el-button> -->
             </div>
           </div>
