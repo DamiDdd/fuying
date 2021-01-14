@@ -100,7 +100,7 @@ export default {
     return{
       phone: localStorage.getItem("userPhone"),
       carturl: GLOBAL.urlHead+"getCartweb?id=",
-      uploadUrl: GLOBAL.urlHead+"payCartWeb",
+      uploadUrl: GLOBAL.urlHead+"payCartWeb/",
       all: false,
       modal: false,
       titleM: "完善您的订单信息",
