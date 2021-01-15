@@ -71,6 +71,7 @@ export default {
 
   mounted(){
     this.getAllData();
+    // 数据样例
     // this.selected_data = [
     //     {orderID: "000001", username: "qjj", createtime: "2021-01-12 00:00:00", status: "new"},
     //     {orderID: "000002", username: "abb", createtime: "2021-01-12 00:00:01", status: "waiting"},
@@ -80,6 +81,7 @@ export default {
   },
 
   methods:{
+    // 获取报告数据的方法
     getAllData(){
       Axios.get(this.getAllUrl,
         {params:{
@@ -108,6 +110,8 @@ export default {
         console.log(error);
       });
     },
+
+    // 处理当前页的展示数据
     getShowData(){
       console.log(this.selected_data);
       // 此处修正show_data值为展示值
@@ -124,15 +128,21 @@ export default {
         }
       });
     },
+
+    // 清空搜索条件
     clearSearch(){
       this.filter.forEach(element => {
         element.value = "";
       });
     },
+
+    // 根据已经填写的filter搜索
     searchNum(){
       console.log(this.filter);
       this.getAllData();
     },
+
+    // 改变
     changeTableSort(column){
       console.log(column);
       var filterName = column.prop;
@@ -151,6 +161,8 @@ export default {
       this.getAllData();
       console.log(this.selected_data)
     },
+
+    // 具体操作，根据不同status不同响应
     handleEdit(index,row){
       console.log(index,row);
       if(row.tips === "detail"){
@@ -163,10 +175,11 @@ export default {
         var url = this.pdfUrl+"orderID="+row.orderID+"&phone="+row.phone;
         window.open(url);      }
     },
+
+    // 换页
     handleCurrentChange(newPage){
       this.currentPage = newPage;
-      this.getShowData();
-      
+      this.getShowData();  
     },
   }
 }
