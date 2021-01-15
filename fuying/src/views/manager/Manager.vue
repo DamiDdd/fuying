@@ -1,9 +1,17 @@
 <template>
   <div class="windows">
     <el-row class="topRow">
-      <el-input class="short-input" v-model="filter[0].value"></el-input>
+      <el-input class="m-input" placeholder="全局搜索" v-model="filter[0].value"></el-input>
       <el-button type="primary" class="right-btn" @click="searchNum">搜索用户</el-button>
     </el-row>
+    <!-- <el-row class="topRow"> -->
+        <!-- <el-input class="s-input" style="width: 130px" placeholder="订单编号" v-model="filter[1].value"></el-input>
+        <el-input class="s-input" style="width: 120px" placeholder="用户名" v-model="filter[2].value"></el-input>
+        <el-input class="s-input" style="width: 220px" placeholder="创建日期" v-model="filter[3].value"></el-input>
+        <el-input class="s-input" style="width: 120px" placeholder="样品编号" v-model="filter[4].value"></el-input> -->
+      <!-- <el-button class="right-btn" @click="clearSearch">清空搜索</el-button>
+      <el-button type="primary" class="right-btn" @click="searchNum">搜索用户</el-button>
+    </el-row> -->
     <el-table
       ref="multipleTable"
       :data="show_data"
@@ -11,10 +19,10 @@
       @sort-change="changeTableSort"
       :default-sort="{prop:'id',order:'ascending'}"
       tooltip-effect="dark">
-      <el-table-column label="订单编号" prop="orderID" width="130" sortable="custom"></el-table-column>
+      <el-table-column label="订单编号" prop="orderID" width="140" sortable="custom"></el-table-column>
       <el-table-column label="用户名" prop="username" width="130" sortable="custom"></el-table-column>
       <el-table-column label="创建日期" prop="createtime" width="230" sortable="custom"></el-table-column>
-      <el-table-column label="订单编号" prop="sampleID" width="130" sortable="custom"></el-table-column>
+      <el-table-column label="样品编号" prop="sampleID" width="130" sortable="custom"></el-table-column>
       <el-table-column label="状态" prop="status" width="130"></el-table-column>
       <!-- <el-table-column label="状态" prop="status" width="130" sortable="custom"></el-table-column> -->
       <el-table-column label="操作" width="130">
@@ -49,6 +57,7 @@ export default {
   data(){
     return{
       filter: [{value:"",field:"any"}],
+      // filter: [{value:"",field:"any"},{value:"",field:"orderID"},{value:"",field:"username"},{value:"",field:"createtime"},{value:"",field:"sampleID"}],
       pagesize:8,
       currentPage:1,
       total: 0,
@@ -72,11 +81,6 @@ export default {
 
   methods:{
     getAllData(){
-      // let params = new URLSearchParams();
-      // params.append("id",localStorage.getItem("userPhone"));
-      // params.append("filter",filter);
-      // params.append("sort",sort);
-      // console.log(params);
       Axios.get(this.getAllUrl,
         {params:{
           id: localStorage.getItem("userPhone"),
@@ -90,11 +94,11 @@ export default {
       .then((response) => {
         if(response.status === 200){
           let data = response.data;
-          console.log(data);
+          // console.log(data);
           this.selected_data = data;
           this.getShowData();
           this.total = this.selected_data.length;
-          console.log(this.total);
+          // console.log(this.total);
         }
       }).catch((error)=>{
         this.$message({
@@ -118,6 +122,11 @@ export default {
         else if(element.status === "finished"){
           element.tips = "report";
         }
+      });
+    },
+    clearSearch(){
+      this.filter.forEach(element => {
+        element.value = "";
       });
     },
     searchNum(){
@@ -176,9 +185,13 @@ export default {
     width: 100%;
     margin-left: 20%;
   }
-  .short-input{
+  .m-input{
     width: 200px;
     padding-right: 10px;
+  }
+  .s-input{
+    padding-right: 10px;
+    padding-top: 10px;
   }
   .main-table{
     margin-top: 20px;
