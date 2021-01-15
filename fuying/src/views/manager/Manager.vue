@@ -4,14 +4,14 @@
       <el-input class="m-input" placeholder="全局搜索" v-model="filter[0].value"></el-input>
       <el-button type="primary" class="right-btn" @click="searchNum">搜索用户</el-button>
     </el-row>
-    <!-- <el-row class="topRow"> -->
-        <!-- <el-input class="s-input" style="width: 130px" placeholder="订单编号" v-model="filter[1].value"></el-input>
+    <el-row class="topRow">
+        <el-input class="s-input" style="width: 130px" placeholder="订单编号" v-model="filter[1].value"></el-input>
         <el-input class="s-input" style="width: 120px" placeholder="用户名" v-model="filter[2].value"></el-input>
         <el-input class="s-input" style="width: 220px" placeholder="创建日期" v-model="filter[3].value"></el-input>
-        <el-input class="s-input" style="width: 120px" placeholder="样品编号" v-model="filter[4].value"></el-input> -->
-      <!-- <el-button class="right-btn" @click="clearSearch">清空搜索</el-button>
+        <el-input class="s-input" style="width: 120px" placeholder="样品编号" v-model="filter[4].value"></el-input>
+      <el-button class="right-btn" @click="clearSearch">清空搜索</el-button>
       <el-button type="primary" class="right-btn" @click="searchNum">搜索用户</el-button>
-    </el-row> -->
+    </el-row>
     <el-table
       ref="multipleTable"
       :data="show_data"
@@ -56,8 +56,8 @@ export default {
   name : "Manager",
   data(){
     return{
-      filter: [{value:"",field:"any"}],
-      // filter: [{value:"",field:"any"},{value:"",field:"orderID"},{value:"",field:"username"},{value:"",field:"createtime"},{value:"",field:"sampleID"}],
+      // filter: [{value:"",field:"any"}],
+      filter: [{value:"",field:"any"},{value:"",field:"orderID"},{value:"",field:"username"},{value:"",field:"createtime"},{value:"",field:"sampleID"}],
       pagesize:8,
       currentPage:1,
       total: 0,
@@ -134,6 +134,7 @@ export default {
       this.filter.forEach(element => {
         element.value = "";
       });
+      this.getAllData();
     },
 
     // 根据已经填写的filter搜索
