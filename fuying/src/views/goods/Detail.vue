@@ -38,7 +38,7 @@ export default {
   },
   data(){
     return{
-      detailUrl: GLOBAL.urlHead +"getproductsdetail?id=",
+      detailUrl: GLOBAL.urlHead +"getproductsdetail/?id=",
       goodId: 0,
       index:0,
       // 关于iconStyle的细节设定

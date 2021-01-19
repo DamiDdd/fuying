@@ -20,6 +20,7 @@ const Cart = () => import('views/cart/Cart')
 const UploadCommend = () => import('views/manager/UploadCommend')
 const ForgetPass = () => import('views/login/ForgetPass')
 const Manager = () => import('views/manager/Manager')
+const Payment = () => import('views/order/Payment')
 
 // 1.安装VueRouter
 Vue.use(VueRouter)
@@ -126,6 +127,13 @@ const routes = [
       isAdmin: true,
     }
   },
+  {
+    path:'/payment',
+    component: Payment,
+    meta:{
+      isLogin: true,
+    }
+  }
 ]
 
 // 3.创建路由对象

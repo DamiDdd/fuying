@@ -36,7 +36,7 @@ export default {
         'background': '#fff',
         'border-radius':'25px',
       },
-      productUrl: GLOBAL.urlHead + "getProducts",
+      productUrl: GLOBAL.urlHead + "getProducts/",
       goodList:[],
     }
   },

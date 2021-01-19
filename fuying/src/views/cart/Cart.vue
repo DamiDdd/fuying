@@ -257,9 +257,10 @@ export default {
           ).then(function(response){
             if(response.status === 200){
               let data = response.data;
-              // console.log(data);
+              console.log(data);
               if(data['success']){
-                that.reload();
+                // that.reload();
+                that.$router.push({path:'/payment',query:{id:"01"}});
               }
             }
           }).catch(function (error){
