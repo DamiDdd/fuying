@@ -44,7 +44,7 @@ export default {
             regPassword: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/,
             regEmail: /^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/,
             regMobile: /^1\d{10}$/,
-            phoneUrl: GLOBAL.urlHead+"sendValidateCode/?phone=",
+            phoneUrl: GLOBAL.urlHead+"sendValidateCode/",
             registerUrl: GLOBAL.urlHead+"register/",
             activeName: 'second',
             identifyCodes: '1234567890ABCDEFGHIGKLMNoPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
@@ -206,7 +206,7 @@ export default {
 
         // 获取验证码
         getPhoneVariftcode(phone) {
-            var url = this.phoneUrl + phone;
+            var url = this.phoneUrl + "?phone=" + phone;
             Axios.get(url).then((response) =>{
                 console.log(response);
             }).catch((error) => {

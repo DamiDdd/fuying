@@ -34,7 +34,7 @@ export default {
   data(){
     return{
       deleteBtn: false,
-      counturl: GLOBAL.urlHead+"updateCartWeb",
+      counturl: GLOBAL.urlHead+"updateCartWeb/",
       phone: localStorage.getItem("userPhone"),
     }
   },

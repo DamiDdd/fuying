@@ -59,7 +59,7 @@ export default {
         return{
             step: 0,
             activeNames: ["first","second","third","fourth"],
-            validateUrl: GLOBAL.urlHead+"sendPasswordValidateCode/?phone=",
+            validateUrl: GLOBAL.urlHead+"sendPasswordValidateCode/",
             resetUrl: GLOBAL.urlHead+"resetPassword/",
             phone: "",
             regMobile: /^1\d{10}$/,
@@ -128,7 +128,7 @@ export default {
         // 获取验证码
         getVerify(){
             let that = this;
-            var url = this.validateUrl + this.phone;
+            var url = this.validateUrl + "?phone=" + this.phone;
             Axios.get(url).then((response) =>{
                 // console.log(response);
                 if(response.status === 200){

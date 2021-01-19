@@ -22,7 +22,7 @@ export default {
   data(){
     return{
       user: "", // for test 080578
-      findUrl: GLOBAL.urlHead + "getevaluation?exp=",
+      findUrl: GLOBAL.urlHead + "getevaluation/",
       mainData: [],
       scoreSum: 500,
     }
@@ -30,7 +30,7 @@ export default {
   methods:{
     // 查找这个用户的相关数据
     searchUser(){
-      let url = this.findUrl +this.user;
+      let url = this.findUrl + "?exp=" +this.user;
       if(this.user.length === 0){
           this.$message({
 						type: 'warning',

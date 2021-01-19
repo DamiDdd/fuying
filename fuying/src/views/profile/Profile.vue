@@ -112,9 +112,9 @@ export default {
       phone: localStorage.getItem("userPhone"),
       name: localStorage.getItem("userName"),
       email: localStorage.getItem("userEmail"),
-      orderUrl: GLOBAL.urlHead + "getOrders?phone=",
+      orderUrl: GLOBAL.urlHead + "getOrders/",
       transportUrl: GLOBAL.urlHead + "getExpressList/",
-      addUrl: GLOBAL.urlHead + "getCommonlyAddress/?phone=",
+      addUrl: GLOBAL.urlHead + "getCommonlyAddress/",
       pdfUrl: GLOBAL.urlHead2 + "get_pdf/",
       transport: false,
       addressTable:[{
@@ -141,7 +141,7 @@ export default {
     }
   },
   mounted(){
-    let url = this.addUrl + this.phone;
+    let url = this.addUrl + "?phone=" + this.phone;
     Axios.get(url).then((response) => {
       if(response.status === 200){
         let data = response.data;
@@ -214,7 +214,7 @@ export default {
     },
     callOn(){
       this.modal = true;
-      let url = this.orderUrl + this.phone;
+      let url = this.orderUrl +"?phone="+ this.phone;
       Axios.get(url).then((response) => {
         if(response.status === 200){
           let data = response.data;

@@ -156,7 +156,7 @@ export default {
   },
   data(){
     return{
-      uploadurl:GLOBAL.urlHead2+"update_report",
+      uploadurl:GLOBAL.urlHead2+"update_report/",
       sex:[
         {label:"男"},
         {label:"女"},

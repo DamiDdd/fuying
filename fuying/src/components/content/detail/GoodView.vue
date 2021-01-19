@@ -31,7 +31,7 @@ export default {
   data(){
     return{
       index: 0,
-      counturl: GLOBAL.urlHead+"updateCartWeb?",
+      counturl: GLOBAL.urlHead+"updateCartWeb/",
       phone: localStorage.getItem("userPhone"),
     }
   },
@@ -100,7 +100,7 @@ export default {
         });
         return 0;
       }
-      let url = this.counturl + "id=" + this.phone + 
+      let url = this.counturl + "?id=" + this.phone + 
         "&detail_id=" + this.item.type[this.index].id + 
         "&num=" + this.item.count;
       Axios.get(url).then((response) => {

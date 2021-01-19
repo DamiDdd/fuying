@@ -99,7 +99,7 @@ export default {
   data(){
     return{
       phone: localStorage.getItem("userPhone"),
-      carturl: GLOBAL.urlHead+"getCartweb?id=",
+      carturl: GLOBAL.urlHead+"getCartweb/",
       uploadUrl: GLOBAL.urlHead+"payCartWeb/",
       all: false,
       modal: false,
@@ -138,7 +138,7 @@ export default {
   },
   mounted(){
     // 在这里拿到cart数据
-    this.carturl += this.phone;
+    this.carturl +=  "?id=" + this.phone;
     Axios.get(this.carturl).then((response) => {
       if(response.status === 200){
         let data = response.data;

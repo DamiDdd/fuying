@@ -63,7 +63,7 @@ export default {
       total: 0,
       selected_data: [],
       show_data:[],
-      pdfUrl: GLOBAL.urlHead2 + "get_pdf/?",
+      pdfUrl: GLOBAL.urlHead2 + "get_pdf/",
       getAllUrl: GLOBAL.urlHead2 + "get_all_report/",
       sort:[{property:"orderID",direction:"ASC"}],
     }
@@ -173,7 +173,7 @@ export default {
         this.$router.push({path: '/reportEdit'});
       }
       else if(row.tips === "report"){
-        var url = this.pdfUrl+"orderID="+row.orderID+"&phone="+row.phone;
+        var url = this.pdfUrl+"?orderID="+row.orderID+"&phone="+row.phone;
         window.open(url);      }
     },
 
