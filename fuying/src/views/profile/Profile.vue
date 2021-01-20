@@ -64,6 +64,9 @@
             </tr>
           </thead>
           <tbody>
+            <tr>
+              <td colspan="5" style="text-align: center;" v-show="emptyOrder">暂无信息！</td>
+            </tr>
             <tr v-for="(item,index) in orderInList" :key="index">
               <td @click="jump2detail(item.product_id)" class="good">{{item.product}}-{{item.detail}}</td>
               <td v-text="item.date"></td>
@@ -116,6 +119,7 @@ export default {
       transportUrl: GLOBAL.urlHead + "getExpressList/",
       addUrl: GLOBAL.urlHead + "getCommonlyAddress/",
       pdfUrl: GLOBAL.urlHead2 + "get_pdf/",
+      emptyOrder: false,
       transport: false,
       addressTable:[{
         user: "a",
@@ -220,6 +224,9 @@ export default {
           let data = response.data;
           console.log(data);
           this.orderInList = data;
+          if(this.orderInList.length === 0){
+            this.emptyOrder = true;
+          }
         }
       }).catch((error)=>{
         this.$message({
