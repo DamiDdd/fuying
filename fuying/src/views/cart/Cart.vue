@@ -260,7 +260,7 @@ export default {
               console.log(data);
               if(data['success']){
                 // that.reload();
-                that.$router.push({path:'/payment',query:{id:"01"}});
+                that.$router.push({path:'/payment',query:{id:data['paymentID']}});
               }
             }
           }).catch(function (error){
