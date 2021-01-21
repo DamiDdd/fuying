@@ -18,16 +18,20 @@
 <script>
 import Axios from 'axios'
 import GLOBAL from '@/common/const'
+import  unavailable from '@/assets/img/common/unavailable.png'
 
 export default {
   name: 'Payment',
   data(){
     return{
       paymentID:"",
+      phone: localStorage.getItem("userPhone"),
       orderList: [],
       total: 200,
       scancode:"",
       count: 0,
+      status: "",
+      timeMax: 10, // 最大响应时长-分钟
       getCodeUrl: GLOBAL.urlHead+"paymentQRcode/",
       getStatusUrl: GLOBAL.urlHead+"paymentStatus/",
     }
@@ -45,12 +49,24 @@ export default {
         });
         this.total = data.total;
         let timer = setInterval(() => {
+          Axios.get(this.getStatusUrl+"?paymentID="+this.paymentID+"&?id="+this.phone).then((response)=>{
+            if(response.status === 200){
+              let data = response.data;
+              console.log(data);
+              this.status = data.status;
+            }
+          })
           this.count++;
-          console.log(this.count);
-          if(this.count >= 1000){
+          // console.log(this.count);
+          if(this.count >= this.timeMax * 60){
             clearInterval(timer);
+            this.scancode = unavailable;
+            this.$message({
+              type: 'warning',
+              message: '二维码已过期'
+            });
           }
-        },100)
+        },1000)
       }
     });
   },
@@ -74,7 +90,7 @@ export default {
   }
   .data_table{
     width: 960px;
-    height: 350px;
+    height: 240px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
