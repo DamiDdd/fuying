@@ -13,8 +13,9 @@
         </div>
         <div v-show="admin" class="left-bottom">
           <p class="content-blue">管理员</p>
-          <el-button @click="jump('/reportEdit')">管理员上传信息</el-button>    
+          <el-button @click="jump('/reportEdit')">上传信息</el-button>    
           <el-button @click="jump('/manager')">报告管理</el-button>    
+          <el-button @click="jump('/uploadGood')">上架商品</el-button>    
           <!-- <el-button @click="jump('/uploadCommend')">管理员上传评价</el-button> -->
         </div>
       </div>

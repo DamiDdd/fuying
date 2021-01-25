@@ -257,6 +257,7 @@ export default {
 
     // 上传数据接口
     handleUpload(){
+      let that = this;
       // console.log(this.dataForm);
       // console.log(this.uploadurl);
       let params = new URLSearchParams();
@@ -269,6 +270,17 @@ export default {
         }}
       ).then(function(response){
         console.log(response);
+        that.$message({
+          type: 'success',
+          message: '上传成功',
+        });
+      })
+      .catch(function(error){
+        console.log(error);
+        that.$message({
+            type: 'warning',
+            message: '请检查上传信息',
+        })
       });
     },
     // 改变image

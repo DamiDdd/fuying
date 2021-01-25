@@ -21,6 +21,7 @@ const UploadCommend = () => import('views/manager/UploadCommend')
 const ForgetPass = () => import('views/login/ForgetPass')
 const Manager = () => import('views/manager/Manager')
 const Payment = () => import('views/order/Payment')
+const UploadGood = () => import('views/manager/UploadGood')
 
 // 1.安装VueRouter
 Vue.use(VueRouter)
@@ -132,6 +133,14 @@ const routes = [
     component: Payment,
     meta:{
       isLogin: true,
+    }
+  },
+  {
+    path:'/uploadGood',
+    component: UploadGood,
+    meta:{
+      isLogin: true,
+      isAdmin: true,
     }
   }
 ]
