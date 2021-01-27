@@ -2,13 +2,13 @@
 
 <template>
   <transition :name="transitionName">
-    <button class="page-component-up"
+    <el-button class="page-component-up"
       @click="backToTop"
       v-show="visible"
       :style="customStyle"
       :disabled="btnDisabled">
     <p class="tipText">TOP</p>
-    </button>
+    </el-button>
   </transition>
 </template>
 
@@ -112,7 +112,8 @@ export default {
 }
 
 .tipText{
-  margin-top:0px;
+  margin-top:-12px;
+  margin-left: -12px;
   font-weight: bold;
   font-size: 10px;
 }

@@ -6,6 +6,7 @@
 <el-upload
   :action="URL"
   :data="goodData"
+  accept="image/png,image/gif,image/jpg,image/jpeg"
   ref="upload"
   :auto-upload="false"
   :multiple="true"
