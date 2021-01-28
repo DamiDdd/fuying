@@ -7,6 +7,7 @@
         <div class="left-top">
           <p class="content-blue">功能列表</p>
           <el-button @click="jump('/cart')">查看购物车</el-button>
+          <el-button @click="jump('/health')">健康档案</el-button>
           <el-button @click="callOn">查看订单</el-button>
           <!-- <el-button @click="jump('/pdf')">查看报告</el-button> -->
           <el-button class="warning" @click="jump('/exit')">退出登录</el-button>

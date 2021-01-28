@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>Health</div>
 </template>
 
 <script>

@@ -22,6 +22,7 @@ const ForgetPass = () => import('views/login/ForgetPass')
 const Manager = () => import('views/manager/Manager')
 const Payment = () => import('views/order/Payment')
 const UploadGood = () => import('views/manager/UploadGood')
+const Health = () => import('views/profile/Health')
 
 // 1.安装VueRouter
 Vue.use(VueRouter)
@@ -141,6 +142,13 @@ const routes = [
     meta:{
       isLogin: true,
       isAdmin: true,
+    }
+  },
+  {
+    path:'/health',
+    component: Health,
+    meta:{
+      isLogin: true,
     }
   }
 ]
