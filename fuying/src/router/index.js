@@ -157,6 +157,7 @@ const routes = [
 const router = new VueRouter({
   // mode: 'history', //注释后默认为hash模式
   base: '/health/',
+  mode: 'history',
   routes
 })
 

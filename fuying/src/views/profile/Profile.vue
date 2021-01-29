@@ -37,7 +37,8 @@
             </div>
           </div>
           <div class="image">
-            <img src="~assets/img/common/user.png">
+            <el-avatar :size="80" :src="circleUrl"></el-avatar>
+            <!-- <img src="~assets/img/common/user.png"> -->
           </div>
         </div>
         <div class="right-middle">
@@ -144,6 +145,7 @@ export default {
         status: "pending",
       }],
       transportMsg:[],
+      circleUrl: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
     }
   },
   mounted(){
@@ -266,7 +268,7 @@ export default {
   }
 
   .left{
-    width: 30%;
+    width: 20%;
     height: 100%;
     margin-left: 14%;
   }
@@ -282,7 +284,7 @@ export default {
   }
 
   .right{
-    width: 50%;
+    width: 60%;
     height: 100%;
   }
 
@@ -290,32 +292,32 @@ export default {
     width: 80%;
     height: 50%;
     margin-left: 10%;
-    border: 1px solid var(--theme-color);
+    /* border: 1px solid var(--theme-color); */
   }
 
   .left-bottom{
     width: 80%;
     height: 30%;
     margin-left: 10%;
-    border: 1px solid var(--theme-color);
+    /* border: 1px solid var(--theme-color); */
   }
   
   .right-top{
-    width: 100%;
+    width: 80%;
     height: 40%;
-    border: 1px solid;
+    /* border: 1px solid; */
   }
 
   .right-middle{
-    width: 100%;
+    width: 80%;
     height: 40%;
-    border: 1px solid;
+    /* border: 1px solid; */
   }
 
   .right-bottom{
     width: 100%;
     height: 20%;
-    border: 1px solid;
+    /* border: 1px solid; */
   }
 
   #profile{
@@ -328,7 +330,7 @@ export default {
   }
 
   .info{
-    width: 69%;
+    width: 60%;
     height: 80%;
     float: left;
   }
@@ -355,7 +357,7 @@ export default {
   }
 
   .image{
-    width: 30%;
+    width: 40%;
     height: 80%;
     float: right;
   }

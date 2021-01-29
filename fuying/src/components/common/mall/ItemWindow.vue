@@ -59,11 +59,11 @@ export default {
     font-weight: 550;
   }
   .focus{
-    border: 2px solid green;
+    border: 2px solid var(--theme-color);
     border-radius: 15px;
   }
   .unfocus{
-    border: 1px solid gray;
+    border: 1px solid white;
     border-radius: 15px;
   }
   

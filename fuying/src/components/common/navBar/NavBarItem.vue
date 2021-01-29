@@ -32,7 +32,7 @@ export default {
 <style scoped>
   #nav-bar-item{
     flex: 1;
-    font-size: 20px;
+    font-size: 17px;
     margin-top: 3px;
     color: #333;
     float: left;
@@ -41,7 +41,7 @@ export default {
   }
 
   .focus{
-    background: url("~assets/img/common/topbar-bt-bg.png") no-repeat bottom center;
+    /* background: url("~assets/img/common/topbar-bt-bg.png") no-repeat bottom center; */
     font-weight: bold;
   }
 </style>

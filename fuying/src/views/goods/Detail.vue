@@ -56,22 +56,22 @@ export default {
         index: 0,
         type:[
           // 数据样例
-          // {
-          //   id: "1",
-          //   name:"基础生理刻画套餐",
-          //   tip:"包括基础",
-          //   price: 100.10,
-          // },
+          {
+            id: "1",
+            name:"基础生理刻画套餐",
+            tip:"包括基础",
+            price: 10000,
+          },
         ],
         imgs:[
           // 数据样例
-          // {
-          //   name:"服务详情",
-          //   imgs:[
-          //     "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1020757406,2710278676&fm=26&gp=0.jpg",
-          //     "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1020757406,2710278676&fm=26&gp=0.jpg"
-          //   ],
-          // },
+          {
+            name:"等待填充",
+            imgs:[
+              "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1020757406,2710278676&fm=26&gp=0.jpg",
+              "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1020757406,2710278676&fm=26&gp=0.jpg"
+            ],
+          },
         ]
       }
     }
@@ -87,8 +87,12 @@ export default {
         // 不需要双向绑定
         let data = response.data;
         this.good.desc = data.desc;
-        this.good.imgs = data.imgs;
-        this.good.type = data.type;
+        if(data.imgs.imgs !== []){
+          this.good.imgs = data.imgs;
+        }        
+        if(data.imgs.imgs !== []){
+          this.good.type = data.type;
+        }
         this.good.title = data.title;
       }
       else{

@@ -10,9 +10,6 @@
         <li  v-for="(item, index) in sliders" :key="index">
           <img :style="{width:imgWidth+'px'}" :src="item.img" alt="">
         </li>
-        <li>
-          <img :style="{width:imgWidth+'px'}" :src="sliders[0].img" alt="">
-        </li>
       </ul>
       <ul class="direction">
         <li class="left" @click="move(imgWidth, 1, speed)">

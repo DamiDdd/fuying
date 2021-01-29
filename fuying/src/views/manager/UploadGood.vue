@@ -4,11 +4,12 @@
       <div class="input"><p class="bigtext-blue">商品上架</p></div>
       <div class="input"><div class="left"><p class="title">标题</p></div><div class="right"><el-input v-model="title" class="medium" clearable></el-input></div></div>
       <div class="input"><div class="left"><p class="title">描述</p></div><div><el-input v-model="desc" class="medium" clearable></el-input></div></div>
+      <div class="input"><div class="left"><p class="title">颜色</p></div><div class="right"><el-input style="width:100px" v-model="color" type="color" class="medium"></el-input></div></div>
       <div v-for="(item,i) in type" :key="100+i" class="input">
         <div class="left"><p class="title" v-show="!notfirst(i)">类别</p></div>
         <div class="right">
           <el-input title="服务名称" placeholder="service" v-model="item.name" class="medium" clearable></el-input>
-          <el-input title="价格" placeholder="price" v-model="item.price" class="medium" :min="0" oninput="if(value<0)value=0" type="number" clearable></el-input>
+          <el-input title="价格" placeholder="price" v-model="item.price" class="medium" :min="0" oninput="if(value<0)value=0" type="number"></el-input>
           <el-button class="btn" v-show="notfirst(i)" @click="deleteType(i)" type="danger" icon="el-icon-delete" circle></el-button>
           <el-button class="btn" v-show="lastType(i)" @click="addType" type="success" circle>+</el-button>
         </div>
@@ -28,6 +29,9 @@
 
 <script>
 import UploadImg from "common/upload/UploadImg"
+import Axios from 'axios'
+import GLOBAL from '@/common/const'
+
 
 export default {
   name: "UploadGood",
@@ -37,24 +41,57 @@ export default {
   data(){
     return{
       limit: 5,
-      uploadImgUrl: "#",
-      imgList: [{id:"01",name:"_slides"}],
+      uploadImgUrl: GLOBAL.urlHead+"uploadGoodImage/",
+      uploadTextUrl: GLOBAL.urlHead+"uploadGoodInfo/",
       title: "",
       desc: "",
-      goodId: "01",
+      goodId: "",
+      imgList: [{id:"",name:"_slides"}],
       type: [{name:"service1",price:0}],
       flag: [true],
       num: 1,
       num2:0,
+      color:"#308bcc",
     }
   },
   methods:{
     // 发送图片
     sendPic(){
-      let refDic = this.$refs.upload;
-      refDic.forEach(element => {
-        // console.log(element);
-        element.sendPic();
+      let that = this;
+      // part0. 判断空值
+      if(this.title === ""){
+        this.$message({
+          type:"warning",
+          message:"请填写相关信息",
+        })
+        return;
+      }
+      // part1. 传送文字信息获取goodId 
+      let params = new URLSearchParams();
+      params.append("title",this.title);
+      params.append("desc",this.desc);
+      params.append("bgColor",this.color);
+      params.append("type",JSON.stringify(this.type));
+      Axios.post(this.uploadTextUrl,params,
+        {headers:{
+          'Content-Type': 'application/x-www-form-urlencoded'
+      }}).then(function(response){
+        let data = response.data;
+        console.log(data);
+        // part2. 将goodId赋值给上述元素
+        that.goodId = data.goodId;
+        that.imgList.forEach(element => {
+          element.id = data.goodId;
+        });
+        console.log(that.imgList);
+        // part3. 调用组件方法逐个上传图片
+        let refDic = that.$refs.upload;
+        refDic.forEach(element => {
+          // console.log(element);
+          element.sendPic();
+        });
+      }).catch(function (error){
+        console.log(error);
       });
     },
     // 增加图片组
@@ -120,15 +157,16 @@ export default {
 
 <style scoped>
   .main{
-    height: 1400px;
+    min-height: 600px;
     width: 100%;
     min-width: 1600px;
   }
   .center{
-    height: 1300px;
+    min-height: 550px;
     width: 90%;
     margin-left: 5%;
     margin-top: 20px;
+    margin-bottom: 20px;
   }
   .imgdiv{
     border-radius: 25px;
@@ -169,6 +207,8 @@ export default {
   .submitbtn{
     width: 220px;
     margin-left: 43%;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   .medium{
     width: 400px;
