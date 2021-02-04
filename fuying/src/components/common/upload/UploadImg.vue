@@ -43,6 +43,10 @@ export default {
     },
     goodData:{
       type: Object,
+    },
+    min:{
+      type: Number,
+      default:1,
     }
   },
   data() {

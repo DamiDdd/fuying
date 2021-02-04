@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "JSON": "^1.0.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "echarts": "^4.8.0",
     "element-ui": "^2.13.2",
@@ -21,6 +21,7 @@
     "sass-loader": "^9.0.2",
     "script-loader": "^0.7.2",
     "vue": "^2.6.11",
+    "vue-i18n": "^8.22.4",
     "vue-pdf": "^4.1.0",
     "vue-router": "^3.3.4",
     "vue-schart": "^2.0.0",

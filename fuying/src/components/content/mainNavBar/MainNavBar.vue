@@ -4,7 +4,7 @@
   <nav-bar>
     <img slot="logo" src="~assets/img/logo.png">
     <div slot="center">
-      <nav-bar-item link="/home"><div slot="text">首页</div></nav-bar-item>
+      <nav-bar-item link="/home"><div slot="text">{{$t('message.public.home')}}</div></nav-bar-item>
       <nav-bar-item link="/intro"><div slot="text">介绍</div></nav-bar-item>
       <nav-bar-item link="/news"><div slot="text">新闻</div></nav-bar-item>
       <nav-bar-item link="/products"><div slot="text">产品</div></nav-bar-item>

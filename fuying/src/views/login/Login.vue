@@ -5,7 +5,7 @@
 	<p class="login">
 		<!-- <el-tabs v-model="activeName" @tab-click="handleClick"> -->
 		<el-tabs v-model="activeName">
-			<el-tab-pane label="登录" name="first">
+			<el-tab-pane :label="$t('message.public.login')" name="first">
 				<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
 					<el-form-item label="手机号" prop="phone"><el-input v-model="ruleForm.phone"></el-input></el-form-item>
 					<el-form-item label="密码" prop="pass"><el-input type="password" v-model="ruleForm.pass" auto-complete="off"></el-input></el-form-item>

@@ -4,6 +4,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '../store'
 
+// 解决当前路由重复跳转报错的细节问题
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location){
+  return originalPush.call(this, location).catch(err=>err)
+};
+
 // 设置懒加载
 const Home = () => import('views/home/Home')
 const Intro = () => import('views/intro/Intro')
@@ -156,8 +162,7 @@ const routes = [
 // 3.创建路由对象
 const router = new VueRouter({
   // mode: 'history', //注释后默认为hash模式
-  base: '/health/',
-  mode: 'history',
+  base: 'health/',
   routes
 })
 

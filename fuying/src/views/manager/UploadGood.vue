@@ -2,11 +2,11 @@
   <div class="main">
     <div class="center rcorner">
       <div class="input"><p class="bigtext-blue">商品上架</p></div>
-      <div class="input"><div class="left"><p class="title">标题</p></div><div class="right"><el-input v-model="title" class="medium" clearable></el-input></div></div>
+      <div class="input"><div class="left"><p class="title">服务内容</p></div><div class="right"><el-input v-model="title" class="medium" clearable></el-input></div></div>
       <div class="input"><div class="left"><p class="title">描述</p></div><div><el-input v-model="desc" class="medium" clearable></el-input></div></div>
-      <div class="input"><div class="left"><p class="title">颜色</p></div><div class="right"><el-input style="width:100px" v-model="color" type="color" class="medium"></el-input></div></div>
+      <div class="input"><div class="left"><p class="title">模块颜色</p></div><div class="right"><el-input style="width:100px" v-model="color" type="color" class="medium"></el-input></div></div>
       <div v-for="(item,i) in type" :key="100+i" class="input">
-        <div class="left"><p class="title" v-show="!notfirst(i)">类别</p></div>
+        <div class="left"><p class="title" v-show="!notfirst(i)">服务项目</p></div>
         <div class="right">
           <el-input title="服务名称" placeholder="service" v-model="item.name" class="medium" clearable></el-input>
           <el-input title="价格" placeholder="price" v-model="item.price" class="medium" :min="0" oninput="if(value<0)value=0" type="number"></el-input>
@@ -18,7 +18,7 @@
       <div v-for="(item,i) in imgList" :key="i" class="imgdiv">
         <h3 class="text" title="点击以编辑" v-show="!notfirst(i) || flag[i]" @click="flagChange(i)">{{item.name}}</h3>
         <el-input ref="input" class="titleInput" v-model="item.name" v-show="notfirst(i) && !flag[i]" @blur="flagChange(i)"></el-input>
-        <upload-img class="imgwin" ref="upload" :URL="uploadImgUrl" :limit="limit" :goodData="item"></upload-img>
+        <upload-img class="imgwin" ref="upload" :URL="uploadImgUrl" :limit="limit" :goodData="item" :min="min"></upload-img>
         <el-button class="lastbtn" v-show="notfirst(i)" @click="deleteImg(i)" type="danger" icon="el-icon-delete" circle></el-button>
         <el-button class="lastbtn" v-show="lastList(i)" @click="addTitle" type="success" circle>+</el-button>
       </div>
@@ -40,13 +40,14 @@ export default {
   },
   data(){
     return{
+      min: 1,
       limit: 5,
       uploadImgUrl: GLOBAL.urlHead+"uploadGoodImage/",
       uploadTextUrl: GLOBAL.urlHead+"uploadGoodInfo/",
       title: "",
       desc: "",
       goodId: "",
-      imgList: [{id:"",name:"_slides"}],
+      imgList: [{id:"",name:"滚播图片"}],
       type: [{name:"service1",price:0}],
       flag: [true],
       num: 1,
