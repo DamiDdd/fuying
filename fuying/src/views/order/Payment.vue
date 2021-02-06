@@ -1,15 +1,15 @@
 <template>
   <div class="main">
-    <h2 class="title">请确认您的订单信息</h2>
+    <h2 class="title">{{$t('payment.title')}}</h2>
     <el-table :data="orderList" class="data_table">
       <!-- <el-table-column prop="img" label="图" width="182"></el-table-column> -->
-      <el-table-column prop="title" label="服务" width="300"></el-table-column>
-      <el-table-column prop="name" label="收件人" width="200"></el-table-column>
-      <el-table-column prop="num" label="数量" width="200"></el-table-column>
-      <el-table-column prop="total" label="总价" width="200"></el-table-column>
+      <el-table-column prop="title" :label="$t('payment.service')" width="300"></el-table-column>
+      <el-table-column prop="name" :label="$t('payment.receiver')" width="200"></el-table-column>
+      <el-table-column prop="num" :label="$t('payment.num')" width="200"></el-table-column>
+      <el-table-column prop="total" :label="$t('payment.total')" width="200"></el-table-column>
     </el-table>
     <div class="scan">
-      <h2 class="bigtext">请支付<span class="bigtext-blue">¥{{total}}</span>元</h2>
+      <h2 class="bigtext">{{$t('payment.paytips')}}<span class="bigtext-blue">¥{{total}}</span>{{$t('payment.yuan')}}</h2>
       <img :src="scancode">
     </div>
   </div>
@@ -63,7 +63,7 @@ export default {
             this.scancode = unavailable;
             this.$message({
               type: 'warning',
-              message: '二维码已过期'
+              message: this.$t('tips.unavailablecode'),
             });
           }
         },1000)

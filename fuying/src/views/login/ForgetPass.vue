@@ -2,36 +2,36 @@
   <div id="fp-win">
     <div class="main">
       <el-steps :active="step" class="step">
-          <el-step title="手机号"></el-step>
-          <el-step title="验证码"></el-step>
-          <el-step title="重置"></el-step>
-          <el-step title="结果查询"></el-step>
+          <el-step :title="$t('public.phone')"></el-step>
+          <el-step :title="$t('public.verify')"></el-step>
+          <el-step :title="$t('login.reset')"></el-step>
+          <el-step :title="$t('login.resultsearch')"></el-step>
       </el-steps>
       <el-tabs v-model="activeNames[step]">
         <el-tab-pane label="" name="first" :disabled="true">
             <div class="windows">
-                <span class="right-text">请输入注册时的手机号：</span><el-input v-model="phone" class="input"></el-input>						
-                <el-button type="primary" @click="submitPhone" :disabled="phoneCheck">验证</el-button>
+                <span class="right-text">{{$t('login.phonetips')}}</span><el-input v-model="phone" class="input"></el-input>						
+                <el-button type="primary" @click="submitPhone" :disabled="phoneCheck">{{$t('public.confirm')}}</el-button>
             </div>
         </el-tab-pane>
         <el-tab-pane label="" name="second" :disabled="true">
             <div class="windows">
-                <span class="right-text">请输入图片验证码：</span>
+                <span class="right-text"> </span>
                 <el-input v-model="icodeInput" auto-complete="off" class="identifyinput"></el-input>        
                 <div class="identifybox" @click="refreshCode">
                     <identify :identifyCode="identifyCode"></identify>
                 </div>
-                <el-button type="primary" @click="getVerify" :disabled="icodeCheck" class="left-btn">验证</el-button>
+                <el-button type="primary" @click="getVerify" :disabled="icodeCheck" class="left-btn">{{$t('public.confirm')}}</el-button>
             </div>
         </el-tab-pane>
         <el-tab-pane label="" name="third" :disabled="true">
             <div class="windows">
 				<el-form :model="ruleForm" :rules="rules" ref="ruleForm" class="demo-ruleForm" label-width="200px">
-					<el-form-item label="请输入手机上的验证码" prop="phoneVerifycode"><el-input v-model="ruleForm.phoneVerifycode"></el-input></el-form-item>
-					<el-form-item label="输入新的密码" prop="pass"><el-input type="password" v-model="ruleForm.pass"></el-input></el-form-item>
-					<el-form-item label="重复密码" prop="checkPass"><el-input type="password" v-model="ruleForm.checkPass"></el-input></el-form-item>
+					<el-form-item :label="$t('public.phonecode')" prop="phoneVerifycode"><el-input v-model="ruleForm.phoneVerifycode"></el-input></el-form-item>
+					<el-form-item :label="$t('public.password')" prop="pass"><el-input type="password" v-model="ruleForm.pass"></el-input></el-form-item>
+					<el-form-item :label="$t('public.passwordrepeat')" prop="checkPass"><el-input type="password" v-model="ruleForm.checkPass"></el-input></el-form-item>
 				</el-form>							
-                <el-button type="primary" @click="submitForm('ruleForm')" class="bottom-btn">提交</el-button>
+                <el-button type="primary" @click="submitForm('ruleForm')" class="bottom-btn">{{$t('public.submit')}}</el-button>
             </div>
         </el-tab-pane>
         <el-tab-pane label="" name="fourth" :disabled="true">
@@ -77,7 +77,7 @@ export default {
 				checkPass: [{ required: true, validator: this.validatePass2, trigger: 'blur' }],
                 phoneVerifycode: [{required: true, validator: this.validatePhoneVC, trigger: 'blur'}]
             },
-            msg: "修改密码成功！4s后为您跳转至登录页",
+            msg: this.$t('tips.revisesuccess'),
         }
     },
     mounted() {
@@ -135,7 +135,7 @@ export default {
                     that.step++;
                     that.$message({
 						type: 'success',
-						message: '短信验证码已经发送至'+that.phone,
+						message: this.$t('tips.sent')+that.phone,
                     });
                 }
             }).catch((error) => {
@@ -146,10 +146,10 @@ export default {
         // 验证密码合理性
         validatePass(rule, value, callback){
 			if (value === '') {
-                callback(new Error('请输入密码'));
+                callback(new Error(this.$t('tips.emptypassword')));
                 return false;
             } else if(this.regPassword.test(value) === false){
-                callback(new Error('8-16个字符，至少1个大写字母、1个小写字母、1个数字'));
+                callback(new Error(this.$t('tips.formatpassword')));
                 return false;
             } 
             else {
@@ -164,10 +164,10 @@ export default {
          // 验证再次输入密码合理性
 		validatePass2(rule, value, callback){
 			if (value === '') {
-                callback(new Error('请再次输入密码'));
+                callback(new Error(this.$t('tips.emptypasswordrepeat')));
                 return false;
 			} else if (value !== this.ruleForm.pass) {
-                callback(new Error('两次输入密码不一致!'));
+                callback(new Error(this.$t('tips.formatpassword')));
                 return false;
 			} else {
                 callback();
@@ -178,7 +178,7 @@ export default {
         // 手机验证码合理性
         validatePhoneVC(rule, value, callback){
 			if (value === '') {
-                callback(new Error('请输入验证码'));
+                callback(new Error(this.$t('tips.emptyverify')));
             } else {
 				callback();
 			}
@@ -193,7 +193,7 @@ export default {
                     clearInterval(timer);
                     this.$router.push({path: '/login'});
                 } else {
-                    this.msg = "修改密码成功！" +  time + '秒后为您跳转至登录页';
+                    this.msg = this.$t('tips.revisesuccess') +  time + this.$t('tips.jump2login');
                     time--;
                 }
             },1000)
@@ -227,13 +227,13 @@ export default {
                                 that.jumpControl();
                             }
                             else{
-                                that.msg = data['msg'] + "！请刷新重试";
+                                that.msg = data['msg'] + this.$t('tips.refresh');
                             }
                         }
                         else{
                             that.$message({
                                 type: 'warning',
-                                message: '后台错误',
+                                message: this.$t('tips.servererror'),
                             });
                         }
                     })

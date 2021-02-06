@@ -10,8 +10,8 @@
                 <slot></slot>
             </div>
             <div class="modal-footer">
-                <el-button round @click="hideModal">取消</el-button>
-                <el-button type="primary" round @click="submit">确认</el-button>
+                <el-button round @click="hideModal">{{$t('public.cancel')}}</el-button>
+                <el-button type="primary" round @click="submit">{{$t('public.confirm')}}</el-button>
             </div>
         </div>
     </div>

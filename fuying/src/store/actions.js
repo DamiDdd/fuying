@@ -4,7 +4,7 @@ const actions = {
     },
     setAdmin({commit},flag){
         commit("admin",flag)
-    }
+    },
 }
 
 export default actions

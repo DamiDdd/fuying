@@ -1,16 +1,16 @@
 <template>
   <div class="windows">
     <el-row class="topRow">
-      <el-input class="m-input" placeholder="全局搜索" v-model="filter[0].value"></el-input>
-      <el-button type="primary" class="right-btn" @click="searchNum">搜索用户</el-button>
+      <el-input class="m-input" :placeholder="$t('manager.search')" v-model="filter[0].value"></el-input>
+      <el-button type="primary" class="right-btn" @click="searchNum">{{$t('manager.searchusername')}}</el-button>
     </el-row>
     <el-row class="topRow">
-        <el-input class="s-input" style="width: 130px" placeholder="订单编号" v-model="filter[1].value"></el-input>
-        <el-input class="s-input" style="width: 120px" placeholder="用户名" v-model="filter[2].value"></el-input>
-        <el-input class="s-input" style="width: 220px" placeholder="创建日期" v-model="filter[3].value"></el-input>
-        <el-input class="s-input" style="width: 120px" placeholder="样品编号" v-model="filter[4].value"></el-input>
-      <el-button class="right-btn" @click="clearSearch">清空搜索</el-button>
-      <el-button type="primary" class="right-btn" @click="searchNum">搜索用户</el-button>
+        <el-input class="s-input" style="width: 130px" :placeholder="$t('manager.order')" v-model="filter[1].value"></el-input>
+        <el-input class="s-input" style="width: 120px" :placeholder="$t('manager.username')" v-model="filter[2].value"></el-input>
+        <el-input class="s-input" style="width: 220px" :placeholder="$t('manager.date')" v-model="filter[3].value"></el-input>
+        <el-input class="s-input" style="width: 120px" :placeholder="$t('manager.sample')" v-model="filter[4].value"></el-input>
+      <el-button class="right-btn" @click="clearSearch">{{$t('login.reset')}}</el-button>
+      <el-button type="primary" class="right-btn" @click="searchNum">{{$t('manager.searchusername')}}</el-button>
     </el-row>
     <el-table
       ref="multipleTable"
@@ -19,13 +19,12 @@
       @sort-change="changeTableSort"
       :default-sort="{prop:'id',order:'ascending'}"
       tooltip-effect="dark">
-      <el-table-column label="订单编号" prop="orderID" width="140" sortable="custom"></el-table-column>
-      <el-table-column label="用户名" prop="username" width="130" sortable="custom"></el-table-column>
-      <el-table-column label="创建日期" prop="createtime" width="230" sortable="custom"></el-table-column>
-      <el-table-column label="样品编号" prop="sampleID" width="130" sortable="custom"></el-table-column>
-      <el-table-column label="状态" prop="status" width="130"></el-table-column>
-      <!-- <el-table-column label="状态" prop="status" width="130" sortable="custom"></el-table-column> -->
-      <el-table-column label="操作" width="130">
+      <el-table-column :label="$t('manager.order')" prop="orderID" width="140" sortable="custom"></el-table-column>
+      <el-table-column :label="$t('manager.username')" prop="username" width="130" sortable="custom"></el-table-column>
+      <el-table-column :label="$t('manager.date')" prop="createtime" width="230" sortable="custom"></el-table-column>
+      <el-table-column :label="$t('manager.sample')" prop="sampleID" width="130" sortable="custom"></el-table-column>
+      <el-table-column :label="$t('manager.status')" prop="status" width="130"></el-table-column>
+      <el-table-column :label="$t('manager.setting')" width="130">
         <template scope="scope">
           <el-button @click="handleEdit(scope.$index,scope.row)">
             {{scope.row.tips}}
@@ -105,7 +104,7 @@ export default {
       }).catch((error)=>{
         this.$message({
           type: 'warning',
-          message: '后台出错',
+          message: this.$t('tips.servererror'),
         });
         console.log(error);
       });

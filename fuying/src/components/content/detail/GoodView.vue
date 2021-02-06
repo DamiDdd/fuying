@@ -9,15 +9,15 @@
       {{item.type[this.index].tip}}
     </div>    
     <div class="price">
-      <span class="price-1">价格</span>
+      <span class="price-1">{{$t('good.price')}}</span>
       <span class="price-2">¥</span>
       <span class="price-3">{{sumPrice}}</span>
     </div>
     <div class="reduce" @click="reduceCart"><img src="~assets/img/common/delete.jpg"></div>
     <div class="num">{{item.count}}</div>
     <div class="add" @click="addCart"><img src="~assets/img/common/add.jpg"></div>
-    <button id="add2cart" @click="changeNum()" @mouseenter="changeFocus" @mouseleave="removeFocus">加入购物车</button>
-    <button id="purchase" @click="jump2cart" @mouseenter="changeFocus" @mouseleave="removeFocus">立即购买</button>
+    <button id="add2cart" @click="changeNum()" @mouseenter="changeFocus" @mouseleave="removeFocus">{{$t('good.add2cart')}}</button>
+    <button id="purchase" @click="jump2cart" @mouseenter="changeFocus" @mouseleave="removeFocus">{{$t('good.buy')}}</button>
   </div>
 </template>
 

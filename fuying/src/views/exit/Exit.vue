@@ -22,7 +22,7 @@ export default {
     this.$router.push('/home');
     this.$message({
 			type: 'success',
-			message: '您已退出登录'
+			message: this.$t('tips.exit'),
 		});
   }
 }

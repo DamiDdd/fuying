@@ -2,19 +2,19 @@
  
 <template>
 	<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-		<el-form-item label="用户名" prop="name"><el-input v-model="ruleForm.name"></el-input></el-form-item>
-        <el-form-item label="手机号" prop="phone"><el-input v-model="ruleForm.phone"></el-input></el-form-item>
-        <el-form-item label="电子邮箱" prop="email"><el-input v-model="ruleForm.email"></el-input></el-form-item>        
-		<el-form-item label="密码" prop="pass"><el-input type="password" v-model="ruleForm.pass" auto-complete="off"></el-input></el-form-item>
-		<el-form-item label="确认密码" prop="checkPass"><el-input type="password" v-model="ruleForm.checkPass" auto-complete="off"></el-input></el-form-item>
-		<el-form-item label="图片验证码" prop="verifycode">
+		<el-form-item :label="$t('public.username')" prop="name"><el-input v-model="ruleForm.name"></el-input></el-form-item>
+        <el-form-item :label="$t('public.phone')" prop="phone"><el-input v-model="ruleForm.phone"></el-input></el-form-item>
+        <el-form-item :label="$t('public.email')" prop="email"><el-input v-model="ruleForm.email"></el-input></el-form-item>        
+		<el-form-item :label="$t('public.password')" prop="pass"><el-input type="password" v-model="ruleForm.pass" auto-complete="off"></el-input></el-form-item>
+		<el-form-item :label="$t('public.passwordrepeat')" prop="checkPass"><el-input type="password" v-model="ruleForm.checkPass" auto-complete="off"></el-input></el-form-item>
+		<el-form-item :label="$t('public.verifycode')" prop="verifycode">
             <el-input v-model="ruleForm.verifycode" auto-complete="off" class="identifyinput">
             </el-input>
             <div  class="identifybox" @click="refreshCode">
                 <identify :identifyCode="identifyCode"></identify>
             </div>
         </el-form-item>
-        <el-form-item v-show="isReady(ruleForm,['email','phoneVerifycode'])" label="短信验证码" prop="phoneVerifycode">
+        <el-form-item v-show="isReady(ruleForm,['email','phoneVerifycode'])" :label="$t('public.phonecode')" prop="phoneVerifycode">
             <el-input v-model="ruleForm.phoneVerifycode" auto-complete="off" class="identifyinput">
             </el-input>
             <div class="identifybox">
@@ -22,8 +22,8 @@
             </div>
         </el-form-item>
 		<el-form-item>
-			<el-button type="primary" @click="submitForm('ruleForm')">注册</el-button>
-			<el-button @click="resetForm('ruleForm')">重置</el-button>
+			<el-button type="primary" @click="submitForm('ruleForm')">{{$t('login.register')}}</el-button>
+			<el-button @click="resetForm('ruleForm')">{{$t('login.reset')}}</el-button>
 		</el-form-item>
 	</el-form>
 </template>
@@ -50,7 +50,7 @@ export default {
             identifyCodes: '1234567890ABCDEFGHIGKLMNoPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
             identifyCode: '',
             btnDisabled: false,
-            btnTitle: "获得验证码",
+            btnTitle: this.$t('public.getverify'),
 			ruleForm: {
                 name: '',
                 phone: '',
@@ -90,10 +90,10 @@ export default {
         // 验证密码合理性
         validatePass(rule, value, callback){
 			if (value === '') {
-                callback(new Error('请输入密码'));
+                callback(new Error(this.$t('tips.emptypassword')));
                 return false;
             } else if(this.regPassword.test(value) === false){
-                callback(new Error('8-16个字符，至少1个大写字母、1个小写字母、1个数字'));
+                callback(new Error(this.$t('tips.formatpassword')));
                 return false;
             } 
             else {
@@ -108,10 +108,10 @@ export default {
          // 验证再次输入密码合理性
 		validatePass2(rule, value, callback){
 			if (value === '') {
-                callback(new Error('请再次输入密码'));
+                callback(new Error(this.$t('tips.emptypasswordrepeat')));
                 return false;
 			} else if (value !== this.ruleForm.pass) {
-                callback(new Error('两次输入密码不一致!'));
+                callback(new Error(this.$t('tips.errorpasswordrepeat')));
                 return false;
 			} else {
                 callback();
@@ -122,10 +122,10 @@ export default {
         // 验证手机号合理性
 		validatePhone(rule, value, callback){
 			if (value === '') {
-                callback(new Error('请输入手机号'));
+                callback(new Error(this.$t('tips.emptyphone')));
                 return false;
 			} else if (this.regMobile.test(value) === false) {
-                callback(new Error('手机号输入有误'));
+                callback(new Error(this.$t('tips.errorphone')));
                 return false;
 			} else {
                 callback();
@@ -138,7 +138,7 @@ export default {
 			if (value === '') {
                 callback();
 			} else if (this.regEmail.test(value) === false) {
-				callback(new Error('电子邮箱输入有误'));
+				callback(new Error(this.$t('tips.erroremail')));
 			} else {
 				callback();
 			}
@@ -149,10 +149,10 @@ export default {
             let val = value.toLowerCase();
             let idcodeStr = this.identifyCode.toLowerCase();
 			if (value === '') {
-                callback(new Error('请输入验证码'));
+                callback(new Error(this.$t('tips.emptyverify')));
                 return false;
 			} else if (val !== idcodeStr) {
-                callback(new Error('验证码不正确'));
+                callback(new Error(this.$t('tips.errorverify')));
                 return false;
 			} else {
                 callback();
@@ -163,7 +163,7 @@ export default {
         // 手机验证码合理性
         validatePhoneVC(rule, value, callback){
 			if (value === '') {
-                callback(new Error('请输入验证码'));
+                callback(new Error(this.$t('tips.emptyverify')));
             } else {
 				callback();
 			}
@@ -172,9 +172,9 @@ export default {
         // 用户名合理性
         validateName(rule, value, callback){
 			if (value === '') {
-                callback(new Error('请输入用户名'));
+                callback(new Error(this.$t('tips.emptyusername')));
             } else if(value.length < 2 || value.length > 5) {
-				callback(new Error('长度在 2 到 5 个字符之间'));
+				callback(new Error(this.$t('tips.errorusername')));
             } else{
                 callback();
             }
@@ -221,9 +221,9 @@ export default {
                 if(time == 0) {
                     clearInterval(timer);
                     this.btnDisabled = false;
-                    this.btnTitle = "获取验证码";
+                    this.btnTitle = this.$t('public.getverify');
                 } else {
-                    this.btnTitle = time + '秒后重试';
+                    this.btnTitle = time + this.$t('tips.tryagain');
                     this.btnDisabled = true;
                     time--;
                 }
@@ -254,7 +254,7 @@ export default {
 							if(data["success"]){
 								that.$message({
 									type: 'success',
-									message: '注册成功,请登录'
+									message: this.$t('tips.registersuccess'),
                                 });
                                 // 自动登录代码因为接口不返回是否为管理员，暂时停用，需手动登录
 								// that.$store.dispatch("setUser",true);
@@ -265,13 +265,13 @@ export default {
 								if(data["msg"] === "验证码错误"){
 									that.$message({
 										type: 'warning',
-										message: '验证码错误'
+										message: this.$t('tips.errorverify'),
 									});
                                 }
                                 else if(data["msg"] === "此手机号已注册"){
 									that.$message({
 										type: 'warning',
-										message: that.ruleForm["phone"]+'已注册'
+										message: that.ruleForm["phone"]+this.$t('tips.registered'),
 									});
 								}
 							}

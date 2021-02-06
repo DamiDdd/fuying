@@ -75,7 +75,7 @@ export default {
           this.$router.push('/home');
           this.$message({
             type: 'success',
-            message: '长时间未操作，已为您退出登录'
+            message: this.$t('tips.autoexit'),
           });
         }
       }

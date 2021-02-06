@@ -3,9 +3,9 @@
 <template>
   <div id="home-head">
     <div class="left-text">
-      <p class="bigtext">感觉身上不适，</p>
-      <p class="bigtext">但是医院各项检查指标均正常？</p>
-      <p class="bigtext bottom">您的身体可能处于<span>亚健康状态！</span></p>
+      <p class="bigtext">{{$t('home.title3')}}</p>
+      <p class="bigtext">{{$t('home.title4')}}</p>
+      <p class="bigtext bottom">{{$t('home.title5')}}<span>{{$t('home.title6')}}</span></p>
     </div>
   </div>
 </template>

@@ -3,14 +3,14 @@
 <template>
   <div id="home-ad">
     <div class="ad-map">
-      <p class="title">复瑛健康——蛋白质医学研发网络</p>
-      <p class="content">三个计算中心 亿级存储计算能力，万级并发服务能力</p>
-      <p class="content">三个检测中心 十万级检测能力</p>
-      <p class="content">九个队列中心 万级样本</p>
+      <p class="title">{{$t('home.title1')}}</p>
+      <p class="content">{{$t('home.content1')}}</p>
+      <p class="content">{{$t('home.content2')}}</p>
+      <p class="content">{{$t('home.content3')}}</p>
       <img src="~assets/img/home/map.png">
     </div>
     <div class="ad-company">
-      <p class="title">复瑛健康-合作伙伴（部分单位，排名不分先后）</p>
+      <p class="title">{{$t('home.title2')}}</p>
       <div id="university">
         <img src="~assets/img/home/university/Harvard.png" @click="goPage('https://www.harvard.edu/')">
         <img src="~assets/img/home/university/Johns Hopkins.png" @click="goPage('https://www.jhu.edu/')">
@@ -25,9 +25,7 @@
         <!-- <img src="~assets/img/home/university.png"> -->
       </div>
       <div class="right-text">
-        <p class="title">复瑛健康拥有专业的保密团队，通过硬件以及流程管理等各方面保护用户数据，
-        建立完整的隐私保护体系。我们承诺对受检者个人系统账号、个人信息、与蛋白质信息给予严格保密，除非得到您
-        本人的确认，不会透露给第三方</p>
+        <p class="title">{{$t('home.promise')}}</p>
         <button @click="buyClick">Try it now</button>
       </div>
     </div>

@@ -5,16 +5,16 @@
     <div id="pre-product">
       <div id="product">
         <div id="product-text">
-          <p class="smalltext-blue">基础套餐【19类刻画，44项生理指数】</p>
-          <p class="title">复瑛健康蛋白质组学生理刻画个人版</p>
-          <p class="smalltext">套餐价格仅为500元，购买享受特色服务</p>
-          <p class="bigtext-blue"><span @click="productClick">了解详情 ></span><span @click="buyClick">购买 ></span></p>
+          <p class="smalltext-blue">{{$t('home.content5')}}</p>
+          <p class="title">{{$t('home.title8')}}</p>
+          <p class="smalltext">{{$t('home.content6')}}</p>
+          <p class="bigtext-blue"><span @click="productClick">{{$t('home.detail')}} ></span><span @click="buyClick">{{$t('home.purchase')}} ></span></p>
         </div>
       </div>
       <div id="pre-intro">
-        <p class="bigtext">蛋白质组学</p>
-        <p class="title">蛋白质组学是以蛋白质为研究对象，研究细胞、组织或生物体蛋白质种类、组成及其变化规律的科学</p>
-        <p class="bigtext-blue bottom">为什么要检测蛋白质？</p>
+        <p class="bigtext">{{$t('home.title9')}}</p>
+        <p class="title">{{$t('home.content7')}}</p>
+        <p class="bigtext-blue bottom">{{$t('home.title10')}}</p>
         <img src="~assets/img/common/arrow.png" @click="scrollScreen">
       </div>
     </div>
@@ -22,13 +22,13 @@
       <div id="intro-top">
         <div class="left">
           <p class="bigtext-blue">
-            <span class="yellow sp1">50%</span>以上的标志物是蛋白质
+            <span class="yellow sp1">50%</span>{{$t('home.content8')}}
           </p>
           <home-pie></home-pie>
         </div>
         <div class="right">
           <p class="bigtext-blue">
-            超过<span class="yellow">98%</span>的药物靶点是蛋白质
+            {{$t('home.content9')}}<span class="yellow">98%</span>{{$t('home.content10')}}
           </p>
           <icon-hexa-win></icon-hexa-win>
         </div>
@@ -38,19 +38,19 @@
           <img src="~assets/img/home/transcription.png">
         </div>
         <div class="right smalltext-blue">
-          <p>1、蛋白质组是基因组的功能最终行动者</p>
-          <p>2、与基因表达水平并非一一对应关系，基因组无法替代蛋白质组</p>
-          <p>3、蛋白质组可规避基因组、转录组层面的诸多无效信息</p>
+          <p>{{$t('home.content11')}}</p>
+          <p>{{$t('home.content12')}}</p>
+          <p>{{$t('home.content13')}}</p>
         </div>
       </div>
       <div id="intro-bottom">
         <div class="left">
           <p class="smalltext-blue">
-            <span class="yellow">蛋白质组学-生理刻画</span>是通过检测客户生理功能
-            （包括常规指标、免疫力指数、器官功能、代谢功能、机体衰老功能等）
-            相关的蛋白信息，准确把握生理状态，这个过程叫做“蛋白质组学-生理刻画”
+            {{$t('home.content14')}}
+            <span class="yellow">{{$t('home.content15')}}</span>
+            {{$t('home.content16')}}
           </p>
-          <p class="content">根据蛋白信息为您定制更系统的生活方案，让机体保持青春，让生活更加舒适。</p>
+          <p class="content">{{$t('home.content17')}}</p>
         </div>
         <div class="right">
           <img src="~assets/img/home/index5-p.png">

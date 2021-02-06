@@ -29,7 +29,7 @@ export default {
           legend: {
               orient: 'vertical',
               bottom: 'bottom',
-              data: ['DNA-RNA','蛋白质 多态','微生物 病毒','小分子 脂类','金属等元素类']
+              data: ['DNA-RNA',this.$t('public.protein'),this.$t('public.virus'),this.$t('public.molecule'),this.$t('public.metallic')]
           },
           series : [
               {
@@ -39,10 +39,10 @@ export default {
                   center: ['50%', '60%'],
                   data:[
                       {value:3, name:'DNA-RNA'},
-                      {value:50, name:'蛋白质 多态'},
-                      {value:15, name:'微生物 病毒'},
-                      {value:31, name:'小分子 脂类'},
-                      {value:1, name:'金属等元素类'},
+                      {value:50, name:this.$t('public.protein')},
+                      {value:15, name:this.$t('public.virus')},
+                      {value:31, name:this.$t('public.molecule')},
+                      {value:1, name:this.$t('public.metallic')},
                   ],
                   itemStyle: {
                       emphasis: {

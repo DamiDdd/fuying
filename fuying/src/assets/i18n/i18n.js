@@ -11,7 +11,7 @@ const messages = {
 }
  
 const i18n = new VueI18n({
-  locale:  sessionStorage.getItem('changeLang') || 'cn',            
+  locale:  localStorage.getItem('lang') || 'cn',            
   //从sessionStorage中拿到用户的语言选择，如果没有，那默认中文。
   messages,
   silentTranslationWarn: true,

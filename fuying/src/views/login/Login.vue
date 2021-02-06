@@ -5,15 +5,15 @@
 	<p class="login">
 		<!-- <el-tabs v-model="activeName" @tab-click="handleClick"> -->
 		<el-tabs v-model="activeName">
-			<el-tab-pane :label="$t('message.public.login')" name="first">
+			<el-tab-pane :label="$t('login.login')" name="first">
 				<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-					<el-form-item label="手机号" prop="phone"><el-input v-model="ruleForm.phone"></el-input></el-form-item>
-					<el-form-item label="密码" prop="pass"><el-input type="password" v-model="ruleForm.pass" auto-complete="off"></el-input></el-form-item>
+					<el-form-item :label="$t('public.phone')" prop="phone"><el-input v-model="ruleForm.phone"></el-input></el-form-item>
+					<el-form-item :label="$t('public.password')" prop="pass"><el-input type="password" v-model="ruleForm.pass" auto-complete="off"></el-input></el-form-item>
 					<el-form-item>
-						<el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
-						<el-button @click="resetForm('ruleForm')">重置</el-button>
-						<span class="after-text" @click="showScan">扫码登录</span>
-						<span class="after-text" @click="forget">忘记密码？</span>
+						<el-button type="primary" @click="submitForm('ruleForm')">{{$t('login.login')}}</el-button>
+						<el-button @click="resetForm('ruleForm')">{{$t('login.reset')}}</el-button>
+						<span class="after-text" @click="showScan">{{$t('login.scan')}}</span>
+						<span class="after-text" @click="forget">{{$t('login.forgetpass')}}</span>
 						<div id="weixin" v-show="scan">
 							<!-- <wxLogin></wxLogin> -->
 							<div>test</div>
@@ -22,7 +22,7 @@
 				</el-form>
 			</el-tab-pane>
 			<!-- <el-tab-pane label="注册" name="second" :disabled=true> -->
-			<el-tab-pane label="注册" name="second">
+			<el-tab-pane :label="$t('login.register')" name="second">
 				<register></register>
 			</el-tab-pane>
 		</el-tabs>
@@ -69,7 +69,7 @@ export default {
 		// 验证密码
 		validatePass(rule, value, callback){
 			if (value === '') {
-				callback(new Error('请输入密码'));
+				callback(new Error(this.$t('tips.emptypassword')));
 			} else {
 				if (this.ruleForm.checkPass !== '') {
 					this.$refs.ruleForm.validateField('checkPass');
@@ -81,10 +81,10 @@ export default {
 		// 验证手机号
 		validatePhone(rule, value, callback){
 			if (value === '') {
-                callback(new Error('请输入手机号'));
+                callback(new Error(this.$t('tips.emptyphone')));
                 return false;
 			} else if (this.regMobile.test(value) === false) {
-                callback(new Error('手机号输入有误'));
+                callback(new Error(this.$t('tips.errorphone')));
                 return false;
 			} else {
                 callback();
@@ -113,7 +113,7 @@ export default {
 							if(data["success"]){
 								this.$message({
 									type: 'success',
-									message: '登陆成功 欢迎'+this.ruleForm["phone"],
+									message: this.$t('tips.login')+this.ruleForm["phone"],
 								});
 								this.$store.dispatch("setUser",true);
 								// console.log(this.$store.state.isLogin);
@@ -132,13 +132,13 @@ export default {
 								if(!data["registered"]){
 									this.$message({
 										type: 'warning',
-										message: '手机号未注册'
+										message: this.$t('tips.notregister'),
 									});
 								}
 								else if(data["msg"] === "Wrong Password"){
 									this.$message({
 										type: 'warning',
-										message: '密码错误'
+										message: this.$t('tips.errorpassword'),
 									});
 								}
 							}

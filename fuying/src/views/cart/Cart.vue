@@ -2,35 +2,35 @@
 
 <template>
   <div id="cart">
-    <p class="title">我的购物车</p>
+    <p class="title">{{$t('cart.title')}}</p>
     <div class="tips" v-if="!emptyCart">
-      <div class="flag"><input type="checkbox" v-model="all" @click="chooseAll"> 全选</div>
+      <div class="flag"><input type="checkbox" v-model="all" @click="chooseAll"> {{$t('cart.selectAll')}}</div>
       <div class="img"></div>
-      <div class="title1">套餐</div>
-      <div class="title2">服务内容</div>
-      <div class="price-single">单价</div>
-      <div class="num-control">数目</div>
-      <div class="price-sum">总价</div>
+      <div class="title1">{{$t('cart.package')}}</div>
+      <div class="title2">{{$t('cart.service')}}</div>
+      <div class="price-single">{{$t('cart.price')}}</div>
+      <div class="num-control">{{$t('cart.num')}}</div>
+      <div class="price-sum">{{$t('cart.total')}}</div>
       <div class="delete"></div>
     </div>
     <div v-for="(item,index) in goods" :key="index">
       <cart-view :good="goods[index]"></cart-view>
     </div>
     <div class="tips" v-if="!emptyCart">
-      <div class="price-tag">总价：</div>
+      <div class="price-tag">{{$t('cart.total')}}:</div>
       <div class="price">{{sum}}</div>
-      <button id="purchase" @click="submitPurchase">结算</button>
+      <button id="purchase" @click="submitPurchase">{{$t('cart.submit')}}</button>
     </div>
-    <div v-if="emptyCart" class="empty" @click="jump2mall">您的购物车空空如也,去商城看看吧！</div>
-    <modal :show="modal" :title="titleM" v-on:hideModal="hideModal" v-on:submit="solveMsg">
+    <div v-if="emptyCart" class="empty" @click="jump2mall">{{$t('cart.jump2mail')}}</div>
+    <modal :show="modal" :title="$t('cart.subtitle')" v-on:hideModal="hideModal" v-on:submit="solveMsg">
       <div class="in-content">
         <table class="el-table el-table--fit el-table--border table-detail">
           <thead>
             <tr>
-              <th width="200px">套餐</th>
-              <th width="200px">服务内容</th>
-              <th width="200px">单价</th>
-              <th width="200px">数目</th>
+              <th width="200px">{{$t('cart.package')}}</th>
+              <th width="200px">{{$t('cart.service')}}</th>
+              <th width="200px">{{$t('cart.price')}}</th>
+              <th width="200px">{{$t('cart.total')}}</th>
             </tr>
           </thead>
           <tbody>
@@ -41,14 +41,14 @@
               <td v-text="item.num"></td>
             </tr>
             <tr>
-              <td colspan="4" v-text="'总价：'+this.sum" class="sp"></td>
+              <td colspan="4" v-text="'Total: '+this.sum" class="sp"></td>
             </tr>
           </tbody>
         </table>
         <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-          <el-form-item label="姓名" prop="user_name"><el-input v-model="ruleForm.user_name"></el-input></el-form-item>
-          <el-form-item label="手机号" prop="user_phone"><el-input v-model="ruleForm.user_phone"></el-input></el-form-item>
-          <el-form-item label="地址" prop="user_address"><el-input v-model="ruleForm.user_address"></el-input></el-form-item>
+          <el-form-item :label="$t('public.name')" prop="user_name"><el-input v-model="ruleForm.user_name"></el-input></el-form-item>
+          <el-form-item :label="$t('public.phone')" prop="user_phone"><el-input v-model="ruleForm.user_phone"></el-input></el-form-item>
+          <el-form-item :label="$t('public.address')" prop="user_address"><el-input v-model="ruleForm.user_address"></el-input></el-form-item>
         </el-form>  
       </div>
     </modal>
@@ -103,7 +103,6 @@ export default {
       uploadUrl: GLOBAL.urlHead+"payCartWeb/",
       all: false,
       modal: false,
-      titleM: "完善您的订单信息",
       goods:[
         // 数据样例
         // {
@@ -157,7 +156,7 @@ export default {
     }).catch((error)=>{
       this.$message({
         type: 'warning',
-        message: '后台出错',
+        message: this.$t('tips.servererror'),
       });
       console.log(error);
       return false;
@@ -167,10 +166,10 @@ export default {
     validatePhone(rule, value, callback){
       let regMobile = /^1\d{10}$/;
 			if (value === '') {
-        callback(new Error('请输入手机号'));
+        callback(new Error(this.$t('tips.emptyphone')));
         return false;
 			} else if (regMobile.test(value) === false) {
-        callback(new Error('手机号输入有误'));
+        callback(new Error(this.$t('tips.errorphone')));
         return false;
 			} else {
         callback();
@@ -179,7 +178,7 @@ export default {
     },
     validateName(rule, value, callback){
 			if (value === '') {
-        callback(new Error('请输入姓名'));
+        callback(new Error(this.$t('tips.emptyname')));
         return false;
 			} else {
         callback();
@@ -188,7 +187,7 @@ export default {
     },
     validateAddress(rule, value, callback){
 			if (value === '') {
-        callback(new Error('请输入地址'));
+        callback(new Error(this.$t('tips.emptyaddress')));
         return false;
 			} else {
         callback();
@@ -219,7 +218,7 @@ export default {
       if(!flag){
         this.$message({
           type: 'warning',
-          message: '请选择至少一项服务',
+          message: this.$t("tips.emptyselected"),
         });
       }
       else{

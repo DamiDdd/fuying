@@ -34,8 +34,9 @@ export default {
 
   .nav-logo img{
     /* width: 24px; */
-    height: 50px;
+    height: 34px;
     margin-top: 5px;
+    margin-left: 20px;
     vertical-align: middle;
   }
 

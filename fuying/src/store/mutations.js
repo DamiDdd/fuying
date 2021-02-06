@@ -4,7 +4,7 @@ const mutations = {
   },
   admin(state,flag){
     state.isAdmin = flag
-  }
+  },
 }
 
 export default mutations

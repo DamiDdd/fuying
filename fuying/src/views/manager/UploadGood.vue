@@ -1,28 +1,28 @@
 <template>
   <div class="main">
     <div class="center rcorner">
-      <div class="input"><p class="bigtext-blue">商品上架</p></div>
-      <div class="input"><div class="left"><p class="title">服务内容</p></div><div class="right"><el-input v-model="title" class="medium" clearable></el-input></div></div>
-      <div class="input"><div class="left"><p class="title">描述</p></div><div><el-input v-model="desc" class="medium" clearable></el-input></div></div>
-      <div class="input"><div class="left"><p class="title">模块颜色</p></div><div class="right"><el-input style="width:100px" v-model="color" type="color" class="medium"></el-input></div></div>
+      <div class="input"><p class="bigtext-blue">{{$t('uploadgood.title')}}</p></div>
+      <div class="input"><div class="left"><p class="title">{{$t('uploadgood.content')}}</p></div><div class="right"><el-input v-model="title" class="medium" clearable></el-input></div></div>
+      <div class="input"><div class="left"><p class="title">{{$t('uploadgood.desc')}}</p></div><div><el-input v-model="desc" class="medium" clearable></el-input></div></div>
+      <div class="input"><div class="left"><p class="title">{{$t('uploadgood.color')}}</p></div><div class="right"><el-input style="width:100px" v-model="color" type="color" class="medium"></el-input></div></div>
       <div v-for="(item,i) in type" :key="100+i" class="input">
-        <div class="left"><p class="title" v-show="!notfirst(i)">服务项目</p></div>
+        <div class="left"><p class="title" v-show="!notfirst(i)">{{$t('uploadgood.program')}}</p></div>
         <div class="right">
-          <el-input title="服务名称" placeholder="service" v-model="item.name" class="medium" clearable></el-input>
-          <el-input title="价格" placeholder="price" v-model="item.price" class="medium" :min="0" oninput="if(value<0)value=0" type="number"></el-input>
+          <el-input :title="$t('uploadgood.program')" placeholder="service" v-model="item.name" class="medium" clearable></el-input>
+          <el-input :title="$t('uploadgood.price')" placeholder="price" v-model="item.price" class="medium" :min="0" oninput="if(value<0)value=0" type="number"></el-input>
           <el-button class="btn" v-show="notfirst(i)" @click="deleteType(i)" type="danger" icon="el-icon-delete" circle></el-button>
           <el-button class="btn" v-show="lastType(i)" @click="addType" type="success" circle>+</el-button>
         </div>
       </div>
-      <div class="input last"><p class="title">添加图片</p></div>
+      <div class="input last"><p class="title">{{$t('uploadgood.img')}}</p></div>
       <div v-for="(item,i) in imgList" :key="i" class="imgdiv">
-        <h3 class="text" title="点击以编辑" v-show="!notfirst(i) || flag[i]" @click="flagChange(i)">{{item.name}}</h3>
+        <h3 class="text" :title="$t('uploadgood.edit')" v-show="!notfirst(i) || flag[i]" @click="flagChange(i)">{{item.name}}</h3>
         <el-input ref="input" class="titleInput" v-model="item.name" v-show="notfirst(i) && !flag[i]" @blur="flagChange(i)"></el-input>
         <upload-img class="imgwin" ref="upload" :URL="uploadImgUrl" :limit="limit" :goodData="item" :min="min"></upload-img>
         <el-button class="lastbtn" v-show="notfirst(i)" @click="deleteImg(i)" type="danger" icon="el-icon-delete" circle></el-button>
         <el-button class="lastbtn" v-show="lastList(i)" @click="addTitle" type="success" circle>+</el-button>
       </div>
-      <el-button class="submitbtn" @click="sendPic" type="primary">上传<i class="el-icon-upload el-icon--right"></i></el-button>
+      <el-button class="submitbtn" @click="sendPic" type="primary">{{$t('uploadgood.upload')}}<i class="el-icon-upload el-icon--right"></i></el-button>
     </div>
   </div>
 </template>
@@ -47,7 +47,7 @@ export default {
       title: "",
       desc: "",
       goodId: "",
-      imgList: [{id:"",name:"滚播图片"}],
+      imgList: [{id:"",name:this.$t('uploadgood.slider')}],
       type: [{name:"service1",price:0}],
       flag: [true],
       num: 1,
@@ -63,7 +63,7 @@ export default {
       if(this.title === ""){
         this.$message({
           type:"warning",
-          message:"请填写相关信息",
+          message: this.$t('uploadgood.emptyinfo'),
         })
         return;
       }

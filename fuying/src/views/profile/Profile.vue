@@ -5,31 +5,31 @@
     <div class="main">
       <div class="left">
         <div class="left-top">
-          <p class="content-blue">功能列表</p>
-          <el-button @click="jump('/cart')">查看购物车</el-button>
-          <el-button @click="jump('/health')">健康档案</el-button>
-          <el-button @click="callOn">查看订单</el-button>
+          <p class="content-blue">{{$t('profile.title')}}</p>
+          <el-button @click="jump('/cart')">{{$t('profile.cart')}}</el-button>
+          <el-button @click="jump('/health')">{{$t('profile.health')}}</el-button>
+          <el-button @click="callOn">{{$t('profile.order')}}</el-button>
           <!-- <el-button @click="jump('/pdf')">查看报告</el-button> -->
-          <el-button class="warning" @click="jump('/exit')">退出登录</el-button>
+          <el-button class="warning" @click="jump('/exit')">{{$t('profile.exit')}}</el-button>
         </div>
         <div v-show="admin" class="left-bottom">
-          <p class="content-blue">管理员</p>
-          <el-button @click="jump('/reportEdit')">上传信息</el-button>    
-          <el-button @click="jump('/manager')">报告管理</el-button>    
-          <el-button @click="jump('/uploadGood')">上架商品</el-button>    
+          <p class="content-blue">{{$t('profile.manager')}}</p>
+          <el-button @click="jump('/reportEdit')">{{$t('profile.upload')}}</el-button>    
+          <el-button @click="jump('/manager')">{{$t('profile.report')}}</el-button>    
+          <el-button @click="jump('/uploadGood')">{{$t('profile.uploadgood')}}</el-button>    
           <!-- <el-button @click="jump('/uploadCommend')">管理员上传评价</el-button> -->
         </div>
       </div>
       <div class="right">
         <div class="right-top">
-          <p class="content-blue">个人信息</p>
+          <p class="content-blue">{{$t('profile.profile')}}</p>
           <div class="info">
             <div class="info-content">
               <!-- <p>用户名：<input type="text" v-model="name"></p> -->
-              <p>用户名：{{name}}</p>
-              <p>手机号：{{phone}}</p>
+              <p>{{$t('public.username')}}：{{name}}</p>
+              <p>{{$t('public.phone')}}：{{phone}}</p>
               <!-- <p>邮箱：<input type="text" v-model="email"></p> -->
-              <p>邮箱：{{email}}</p>
+              <p>{{$t('public.email')}}：{{email}}</p>
             </div>
             <div class="btn">
               <!-- <el-button>修改密码</el-button> -->
@@ -42,11 +42,11 @@
           </div>
         </div>
         <div class="right-middle">
-          <p class="content-blue">收件人管理</p>
+          <p class="content-blue">{{$t('profile.receiverarray')}}</p>
           <el-table :data="addressTable" class="data_table">
-            <el-table-column prop="user" label="收件人姓名" width="180"></el-table-column>
-            <el-table-column prop="phone" label="电话" width="180"></el-table-column>
-            <el-table-column prop="address" label="地址" width="400"></el-table-column>
+            <el-table-column prop="user" :label="$t('profile.receiver')" width="180"></el-table-column>
+            <el-table-column prop="phone" :label="$t('public.phone')" width="180"></el-table-column>
+            <el-table-column prop="address" :label="$t('public.address')" width="400"></el-table-column>
             <!-- <el-table-column label="操作" width="100"></el-table-column> -->
           </el-table>
         </div>
@@ -59,16 +59,16 @@
         <table class="el-table el-table--fit el-table--border table-detail">
           <thead>
             <tr>
-              <th width="160px">服务</th>
-              <th width="160px">下单日期</th>
-              <th width="160px">数目</th>
-              <th width="160px">总价</th>
-              <th width="160px">状态</th>
+              <th width="160px">{{$t('profile.service')}}</th>
+              <th width="160px">{{$t('profile.date')}}</th>
+              <th width="160px">{{$t('profile.num')}}</th>
+              <th width="160px">{{$t('profile.total')}}</th>
+              <th width="160px">{{$t('profile.status')}}</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td colspan="5" style="text-align: center;" v-show="emptyOrder">暂无信息！</td>
+              <td colspan="5" style="text-align: center;" v-show="emptyOrder">{{$t('tips.noinfo')}}</td>
             </tr>
             <tr v-for="(item,index) in orderInList" :key="index">
               <td @click="jump2detail(item.product_id)" class="good">{{item.product}}-{{item.detail}}</td>
@@ -83,10 +83,10 @@
         <table v-show="transport" class="el-table el-table--fit el-table--border table-detail transport">
           <thead>
             <tr>
-              <th width="100px">订单号</th>
-              <th width="100px">物流号</th>
-              <th width="100px">时间</th>
-              <th width="200px">运输信息<span class="after" @click="unspread">^收起</span></th>
+              <th width="100px">{{$t('profile.orderid')}}</th>
+              <th width="100px">{{$t('profile.transitid')}}</th>
+              <th width="100px">{{$t('profile.time')}}</th>
+              <th width="200px">{{$t('profile.info')}}<span class="after" @click="unspread">^{{$t('profile.withdraw')}}</span></th>
             </tr>
           </thead>
           <tbody>
@@ -159,7 +159,7 @@ export default {
     }).catch((error)=>{
       this.$message({
         type: 'warning',
-        message: '后台出错',
+        message: this.$t('tips.servererror'),
       });
       console.log(error);
     });
@@ -195,7 +195,7 @@ export default {
           }).catch((error)=>{
             this.$message({
               type: 'warning',
-              message: '后台出错',
+              message: this.$t('tips.servererror'),
             });
             console.log(error);
           });
@@ -235,7 +235,7 @@ export default {
       }).catch((error)=>{
         this.$message({
           type: 'warning',
-          message: '后台出错',
+          message: this.$t('tips.servererror'),
         });
         console.log(error);
       });

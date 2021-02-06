@@ -13,10 +13,10 @@
       <div class="add" @click="addCart"><img src="~assets/img/common/add.jpg"></div>
     </div>
     <div class="price-sum">{{good.priceSum}}</div>
-    <div class="delete"><span  @click="deleteReverse">删除</span>
+    <div class="delete"><span  @click="deleteReverse">{{$t('public.delete')}}</span>
       <div v-show="this.deleteBtn" class="answer">
-        <button class="btn" @click="deleteConfirmed">确定</button>
-        <button class="btn" @click="deleteReverse">取消</button>
+        <button class="btn" @click="deleteConfirmed">{{$t('public.confirm')}}</button>
+        <button class="btn" @click="deleteReverse">{{$t('public.cancel')}}</button>
       </div>
     </div>
   </div>

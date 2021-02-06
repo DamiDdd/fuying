@@ -49,7 +49,7 @@ export default {
       else{
         this.$message({
           type: 'warning',
-					message: '后台出错',
+					message: this.$t('tips.servererror'),
 				});
       }
     });
