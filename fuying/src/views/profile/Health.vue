@@ -4,10 +4,8 @@
 
 <script>
 export default {
-  name:"Health",
-}
+  name: "Health"
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

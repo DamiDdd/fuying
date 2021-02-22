@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import HomeAd from 'views/home/childComps/HomeAd'
-import HomeMenu from 'views/home/childComps/HomeMenu'
-import HomeHead from 'views/home/childComps/HomeHead'
-import HomeProduct from 'views/home/childComps/HomeProduct'
+import HomeAd from "views/home/childComps/HomeAd";
+import HomeMenu from "views/home/childComps/HomeMenu";
+import HomeHead from "views/home/childComps/HomeHead";
+import HomeProduct from "views/home/childComps/HomeProduct";
 
 export default {
   name: "Home",
@@ -21,14 +21,14 @@ export default {
     HomeAd,
     HomeMenu,
     HomeHead,
-    HomeProduct,
-  },
-}
+    HomeProduct
+  }
+};
 </script>
 
 <style scoped>
-  #home{
-    min-height:500px;
-    min-width: var(--min-width);
-  }
+#home {
+  min-height: 500px;
+  min-width: var(--min-width);
+}
 </style>

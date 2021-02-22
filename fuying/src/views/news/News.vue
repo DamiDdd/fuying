@@ -5,11 +5,11 @@
 <script>
 export default {
   name: "News"
-}
+};
 </script>
 
 <style scoped>
-  #news{
-    min-height:500px;
-  }
+#news {
+  min-height: 500px;
+}
 </style>

@@ -5,31 +5,41 @@
     <div class="main">
       <div class="left">
         <div class="left-top">
-          <p class="content-blue">{{$t('profile.title')}}</p>
-          <el-button @click="jump('/cart')">{{$t('profile.cart')}}</el-button>
-          <el-button @click="jump('/health')">{{$t('profile.health')}}</el-button>
-          <el-button @click="callOn">{{$t('profile.order')}}</el-button>
+          <p class="content-blue">{{ $t("profile.title") }}</p>
+          <el-button @click="jump('/cart')">{{ $t("profile.cart") }}</el-button>
+          <el-button @click="jump('/health')">{{
+            $t("profile.health")
+          }}</el-button>
+          <el-button @click="callOn">{{ $t("profile.order") }}</el-button>
           <!-- <el-button @click="jump('/pdf')">查看报告</el-button> -->
-          <el-button class="warning" @click="jump('/exit')">{{$t('profile.exit')}}</el-button>
+          <el-button class="warning" @click="jump('/exit')">{{
+            $t("profile.exit")
+          }}</el-button>
         </div>
         <div v-show="admin" class="left-bottom">
-          <p class="content-blue">{{$t('profile.manager')}}</p>
-          <el-button @click="jump('/reportEdit')">{{$t('profile.upload')}}</el-button>    
-          <el-button @click="jump('/manager')">{{$t('profile.report')}}</el-button>    
-          <el-button @click="jump('/uploadGood')">{{$t('profile.uploadgood')}}</el-button>    
+          <p class="content-blue">{{ $t("profile.manager") }}</p>
+          <el-button @click="jump('/reportEdit')">{{
+            $t("profile.upload")
+          }}</el-button>
+          <el-button @click="jump('/manager')">{{
+            $t("profile.report")
+          }}</el-button>
+          <el-button @click="jump('/uploadGood')">{{
+            $t("profile.uploadgood")
+          }}</el-button>
           <!-- <el-button @click="jump('/uploadCommend')">管理员上传评价</el-button> -->
         </div>
       </div>
       <div class="right">
         <div class="right-top">
-          <p class="content-blue">{{$t('profile.profile')}}</p>
+          <p class="content-blue">{{ $t("profile.profile") }}</p>
           <div class="info">
             <div class="info-content">
               <!-- <p>用户名：<input type="text" v-model="name"></p> -->
-              <p>{{$t('public.username')}}：{{name}}</p>
-              <p>{{$t('public.phone')}}：{{phone}}</p>
+              <p>{{ $t("public.username") }}：{{ name }}</p>
+              <p>{{ $t("public.phone") }}：{{ phone }}</p>
               <!-- <p>邮箱：<input type="text" v-model="email"></p> -->
-              <p>{{$t('public.email')}}：{{email}}</p>
+              <p>{{ $t("public.email") }}：{{ email }}</p>
             </div>
             <div class="btn">
               <!-- <el-button>修改密码</el-button> -->
@@ -42,11 +52,23 @@
           </div>
         </div>
         <div class="right-middle">
-          <p class="content-blue">{{$t('profile.receiverarray')}}</p>
+          <p class="content-blue">{{ $t("profile.receiverarray") }}</p>
           <el-table :data="addressTable" class="data_table">
-            <el-table-column prop="user" :label="$t('profile.receiver')" width="180"></el-table-column>
-            <el-table-column prop="phone" :label="$t('public.phone')" width="180"></el-table-column>
-            <el-table-column prop="address" :label="$t('public.address')" width="400"></el-table-column>
+            <el-table-column
+              prop="user"
+              :label="$t('profile.receiver')"
+              width="180"
+            ></el-table-column>
+            <el-table-column
+              prop="phone"
+              :label="$t('public.phone')"
+              width="180"
+            ></el-table-column>
+            <el-table-column
+              prop="address"
+              :label="$t('public.address')"
+              width="400"
+            ></el-table-column>
             <!-- <el-table-column label="操作" width="100"></el-table-column> -->
           </el-table>
         </div>
@@ -54,43 +76,65 @@
         </div> -->
       </div>
     </div>
-    <modal :show="modal" :title="titleM" v-on:hideModal="hideModal" v-on:submit="confirm">
+    <modal
+      :show="modal"
+      :title="titleM"
+      v-on:hideModal="hideModal"
+      v-on:submit="confirm"
+    >
       <div class="in-content">
         <table class="el-table el-table--fit el-table--border table-detail">
           <thead>
             <tr>
-              <th width="160px">{{$t('profile.service')}}</th>
-              <th width="160px">{{$t('profile.date')}}</th>
-              <th width="160px">{{$t('profile.num')}}</th>
-              <th width="160px">{{$t('profile.total')}}</th>
-              <th width="160px">{{$t('profile.status')}}</th>
+              <th width="160px">{{ $t("profile.service") }}</th>
+              <th width="160px">{{ $t("profile.date") }}</th>
+              <th width="160px">{{ $t("profile.num") }}</th>
+              <th width="160px">{{ $t("profile.total") }}</th>
+              <th width="160px">{{ $t("profile.status") }}</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td colspan="5" style="text-align: center;" v-show="emptyOrder">{{$t('tips.noinfo')}}</td>
+              <td colspan="5" style="text-align: center;" v-show="emptyOrder">
+                {{ $t("tips.noinfo") }}
+              </td>
             </tr>
-            <tr v-for="(item,index) in orderInList" :key="index">
-              <td @click="jump2detail(item.product_id)" class="good">{{item.product}}-{{item.detail}}</td>
+            <tr v-for="(item, index) in orderInList" :key="index">
+              <td @click="jump2detail(item.product_id)" class="good">
+                {{ item.product }}-{{ item.detail }}
+              </td>
               <td v-text="item.date"></td>
               <td v-text="item.num"></td>
               <td v-text="item.priceSum"></td>
-              <td class="available" v-show="available(item.status)" @click="solveStatus(item.order_id,item.phone,item.status)" v-text="item.status"></td>
+              <td
+                class="available"
+                v-show="available(item.status)"
+                @click="solveStatus(item.order_id, item.phone, item.status)"
+                v-text="item.status"
+              ></td>
               <td v-show="!available(item.status)" v-text="item.status"></td>
             </tr>
           </tbody>
         </table>
-        <table v-show="transport" class="el-table el-table--fit el-table--border table-detail transport">
+        <table
+          v-show="transport"
+          class="el-table el-table--fit el-table--border table-detail transport"
+        >
           <thead>
             <tr>
-              <th width="100px">{{$t('profile.orderid')}}</th>
-              <th width="100px">{{$t('profile.transitid')}}</th>
-              <th width="100px">{{$t('profile.time')}}</th>
-              <th width="200px">{{$t('profile.info')}}<span class="after" @click="unspread">^{{$t('profile.withdraw')}}</span></th>
+              <th width="100px">{{ $t("profile.orderid") }}</th>
+              <th width="100px">{{ $t("profile.transitid") }}</th>
+              <th width="100px">{{ $t("profile.time") }}</th>
+              <th width="200px">
+                {{ $t("profile.info")
+                }}<span class="after" @click="unspread"
+                  >^{{ $t("profile.withdraw") }}</span
+                >
+              </th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item,index) in transportMsg" :key="index">
+            <tr v-for="(item, index) in transportMsg" :key="index">
               <td v-text="item.orderID"></td>
               <td v-text="item.ExpressNumber"></td>
               <td v-text="item.time"></td>
@@ -104,16 +148,16 @@
 </template>
 
 <script>
-import Modal from 'components/common/modal/Modal'
-import GLOBAL from '@/common/const'
-import Axios from 'axios'
+import Modal from "components/common/modal/Modal";
+import GLOBAL from "@/common/const";
+import Axios from "axios";
 
 export default {
-  name : "Profile",
-  components:{
-    Modal,
+  name: "Profile",
+  components: {
+    Modal
   },
-  data(){
+  data() {
     return {
       phone: localStorage.getItem("userPhone"),
       name: localStorage.getItem("userName"),
@@ -124,295 +168,306 @@ export default {
       pdfUrl: GLOBAL.urlHead2 + "get_pdf/",
       emptyOrder: false,
       transport: false,
-      addressTable:[{
-        user: "a",
-        phone: "13333333333",
-        address: "北京",
-      }],
+      addressTable: [
+        {
+          user: "a",
+          phone: "13333333333",
+          address: "北京"
+        }
+      ],
       modal: false,
       titleM: "您的订单",
-      orderInList:[{
-        order_id: "A01",
-        product: "基础套餐",
-        product_id: "00001",
-        detail: "升级版",
-        detail_id: "1",
-        product_img: "",
-        price: 200,
-        num: 2,
-        priceSum: 400,
-        date: "2020/9/1 10:00",
-        status: "pending",
-      }],
-      transportMsg:[],
-      circleUrl: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
+      orderInList: [
+        {
+          order_id: "A01",
+          product: "基础套餐",
+          product_id: "00001",
+          detail: "升级版",
+          detail_id: "1",
+          product_img: "",
+          price: 200,
+          num: 2,
+          priceSum: 400,
+          date: "2020/9/1 10:00",
+          status: "pending"
+        }
+      ],
+      transportMsg: [],
+      circleUrl:
+        "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
+    };
+  },
+  mounted() {
+    let url = this.addUrl + "?phone=" + this.phone;
+    Axios.get(url)
+      .then(response => {
+        if (response.status === 200) {
+          let data = response.data;
+          // console.log(data);
+          this.addressTable = data;
+        }
+      })
+      .catch(error => {
+        this.$message({
+          type: "warning",
+          message: this.$t("tips.servererror")
+        });
+        console.log(error);
+      });
+  },
+  computed: {
+    admin() {
+      if (localStorage.getItem("admin") != null) {
+        return true;
+      } else {
+        return false;
+      }
     }
   },
-  mounted(){
-    let url = this.addUrl + "?phone=" + this.phone;
-    Axios.get(url).then((response) => {
-      if(response.status === 200){
-        let data = response.data;
-        // console.log(data);
-        this.addressTable = data;
-      }
-    }).catch((error)=>{
-      this.$message({
-        type: 'warning',
-        message: this.$t('tips.servererror'),
-      });
-      console.log(error);
-    });
-  },
-  computed:{
-    admin(){
-      if(localStorage.getItem("admin")!=null){
-        return true;
-      }
-      else{
+  methods: {
+    available(status) {
+      if (status === "in_transit" || status === "report") return true;
+      else {
         return false;
       }
     },
-  },
-  methods:{
-    available(status){
-      if(status === "in_transit" || status === "report")
-        return true;
-      else{
-        return false;
-      }
-    },
-    solveStatus(order_id,phone,status){
-      switch(status){
+    solveStatus(order_id, phone, status) {
+      switch (status) {
         case "in_transit":
           this.transport = true;
-          Axios.post(this.transportUrl+"?orderID="+order_id+"&phone="+phone).then((response) => {
-            if(response.status === 200){
-              let data = response.data;
-              // console.log(data);
-              this.transportMsg = data;
-            }
-          }).catch((error)=>{
-            this.$message({
-              type: 'warning',
-              message: this.$t('tips.servererror'),
+          Axios.post(
+            this.transportUrl + "?orderID=" + order_id + "&phone=" + phone
+          )
+            .then(response => {
+              if (response.status === 200) {
+                let data = response.data;
+                // console.log(data);
+                this.transportMsg = data;
+              }
+            })
+            .catch(error => {
+              this.$message({
+                type: "warning",
+                message: this.$t("tips.servererror")
+              });
+              console.log(error);
             });
-            console.log(error);
-          });
           break;
         case "report":
-          var url = this.pdfUrl+"orderID="+order_id+"&phone="+phone;
+          var url = this.pdfUrl + "orderID=" + order_id + "&phone=" + phone;
           window.open(url);
           break;
         default:
           break;
       }
     },
-    unspread(){
+    unspread() {
       this.transport = false;
     },
     jump(link) {
       this.$router.push(link);
     },
-    jump2detail(goodId){
-      this.$router.push({path:'/detail',query:{goodId:goodId}});
+    jump2detail(goodId) {
+      this.$router.push({ path: "/detail", query: { goodId: goodId } });
     },
-    submitMsg(){
+    submitMsg() {
       console.log(this.name + this.email);
     },
-    callOn(){
+    callOn() {
       this.modal = true;
-      let url = this.orderUrl +"?phone="+ this.phone;
-      Axios.get(url).then((response) => {
-        if(response.status === 200){
-          let data = response.data;
-          console.log(data);
-          this.orderInList = data;
-          if(this.orderInList.length === 0){
-            this.emptyOrder = true;
+      let url = this.orderUrl + "?phone=" + this.phone;
+      Axios.get(url)
+        .then(response => {
+          if (response.status === 200) {
+            let data = response.data;
+            console.log(data);
+            this.orderInList = data;
+            if (this.orderInList.length === 0) {
+              this.emptyOrder = true;
+            }
           }
-        }
-      }).catch((error)=>{
-        this.$message({
-          type: 'warning',
-          message: this.$t('tips.servererror'),
+        })
+        .catch(error => {
+          this.$message({
+            type: "warning",
+            message: this.$t("tips.servererror")
+          });
+          console.log(error);
         });
-        console.log(error);
-      });
     },
-    hideModal(){
+    hideModal() {
       this.modal = false;
       this.transport = false;
     },
-    confirm(){
+    confirm() {
       this.modal = false;
       this.transport = false;
     }
   }
-}
+};
 </script>
 
 <style scoped>
-  #profile{
-    background: url("~assets/img/bg/doctor.png") no-repeat bottom left;
-  }
+#profile {
+  background: url("~assets/img/bg/doctor.png") no-repeat bottom left;
+}
 
-  .main{
-    width: 100%;
-    min-width: var(--min-width);
-    height: 1000px;
-    /* border: 1px solid; */
-    /* margin-left: 14%; */
-    margin-top: 80px;
-    display: flex;
-  }
+.main {
+  width: 100%;
+  min-width: var(--min-width);
+  height: 1000px;
+  /* border: 1px solid; */
+  /* margin-left: 14%; */
+  margin-top: 80px;
+  display: flex;
+}
 
-  .left{
-    width: 20%;
-    height: 100%;
-    margin-left: 14%;
-  }
+.left {
+  width: 20%;
+  height: 100%;
+  margin-left: 14%;
+}
 
-  .left div button{
-    width: 80%;
-    margin-left: 10%;
-    margin-bottom: 2%;
-  }
+.left div button {
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 2%;
+}
 
-  .left div p{
-    text-align: center;
-  }
+.left div p {
+  text-align: center;
+}
 
-  .right{
-    width: 60%;
-    height: 100%;
-  }
+.right {
+  width: 60%;
+  height: 100%;
+}
 
-  .left-top{
-    width: 80%;
-    height: 50%;
-    margin-left: 10%;
-    /* border: 1px solid var(--theme-color); */
-  }
+.left-top {
+  width: 80%;
+  height: 50%;
+  margin-left: 10%;
+  /* border: 1px solid var(--theme-color); */
+}
 
-  .left-bottom{
-    width: 80%;
-    height: 30%;
-    margin-left: 10%;
-    /* border: 1px solid var(--theme-color); */
-  }
-  
-  .right-top{
-    width: 80%;
-    height: 40%;
-    /* border: 1px solid; */
-  }
+.left-bottom {
+  width: 80%;
+  height: 30%;
+  margin-left: 10%;
+  /* border: 1px solid var(--theme-color); */
+}
 
-  .right-middle{
-    width: 80%;
-    height: 40%;
-    /* border: 1px solid; */
-  }
+.right-top {
+  width: 80%;
+  height: 40%;
+  /* border: 1px solid; */
+}
 
-  .right-bottom{
-    width: 100%;
-    height: 20%;
-    /* border: 1px solid; */
-  }
+.right-middle {
+  width: 80%;
+  height: 40%;
+  /* border: 1px solid; */
+}
 
-  #profile{
-    min-height:500px;
-  }
+.right-bottom {
+  width: 100%;
+  height: 20%;
+  /* border: 1px solid; */
+}
 
-  .warning{
-    color: red;
-    font-weight: bold;
-  }
+#profile {
+  min-height: 500px;
+}
 
-  .info{
-    width: 60%;
-    height: 80%;
-    float: left;
-  }
+.warning {
+  color: red;
+  font-weight: bold;
+}
 
-  .info p{
-    font-weight: bold;
-    margin-top: 5%;
-    padding-left: 5%;
-    font-size: 20px;
-  }
+.info {
+  width: 60%;
+  height: 80%;
+  float: left;
+}
 
-  .info-content{
-    height: 70%;
-  }
+.info p {
+  font-weight: bold;
+  margin-top: 5%;
+  padding-left: 5%;
+  font-size: 20px;
+}
 
-  .btn{
-    display: flex;
-    margin-left: 30%;
-  }
+.info-content {
+  height: 70%;
+}
 
-  .btn button{
-    margin-top: 2%;
-    margin-left: 10%;
-  }
+.btn {
+  display: flex;
+  margin-left: 30%;
+}
 
-  .image{
-    width: 40%;
-    height: 80%;
-    float: right;
-  }
+.btn button {
+  margin-top: 2%;
+  margin-left: 10%;
+}
 
-  .image img{
-    min-width: 200px;
-    width: 80%;
-  }
+.image {
+  width: 40%;
+  height: 80%;
+  float: right;
+}
 
-  .right p{
-    margin-left: 5%;
-  }
-  
-  input{
-    border: none;
-    font-weight: bold;
-  }
+.image img {
+  min-width: 200px;
+  width: 80%;
+}
 
-  .data_table{
-    margin-left: 5%;
-    width: 95%;
-    height: 300px;
-    overflow: auto;
-  }
+.right p {
+  margin-left: 5%;
+}
 
-  .in-content{
-    width: 800px;
-    height: 500px;
-    overflow: auto;
-  }
-  
-  .good{
-    cursor: pointer;
-  }
+input {
+  border: none;
+  font-weight: bold;
+}
 
-  .good:hover{
-    font-weight: bold;
-  }
+.data_table {
+  margin-left: 5%;
+  width: 95%;
+  height: 300px;
+  overflow: auto;
+}
 
-  .transport{
-    margin-top: 80px;
-  }
+.in-content {
+  width: 800px;
+  height: 500px;
+  overflow: auto;
+}
 
-  .after{
-    float: right;
-    margin-right: 10px;
-    color: lightblue;
-    cursor: pointer;
-  }
+.good {
+  cursor: pointer;
+}
 
-  .available{
-    cursor: pointer;
-  }
-  .available:hover{
-    color: lightblue;
-    font-weight: bold;
-  }
+.good:hover {
+  font-weight: bold;
+}
+
+.transport {
+  margin-top: 80px;
+}
+
+.after {
+  float: right;
+  margin-right: 10px;
+  color: lightblue;
+  cursor: pointer;
+}
+
+.available {
+  cursor: pointer;
+}
+.available:hover {
+  color: lightblue;
+  font-weight: bold;
+}
 </style>

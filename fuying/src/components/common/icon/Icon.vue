@@ -10,25 +10,25 @@
 <script>
 export default {
   name: "Icon",
-  props:{
+  props: {
     link: {
       type: String,
       required: true
-    },
+    }
   },
   methods: {
     goPage() {
       window.location.href = this.link;
-    },
+    }
   }
-}
+};
 </script>
 
 <style scoped>
-  #icon{
-    background: gray;
-    width: 300px;
-    height: 300px;
-    cursor: pointer;
-  }
+#icon {
+  background: gray;
+  width: 300px;
+  height: 300px;
+  cursor: pointer;
+}
 </style>

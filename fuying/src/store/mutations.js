@@ -1,11 +1,10 @@
 const mutations = {
-  userStatus(state, flag){
-    state.isLogin = flag
+  userStatus(state, flag) {
+    state.isLogin = flag;
   },
-  admin(state,flag){
-    state.isAdmin = flag
-  },
-}
+  admin(state, flag) {
+    state.isAdmin = flag;
+  }
+};
 
-export default mutations
-
+export default mutations;

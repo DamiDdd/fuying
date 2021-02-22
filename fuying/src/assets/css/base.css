@@ -17,55 +17,55 @@
   --big-text: 38px; /* 较大文本font-size */
 }
 
-body{
+body {
   padding: 0;
   margin: 0;
 }
 
 /* 常用的几种字体样式 */
-.title{
+.title {
   font-size: var(--normal-text);
   color: var(--theme-color);
   font-weight: bold;
 }
 
-.content{
+.content {
   font-size: var(--normal-text);
   color: var(--text-color);
   font-weight: bold;
 }
 
-.content-blue{
+.content-blue {
   font-size: var(--normal-text);
   color: var(--theme-color);
   font-weight: bold;
 }
 
-.smalltext{
+.smalltext {
   font-size: var(--small-text);
   color: var(--text-color);
   font-weight: bold;
 }
 
-.smalltext-blue{
+.smalltext-blue {
   font-size: var(--small-text);
   color: var(--theme-color);
   font-weight: bold;
 }
 
-.bigtext{
+.bigtext {
   font-size: var(--big-text);
   color: var(--text-color);
   font-weight: bold;
 }
 
-.bigtext-blue{
+.bigtext-blue {
   font-size: var(--big-text);
   color: var(--theme-color);
   font-weight: bold;
 }
 
-.rcorner{
+.rcorner {
   border-radius: 25px;
-  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.4);
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
 }

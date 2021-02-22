@@ -28,66 +28,65 @@
 </template>
 
 <script>
-
 export default {
   name: "ImgPaper"
-}
+};
 </script>
 
 <style scoped>
-  #img-paper{
-    height: var(--paper-height);
-    width: var(--paper-width);
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid var(--theme-color);
-    margin-bottom: 10.6px;
-  }
+#img-paper {
+  height: var(--paper-height);
+  width: var(--paper-width);
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid var(--theme-color);
+  margin-bottom: 10.6px;
+}
 
-  .window{
-    height: calc(var(--paper-height-half) - 10px);
-    width: calc(var(--paper-width) - 10px);
-    border: 0.5px solid #000;
-    margin-top: 5px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.window {
+  height: calc(var(--paper-height-half) - 10px);
+  width: calc(var(--paper-width) - 10px);
+  border: 0.5px solid #000;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  .title-div{
-    height: 27px;
-    width: calc(var(--paper-width) - 10px);
-    border-width: 0 0 0.5px 0;
-    border-style: solid;
-    border-color: gray;
-  }
+.title-div {
+  height: 27px;
+  width: calc(var(--paper-width) - 10px);
+  border-width: 0 0 0.5px 0;
+  border-style: solid;
+  border-color: gray;
+}
 
-  .title-div p{
-    margin-top: 10px;
-    text-align: center;
-    color: var(--theme-color);
-    font-size: 16px;
-  }
+.title-div p {
+  margin-top: 10px;
+  text-align: center;
+  color: var(--theme-color);
+  font-size: 16px;
+}
 
-  .img-div{
-    height: 300px;
-    width: calc(var(--paper-width) - 10px);
-  }
+.img-div {
+  height: 300px;
+  width: calc(var(--paper-width) - 10px);
+}
 
-  .img-div img{
-    height: 280px;
-    margin-left: 120px;
-  }
+.img-div img {
+  height: 280px;
+  margin-left: 120px;
+}
 
-  .text-div{
-    height: 60px;
-    overflow: hidden;
-    width: calc(var(--paper-width) - 10px);
-  }
+.text-div {
+  height: 60px;
+  overflow: hidden;
+  width: calc(var(--paper-width) - 10px);
+}
 
-  .text-div p{
-    margin-top: 10px;
-    font-size: 14px;
-    text-indent: 2rem;
-    margin-left: 10px;
-  }
+.text-div p {
+  margin-top: 10px;
+  font-size: 14px;
+  text-indent: 2rem;
+  margin-left: 10px;
+}
 </style>

@@ -1,6 +1,6 @@
 const getters = {
   isLogin: state => state.isLogin,
-  isAdmin: state => state.isAdmin,
-}
+  isAdmin: state => state.isAdmin
+};
 
-export default getters
+export default getters;

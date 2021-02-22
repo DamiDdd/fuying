@@ -2,64 +2,87 @@
 
 <template>
   <div id="icon-hexa-win">
-    <IconHexagon class="left-up"><img src="~assets/img/home/enzyme.png" slot="img"><p class="content-blue" slot="text">{{$t('home.enzyme')}}</p></IconHexagon>
-    <IconHexagon class="left-down"><img src="~assets/img/home/DNA.png" slot="img"><p class="content-blue" slot="text">{{$t('home.DNA')}}</p></IconHexagon>
-    <IconHexagon class="middle-up"><img src="~assets/img/home/kinase.png" slot="img"><p class="content-blue" slot="text">{{$t('home.kinase')}}</p></IconHexagon>
-    <IconHexagon class="middle-down"><img src="~assets/img/home/antibody.png" slot="img"><p class="content-blue" slot="text">{{$t('home.antibody')}}</p></IconHexagon>
-    <IconHexagon class="right"><img src="~assets/img/home/receptor.png" slot="img"><p class="content-blue" slot="text">{{$t('home.receptor')}}</p></IconHexagon>
+    <IconHexagon class="left-up"
+      ><img src="~assets/img/home/enzyme.png" slot="img" />
+      <p class="content-blue" slot="text">
+        {{ $t("home.enzyme") }}
+      </p></IconHexagon
+    >
+    <IconHexagon class="left-down"
+      ><img src="~assets/img/home/DNA.png" slot="img" />
+      <p class="content-blue" slot="text">{{ $t("home.DNA") }}</p></IconHexagon
+    >
+    <IconHexagon class="middle-up"
+      ><img src="~assets/img/home/kinase.png" slot="img" />
+      <p class="content-blue" slot="text">
+        {{ $t("home.kinase") }}
+      </p></IconHexagon
+    >
+    <IconHexagon class="middle-down"
+      ><img src="~assets/img/home/antibody.png" slot="img" />
+      <p class="content-blue" slot="text">
+        {{ $t("home.antibody") }}
+      </p></IconHexagon
+    >
+    <IconHexagon class="right"
+      ><img src="~assets/img/home/receptor.png" slot="img" />
+      <p class="content-blue" slot="text">
+        {{ $t("home.receptor") }}
+      </p></IconHexagon
+    >
   </div>
 </template>
 
 <script>
-import IconHexagon from 'common/icon/IconHexagon'
+import IconHexagon from "common/icon/IconHexagon";
 
 export default {
   name: "IconHexaWin",
   components: {
     IconHexagon
   }
-}
+};
 </script>
 
 <style scoped>
-  #icon-hexa-win{
-    display: flex;
-    padding-top: 30px;
-  }
+#icon-hexa-win {
+  display: flex;
+  padding-top: 30px;
+}
 
-  #icon-hexa-win div{
-    display: flex;
-  }
-  
-  .left-up{
-    margin-left: 120px;
-  }
+#icon-hexa-win div {
+  display: flex;
+}
 
-  .left-down{
-    margin-top: 200px;
-    margin-left: -160px;
-  }
+.left-up {
+  margin-left: 120px;
+}
 
-  .middle-up{
-    margin-top: 20px;
-  }
+.left-down {
+  margin-top: 200px;
+  margin-left: -160px;
+}
 
-  .middle-down{    
-    margin-left: -140px;
-    margin-top: 220px;
-  }
+.middle-up {
+  margin-top: 20px;
+}
 
-  .right{
-    margin-top: 100px;
-  }
+.middle-down {
+  margin-left: -140px;
+  margin-top: 220px;
+}
 
-  .right img{
-    margin-left: -30px;
-    margin-top: 0px;
-  }
+.right {
+  margin-top: 100px;
+}
 
-  .right p{
-    margin-left: -14px;
-    margin-top: -5px;  }
+.right img {
+  margin-left: -30px;
+  margin-top: 0px;
+}
 
+.right p {
+  margin-left: -14px;
+  margin-top: -5px;
+}
 </style>
