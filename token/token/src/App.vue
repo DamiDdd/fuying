@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/Fudan.png">
-    <Login/>
+    <img alt="Vue logo" src="./assets/Fudan.png" />
+    <Login />
   </div>
 </template>
 
 <script>
-import Login from './components/Login.vue'
+import Login from "./components/Login.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Login
-  }
-}
+    Login,
+  },
+};
 </script>
 
 <style>

@@ -17,39 +17,39 @@ if __name__ == '__main__':
         "explanation": "（结果解读）本次检测结果，您的内脏脂肪、总胆固醇、少数代谢功能指数以及个别免疫功能指数存在明显异常，建议您在日常生活中注意健康饮食结构，适当进行运动，预防疾病的发生。若有不适请及时就医",
         "quality_report": [
             {"name": "血液样本",
-            "table": [['全血总量（μL）','血浆总量（μL）','血浆颜色','是否合格','操作平台','质控标准'],
-                      ['30','10','淡黄色','是','Thermo','血浆总量>5μL']]},
-            {"name":"蛋白提取",
-            "table": [['血浆上样量（μL）','蛋白质量（μg）','高丰度去除','是否合格','操作平台','质控标准'],
-                      ['2','100','是','是','Thermo','蛋白质量>30μg']]},
+             "table": [['全血总量（μL）', '血浆总量（μL）', '血浆颜色', '是否合格', '操作平台', '质控标准'],
+                       ['30', '10', '淡黄色', '是', 'Thermo', '血浆总量>5μL']]},
             {"name": "蛋白提取",
-            "table": [['血浆上样量（μL）', '蛋白质量（μg）', '高丰度去除', '是否合格', '操作平台', '质控标准'],
-                      ['2', '100', '是', '是', 'Thermo', '蛋白质量>30μg']]},
-            ],
+             "table": [['血浆上样量（μL）', '蛋白质量（μg）', '高丰度去除', '是否合格', '操作平台', '质控标准'],
+                       ['2', '100', '是', '是', 'Thermo', '蛋白质量>30μg']]},
+            {"name": "蛋白提取",
+             "table": [['血浆上样量（μL）', '蛋白质量（μg）', '高丰度去除', '是否合格', '操作平台', '质控标准'],
+                       ['2', '100', '是', '是', 'Thermo', '蛋白质量>30μg']]},
+        ],
         "mass_spectrogram_img": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\mass_spectrogram_img.png",
         "ms_text": "数据采集量1.5 G，谱图数81,220张，蛋白质鉴定总数2408。",
 
     }
     tables = [
         {"name": "基础套餐评估结果1",
-        "sum_table": [['序号','项目名称','您的预测评分','健康状态'],
-                      ['1.1','生理年龄评价','-3','较差'],
-                      ['1.2','肥胖评价','-2','正常'],
-                      ['1.3','肝功能','11','良好']],
-        "img_table": [{"title":"1.1.1 生理年龄指数","img_path":"C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.1.1.png",
-                       "description":"您的生理年龄指数预测结果为36.60,极高于您的口述年龄，您比同龄人整体更操劳，需注意日常保养，适当锻炼。"},
-                      {"title":"1.2.1 内脏脂肪率指数","img_path":"C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.2.1.png",
-                       "description":"您的内脏脂肪率指数在万人队列中的位比为92.79%，处在极高位区，表示您的内脏脂肪率指数水平高于92.79%的人群，需注意日常生活及饮食情况，根据自身需求进行相应调整。若感不适请及时就医。"},
-                      {"title": "1.2.1 内脏脂肪率指数","img_path": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.2.1.png",
-                       "description": "您的内脏脂肪率指数在万人队列中的位比为92.79%，处在极高位区，表示您的内脏脂肪率指数水平高于92.79%的人群，需注意日常生活及饮食情况，根据自身需求进行相应调整。若感不适请及时就医。"}],},
+         "sum_table": [['序号', '项目名称', '您的预测评分', '健康状态'],
+                       ['1.1', '生理年龄评价', '-3', '较差'],
+                       ['1.2', '肥胖评价', '-2', '正常'],
+                       ['1.3', '肝功能', '11', '良好']],
+         "img_table": [{"title": "1.1.1 生理年龄指数", "img_path": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.1.1.png",
+                        "description": "您的生理年龄指数预测结果为36.60,极高于您的口述年龄，您比同龄人整体更操劳，需注意日常保养，适当锻炼。"},
+                       {"title": "1.2.1 内脏脂肪率指数", "img_path": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.2.1.png",
+                        "description": "您的内脏脂肪率指数在万人队列中的位比为92.79%，处在极高位区，表示您的内脏脂肪率指数水平高于92.79%的人群，需注意日常生活及饮食情况，根据自身需求进行相应调整。若感不适请及时就医。"},
+                       {"title": "1.2.1 内脏脂肪率指数", "img_path": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.2.1.png",
+                        "description": "您的内脏脂肪率指数在万人队列中的位比为92.79%，处在极高位区，表示您的内脏脂肪率指数水平高于92.79%的人群，需注意日常生活及饮食情况，根据自身需求进行相应调整。若感不适请及时就医。"}], },
         {"name": "基础套餐评估结果2",
          "sum_table": [['序号', '项目名称', '您的预测评分', '健康状态'],
                        ['1.1', '生理年龄评价', '-3', '较差'],
                        ['1.2', '肥胖评价', '-2', '正常'],
                        ['1.3', '肝功能', '11', '良好']],
-         "img_table": [{"title": "1.1.1 生理年龄指数","img_path": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.1.1.png",
+         "img_table": [{"title": "1.1.1 生理年龄指数", "img_path": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.1.1.png",
                         "description": "您的生理年龄指数预测结果为36.60,极高于您的口述年龄，您比同龄人整体更操劳，需注意日常保养，适当锻炼。"},
-                       {"title": "1.2.1 内脏脂肪率指数","img_path": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.2.1.png",
+                       {"title": "1.2.1 内脏脂肪率指数", "img_path": "C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\079824\\1.2.1.png",
                         "description": "您的内脏脂肪率指数在万人队列中的位比为92.79%，处在极高位区，表示您的内脏脂肪率指数水平高于92.79%的人群，需注意日常生活及饮食情况，根据自身需求进行相应调整。若感不适请及时就医。"}], },
     ]
     result_report = {
@@ -67,6 +67,6 @@ if __name__ == '__main__':
     print(json_str)
     new_dict = json.loads(json_str)
     print(new_dict)
-    with open("C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\tables.json","w") as f:
-        json.dump(tables,f)
+    with open("C:\\Users\\User\\Desktop\\fuying\\fuying\\pdf_transfer\\tables.json", "w") as f:
+        json.dump(tables, f)
         print("finish")

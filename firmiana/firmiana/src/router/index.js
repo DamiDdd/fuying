@@ -1,13 +1,13 @@
 // 路由
 
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
 
 // 设置懒加载
-const Register = () => import('../components/Register')
+const Register = () => import("../components/Register");
 
 // 1.安装VueRouter
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 // 2.配置路由信息
 // meta中包含的属性
@@ -15,23 +15,23 @@ Vue.use(VueRouter)
 // isAdmin：对管理员权限的要求
 const routes = [
   {
-    path: '/',
-    redirect: '/register'
+    path: "/",
+    redirect: "/register",
   },
   {
-    path: '/register',
+    path: "/register",
     component: Register,
     // meta:{
     //   isLogin: false,
     // },
   },
-]
+];
 
 // 3.创建路由对象
 const router = new VueRouter({
-  mode: 'history',
-  routes
-})
+  mode: "history",
+  routes,
+});
 
 // 4.导出
-export default router
+export default router;
