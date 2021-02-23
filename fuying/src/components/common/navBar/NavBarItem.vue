@@ -39,7 +39,7 @@ export default {
   flex: 1;
   font-size: 17px;
   margin-top: 3px;
-  color: #333;
+  color: white;
   float: left;
   min-width: 90px;
   cursor: pointer;

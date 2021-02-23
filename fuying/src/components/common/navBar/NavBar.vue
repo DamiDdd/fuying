@@ -18,7 +18,8 @@ export default {
 #nav-bar {
   height: 50px;
   overflow: auto;
-  position: relative;
+  /* position: relative; */
+  position: fixed;
   z-index: 10;
   display: flex;
   width: var(--screen-width);
@@ -26,6 +27,8 @@ export default {
   line-height: 44px;
   text-align: center;
   overflow: hidden;
+  background: #222222;
+  opacity: 60%;
 }
 
 .nav-logo {

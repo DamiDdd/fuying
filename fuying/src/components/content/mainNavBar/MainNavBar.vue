@@ -18,10 +18,10 @@
       >
       <div class="right">
         <el-dropdown placement="bottom" trigger="click" @command="batchOperate">
-          <el-button class="search-btn" size="mini">
-            language/语言
-          </el-button>
-          <el-dropdown-menu slot="dropdown">
+          <span class="el-dropdown-link">
+            语言/Language
+          </span>
+          <el-dropdown-menu slot="dropdown" class="dropdown">
             <el-dropdown-item command="cn">中文</el-dropdown-item>
             <el-dropdown-item command="en">ENGLISH</el-dropdown-item>
           </el-dropdown-menu>
@@ -84,5 +84,17 @@ export default {
   margin-left: 92%;
   width: 100px;
   /* background: gray; */
+}
+
+.el-dropdown-link {
+  cursor: pointer;
+  color: white;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.dropdown {
+  /* background: #000; */
+  padding-top: 0px;
 }
 </style>

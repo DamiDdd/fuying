@@ -1,7 +1,7 @@
 <template>
   <div id="app" @click="clicked">
     <main-nav-bar></main-nav-bar>
-    <router-view v-if="isRouterAlive" />
+    <router-view class="MAIN" v-if="isRouterAlive" />
     <side-bar></side-bar>
     <main-footer></main-footer>
     <back-to-top
@@ -95,4 +95,7 @@ export default {
 
 <style>
 @import "assets/css/base.css";
+.MAIN {
+  padding-top: 40px;
+}
 </style>
