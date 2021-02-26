@@ -28,7 +28,11 @@ export default {
   text-align: center;
   overflow: hidden;
   background: #222222;
-  opacity: 60%;
+  opacity: 50%;
+}
+
+#nav-bar:hover {
+  opacity: 80%;
 }
 
 .nav-logo {

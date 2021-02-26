@@ -325,19 +325,19 @@ export default {
                   });
                   // 自动登录代码因为接口不返回是否为管理员，暂时停用，需手动登录
                   // that.$store.dispatch("setUser",true);
-                  // // 本地存储登录信息
+                  // 本地存储登录信息
                   // localStorage.setItem("userPhone",that.ruleForm["phone"]);
                 } else {
                   if (data["msg"] === "验证码错误") {
                     that.$message({
                       type: "warning",
-                      message: this.$t("tips.errorverify")
+                      message: that.$t("tips.errorverify")
                     });
                   } else if (data["msg"] === "此手机号已注册") {
                     that.$message({
                       type: "warning",
                       message:
-                        that.ruleForm["phone"] + this.$t("tips.registered")
+                        that.ruleForm["phone"] + that.$t("tips.registered")
                     });
                   }
                 }

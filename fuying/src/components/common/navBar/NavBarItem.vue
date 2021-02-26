@@ -45,8 +45,9 @@ export default {
   cursor: pointer;
 }
 
-.focus {
+/* .focus {
   /* background: url("~assets/img/common/topbar-bt-bg.png") no-repeat bottom center; */
-  font-weight: bold;
-}
+  /* font-weight: bold; */
+  /* color: wheat; */
+/* }  */
 </style>

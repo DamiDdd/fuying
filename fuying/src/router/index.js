@@ -30,6 +30,7 @@ const Payment = () => import("views/order/Payment");
 const UploadGood = () => import("views/manager/UploadGood");
 const Health = () => import("views/profile/Health");
 const Homepage = () => import("views/homepage/Homepage");
+const Login2 = () => import("views/login/Login2");
 
 // 1.安装VueRouter
 Vue.use(VueRouter);
@@ -45,7 +46,7 @@ const routes = [
   },
   {
     path: "/home",
-    component: Home
+    component: Homepage
   },
   {
     path: "/intro",
@@ -160,7 +161,14 @@ const routes = [
   },
   {
     path: "/homepage",
-    component: Homepage
+    component: Home
+  },
+  {
+    path: "/login2",
+    component: Login2,
+    meta: {
+      isLogin: false
+    }
   }
 ];
 

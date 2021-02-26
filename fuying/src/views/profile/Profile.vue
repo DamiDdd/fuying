@@ -318,7 +318,7 @@ export default {
   height: 1000px;
   /* border: 1px solid; */
   /* margin-left: 14%; */
-  margin-top: 80px;
+  padding-top: 80px;
   display: flex;
 }
 

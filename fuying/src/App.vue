@@ -2,8 +2,8 @@
   <div id="app" @click="clicked">
     <main-nav-bar></main-nav-bar>
     <router-view class="MAIN" v-if="isRouterAlive" />
-    <side-bar></side-bar>
-    <main-footer></main-footer>
+    <!-- <side-bar></side-bar> -->
+    <Footer></Footer>
     <back-to-top
       transitionName="fade"
       :customStyle="myBackToTopStyle"
@@ -16,9 +16,10 @@
 
 <script>
 import MainNavBar from "content/mainNavBar/MainNavBar";
-import MainFooter from "content/mainFooter/MainFooter";
-import SideBar from "common/sideBar/SideBar";
+// import MainFooter from "content/mainFooter/MainFooter";
+// import SideBar from "common/sideBar/SideBar";
 import BackToTop from "common/backToTop/BackToTop";
+import Footer from "content/footer/Footer";
 
 export default {
   name: "App",
@@ -47,9 +48,10 @@ export default {
   },
   components: {
     MainNavBar,
-    MainFooter,
-    SideBar,
-    BackToTop
+    // MainFooter,
+    // SideBar,
+    BackToTop,
+    Footer
   },
   mounted() {
     window.setInterval(this.tTime, 1000);
@@ -95,7 +97,4 @@ export default {
 
 <style>
 @import "assets/css/base.css";
-.MAIN {
-  padding-top: 40px;
-}
 </style>

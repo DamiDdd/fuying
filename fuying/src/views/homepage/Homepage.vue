@@ -1,5 +1,32 @@
 <template>
-  <div></div>
+  <div class="main">
+    <div class="contain">
+      <el-carousel trigger="click" height="880px">
+        <el-carousel-item v-for="item in 4" :key="item">
+          <h3 class="small">{{ item }}</h3>
+        </el-carousel-item>
+      </el-carousel>
+    </div>
+    <div class="showdata">
+      <h1 class="bigtext-blue first">复瑛健康</h1>
+      <h1 class="bigtext-blue">蛋白质医学研发网络</h1>
+      <br />
+      <h3>三个计算中心 亿级存储计算能力，万级并发服务能力</h3>
+      <h3>三个检测中心 十万级检测能力</h3>
+      <h3>九个队列中心 万级样本</h3>
+      <img src="~assets/img/home/map.png" />
+    </div>
+    <div class="company">
+      <el-row :gutter="8">
+        <h2 style="text-align: center;" class="content title">合作伙伴</h2>
+        <el-col v-for="item in 6" :key="item" :span="4">
+          <el-card shadow="always" style="width: 140px;">
+            <img src="~assets/img/home/university/Fudan.png" />
+          </el-card>
+        </el-col>
+      </el-row>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -8,4 +35,67 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.main {
+  background: #fffafa;
+}
+
+.contain {
+  width: 100%;
+  min-height: 1000px;
+  text-align: center;
+}
+
+.showdata {
+  background: white;
+  position: relative;
+  width: 1600px;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.showdata img {
+  float: right;
+  position: absolute;
+  right: 100px;
+  bottom: 100px;
+}
+
+.showdata h1,
+h3 {
+  margin-left: 200px;
+  margin-top: 20px;
+}
+
+.company {
+  width: 1000px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.company img {
+  width: 112px;
+}
+
+.title {
+  margin-bottom: 30px;
+}
+
+.el-carousel__item h3 {
+  color: #475669;
+  font-size: 14px;
+  opacity: 0.75;
+  line-height: 150px;
+  margin: 0;
+}
+
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
+}
+</style>
