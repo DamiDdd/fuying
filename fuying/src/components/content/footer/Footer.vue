@@ -58,7 +58,7 @@ export default {
   margin-left: auto;
   margin-right: auto;
   color: white;
-  opacity: 60%;
+  opacity: 0.6;
 }
 .center h5 {
   padding-top: 80px;
