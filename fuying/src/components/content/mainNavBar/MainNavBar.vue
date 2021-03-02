@@ -21,8 +21,8 @@
         </div></nav-bar-item
       >
       <div class="right">
-        <el-dropdown placement="bottom" trigger="click" @command="batchOperate">
-          <span class="el-dropdown-link focus">
+        <el-dropdown placement="bottom" trigger="hover" @command="batchOperate">
+          <span class="el-dropdown-link focus btn">
             语言/Language
           </span>
           <el-dropdown-menu slot="dropdown" class="dropdown">
@@ -91,8 +91,8 @@ export default {
 
 .right {
   margin-top: 3px;
-  margin-left: 92%;
-  width: 100px;
+  margin-left: 80%;
+  width: 500px;
   /* background: gray; */
 }
 
@@ -101,6 +101,10 @@ export default {
   color: white;
   padding-bottom: 0px;
   margin-bottom: 0px;
+}
+
+.focus{
+  font-size: 16px;
 }
 
 .focus:hover {
