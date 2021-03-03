@@ -66,7 +66,9 @@
 
 <script>
 // 本地notfound图片
-import notfound from "../../../assets/img/common/notfound.png";
+// import notfound from "../../../assets/img/common/notfound.png";
+import temp1 from "../../../assets/img/bg/bgtemp1.jpg";
+import temp2 from "../../../assets/img/bg/bgtemp2.jpg";
 
 export default {
   name: "slider",
@@ -92,15 +94,15 @@ export default {
       default() {
         return [
           // 用于测试
-          // {
-          //   img:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599128436987&di=fb96b4b13f8107675eb1e46ec461535d&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fa1098535f9b8bde03b5cfcfec48627320d1f12a15100f-o1IY9b_fw658'
-          // },
-          // {
-          //   img:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599128436986&di=8771b1e83895e6cd2b3ac15d83adda55&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F1%2F57bd44387447f.jpg'
-          // }]
           {
-            img: notfound
+            img: temp1
+          },
+          {
+            img: temp2
           }
+          // {
+          //   img: notfound
+          // }
         ];
       }
     }

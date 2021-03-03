@@ -2,6 +2,7 @@
 
 <template>
   <div id="products">
+    <img class="nav-bg" src="~assets/img/bg/item-bg.jpg" alt="/" />
     <cart-icon :iconStyle="cartIconStyle"></cart-icon>
     <div class="main-div">
       <div
@@ -67,6 +68,12 @@ export default {
 </script>
 
 <style scoped>
+.nav-bg {
+  width: 100%;
+  min-width: 1200px;
+  height: 200px;
+}
+
 #products {
   min-height: 700px;
 }
@@ -74,17 +81,19 @@ export default {
 .main-div {
   padding-left: 13%;
   padding-top: 2%;
+  min-height: 700px;
 }
 .icon {
   width: 100%;
   min-width: 1000px;
+  margin-left: 40px;
 }
 
 /* 显示交错效果 */
-.icon:nth-of-type(odd) {
+/* .icon:nth-of-type(odd) {
   margin-left: -20px;
 }
 .icon:nth-of-type(even) {
   margin-left: 40px;
-}
+} */
 </style>

@@ -277,7 +277,7 @@ export default {
   margin-right: auto;
   margin-top: 250px;
   z-index: 2;
-  opacity: 80%;
+  opacity: 0.8;
 }
 
 .after-text {

@@ -8,9 +8,12 @@
       @mouseenter="changeFocus"
       @mouseleave="removeFocus"
     >
-      <div class="title"><slot name="title"></slot></div>
       <div class="img"><slot name="img"></slot></div>
-      <div class="desc"><slot name="desc"></slot></div>
+      <!-- <div class="img"><img src="~assets/img/bg/bgtemp3.jpg" /></div> -->
+      <div class="title"><slot name="title"></slot></div>
+      <div class="desc">
+        <slot name="desc"></slot><a class="text">->点击了解详情</a>
+      </div>
     </div>
   </div>
 </template>
@@ -43,31 +46,41 @@ export default {
   background-size: 100% 100%;
   cursor: pointer;
 }
-.title {
-  margin-left: 20px;
-  width: 14%;
-  font-size: 36px;
-  line-height: 50px;
-}
+
 .img img {
   height: 160px;
-  max-width: 180px;
+  width: 300px;
   margin-top: 10%;
 }
+.title {
+  margin-left: 20px;
+  width: 1000px;
+  height: 80px;
+  font-size: 36px;
+}
 .desc {
-  height: 50%;
-  width: 50%;
-  margin-left: 13%;
-  margin-top: 3%;
+  margin-left: 320px;
+  margin-top: 100px;
+  height: 100px;
+  width: 1000px;
+  position: absolute;
   font-size: 20px;
   font-weight: 550;
 }
 .focus {
-  border: 2px solid var(--theme-color);
+  border: 1px solid var(--theme-color);
   border-radius: 15px;
 }
 .unfocus {
-  border: 1px solid white;
+  border: 1px solid var(--theme-color);
   border-radius: 15px;
+}
+
+.text {
+  text-decoration: underline;
+}
+
+.text:hover {
+  color: red;
 }
 </style>
