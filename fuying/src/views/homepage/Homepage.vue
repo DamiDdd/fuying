@@ -10,26 +10,26 @@
     <div class="menu">
       <div class="btn-window">
         <div class="icon">
-          <img src="~assets/img/common/detect.png" alt="" />
+          <img src="~assets/img/common/microscope.png" alt="" />
           <h3>科技服务</h3>
         </div>
       </div>
       <div class="btn-window">
         <div class="icon">
           <img src="~assets/img/common/detect.png" alt="" />
+          <h3>技术原理</h3>
+        </div>
+      </div>
+      <div class="btn-window">
+        <div class="icon">
+          <img src="~assets/img/common/listener.png" alt="" />
           <h3>科技服务</h3>
         </div>
       </div>
       <div class="btn-window">
         <div class="icon">
-          <img src="~assets/img/common/detect.png" alt="" />
-          <h3>科技服务</h3>
-        </div>
-      </div>
-      <div class="btn-window">
-        <div class="icon">
-          <img src="~assets/img/common/detect.png" alt="" />
-          <h3>科技服务</h3>
+          <img src="~assets/img/common/protein.png" alt="" />
+          <h3>健康问答</h3>
         </div>
       </div>
     </div>

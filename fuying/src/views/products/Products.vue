@@ -2,9 +2,9 @@
 
 <template>
   <div id="products">
-    <img class="nav-bg" src="~assets/img/bg/item-bg.jpg" alt="/" />
+    <img class="nav-bg" src="~assets/img/bg/products-bg.jpg" alt="/" />
     <cart-icon :iconStyle="cartIconStyle"></cart-icon>
-    <div class="main-div">
+    <!-- <div class="main-div">
       <div
         class="icon"
         v-for="(item, index) in goodList"
@@ -17,12 +17,32 @@
           <p slot="desc">{{ item.desc }}</p>
         </item-window>
       </div>
+    </div> -->
+    <div class="product-div">
+      <div
+        v-for="(item, index) in goodList"
+        :key="index"
+        @click="enterDetail(item.id)"
+        class="item-div"
+        style="cursor: pointer;"
+      >
+        <div class="text">
+          {{ item.title }}
+          <br />
+          {{ item.desc }}
+        </div>
+      </div>
+      <div class="item-div">
+        <div class="text">
+          敬请期待
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import ItemWindow from "components/common/mall/ItemWindow";
+// import ItemWindow from "components/common/mall/ItemWindow";
 import CartIcon from "components/common/cart/CartIcon";
 import Axios from "axios";
 import GLOBAL from "@/common/const";
@@ -30,7 +50,7 @@ import GLOBAL from "@/common/const";
 export default {
   name: "Products",
   components: {
-    ItemWindow,
+    // ItemWindow,
     CartIcon
   },
   data() {
@@ -70,7 +90,7 @@ export default {
 <style scoped>
 .nav-bg {
   width: 100%;
-  min-width: 1200px;
+  min-width: 1000px;
   height: 200px;
 }
 
@@ -89,11 +109,33 @@ export default {
   margin-left: 40px;
 }
 
-/* 显示交错效果 */
-/* .icon:nth-of-type(odd) {
-  margin-left: -20px;
+.product-div {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 1000px;
+  height: 700px;
+  /* background: gray; */
 }
-.icon:nth-of-type(even) {
-  margin-left: 40px;
-} */
+
+.item-div {
+  width: 33.2%;
+  height: 100%;
+  float: left;
+  background: #000;
+  opacity: 0.4;
+  border: 1px solid white;
+  /* color: white; */
+}
+
+.item-div:hover {
+  opacity: 0.8;
+}
+
+.text {
+  /* background: yellow; */
+  color: white;
+  margin-top: 500px;
+  height: 200px;
+}
 </style>
