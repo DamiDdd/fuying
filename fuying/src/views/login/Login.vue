@@ -20,7 +20,7 @@
       <div class="poster hidden" v-if="!vedioCanPlay">
         <img
           :style="fixStyle"
-          src="~assets/img/bg/video-loading-bg.png"
+          src="~assets/img/bg/video-loading-bg.jpg"
           alt=""
         />
       </div>

@@ -11,7 +11,8 @@ VueRouter.prototype.push = function push(location) {
 };
 
 // 设置懒加载
-const Home = () => import("views/home/Home");
+// const Home = () => import("views/home/Home");
+// const Login2 = () => import("views/login/Login2");
 const Intro = () => import("views/intro/Intro");
 const Login = () => import("views/login/Login");
 const News = () => import("views/news/News");
@@ -30,7 +31,6 @@ const Payment = () => import("views/order/Payment");
 const UploadGood = () => import("views/manager/UploadGood");
 const Health = () => import("views/profile/Health");
 const Homepage = () => import("views/homepage/Homepage");
-const Login2 = () => import("views/login/Login2");
 
 // 1.安装VueRouter
 Vue.use(VueRouter);
@@ -158,18 +158,18 @@ const routes = [
     meta: {
       isLogin: true
     }
-  },
-  {
-    path: "/homepage",
-    component: Home
-  },
-  {
-    path: "/login2",
-    component: Login2,
-    meta: {
-      isLogin: false
-    }
   }
+  // {
+  //   path: "/homepage",
+  //   component: Home
+  // },
+  // {
+  //   path: "/login2",
+  //   component: Login2,
+  //   meta: {
+  //     isLogin: false
+  //   }
+  // }
 ];
 
 // 3.创建路由对象

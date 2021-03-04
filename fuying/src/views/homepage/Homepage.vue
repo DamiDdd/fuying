@@ -7,6 +7,32 @@
         </el-carousel-item>
       </el-carousel>
     </div>
+    <div class="menu">
+      <div class="btn-window">
+        <div class="icon">
+          <img src="~assets/img/common/detect.png" alt="" />
+          <h3>科技服务</h3>
+        </div>
+      </div>
+      <div class="btn-window">
+        <div class="icon">
+          <img src="~assets/img/common/detect.png" alt="" />
+          <h3>科技服务</h3>
+        </div>
+      </div>
+      <div class="btn-window">
+        <div class="icon">
+          <img src="~assets/img/common/detect.png" alt="" />
+          <h3>科技服务</h3>
+        </div>
+      </div>
+      <div class="btn-window">
+        <div class="icon">
+          <img src="~assets/img/common/detect.png" alt="" />
+          <h3>科技服务</h3>
+        </div>
+      </div>
+    </div>
     <div class="showdata">
       <h1 class="bigtext-blue first">复瑛健康</h1>
       <h1 class="bigtext-blue">蛋白质医学研发网络</h1>
@@ -55,21 +81,70 @@ export default {
   text-align: center;
 }
 
+.menu {
+  margin-top: -120px;
+  width: 100%;
+  min-width: 1000px;
+  height: 860px;
+  background: url("~assets/img/bg/home-bg.jpg") no-repeat center;
+}
+
+.btn-window {
+  width: 24.8%;
+  height: 100%;
+  float: left;
+  background: #000;
+  opacity: 0.8;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+}
+
+.icon {
+  width: 220px;
+  height: 220px;
+  /* background: gray; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 320px;
+}
+
+.icon img {
+  height: 200px;
+  width: 200px;
+  margin-left: 10px;
+}
+
+.icon h3 {
+  padding-left: 20px;
+}
+
+.btn-window:hover {
+  opacity: 0.6;
+  /* font-size: 20px; */
+}
+
 .showdata {
-  background: white;
+  background: -webkit-linear-gradient(top, white, lightblue, white);
+  padding-top: 30px;
   position: relative;
   min-width: 1000px;
   height: 500px;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 100px;
 }
 
 .showdata img {
   float: right;
   position: absolute;
-  right: 150px;
+  right: 15%;
   bottom: 100px;
   opacity: 0.6;
+}
+
+.showdata img:hover {
+  opacity: 1;
 }
 
 .showdata h1,
