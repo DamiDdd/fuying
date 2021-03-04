@@ -251,6 +251,7 @@ export default {
 .homepage-hero-module,
 .video-container {
   position: relative;
+  min-width: 1000px;
   height: 1100px;
   overflow: hidden;
   margin-bottom: -22px;

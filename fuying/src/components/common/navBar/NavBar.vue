@@ -17,13 +17,12 @@ export default {
 <style scoped>
 #nav-bar {
   height: 50px;
-  overflow: auto;
   /* position: relative; */
   position: fixed;
   z-index: 10;
   display: flex;
   width: var(--screen-width);
-  min-width: var(--min-width);
+  min-width: 800px;
   line-height: 44px;
   text-align: center;
   overflow: hidden;

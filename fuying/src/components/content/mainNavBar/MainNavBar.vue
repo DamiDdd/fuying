@@ -90,9 +90,10 @@ export default {
 }
 
 .right {
+  position: absolute;
   margin-top: 3px;
-  margin-left: 80%;
-  width: 500px;
+  right: 100px;
+  width: 200px;
   /* background: gray; */
 }
 

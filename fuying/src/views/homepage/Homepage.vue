@@ -50,6 +50,7 @@ export default {
 
 .contain {
   width: 100%;
+  min-width: 1000px;
   min-height: 1000px;
   text-align: center;
 }
@@ -57,7 +58,7 @@ export default {
 .showdata {
   background: white;
   position: relative;
-  width: 1600px;
+  min-width: 1000px;
   height: 500px;
   margin-left: auto;
   margin-right: auto;
@@ -66,14 +67,15 @@ export default {
 .showdata img {
   float: right;
   position: absolute;
-  right: 100px;
+  right: 150px;
   bottom: 100px;
+  opacity: 0.6;
 }
 
 .showdata h1,
 h3 {
-  margin-left: 200px;
-  margin-top: 20px;
+  position: relative;
+  margin-left: 20%;
 }
 
 .company {
