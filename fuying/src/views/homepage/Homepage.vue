@@ -3,7 +3,9 @@
     <div class="contain">
       <el-carousel trigger="click" height="880px">
         <el-carousel-item v-for="item in imgsrc" :key="item">
-          <h3 class="small"><img :src="item" /></h3>
+          <h3 class="small">
+            <img width="100%" height="1000px" :src="item" />
+          </h3>
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -56,14 +58,14 @@
 </template>
 
 <script>
-import temp1 from "../../assets/img/bg/bgtemp1.jpg";
-import temp2 from "../../assets/img/bg/bgtemp2.jpg";
+import doctor from "../../assets/img/bg/doctor-bg.jpg";
+import medical from "../../assets/img/bg/medical-bg.jpg";
 
 export default {
   name: "Homepage",
   data() {
     return {
-      imgsrc: [temp1, temp2]
+      imgsrc: [doctor, medical]
     };
   }
 };

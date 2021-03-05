@@ -16,7 +16,7 @@ export default {
 
 <style scoped>
 #nav-bar {
-  height: 50px;
+  height: 70px;
   /* position: relative; */
   position: fixed;
   z-index: 10;
@@ -40,7 +40,7 @@ export default {
 
 .nav-logo img {
   /* width: 24px; */
-  height: 34px;
+  height: 45px;
   margin-top: 5px;
   margin-left: 20px;
   vertical-align: middle;
@@ -48,7 +48,7 @@ export default {
 
 .nav-center {
   flex: 1;
-  margin-left: 2%;
+  margin-left: 4%;
   /* margin-left: 70%; */
 }
 

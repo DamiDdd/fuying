@@ -94,6 +94,7 @@ export default {
   margin-top: 3px;
   right: 100px;
   width: 200px;
+  font-size: 27px;
   /* background: gray; */
 }
 
@@ -104,8 +105,7 @@ export default {
   margin-bottom: 0px;
 }
 
-.focus{
-  font-size: 16px;
+.focus {
 }
 
 .focus:hover {

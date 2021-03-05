@@ -38,7 +38,7 @@ export default {
 #nav-bar-item {
   flex: 1;
   font-size: 17px;
-  margin-top: 3px;
+  margin-top: 8px;
   color: white;
   float: left;
   min-width: 90px;
