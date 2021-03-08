@@ -1,10 +1,10 @@
 <template>
   <div class="main">
     <div class="contain">
-      <el-carousel trigger="click" height="880px">
+      <el-carousel trigger="click" height="1000px">
         <el-carousel-item v-for="item in imgsrc" :key="item">
           <h3 class="small">
-            <img width="100%" height="1000px" :src="item" />
+            <img width="100%" :src="item" />
           </h3>
         </el-carousel-item>
       </el-carousel>
@@ -84,10 +84,10 @@ export default {
 }
 
 .menu {
-  margin-top: -120px;
+  margin-top: 0px;
   width: 100%;
   min-width: 1000px;
-  height: 860px;
+  height: 900px;
   background: url("~assets/img/bg/home-bg.jpg") no-repeat center;
 }
 
