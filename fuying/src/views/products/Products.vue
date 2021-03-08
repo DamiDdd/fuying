@@ -32,7 +32,7 @@
           {{ item.desc }}
         </div>
       </div>
-      <div class="item-div">
+      <div class="item-div third">
         <div class="text">
           敬请期待
         </div>
@@ -122,10 +122,24 @@ export default {
   width: 33.2%;
   height: 100%;
   float: left;
-  background: #000;
-  opacity: 0.4;
+  /* background: #000; */
+  opacity: 1;
   border: 1px solid white;
   /* color: white; */
+}
+
+.item-div:nth-child(1) {
+  background: url("~assets/img/bg/health-bg.jpg") center bottom;
+  background-size: cover;
+}
+
+.item-div:nth-child(2) {
+  background: url("~assets/img/bg/cancer-bg.jpg");
+  background-size: cover;
+}
+
+.third {
+  background: url("~assets/img/bg/star-bg.jpg");
 }
 
 .item-div:hover {

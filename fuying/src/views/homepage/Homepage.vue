@@ -30,7 +30,7 @@
       </div>
       <div class="btn-window">
         <div class="icon">
-          <img src="~assets/img/common/protein.png" alt="" />
+          <img src="~assets/img/common/find.png" alt="" />
           <h3>健康问答</h3>
         </div>
       </div>
