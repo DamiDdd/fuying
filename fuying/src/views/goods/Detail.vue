@@ -9,7 +9,7 @@
       <div class="right"><good-view :item="good"></good-view></div>
     </div>
     <div class="img-window">
-      <div class="label">
+      <!-- <div class="label">
         <div
           class="type"
           v-for="(i, index) in good.imgs"
@@ -21,13 +21,28 @@
             {{ i.name }}
           </div>
         </div>
-      </div>
-      <div class="imgs">
-        <img
-          v-for="(i, index) in good.imgs[this.index].imgs"
-          :key="index"
-          :src="i"
-        />
+      </div> -->
+      <div>
+        <div class="left-window">
+          <p v-for="(i, index) in good.imgs" :key="index" @click="jump(index)">
+            {{ i.name }}
+          </p>
+        </div>
+        <div
+          v-for="(i, index2) in good.imgs"
+          :key="index2"
+          :index="i"
+          class="imgs d_jump"
+        >
+          <el-image
+            v-for="img in good.imgs[index2].imgs"
+            :key="img"
+            :src="img"
+            lazy
+            style="width:80%; margin-left: 5%; padding-top: 0.5%;"
+          >
+          </el-image>
+        </div>
       </div>
     </div>
   </div>
@@ -129,6 +144,44 @@ export default {
     },
     removeFocus(e) {
       e.currentTarget.className = "";
+    },
+    jump(index) {
+      // 用 class="d_jump" 添加锚点
+      let jump = document.querySelectorAll(".d_jump");
+      let total = jump[index].offsetTop;
+      let distance =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      // 平滑滚动，时长500ms，每10ms一跳，共50跳
+      let step = total / 50;
+      if (total > distance) {
+        smoothDown();
+      } else {
+        let newTotal = distance - total;
+        step = newTotal / 50;
+        smoothUp();
+      }
+      function smoothDown() {
+        if (distance < total) {
+          distance += step;
+          document.body.scrollTop = distance;
+          document.documentElement.scrollTop = distance;
+          setTimeout(smoothDown, 10);
+        } else {
+          document.body.scrollTop = total;
+          document.documentElement.scrollTop = total;
+        }
+      }
+      function smoothUp() {
+        if (distance > total) {
+          distance -= step;
+          document.body.scrollTop = distance;
+          document.documentElement.scrollTop = distance;
+          setTimeout(smoothUp, 10);
+        } else {
+          document.body.scrollTop = total;
+          document.documentElement.scrollTop = total;
+        }
+      }
     }
   }
 };
@@ -189,19 +242,30 @@ export default {
   background-size: 90% 10%;
   font-weight: 600;
 }
-.imgs {
-  padding-top: 45px;
-  padding-bottom: 200px;
+.left-window {
+  /* background: #000; */
+  width: 100px;
+  height: 100px;
+  left: 250px;
+  float: left;
+  position: fixed;
 }
-.imgs img {
-  width: 90%;
-  margin-left: 5%;
-  padding-top: 0.5%;
+.left-window p {
+  cursor: pointer;
+  color: var(--theme-color);
 }
-.imgs img:first-of-type {
-  padding-top: 0;
+
+.left-window p:hover {
+  font-weight: bold;
 }
 .focus {
   font-weight: 600;
+}
+.windows {
+  width: 80%;
+  min-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  /* background: #000; */
 }
 </style>

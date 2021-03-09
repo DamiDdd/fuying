@@ -2,7 +2,7 @@
 
 <template>
   <div id="products">
-    <img class="nav-bg" src="~assets/img/bg/products-bg.jpg" alt="/" />
+    <img class="nav-bg" src="~assets/img/bg/item-bg.jpg" alt="/" />
     <cart-icon :iconStyle="cartIconStyle"></cart-icon>
     <!-- <div class="main-div">
       <div
@@ -18,23 +18,24 @@
         </item-window>
       </div>
     </div> -->
-    <div class="product-div">
-      <div
-        v-for="(item, index) in goodList"
-        :key="index"
-        @click="enterDetail(item.id)"
-        class="item-div"
-        style="cursor: pointer;"
-      >
-        <div class="text">
-          {{ item.title }}
-          <br />
-          {{ item.desc }}
+    <div class="bg-div">
+      <div class="product-div">
+        <div
+          v-for="(item, index) in goodList"
+          :key="index"
+          @click="enterDetail(item.id)"
+          class="item-div"
+          style="cursor: pointer;"
+        >
+          <div class="text">
+            <p class="title">{{ item.title }}</p>
+            <p>{{ item.desc }}</p>
+          </div>
         </div>
-      </div>
-      <div class="item-div third">
-        <div class="text">
-          敬请期待
+        <div class="item-div third">
+          <div class="text">
+            <p class="title" style="color: white;">敬请期待</p>
+          </div>
         </div>
       </div>
     </div>
@@ -103,10 +104,18 @@ export default {
   padding-top: 2%;
   min-height: 700px;
 }
+
 .icon {
   width: 100%;
   min-width: 1000px;
   margin-left: 40px;
+}
+
+.bg-div {
+  width: 100%;
+  min-height: 720px;
+  background: url("~assets/img/bg/colorful-bg.jpg");
+  background-size: cover;
 }
 
 .product-div {
@@ -115,7 +124,6 @@ export default {
   margin-right: auto;
   min-width: 1000px;
   height: 700px;
-  /* background: gray; */
 }
 
 .item-div {
@@ -139,7 +147,8 @@ export default {
 }
 
 .third {
-  background: url("~assets/img/bg/star-bg.jpg");
+  background: url("~assets/img/bg/intro-bg.jpg");
+  background-size: cover;
 }
 
 .item-div:hover {
@@ -148,8 +157,9 @@ export default {
 
 .text {
   /* background: yellow; */
-  color: white;
+  color: var(--theme-color);
   margin-top: 500px;
   height: 200px;
+  margin-left: 20px;
 }
 </style>

@@ -46,7 +46,8 @@ export default {
   width: 100%;
   min-width: 1000px;
   height: 200px;
-  background: #000;
+  /* background: #000; */
+  background: -webkit-linear-gradient(top, white, black);;
   position: relative;
 }
 
