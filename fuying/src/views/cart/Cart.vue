@@ -39,10 +39,10 @@
         <table class="el-table el-table--fit el-table--border table-detail">
           <thead>
             <tr>
-              <th width="200px">{{ $t("cart.package") }}</th>
-              <th width="200px">{{ $t("cart.service") }}</th>
-              <th width="200px">{{ $t("cart.price") }}</th>
-              <th width="200px">{{ $t("cart.total") }}</th>
+              <th width="12.5rem /* 200/16 */">{{ $t("cart.package") }}</th>
+              <th width="12.5rem /* 200/16 */">{{ $t("cart.service") }}</th>
+              <th width="12.5rem /* 200/16 */">{{ $t("cart.price") }}</th>
+              <th width="12.5rem /* 200/16 */">{{ $t("cart.total") }}</th>
             </tr>
           </thead>
           <tbody>
@@ -61,7 +61,7 @@
           :model="ruleForm"
           :rules="rules"
           ref="ruleForm"
-          label-width="100px"
+          label-width="6.25rem /* 100/16 */"
           class="demo-ruleForm"
         >
           <el-form-item :label="$t('public.name')" prop="user_name"
@@ -338,25 +338,25 @@ export default {
 
 <style scoped>
 #cart {
-  min-height: 800px;
+  min-height: 50rem /* 800/16 */;
 }
 .title {
-  margin-left: 400px;
+  margin-left: 25rem /* 400/16 */;
 }
 .empty {
-  margin-left: 400px;
+  margin-left: 25rem /* 400/16 */;
 }
 .tips {
   width: 60%;
-  min-width: 800px;
-  height: 40px;
-  margin-left: 400px;
+  min-width: 50rem /* 800/16 */;
+  height: 2.5rem /* 40/16 */;
+  margin-left: 25rem /* 400/16 */;
   text-align: center;
   display: flex;
 }
 .flag {
   width: 10%;
-  margin-left: 20px;
+  margin-left: 1.25rem /* 20/16 */;
 }
 .img {
   width: 16%;
@@ -383,16 +383,16 @@ export default {
   width: 70%;
   text-align: right;
   font-weight: bold;
-  font-size: 20px;
-  padding-top: 10px;
+  font-size: 1.25rem /* 20/16 */;
+  padding-top: .625rem /* 10/16 */;
   /* color: red; */
 }
 .price {
   width: 18%;
   text-align: center;
   font-weight: bold;
-  font-size: 30px;
-  padding-top: 5px;
+  font-size: 1.875rem /* 30/16 */;
+  padding-top: .3125rem /* 5/16 */;
   color: red;
 }
 #purchase {
@@ -401,10 +401,10 @@ export default {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 24px;
+  font-size: 1.5rem /* 24/16 */;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: .9375rem /* 15/16 */;
   outline: none;
   background-color: #ffce6b;
 }
@@ -415,13 +415,13 @@ export default {
   color: red;
 }
 .in-content {
-  width: 800px;
+  width: 50rem /* 800/16 */;
 }
 .sp {
   text-align: right;
   padding-right: 10%;
 }
 .demo-ruleForm {
-  margin-top: 20px;
+  margin-top: 1.25rem /* 20/16 */;
 }
 </style>

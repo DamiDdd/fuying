@@ -98,7 +98,7 @@ export default {
 }
 .modal-container {
   background: #fff;
-  border-radius: 10px;
+  border-radius: .625rem /* 10/16 */;
   overflow: hidden;
   position: fixed;
   top: 50%;
@@ -106,7 +106,7 @@ export default {
   transform: translate(-50%, -50%);
 }
 .modal-header {
-  height: 56px;
+  height: 3.5rem /* 56/16 */;
   background: #409eff;
   color: #fff;
   display: flex;
@@ -118,13 +118,13 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 57px;
-  border-top: 1px solid #ddd;
+  height: 3.5625rem /* 57/16 */;
+  border-top: .0625rem /* 1/16 */ solid #ddd;
 }
 .modal-footer button {
-  width: 100px;
+  width: 6.25rem /* 100/16 */;
 }
 .modal-main {
-  padding: 15px 40px;
+  padding: .9375rem /* 15/16 */ 2.5rem /* 40/16 */;
 }
 </style>

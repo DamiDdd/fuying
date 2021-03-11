@@ -25,17 +25,17 @@ export default {
 
 <style scoped>
 .footer-tip {
-  font-size: 36px;
-  padding-top: 200px;
+  font-size: 2.25rem /* 36/16 */;
+  padding-top: 12.5rem /* 200/16 */;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 .footer-icon img {
-  margin: 0 20px 0 20px;
+  margin: 0 1.25rem /* 20/16 */ 0 1.25rem /* 20/16 */;
   cursor: pointer;
 }
 .footer-author {
-  font-size: 13px;
-  line-height: 13px;
-  margin-top: 50px;
+  font-size: .8125rem /* 13/16 */;
+  line-height: .8125rem /* 13/16 */;
+  margin-top: 3.125rem /* 50/16 */;
 }
 </style>

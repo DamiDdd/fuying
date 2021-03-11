@@ -104,37 +104,35 @@ export default {
 <style scoped>
 .main {
   width: 80%;
-  min-width: 1200px;
-  min-height: 1000px;
-  margin-top: 2 0px;
+  min-width: 75rem /* 1200/16 */;
+  min-height: 62.5rem /* 1000/16 */;
+  margin-top: 2 0rem /* 0/16 */;
   margin-left: auto;
   margin-right: auto;
-  /* border: solid 1px; */
 }
 .title {
-  padding-left: 100px;
+  padding-left: 6.25rem /* 100/16 */;
 }
 .data_table {
-  width: 960px;
-  height: 240px;
+  width: 60rem /* 960/16 */;
+  height: 15rem /* 240/16 */;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
 .scan {
-  width: 960px;
-  height: 500px;
+  width: 60rem /* 960/16 */;
+  height: 31.25rem /* 500/16 */;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  /* border: solid 1px; */
 }
 .scan img {
-  width: 420px;
-  height: 420px;
+  width: 26.25rem /* 420/16 */;
+  height: 26.25rem /* 420/16 */;
 }
 .scan span {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: .625rem /* 10/16 */;
+  margin-right: .625rem /* 10/16 */;
 }
 </style>

@@ -110,39 +110,39 @@ export default {
 
 <style scoped>
 .pdf-div {
-  width: 1000px;
+  width: 62.5rem /* 1000/16 */;
   /* height: var(--screen-height); */
   overflow: hidden;
-  border: 1px solid #000;
+  border: .0625rem /* 1/16 */ solid #000;
   margin-left: auto;
   margin-right: auto;
 }
 
 .tools {
-  width: 200px;
+  width: 12.5rem /* 200/16 */;
   margin-left: auto;
   margin-right: auto;
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem /* 20/16 */;
 }
 
 .page {
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-top: .625rem /* 10/16 */;
+  margin-left: .625rem /* 10/16 */;
+  margin-right: .625rem /* 10/16 */;
   display: flex;
 }
 .page input {
-  margin-top: -10px;
-  width: 30px;
+  margin-top: -.625rem /* 10/16 */;
+  width: 1.875rem /* 30/16 */;
   float: left;
 }
 .tips {
   width: 40%;
   margin-left: 31%;
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 14px;
+  margin-bottom: 1.25rem /* 20/16 */;
+  font-size: .875rem /* 14/16 */;
   color: gray;
 }
 </style>

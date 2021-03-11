@@ -13,25 +13,25 @@
     <el-row class="topRow">
       <el-input
         class="s-input"
-        style="width: 130px"
+        style="width: 8.125rem /* 130/16 */"
         :placeholder="$t('manager.order')"
         v-model="filter[1].value"
       ></el-input>
       <el-input
         class="s-input"
-        style="width: 120px"
+        style="width: 7.5rem /* 120/16 */"
         :placeholder="$t('manager.username')"
         v-model="filter[2].value"
       ></el-input>
       <el-input
         class="s-input"
-        style="width: 220px"
+        style="width: 13.75rem /* 220/16 */"
         :placeholder="$t('manager.date')"
         v-model="filter[3].value"
       ></el-input>
       <el-input
         class="s-input"
-        style="width: 120px"
+        style="width: 7.5rem /* 120/16 */"
         :placeholder="$t('manager.sample')"
         v-model="filter[4].value"
       ></el-input>
@@ -87,7 +87,7 @@
         </template>
       </el-table-column>
     </el-table>
-    <div style="text-align: center;margin-top: 30px;">
+    <div style="text-align: center;margin-top: 1.875rem /* 30/16 */;">
       <el-pagination
         background
         layout="prev,pager,next"
@@ -255,9 +255,9 @@ export default {
 <style scoped>
 .windows {
   width: 80%;
-  margin-top: 20px;
-  min-width: 1000px;
-  min-height: 700px;
+  margin-top: 1.25rem /* 20/16 */;
+  min-width: 62.5rem /* 1000/16 */;
+  min-height: 43.75rem /* 700/16 */;
   margin-left: auto;
   margin-right: auto;
 }
@@ -266,15 +266,15 @@ export default {
   margin-left: 20%;
 }
 .m-input {
-  width: 200px;
-  padding-right: 10px;
+  width: 12.5rem /* 200/16 */;
+  padding-right: .625rem /* 10/16 */;
 }
 .s-input {
-  padding-right: 10px;
-  padding-top: 10px;
+  padding-right: .625rem /* 10/16 */;
+  padding-top: .625rem /* 10/16 */;
 }
 .main-table {
-  margin-top: 20px;
+  margin-top: 1.25rem /* 20/16 */;
   margin-left: 20%;
 }
 </style>

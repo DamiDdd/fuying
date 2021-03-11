@@ -69,10 +69,10 @@ export default {
       index: 0,
       // 关于iconStyle的细节设定
       cartIconStyle: {
-        right: "94px",
-        bottom: "200px",
+        right: "5.875rem /* 94/16 */",
+        bottom: "12.5rem /* 200/16 */",
         background: "#fff",
-        "border-radius": "25px"
+        "border-radius": "1.5625rem /* 25/16 */"
       },
       // 传参
       good: {
@@ -195,32 +195,32 @@ export default {
   background: -webkit-linear-gradient(top, white, lightblue, white);
 }
 .num-control {
-  min-height: 600px;
+  min-height: 37.5rem /* 600/16 */;
   width: 80%;
-  margin-left: 200px;
-  padding-top: 100px;
+  margin-left: 12.5rem /* 200/16 */;
+  padding-top: 6.25rem /* 100/16 */;
 }
 .left {
   float: left;
-  width: 600px;
-  min-height: 450px;
-  margin-top: 80px;
+  width: 37.5rem /* 600/16 */;
+  min-height: 28.125rem /* 450/16 */;
+  margin-top: 5rem /* 80/16 */;
 }
 .right {
   float: left;
   position: absolute;
-  margin-left: 700px;
-  width: 600px;
-  min-height: 600px;
+  margin-left: 43.75rem /* 700/16 */;
+  width: 37.5rem /* 600/16 */;
+  min-height: 37.5rem /* 600/16 */;
 }
 .cartcontrol {
-  height: 700px;
-  margin-left: 100px;
+  height: 43.75rem /* 700/16 */;
+  margin-left: 6.25rem /* 100/16 */;
 }
 .img-window {
-  margin-top: 130px;
+  margin-top: 8.125rem /* 130/16 */;
   margin-left: 19%;
-  min-height: 600px;
+  min-height: 37.5rem /* 600/16 */;
   width: 70%;
 }
 .label {
@@ -229,11 +229,11 @@ export default {
 .type {
   float: left;
   width: 10%;
-  height: 30px;
+  height: 1.875rem /* 30/16 */;
   text-align: center;
-  border: 1px solid #ccc;
+  border: .0625rem /* 1/16 */ solid #ccc;
   border-style: none solid;
-  padding-top: 8px;
+  padding-top: .5rem /* 8/16 */;
   cursor: pointer;
 }
 /* 设定图片菜单选中样式 */
@@ -244,9 +244,9 @@ export default {
 }
 .left-window {
   /* background: #000; */
-  width: 100px;
-  height: 100px;
-  left: 250px;
+  width: 6.25rem /* 100/16 */;
+  height: 6.25rem /* 100/16 */;
+  left: 15.625rem /* 250/16 */;
   float: left;
   position: fixed;
 }
@@ -263,7 +263,7 @@ export default {
 }
 .windows {
   width: 80%;
-  min-width: 800px;
+  min-width: 50rem /* 800/16 */;
   margin-left: auto;
   margin-right: auto;
   /* background: #000; */

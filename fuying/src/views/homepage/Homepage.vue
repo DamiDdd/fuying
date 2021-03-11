@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="contain">
-      <el-carousel trigger="click" height="1000px">
+      <el-carousel trigger="click" height="60rem">
         <el-carousel-item v-for="item in imgsrc" :key="item">
           <h3 class="small">
             <img width="100%" :src="item" />
@@ -56,7 +56,7 @@
           <el-col v-for="(i, index) in universities" :key="index" :span="4">
             <el-card
               shadow="always"
-              style="height: 160px;width: 140px; cursor:pointer;"
+              style="height: 10rem /* 160/16 */;width: 8.75rem /* 140/16 */; cursor:pointer;"
             >
               <img :src="i.src" @click="goPage(i.href)" />
             </el-card>
@@ -129,16 +129,16 @@ export default {
 
 .contain {
   width: 100%;
-  min-width: 1000px;
-  min-height: 1000px;
+  min-width: 60rem /* 1000/16 */;
+  /* min-height: 62.5rem; */
   text-align: center;
 }
 
 .menu {
-  margin-top: 0px;
+  margin-top: 0rem /* 0/16 */;
   width: 100%;
-  min-width: 1000px;
-  height: 900px;
+  min-width: 60rem /* 1000/16 */;
+  height: 56.25rem /* 900/16 */;
   background: url("~assets/img/bg/home-bg.jpg") no-repeat center;
 }
 
@@ -148,57 +148,56 @@ export default {
   float: left;
   background: #000;
   opacity: 0.8;
-  border: 1px solid white;
+  border: .0625rem /* 1/16 */ solid white;
   color: white;
   cursor: pointer;
 }
 
 .icon {
-  width: 220px;
-  height: 220px;
+  width: 13.75rem /* 220/16 */;
+  height: 13.75rem /* 220/16 */;
   /* background: gray; */
   margin-left: auto;
   margin-right: auto;
-  margin-top: 320px;
+  margin-top: 20rem /* 320/16 */;
 }
 
 .icon img {
-  height: 200px;
-  width: 200px;
-  margin-left: 10px;
+  height: 12.5rem /* 200/16 */;
+  width: 12.5rem /* 200/16 */;
+  margin-left: .625rem /* 10/16 */;
 }
 
 .icon h3 {
-  padding-left: 20px;
+  padding-left: 1.25rem /* 20/16 */;
 }
 
 .btn-window:hover {
   opacity: 0.6;
-  /* font-size: 20px; */
 }
 
 .detail-window {
   background: url("~assets/img/bg/colorful-bg.jpg");
   background-size: cover;
-  padding-bottom: 20px;
+  padding-bottom: 1.25rem /* 20/16 */;
 }
 
 .showdata {
   /* background: -webkit-linear-gradient(top, white, lightblue, white); */
-  padding-top: 30px;
+  padding-top: 1.875rem /* 30/16 */;
   position: relative;
-  min-width: 1000px;
-  height: 500px;
+  min-width: 60rem /* 1000/16 */;
+  height: 31.25rem /* 500/16 */;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 100px;
+  padding-top: 6.25rem /* 100/16 */;
 }
 
 .showdata img {
   float: right;
   position: absolute;
-  right: 15%;
-  bottom: 100px;
+  right: 5rem;
+  bottom: 6.25rem /* 100/16 */;
   opacity: 0.6;
 }
 
@@ -213,25 +212,25 @@ h3 {
 }
 
 .company {
-  width: 1000px;
-  height: 300px;
+  width: 62.5rem /* 1000/16 */;
+  height: 18.75rem /* 300/16 */;
   margin-left: auto;
   margin-right: auto;
 }
 
 .company img {
-  width: 112px;
+  width: 7rem /* 112/16 */;
 }
 
 .title {
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem /* 30/16 */;
 }
 
 .el-carousel__item h3 {
   color: #475669;
-  font-size: 14px;
+  font-size: .875rem /* 14/16 */;
   opacity: 0.75;
-  line-height: 150px;
+  line-height: 9.375rem /* 150/16 */;
   margin: 0;
 }
 

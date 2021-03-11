@@ -55,7 +55,7 @@ export default {
     // 控制focus样式
     chooseStyle() {
       if (this.good.flag) {
-        return "border: 1px solid black";
+        return "border: .0625rem /* 1/16 */ solid black";
       } else {
         return "";
       }
@@ -126,12 +126,12 @@ export default {
 <style scoped>
 #cart-view {
   width: 60%;
-  min-width: 800px;
-  height: 120px;
-  border: 1px solid mediumaquamarine;
-  margin-left: 400px;
+  min-width: 50rem /* 800/16 */;
+  height: 7.5rem /* 120/16 */;
+  border: 0.0625rem /* 1/16 */ solid mediumaquamarine;
+  margin-left: 25rem /* 400/16 */;
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem /* 10/16 */;
   text-align: center;
 }
 .flag,
@@ -141,7 +141,7 @@ export default {
 .num-control,
 .price-sum,
 .delete {
-  padding-top: 40px;
+  padding-top: 2.5rem /* 40/16 */;
 }
 .flag {
   width: 10%;
@@ -150,7 +150,7 @@ export default {
   width: 16%;
 }
 .img img {
-  height: 120px;
+  height: 7.5rem /* 120/16 */;
 }
 .title1 {
   width: 14%;
@@ -190,16 +190,16 @@ export default {
 }
 .reduce img,
 .add img {
-  width: 20px;
+  width: 1.25rem /* 20/16 */;
 }
 .answer {
   width: 100%;
-  margin-left: 10px;
-  margin-top: 5px;
+  margin-left: 0.625rem /* 10/16 */;
+  margin-top: 0.3125rem /* 5/16 */;
 }
 .btn {
   float: left;
-  width: 60px;
+  width: 3.75rem /* 60/16 */;
   cursor: pointer;
 }
 </style>

@@ -16,14 +16,14 @@ export default {
 
 <style scoped>
 #nav-bar {
-  height: 70px;
+  height: 4.375rem; /* 70/16 */
   /* position: relative; */
   position: fixed;
   z-index: 10;
   display: flex;
   width: var(--screen-width);
-  min-width: 800px;
-  line-height: 44px;
+  min-width: 50rem /* 800/16 */;
+  line-height: 2.75rem /* 44/16 */;
   text-align: center;
   overflow: hidden;
   background: #222222;
@@ -39,10 +39,10 @@ export default {
 }
 
 .nav-logo img {
-  /* width: 24px; */
-  height: 45px;
-  margin-top: 5px;
-  margin-left: 20px;
+  /* width: 1.5rem /* 24/16 */
+  height: 2.8125rem /* 45/16 */;
+  margin-top: .3125rem /* 5/16 */;
+  margin-left: 1.25rem /* 20/16 */;
   vertical-align: middle;
 }
 
@@ -53,7 +53,7 @@ export default {
 }
 
 .nav-right {
-  width: 120px;
+  width: 7.5rem /* 120/16 */;
   text-align: left;
 }
 </style>

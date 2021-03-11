@@ -57,10 +57,10 @@ export default {
   data() {
     return {
       cartIconStyle: {
-        right: "94px",
-        bottom: "200px",
+        right: "5.875rem /* 94/16 */",
+        bottom: "12.5rem /* 200/16 */",
         background: "#fff",
-        "border-radius": "25px"
+        "border-radius": "1.5625rem /* 25/16 */"
       },
       productUrl: GLOBAL.urlHead + "getProducts/",
       goodList: []
@@ -91,29 +91,29 @@ export default {
 <style scoped>
 .nav-bg {
   width: 100%;
-  min-width: 1000px;
-  height: 200px;
+  min-width: 62.5rem /* 1000/16 */;
+  height: 12.5rem /* 200/16 */;
 }
 
 #products {
-  min-height: 700px;
+  min-height: 43.75rem /* 700/16 */;
 }
 
 .main-div {
   padding-left: 13%;
   padding-top: 2%;
-  min-height: 700px;
+  min-height: 43.75rem /* 700/16 */;
 }
 
 .icon {
   width: 100%;
-  min-width: 1000px;
-  margin-left: 40px;
+  min-width: 62.5rem /* 1000/16 */;
+  margin-left: 2.5rem /* 40/16 */;
 }
 
 .bg-div {
   width: 100%;
-  min-height: 720px;
+  min-height: 45rem /* 720/16 */;
   background: url("~assets/img/bg/colorful-bg.jpg");
   background-size: cover;
 }
@@ -122,17 +122,17 @@ export default {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  min-width: 1000px;
-  height: 700px;
+  min-width: 62.5rem /* 1000/16 */;
+  height: 43.75rem /* 700/16 */;
 }
 
 .item-div {
-  width: 33.2%;
+  width: 33%;
   height: 100%;
   float: left;
   /* background: #000; */
   opacity: 1;
-  border: 1px solid white;
+  border: .0625rem /* 1/16 */ solid white;
   /* color: white; */
 }
 
@@ -158,10 +158,10 @@ export default {
 .text {
   background: black;
   color: white;
-  margin-top: 500px;
-  height: 200px;
+  margin-top: 31.25rem /* 500/16 */;
+  height: 12.5rem /* 200/16 */;
   opacity: 0.6;
-  padding-left: 20px;
+  padding-left: 1.25rem /* 20/16 */;
 }
 
 .text:hover{

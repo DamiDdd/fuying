@@ -9,11 +9,11 @@
             v-for="(o, index) in news"
             :key="o"
             :offset="index % 3 == 0 ? 2 : 1"
-            style="padding-bottom: 10px"
+            style="padding-bottom: .625rem /* 10/16 */"
           >
-            <el-card :body-style="{ padding: '0px' }">
+            <el-card :body-style="{ padding: '0rem /* 0/16 */' }">
               <img :src="o.img" class="image" />
-              <div style="padding: 14px;">
+              <div style="padding: .875rem /* 14/16 */;">
                 <span>{{ o.title }}</span>
                 <div class="bottom clearfix">
                   <time class="time">{{ currentDate }}</time>
@@ -60,13 +60,13 @@ export default {
 
 <style scoped>
 #news {
-  min-height: 500px;
+  min-height: 31.25rem /* 500/16 */;
 }
 
 .nav-bg {
   width: 100%;
-  min-width: 1200px;
-  height: 200px;
+  min-width: 75rem /* 1200/16 */;
+  height: 12.5rem /* 200/16 */;
 }
 
 .bg {
@@ -75,21 +75,21 @@ export default {
 
 .main {
   width: 70%;
-  min-width: 1200px;
+  min-width: 75rem /* 1200/16 */;
   margin-left: auto;
   margin-right: auto;
-  min-height: 800px;
+  min-height: 50rem /* 800/16 */;
   /* background: gray; */
 }
 
 .time {
-  font-size: 13px;
+  font-size: .8125rem /* 13/16 */;
   color: #999;
 }
 
 .bottom {
-  margin-top: 13px;
-  line-height: 12px;
+  margin-top: .8125rem /* 13/16 */;
+  line-height: .75rem /* 12/16 */;
 }
 
 .button {
@@ -98,8 +98,8 @@ export default {
 }
 
 .image {
-  width: 400px;
-  height: 300px;
+  width: 25rem /* 400/16 */;
+  height: 18.75rem /* 300/16 */;
   display: block;
 }
 

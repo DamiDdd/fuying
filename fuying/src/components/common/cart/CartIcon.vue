@@ -31,15 +31,15 @@ export default {
 
 <style scoped>
 #cart-icon {
-  width: 50px;
-  height: 50px;
+  width: 3.125rem /* 50/16 */;
+  height: 3.125rem /* 50/16 */;
   position: fixed;
   cursor: pointer;
   text-align: center;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 .375rem /* 6/16 */ rgba(0, 0, 0, 0.12);
   z-index: 99;
 }
 img {
-  width: 40px;
+  width: 2.5rem /* 40/16 */;
 }
 </style>

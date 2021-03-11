@@ -2,19 +2,18 @@
 
 /* 通用常量 */
 :root {
-  /* --screen-width: 1900px; 屏幕宽度 */
   --screen-width: 100%; /* 屏幕宽度 */
-  --min-width: 1600px; /* 最小屏幕宽度 */
-  --screen-height: 800px; /* 屏幕高度 */
-  --paper-height: 836px; /* A4纸张高度 */
-  --paper-height-half: 418px; /* A4纸张一半高度 */
-  --paper-width: 590px; /* A4纸张宽度 */
+  --min-width: 100rem /* 1600/16 */; /* 最小屏幕宽度 */
+  --screen-height: 50rem /* 800/16 */; /* 屏幕高度 */
+  --paper-height: 52.25rem /* 836/16 */; /* A4纸张高度 */
+  --paper-height-half: 26.125rem /* 418/16 */; /* A4纸张一半高度 */
+  --paper-width: 36.875rem /* 590/16 */; /* A4纸张宽度 */
   --theme-color: #308bcc; /* 设定主题色 */
   --text-color: #9a9a9a; /* 文本主题色 */
-  --div-bottom: 100px; /* 默认底部边距 */
-  --small-text: 18px; /* 较小文本 */
-  --normal-text: 20px; /* 常规文本font-size */
-  --big-text: 38px; /* 较大文本font-size */
+  --div-bottom: 6.25rem /* 100/16 */; /* 默认底部边距 */
+  --small-text: 1.125rem /* 18/16 */; /* 较小文本 */
+  --normal-text: 1.25rem /* 20/16 */; /* 常规文本font-size */
+  --big-text: 2.375rem /* 38/16 */; /* 较大文本font-size */
 }
 
 body {
@@ -66,6 +65,6 @@ body {
 }
 
 .rcorner {
-  border-radius: 25px;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
+  border-radius: 1.5625rem /* 25/16 */;
+  box-shadow: .0625rem /* 1/16 */ .0625rem /* 1/16 */ .0625rem /* 1/16 */ .0625rem /* 1/16 */ rgba(0, 0, 0, 0.4);
 }

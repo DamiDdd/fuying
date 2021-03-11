@@ -105,20 +105,20 @@ export default {
 
 <style scoped>
 .page-component-up {
-  width: 100px;
-  height: 200px;
+  width: 6.25rem /* 100/16 */;
+  height: 12.5rem /* 200/16 */;
   position: fixed;
   cursor: pointer;
   text-align: center;
   transition: 0.3s;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0.375rem /* 6/16 */ rgba(0, 0, 0, 0.12);
   z-index: 99;
 }
 
 .tipText {
-  margin-top: -12px;
-  margin-left: -12px;
+  margin-top: -0.75rem /* 12/16 */;
+  margin-left: -0.75rem /* 12/16 */;
   font-weight: bold;
-  font-size: 10px;
+  font-size: 0.625rem /* 10/16 */;
 }
 </style>

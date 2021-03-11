@@ -56,8 +56,8 @@ export default {
   padding-bottom: var(--div-bottom);
 }
 .menu-lists {
-  width: 850px;
-  height: 300px;
+  width: 53.125rem /* 850/16 */;
+  height: 18.75rem /* 300/16 */;
   display: flex;
   margin-left: auto;
   margin-right: auto;

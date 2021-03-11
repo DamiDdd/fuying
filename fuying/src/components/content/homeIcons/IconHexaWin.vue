@@ -47,7 +47,7 @@ export default {
 <style scoped>
 #icon-hexa-win {
   display: flex;
-  padding-top: 30px;
+  padding-top: 1.875rem /* 30/16 */;
 }
 
 #icon-hexa-win div {
@@ -55,34 +55,34 @@ export default {
 }
 
 .left-up {
-  margin-left: 120px;
+  margin-left: 7.5rem /* 120/16 */;
 }
 
 .left-down {
-  margin-top: 200px;
-  margin-left: -160px;
+  margin-top: 12.5rem /* 200/16 */;
+  margin-left: -10rem /* 160/16 */;
 }
 
 .middle-up {
-  margin-top: 20px;
+  margin-top: 1.25rem /* 20/16 */;
 }
 
 .middle-down {
-  margin-left: -140px;
-  margin-top: 220px;
+  margin-left: -8.75rem /* 140/16 */;
+  margin-top: 13.75rem /* 220/16 */;
 }
 
 .right {
-  margin-top: 100px;
+  margin-top: 6.25rem /* 100/16 */;
 }
 
 .right img {
-  margin-left: -30px;
-  margin-top: 0px;
+  margin-left: -1.875rem /* 30/16 */;
+  margin-top: 0rem /* 0/16 */;
 }
 
 .right p {
-  margin-left: -14px;
-  margin-top: -5px;
+  margin-left: -.875rem /* 14/16 */;
+  margin-top: -.3125rem /* 5/16 */;
 }
 </style>

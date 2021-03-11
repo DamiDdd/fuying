@@ -65,13 +65,19 @@
         </p>
       </div>
       <div class="main-div">
-        <p class="content-blue" style="margin-bottom: 40px;">技术路线</p>
+        <p class="content-blue" style="margin-bottom: 2.5rem /* 40/16 */;">
+          技术路线
+        </p>
         <img class="tech-img" src="~assets/img/report/rout.png" />
-        <p class="content-blue" style="margin-bottom: 40px;">技术原理</p>
+        <p class="content-blue" style="margin-bottom: 2.5rem /* 40/16 */;">
+          技术原理
+        </p>
         <img class="tech-img" src="~assets/img/report/principle.png" />
       </div>
       <div class="main-div">
-        <p style="text-align: center; line-height: 10px;">蛋白质组检测报告</p>
+        <p style="text-align: center; line-height: .625rem /* 10/16 */;">
+          蛋白质组检测报告
+        </p>
         <div class="profile-div">
           <div class="title-div-white"><p>用户信息</p></div>
           <div class="td-div">
@@ -231,28 +237,28 @@ export default {
   width: var(--paper-width);
   margin-left: auto;
   margin-right: auto;
-  padding-right: 10px;
+  padding-right: 0.625rem /* 10/16 */;
 }
 
 .btn-div {
-  width: 300px;
+  width: 18.75rem /* 300/16 */;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  padding-bottom: 10px;
+  padding-bottom: 0.625rem /* 10/16 */;
 }
 
 .main-div {
   width: var(--paper-width);
-  height: calc(var(--paper-height) + 1px);
-  margin-bottom: 10.6px;
+  height: calc(var(--paper-height) + 0.0625rem /* 1/16 */);
+  margin-bottom: 0.6625rem /* 10.6/16 */;
   overflow: hidden;
-  border: 1px solid var(--theme-color);
+  border: 0.0625rem /* 1/16 */ solid var(--theme-color);
 }
 
 .main-div p {
-  margin-left: 30px;
-  margin-right: 30px;
+  margin-left: 1.875rem /* 30/16 */;
+  margin-right: 1.875rem /* 30/16 */;
 }
 
 .logo-div {
@@ -260,13 +266,13 @@ export default {
 }
 
 .logo {
-  width: 300px;
-  margin-top: 50px;
-  margin-bottom: 20px;
+  width: 18.75rem /* 300/16 */;
+  margin-top: 3.125rem /* 50/16 */;
+  margin-bottom: 1.25rem /* 20/16 */;
 }
 
 .logo-div .bigtext-blue {
-  margin-bottom: 150px;
+  margin-bottom: 9.375rem /* 150/16 */;
 }
 
 .main-text {
@@ -274,25 +280,25 @@ export default {
 }
 
 .product-div {
-  line-height: 30px;
+  line-height: 1.875rem /* 30/16 */;
 }
 
 .tech-img {
-  width: 550px;
-  margin-left: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  width: 34.375rem /* 550/16 */;
+  margin-left: 1.25rem /* 20/16 */;
+  margin-top: 1.25rem /* 20/16 */;
+  margin-bottom: 1.25rem /* 20/16 */;
 }
 
 .title-div {
   background: skyblue;
-  height: 27px;
+  height: 1.6875rem /* 27/16 */;
 }
 
 .title-div-white {
   background: var(--theme-color);
   color: white;
-  height: 27px;
+  height: 1.6875rem /* 27/16 */;
   text-align: center;
 }
 
@@ -302,23 +308,23 @@ export default {
 }
 
 .profile-div {
-  border: 1px solid var(--theme-color);
-  width: 580px;
-  height: 790px;
-  margin-left: 4px;
+  border: 0.0625rem /* 1/16 */ solid var(--theme-color);
+  width: 36.25rem /* 580/16 */;
+  height: 49.375rem /* 790/16 */;
+  margin-left: 0.25rem /* 4/16 */;
 }
 
 .td-div {
-  height: 30px;
-  border: 0.1px solid #000;
+  height: 1.875rem /* 30/16 */;
+  border: 0.00625rem /* 0.1/16 */ solid #000;
   display: flex;
 }
 
 .td-div-long {
-  height: 60px;
-  border: 0.1px solid #000;
+  height: 3.75rem /* 60/16 */;
+  border: 0.00625rem /* 0.1/16 */ solid #000;
   text-indent: 2rem;
-  padding-top: 10px;
+  padding-top: 0.625rem /* 10/16 */;
 }
 
 .s-div,
@@ -329,19 +335,19 @@ export default {
 .s-div,
 .ss-div {
   background: skyblue;
-  border: 0.1px solid gray;
+  border: 0.00625rem /* 0.1/16 */ solid gray;
 }
 .ss-div {
-  width: 50px;
+  width: 3.125rem /* 50/16 */;
 }
 .s-div {
-  width: 80px;
+  width: 5rem /* 80/16 */;
 }
 .m-div {
-  width: 200px;
+  width: 12.5rem /* 200/16 */;
   font-weight: bold;
 }
 .l-div {
-  width: 400px;
+  width: 25rem /* 400/16 */;
 }
 </style>

@@ -37,11 +37,11 @@ export default {
 <style scoped>
 #nav-bar-item {
   flex: 1;
-  font-size: 17px;
-  margin-top: 8px;
+  font-size: 1.0625rem /* 17/16 */;
+  margin-top: .5rem /* 8/16 */;
   color: white;
   float: left;
-  min-width: 90px;
+  min-width: 5.625rem /* 90/16 */;
   cursor: pointer;
 }
 

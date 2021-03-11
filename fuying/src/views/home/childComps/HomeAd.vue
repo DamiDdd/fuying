@@ -85,12 +85,12 @@ export default {
   text-align: center;
 }
 .ad-company {
-  height: 1000px;
+  height: 62.5rem /* 1000/16 */;
   background: url("~assets/img/bg/doctor.png") no-repeat bottom left;
 }
 #university {
-  height: 380px;
-  width: 620px;
+  height: 23.75rem /* 380/16 */;
+  width: 38.75rem /* 620/16 */;
   margin-left: auto;
   margin-right: auto;
 }
@@ -98,36 +98,34 @@ export default {
   cursor: pointer;
 }
 .ad-map .title {
-  padding-bottom: 30px;
+  padding-bottom: 1.875rem /* 30/16 */;
 }
 .ad-map .content {
   text-align: left;
   margin-left: 35%;
-  /* margin-left: 750px; */
 }
 .ad-map img,
 .ad-company img {
-  padding-top: 20px;
+  padding-top: 1.25rem /* 20/16 */;
 }
 .right-text {
-  width: 760px;
-  /* margin-left: 700px; */
+  width: 47.5rem /* 760/16 */;
   margin-left: 30%;
   margin-top: var(--div-bottom);
-  line-height: 50px;
+  line-height: 3.125rem /* 50/16 */;
 }
 button {
   background-color: #ffce6b;
   border: none;
   color: #6b6b6b;
-  padding: 15px 50px;
+  padding: .9375rem /* 15/16 */ 3.125rem /* 50/16 */;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 24px;
+  font-size: 1.5rem /* 24/16 */;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: .9375rem /* 15/16 */;
   outline: none;
 }
 </style>

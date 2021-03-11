@@ -84,25 +84,25 @@ export default {
 
 <style scoped>
 .login {
-  /* width: 120px; */
+  /* width: 7.5rem; /* 120/16 */
   padding: auto;
   margin: auto;
 }
 
 .right {
   position: absolute;
-  margin-top: 3px;
-  right: 100px;
-  width: 200px;
-  font-size: 27px;
+  margin-top: 0.1875rem /* 3/16 */;
+  right: 6.25rem /* 100/16 */;
+  width: 12.5rem /* 200/16 */;
+  font-size: 1.6875rem /* 27/16 */;
   /* background: gray; */
 }
 
 .el-dropdown-link {
   cursor: pointer;
   color: white;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
+  padding-bottom: 0rem /* 0/16 */;
+  margin-bottom: 0rem /* 0/16 */;
 }
 
 .focus {
@@ -114,7 +114,7 @@ export default {
 
 .dropdown {
   /* background: #333333; */
-  padding-top: 0px;
+  padding-top: 0rem /* 0/16 */;
   /* opacity: 50%; */
 }
 </style>

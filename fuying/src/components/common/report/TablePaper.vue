@@ -32,14 +32,14 @@ export default {
 
 <style scoped>
 #table-div table td {
-  border: 1px solid #000;
-  height: 30px;
-  width: 100px;
-  padding-left: 10px;
+  border: .0625rem /* 1/16 */ solid #000;
+  height: 1.875rem /* 30/16 */;
+  width: 6.25rem /* 100/16 */;
+  padding-left: .625rem /* 10/16 */;
 }
 
 #table-div table {
-  margin-left: 10px;
-  margin-top: 20px;
+  margin-left: .625rem /* 10/16 */;
+  margin-top: 1.25rem /* 20/16 */;
 }
 </style>

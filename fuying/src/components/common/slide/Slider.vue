@@ -24,8 +24,8 @@
         <li class="left" @click="move(imgWidth, 1, speed)">
           <svg
             class="icon"
-            width="30px"
-            height="30.00px"
+            width="1.875rem /* 30/16 */"
+            height="1.875rem /* 30/16 */"
             viewBox="0 0 1024 1024"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
@@ -39,8 +39,8 @@
         <li class="right" @click="move(imgWidth, -1, speed)">
           <svg
             class="icon"
-            width="30px"
-            height="30.00px"
+            width="1.875rem /* 30/16 */"
+            height="1.875rem /* 30/16 */"
             viewBox="0 0 1024 1024"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
@@ -224,7 +224,7 @@ ul {
   position: relative;
   /* width作为传入参数更新 */
   /* width: imgWidth; */
-  height: 400px;
+  height: 25rem /* 400/16 */;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -238,37 +238,37 @@ ul {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
+  width: 3.125rem /* 50/16 */;
+  height: 3.125rem /* 50/16 */;
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 50%;
   cursor: pointer;
 }
 .left {
   left: 3%;
-  padding-left: 12px;
-  padding-top: 10px;
+  padding-left: .75rem /* 12/16 */;
+  padding-top: .625rem /* 10/16 */;
 }
 .right {
   right: 3%;
-  padding-right: 12px;
-  padding-top: 10px;
+  padding-right: .75rem /* 12/16 */;
+  padding-top: .625rem /* 10/16 */;
 }
 img {
   user-select: none;
 }
 .dots {
   position: absolute;
-  bottom: 10px;
+  bottom: .625rem /* 10/16 */;
   left: 50%;
   transform: translateX(-50%);
 }
 .dots li {
   display: inline-block;
-  width: 15px;
-  height: 15px;
-  margin: 0 3px;
-  border: 1px solid white;
+  width: .9375rem /* 15/16 */;
+  height: .9375rem /* 15/16 */;
+  margin: 0 .1875rem /* 3/16 */;
+  border: .0625rem /* 1/16 */ solid white;
   border-radius: 50%;
   background-color: #333;
   cursor: pointer;

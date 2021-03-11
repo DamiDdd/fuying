@@ -174,19 +174,19 @@ export default {
 
 <style scoped>
 .cartcontrol {
-  width: 550px;
+  width: 34.375rem /* 550/16 */;
   overflow: hidden;
 }
 .cartcontrol div {
-  margin-top: 20px;
+  margin-top: 1.25rem /* 20/16 */;
 }
 .main {
-  font-size: 40px;
+  font-size: 2.5rem /* 40/16 */;
 }
 .text {
-  height: 50px;
-  font-size: 18px;
-  line-height: 23px;
+  height: 3.125rem /* 50/16 */;
+  font-size: 1.125rem /* 18/16 */;
+  line-height: 1.4375rem /* 23/16 */;
   color: gray;
   overflow: auto;
 }
@@ -200,64 +200,64 @@ export default {
   float: left;
 }
 .label {
-  width: 600px;
-  height: 80px;
+  width: 37.5rem /* 600/16 */;
+  height: 5rem /* 80/16 */;
   display: flex;
   overflow: auto;
 }
 .type {
-  height: 30px;
-  border: 1px solid wheat;
-  margin-left: 20px;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  height: 1.875rem /* 30/16 */;
+  border: 0.0625rem /* 1/16 */ solid wheat;
+  margin-left: 1.25rem /* 20/16 */;
+  padding-top: 0.625rem /* 10/16 */;
+  padding-left: 0.625rem /* 10/16 */;
+  padding-right: 0.625rem /* 10/16 */;
 }
 .type:first-of-type {
-  margin-left: 0px;
+  margin-left: 0rem /* 0/16 */;
 }
 .price {
   color: red;
   font-weight: bold;
 }
 .price-1 {
-  font-size: 20px;
+  font-size: 1.25rem /* 20/16 */;
 }
 .price-2 {
-  font-size: 20px;
-  margin-left: 20px;
+  font-size: 1.25rem /* 20/16 */;
+  margin-left: 1.25rem /* 20/16 */;
 }
 .price-3 {
-  font-size: 40px;
-  margin-left: 10px;
+  font-size: 2.5rem /* 40/16 */;
+  margin-left: 0.625rem /* 10/16 */;
 }
 .reduce img,
 .add img {
-  width: 40px;
+  width: 2.5rem /* 40/16 */;
 }
 .num {
-  font-size: 30px;
-  margin-left: 30px;
-  margin-right: 30px;
+  font-size: 1.875rem /* 30/16 */;
+  margin-left: 1.875rem /* 30/16 */;
+  margin-right: 1.875rem /* 30/16 */;
   text-align: center;
-  width: 80px;
+  width: 5rem /* 80/16 */;
 }
 .active {
-  border: 1px solid red;
+  border: 0.0625rem /* 1/16 */ solid red;
   background: url("~assets/img/common/bingo.jpg") no-repeat bottom right;
-  background-size: 12px 12px;
+  background-size: 0.75rem /* 12/16 */ 0.75rem /* 12/16 */;
   font-weight: 600;
 }
 button {
   border: none;
-  padding: 15px 50px;
+  padding: 0.9375rem /* 15/16 */ 3.125rem /* 50/16 */;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 24px;
+  font-size: 1.5rem /* 24/16 */;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 0.9375rem /* 15/16 */;
   outline: none;
 }
 #add2cart {
@@ -266,11 +266,11 @@ button {
   margin-right: 2%;
 }
 #purchase {
-  margin-top: 20px;
+  margin-top: 1.25rem /* 20/16 */;
   background-color: #ffb3a7;
   color: white;
 }
 .focus {
-  border: 0.5px solid gray;
+  border: 0.03125rem /* 0.5/16 */ solid gray;
 }
 </style>

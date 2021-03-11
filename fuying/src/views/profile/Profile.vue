@@ -86,11 +86,11 @@
         <table class="el-table el-table--fit el-table--border table-detail">
           <thead>
             <tr>
-              <th width="160px">{{ $t("profile.service") }}</th>
-              <th width="160px">{{ $t("profile.date") }}</th>
-              <th width="160px">{{ $t("profile.num") }}</th>
-              <th width="160px">{{ $t("profile.total") }}</th>
-              <th width="160px">{{ $t("profile.status") }}</th>
+              <th width="10rem /* 160/16 */">{{ $t("profile.service") }}</th>
+              <th width="10rem /* 160/16 */">{{ $t("profile.date") }}</th>
+              <th width="10rem /* 160/16 */">{{ $t("profile.num") }}</th>
+              <th width="10rem /* 160/16 */">{{ $t("profile.total") }}</th>
+              <th width="10rem /* 160/16 */">{{ $t("profile.status") }}</th>
             </tr>
           </thead>
           <tbody>
@@ -122,10 +122,10 @@
         >
           <thead>
             <tr>
-              <th width="100px">{{ $t("profile.orderid") }}</th>
-              <th width="100px">{{ $t("profile.transitid") }}</th>
-              <th width="100px">{{ $t("profile.time") }}</th>
-              <th width="200px">
+              <th width="6.25rem /* 100/16 */">{{ $t("profile.orderid") }}</th>
+              <th width="6.25rem /* 100/16 */">{{ $t("profile.transitid") }}</th>
+              <th width="6.25rem /* 100/16 */">{{ $t("profile.time") }}</th>
+              <th width="12.5rem /* 200/16 */">
                 {{ $t("profile.info")
                 }}<span class="after" @click="unspread"
                   >^{{ $t("profile.withdraw") }}</span
@@ -315,10 +315,9 @@ export default {
 .main {
   width: 100%;
   min-width: var(--min-width);
-  height: 1000px;
-  /* border: 1px solid; */
+  height: 62.5rem /* 1000/16 */;
   /* margin-left: 14%; */
-  padding-top: 80px;
+  padding-top: 5rem /* 80/16 */;
   display: flex;
 }
 
@@ -347,36 +346,31 @@ export default {
   width: 80%;
   height: 50%;
   margin-left: 10%;
-  /* border: 1px solid var(--theme-color); */
 }
 
 .left-bottom {
   width: 80%;
   height: 30%;
   margin-left: 10%;
-  /* border: 1px solid var(--theme-color); */
 }
 
 .right-top {
   width: 80%;
   height: 40%;
-  /* border: 1px solid; */
 }
 
 .right-middle {
   width: 80%;
   height: 40%;
-  /* border: 1px solid; */
 }
 
 .right-bottom {
   width: 100%;
   height: 20%;
-  /* border: 1px solid; */
 }
 
 #profile {
-  min-height: 500px;
+  min-height: 31.25rem /* 500/16 */;
 }
 
 .warning {
@@ -394,7 +388,7 @@ export default {
   font-weight: bold;
   margin-top: 5%;
   padding-left: 5%;
-  font-size: 20px;
+  font-size: 1.25rem /* 20/16 */;
 }
 
 .info-content {
@@ -418,7 +412,7 @@ export default {
 }
 
 .image img {
-  min-width: 200px;
+  min-width: 12.5rem /* 200/16 */;
   width: 80%;
 }
 
@@ -434,13 +428,13 @@ input {
 .data_table {
   margin-left: 5%;
   width: 95%;
-  height: 300px;
+  height: 18.75rem /* 300/16 */;
   overflow: auto;
 }
 
 .in-content {
-  width: 800px;
-  height: 500px;
+  width: 50rem /* 800/16 */;
+  height: 31.25rem /* 500/16 */;
   overflow: auto;
 }
 
@@ -453,12 +447,12 @@ input {
 }
 
 .transport {
-  margin-top: 80px;
+  margin-top: 5rem /* 80/16 */;
 }
 
 .after {
   float: right;
-  margin-right: 10px;
+  margin-right: .625rem /* 10/16 */;
   color: lightblue;
   cursor: pointer;
 }

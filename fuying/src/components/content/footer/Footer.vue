@@ -44,8 +44,8 @@ export default {
 
 .background-box {
   width: 100%;
-  min-width: 1000px;
-  height: 200px;
+  min-width: 62.5rem /* 1000/16 */;
+  height: 12.5rem /* 200/16 */;
   /* background: #000; */
   background: -webkit-linear-gradient(top, white, black);;
   position: relative;
@@ -54,14 +54,14 @@ export default {
 .center {
   /* background: #fff; */
   text-align: center;
-  height: 150px;
-  width: 1000px;
+  height: 9.375rem /* 150/16 */;
+  width: 62.5rem /* 1000/16 */;
   margin-left: auto;
   margin-right: auto;
   color: white;
   opacity: 0.6;
 }
 .center h5 {
-  padding-top: 80px;
+  padding-top: 5rem /* 80/16 */;
 }
 </style>

@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
 #home {
-  min-height: 500px;
+  min-height: 31.25rem /* 500/16 */;
   min-width: var(--min-width);
 }
 </style>

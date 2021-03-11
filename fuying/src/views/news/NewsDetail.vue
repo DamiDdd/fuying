@@ -25,8 +25,8 @@ export default {
 <style scoped>
 .nav-bg {
   width: 100%;
-  min-width: 1200px;
-  height: 200px;
+  min-width: 75rem /* 1200/16 */;
+  height: 12.5rem /* 200/16 */;
 }
 
 .bg {
@@ -35,41 +35,41 @@ export default {
 
 .main-window {
   width: 80%;
-  min-width: 800px;
-  min-height: 1200px;
+  min-width: 50rem /* 800/16 */;
+  min-height: 75rem /* 1200/16 */;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid gray;
+  border: .0625rem /* 1/16 */ solid gray;
   background: white;
 }
 
 .top-window {
-  height: 100px;
+  height: 6.25rem /* 100/16 */;
   width: 68%;
   float: left;
-  border: 1px solid gray;
+  border: .0625rem /* 1/16 */ solid gray;
 }
 
 .text-window {
-  height: 800px;
+  height: 50rem /* 800/16 */;
   width: 68%;
   float: left;
-  border: 1px solid gray;
+  border: .0625rem /* 1/16 */ solid gray;
 }
 
 .side-window {
-  height: 800px;
+  height: 50rem /* 800/16 */;
   width: 30%;
   float: right;
-  border: 1px solid gray;
+  border: .0625rem /* 1/16 */ solid gray;
 }
 
 .title-div {
-  height: 65px;
+  height: 4.0625rem /* 65/16 */;
   font-weight: bold;
-  font-size: 32px;
+  font-size: 2rem /* 32/16 */;
   text-align: center;
-  margin-top: 10px;
+  margin-top: .625rem /* 10/16 */;
 }
 
 .author {

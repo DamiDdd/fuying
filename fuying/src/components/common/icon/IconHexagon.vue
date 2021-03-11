@@ -17,15 +17,15 @@ export default {
 
 <style scoped>
 #icon-hexagon {
-  width: 200px;
-  height: 200px;
+  width: 12.5rem /* 200/16 */;
+  height: 12.5rem /* 200/16 */;
   /* background: gray; */
   background: url("~assets/img/common/hexagon-shadow.png") no-repeat;
 }
 
 .hexagon {
-  width: 130px;
-  height: 130px;
+  width: 8.125rem /* 130/16 */;
+  height: 8.125rem /* 130/16 */;
   background: url("~assets/img/common/hexagon.png") no-repeat;
 }
 </style>

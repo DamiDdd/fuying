@@ -27,13 +27,13 @@ export default {
 <style scoped>
 #icon-rectangle {
   background: url("~assets/img/common/rectangle-withshadow.png") no-repeat;
-  width: 300px;
-  height: 300px;
+  width: 18.75rem /* 300/16 */;
+  height: 18.75rem /* 300/16 */;
   pointer-events: none;
 }
 #icon-rectangle img {
   cursor: pointer;
   pointer-events: all;
-  margin-top: 40px;
+  margin-top: 2.5rem /* 40/16 */;
 }
 </style>

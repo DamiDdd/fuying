@@ -38,8 +38,8 @@ export default {
 }
 #i-div {
   width: 80%;
-  min-width: 1000px;
-  height: 220px;
+  min-width: 62.5rem /* 1000/16 */;
+  height: 13.75rem /* 220/16 */;
   display: flex;
   overflow: hidden;
   background: url("~assets/img/bg/item-bg.jpg") no-repeat;
@@ -48,32 +48,32 @@ export default {
 }
 
 .img img {
-  height: 160px;
-  width: 300px;
+  height: 10rem /* 160/16 */;
+  width: 18.75rem /* 300/16 */;
   margin-top: 10%;
 }
 .title {
-  margin-left: 20px;
-  width: 1000px;
-  height: 80px;
-  font-size: 36px;
+  margin-left: 1.25rem /* 20/16 */;
+  width: 62.5rem /* 1000/16 */;
+  height: 5rem /* 80/16 */;
+  font-size: 2.25rem /* 36/16 */;
 }
 .desc {
-  margin-left: 320px;
-  margin-top: 100px;
-  height: 100px;
-  width: 1000px;
+  margin-left: 20rem /* 320/16 */;
+  margin-top: 6.25rem /* 100/16 */;
+  height: 6.25rem /* 100/16 */;
+  width: 62.5rem /* 1000/16 */;
   position: absolute;
-  font-size: 20px;
+  font-size: 1.25rem /* 20/16 */;
   font-weight: 550;
 }
 .focus {
-  border: 1px solid var(--theme-color);
-  border-radius: 15px;
+  border: 0.0625rem /* 1/16 */ solid var(--theme-color);
+  border-radius: 0.9375rem /* 15/16 */;
 }
 .unfocus {
-  border: 1px solid var(--theme-color);
-  border-radius: 15px;
+  border: 0.0625rem /* 1/16 */ solid var(--theme-color);
+  border-radius: 0.9375rem /* 15/16 */;
 }
 
 .text {

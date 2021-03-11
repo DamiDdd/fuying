@@ -24,7 +24,7 @@
         </div>
         <div class="right">
           <el-input
-            style="width:100px"
+            style="width:6.25rem /* 100/16 */"
             v-model="color"
             type="color"
             class="medium"
@@ -254,77 +254,77 @@ export default {
 
 <style scoped>
 .main {
-  min-height: 600px;
+  min-height: 37.5rem /* 600/16 */;
   width: 100%;
-  min-width: 1600px;
+  min-width: 100rem /* 1600/16 */;
 }
 .center {
-  min-height: 550px;
+  min-height: 34.375rem /* 550/16 */;
   width: 90%;
   margin-left: 5%;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 1.25rem /* 20/16 */;
+  margin-bottom: 1.25rem /* 20/16 */;
 }
 .imgdiv {
-  border-radius: 25px;
-  border: 1px solid var(--theme-color);
+  border-radius: 1.5625rem /* 25/16 */;
+  border: .0625rem /* 1/16 */ solid var(--theme-color);
   width: 95%;
-  height: 160px;
+  height: 10rem /* 160/16 */;
   display: flex;
   margin-left: 2.5%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: .625rem /* 10/16 */;
+  margin-bottom: .625rem /* 10/16 */;
 }
 .titleInput {
-  height: 40px;
-  width: 100px;
-  margin-top: 60px;
-  margin-right: 10px;
+  height: 2.5rem /* 40/16 */;
+  width: 6.25rem /* 100/16 */;
+  margin-top: 3.75rem /* 60/16 */;
+  margin-right: .625rem /* 10/16 */;
   /* background: #000; */
 }
 .lastbtn {
-  height: 40px;
-  width: 40px;
-  margin-top: 60px;
-  margin-left: 10px;
+  height: 2.5rem /* 40/16 */;
+  width: 2.5rem /* 40/16 */;
+  margin-top: 3.75rem /* 60/16 */;
+  margin-left: .625rem /* 10/16 */;
 }
 .btn {
-  height: 40px;
-  width: 40px;
-  margin-left: 10px;
+  height: 2.5rem /* 40/16 */;
+  width: 2.5rem /* 40/16 */;
+  margin-left: .625rem /* 10/16 */;
 }
 .text {
-  width: 100px;
-  margin-top: 60px;
-  margin-left: 10px;
+  width: 6.25rem /* 100/16 */;
+  margin-top: 3.75rem /* 60/16 */;
+  margin-left: .625rem /* 10/16 */;
 }
 .imgwin {
-  margin-top: 5px;
+  margin-top: .3125rem /* 5/16 */;
 }
 .submitbtn {
-  width: 220px;
+  width: 13.75rem /* 220/16 */;
   margin-left: 43%;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 1.25rem /* 20/16 */;
+  margin-bottom: 1.25rem /* 20/16 */;
 }
 .medium {
-  width: 400px;
-  margin-left: 30px;
+  width: 25rem /* 400/16 */;
+  margin-left: 1.875rem /* 30/16 */;
 }
 .left {
-  width: 100px;
-  height: 35px;
+  width: 6.25rem /* 100/16 */;
+  height: 2.1875rem /* 35/16 */;
   float: left;
 }
 .input {
-  margin-bottom: 10px;
-  margin-left: 50px;
+  margin-bottom: .625rem /* 10/16 */;
+  margin-left: 3.125rem /* 50/16 */;
 }
 .left p {
-  margin-left: 20px;
-  margin-top: 10px;
+  margin-left: 1.25rem /* 20/16 */;
+  margin-top: .625rem /* 10/16 */;
 }
 .last {
-  margin-top: 50px;
+  margin-top: 3.125rem /* 50/16 */;
 }
 </style>

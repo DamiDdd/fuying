@@ -45,13 +45,13 @@ export default {
 
 <style scoped>
 #intro {
-  min-height: 500px;
+  min-height: 31.25rem /* 500/16 */;
 }
 
 .nav-bg {
   width: 100%;
-  min-width: 1200px;
-  height: 200px;
+  min-width: 75rem /* 1200/16 */;
+  height: 12.5rem /* 200/16 */;
 }
 
 .bg {
@@ -61,22 +61,22 @@ export default {
 .main {
   /* background: gray; */
   width: 70%;
-  min-width: 1200px;
+  min-width: 75rem /* 1200/16 */;
   margin-left: auto;
   margin-right: auto;
-  min-height: 800px;
+  min-height: 50rem /* 800/16 */;
 }
 
 .windows {
-  margin-top: 100px;
-  min-height: 200px;
+  margin-top: 6.25rem /* 100/16 */;
+  min-height: 12.5rem /* 200/16 */;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .article {
-  margin-left: 100px;
-  line-height: 30px;
+  margin-left: 6.25rem /* 100/16 */;
+  line-height: 1.875rem /* 30/16 */;
 }
 </style>

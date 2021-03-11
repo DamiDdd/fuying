@@ -8,7 +8,7 @@
             :model="ruleForm"
             :rules="rules"
             ref="ruleForm"
-            label-width="100px"
+            label-width="6.25rem"
             class="demo-ruleForm"
           >
             <el-form-item :label="$t('public.phone')" prop="phone"
@@ -192,13 +192,13 @@ export default {
 #login-win {
   width: var(--screen-width);
   min-width: var(--min-width);
-  height: 700px;
+  height: 43.75rem /* 700/16 */;
   background: url("~assets/img/bg/index1-bg.png") no-repeat top right;
 }
 
 .login {
-  width: 400px;
-  padding-top: 40px;
+  width: 25rem /* 400/16 */;
+  padding-top: 2.5rem /* 40/16 */;
   margin: 0 10%;
 }
 

@@ -2,7 +2,7 @@
 
 <template>
   <div id="home-pie">
-    <div ref="chart" style="width:700px;height:700px"></div>
+    <div ref="chart" style="width:43.75rem /* 700/16 */;height:43.75rem /* 700/16 */"></div>
   </div>
 </template>
 

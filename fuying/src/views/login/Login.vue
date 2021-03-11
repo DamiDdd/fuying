@@ -31,7 +31,7 @@
               :model="ruleForm"
               :rules="rules"
               ref="ruleForm"
-              label-width="100px"
+              label-width="6.25rem /* 100/16 */"
               class="demo-ruleForm"
             >
               <el-form-item :label="$t('public.phone')" prop="phone"
@@ -251,10 +251,10 @@ export default {
 .homepage-hero-module,
 .video-container {
   position: relative;
-  min-width: 1000px;
-  height: 1100px;
+  min-width: 62.5rem /* 1000/16 */;
+  height: 68.75rem /* 1100/16 */;
   overflow: hidden;
-  margin-bottom: -22px;
+  margin-bottom: -1.375rem /* 22/16 */;
 }
 
 .video-container .poster img,
@@ -272,11 +272,11 @@ export default {
 .login-window {
   background: #fff;
   position: relative;
-  width: 440px;
-  height: 550px;
+  width: 27.5rem /* 440/16 */;
+  height: 34.375rem /* 550/16 */;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 250px;
+  margin-top: 15.625rem /* 250/16 */;
   z-index: 2;
   opacity: 0.8;
 }
@@ -293,12 +293,12 @@ export default {
 }
 
 .login-control {
-  margin-left: 20px;
+  margin-left: 1.25rem /* 20/16 */;
   width: 80%;
 }
 
 #temp img {
-  margin-top: 30px;
-  width: 200px;
+  margin-top: 1.875rem /* 30/16 */;
+  width: 12.5rem /* 200/16 */;
 }
 </style>

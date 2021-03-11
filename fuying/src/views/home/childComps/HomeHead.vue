@@ -26,12 +26,11 @@ export default {
 }
 
 .left-text {
-  width: 600px;
-  height: 400px;
+  width: 37.5rem /* 600/16 */;
+  height: 25rem /* 400/16 */;
   position: relative;
   margin-left: 15%;
-  /* margin-left: 300px; */
-  padding-top: 260px;
+  padding-top: 16.25rem /* 260/16 */;
 }
 
 .left-text .bigtext {
@@ -39,7 +38,7 @@ export default {
 }
 
 .bottom {
-  padding-top: 100px;
+  padding-top: 6.25rem /* 100/16 */;
 }
 
 .bottom span {

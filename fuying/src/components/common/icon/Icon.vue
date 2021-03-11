@@ -27,8 +27,8 @@ export default {
 <style scoped>
 #icon {
   background: gray;
-  width: 300px;
-  height: 300px;
+  width: 18.75rem /* 300/16 */;
+  height: 18.75rem /* 300/16 */;
   cursor: pointer;
 }
 </style>
