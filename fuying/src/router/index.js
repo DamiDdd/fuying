@@ -31,6 +31,7 @@ const Payment = () => import("views/order/Payment");
 const UploadGood = () => import("views/manager/UploadGood");
 const Health = () => import("views/profile/Health");
 const Homepage = () => import("views/homepage/Homepage");
+const NewsDetail = () => import("views/news/NewsDetail");
 
 // 1.安装VueRouter
 Vue.use(VueRouter);
@@ -42,36 +43,53 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    redirect: "/home"
+    redirect: "/home",
+    meta: {
+      title: "首页"
+    }
   },
   {
     path: "/home",
-    component: Homepage
+    component: Homepage,
+    meta: {
+      title: "首页"
+    }
   },
   {
     path: "/intro",
-    component: Intro
+    component: Intro,
+    meta: {
+      title: "介绍"
+    }
   },
   {
     path: "/login",
     component: Login,
     meta: {
-      isLogin: false
+      isLogin: false,
+      title: "登录/注册"
     }
   },
   {
     path: "/news",
-    component: News
+    component: News,
+    meta: {
+      title: "新闻"
+    }
   },
   {
     path: "/products",
-    component: Products
+    component: Products,
+    meta: {
+      title: "产品"
+    }
   },
   {
     path: "/report",
     component: Report,
     meta: {
-      isLogin: true
+      isLogin: true,
+      title: "报告"
     }
   },
   {
@@ -93,7 +111,8 @@ const routes = [
     component: ReportEdit,
     meta: {
       isLogin: true,
-      isAdmin: true
+      isAdmin: true,
+      title: "编辑报告"
     }
   },
   {
@@ -108,25 +127,31 @@ const routes = [
     path: "/profile",
     component: Profile,
     meta: {
-      isLogin: true
+      isLogin: true,
+      title: "个人中心"
     }
   },
   {
     path: "/detail",
-    component: Detail
+    component: Detail,
+    meta: {
+      title: "商品详情"
+    }
   },
   {
     path: "/cart",
     component: Cart,
     meta: {
-      isLogin: true
+      isLogin: true,
+      title: "我的购物车"
     }
   },
   {
     path: "/forgetPass",
     component: ForgetPass,
     meta: {
-      isLogin: false
+      isLogin: false,
+      title: "忘记密码"
     }
   },
   {
@@ -134,14 +159,16 @@ const routes = [
     component: Manager,
     meta: {
       isLogin: true,
-      isAdmin: true
+      isAdmin: true,
+      title: "管理"
     }
   },
   {
     path: "/payment",
     component: Payment,
     meta: {
-      isLogin: true
+      isLogin: true,
+      title: "付款页面"
     }
   },
   {
@@ -149,15 +176,22 @@ const routes = [
     component: UploadGood,
     meta: {
       isLogin: true,
-      isAdmin: true
+      isAdmin: true,
+      title: "上传商品"
     }
   },
   {
     path: "/health",
     component: Health,
     meta: {
-      isLogin: true
+      isLogin: true,
+      title: "个人健康"
     }
+  },
+  {
+    path: "/newsDetail",
+    component: NewsDetail,
+    title: "新闻详情页"
   }
   // {
   //   path: "/homepage",
@@ -181,6 +215,10 @@ const router = new VueRouter({
 
 // 设置各种进入权限判断
 router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+    document.title = to.meta.title;
+  }
+
   let getPhone = localStorage.getItem("userPhone");
   if (getPhone !== null) {
     store.state.isLogin = true;
@@ -246,6 +284,10 @@ router.beforeEach((to, from, next) => {
       }
     }
   }
+});
+
+router.afterEach(() => {
+  window.scrollTo(0, 0);
 });
 
 // 4.导出

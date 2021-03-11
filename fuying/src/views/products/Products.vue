@@ -28,13 +28,13 @@
           style="cursor: pointer;"
         >
           <div class="text">
-            <p class="title">{{ item.title }}</p>
+            <p class="title" style="color: white; padding-top: 1rem;">{{ item.title }}</p>
             <p>{{ item.desc }}</p>
           </div>
         </div>
         <div class="item-div third">
           <div class="text">
-            <p class="title" style="color: white;">敬请期待</p>
+            <p class="title" style="color: white; padding-top: 1rem;">敬请期待</p>
           </div>
         </div>
       </div>
@@ -156,10 +156,15 @@ export default {
 }
 
 .text {
-  /* background: yellow; */
-  color: var(--theme-color);
+  background: black;
+  color: white;
   margin-top: 500px;
   height: 200px;
-  margin-left: 20px;
+  opacity: 0.6;
+  padding-left: 20px;
+}
+
+.text:hover{
+  opacity: 1;
 }
 </style>

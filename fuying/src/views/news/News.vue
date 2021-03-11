@@ -51,7 +51,8 @@ export default {
   },
   methods: {
     showNews(index) {
-      console.log(index)
+      console.log(index);
+      this.$router.push("/newsDetail");
     }
   }
 };

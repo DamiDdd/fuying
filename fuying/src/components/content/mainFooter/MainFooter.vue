@@ -2,7 +2,7 @@
 
 <template>
   <foot-bar>
-    <h3 class="footer-tip">fuying</h3>
+    <h3 class="footer-tip">iproteome</h3>
     <div class="footer-icon">
       <img src="~assets/img/common/phone.png" />
       <img src="~assets/img/common/message.png" />
