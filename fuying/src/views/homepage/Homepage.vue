@@ -143,7 +143,7 @@ export default {
 }
 
 .btn-window {
-  min-width: 24.5%;
+  min-width: 24.7%;
   height: 100%;
   float: left;
   background: #000;
