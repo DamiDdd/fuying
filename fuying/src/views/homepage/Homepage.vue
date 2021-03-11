@@ -129,7 +129,7 @@ export default {
 
 .contain {
   width: 100%;
-  min-width: 60rem /* 1000/16 */;
+  min-width: 70rem /* 1000/16 */;
   /* min-height: 62.5rem; */
   text-align: center;
 }
@@ -137,7 +137,7 @@ export default {
 .menu {
   margin-top: 0rem /* 0/16 */;
   width: 100%;
-  min-width: 60rem /* 1000/16 */;
+  min-width: 70rem /* 1000/16 */;
   height: 56.25rem /* 900/16 */;
   background: url("~assets/img/bg/home-bg.jpg") no-repeat center;
 }
@@ -148,7 +148,7 @@ export default {
   float: left;
   background: #000;
   opacity: 0.8;
-  border: .0625rem /* 1/16 */ solid white;
+  border: 0.0625rem /* 1/16 */ solid white;
   color: white;
   cursor: pointer;
 }
@@ -165,7 +165,7 @@ export default {
 .icon img {
   height: 12.5rem /* 200/16 */;
   width: 12.5rem /* 200/16 */;
-  margin-left: .625rem /* 10/16 */;
+  margin-left: 0.625rem /* 10/16 */;
 }
 
 .icon h3 {
@@ -186,7 +186,7 @@ export default {
   /* background: -webkit-linear-gradient(top, white, lightblue, white); */
   padding-top: 1.875rem /* 30/16 */;
   position: relative;
-  min-width: 60rem /* 1000/16 */;
+  min-width: 70rem /* 1000/16 */;
   height: 31.25rem /* 500/16 */;
   margin-left: auto;
   margin-right: auto;
@@ -228,7 +228,7 @@ h3 {
 
 .el-carousel__item h3 {
   color: #475669;
-  font-size: .875rem /* 14/16 */;
+  font-size: 0.875rem /* 14/16 */;
   opacity: 0.75;
   line-height: 9.375rem /* 150/16 */;
   margin: 0;

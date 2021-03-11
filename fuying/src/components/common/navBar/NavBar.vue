@@ -35,7 +35,7 @@ export default {
 }
 
 .nav-logo {
-  width: 6%;
+  width: 6rem;
 }
 
 .nav-logo img {
@@ -48,8 +48,7 @@ export default {
 
 .nav-center {
   flex: 1;
-  margin-left: 4%;
-  /* margin-left: 70%; */
+  margin-left: 6rem;
 }
 
 .nav-right {
