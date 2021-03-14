@@ -2,7 +2,7 @@
 
 <template>
   <div id="detail">
-    <cart-icon :iconStyle="cartIconStyle"></cart-icon>
+    <!-- <cart-icon :iconStyle="cartIconStyle"></cart-icon> -->
     <div class="num-control">
       <!-- slider未传入图片参数时，默认显示没有相关信息图样 -->
       <div class="left"><slider :imgWidth="600"></slider></div>
@@ -51,7 +51,7 @@
 <script>
 import GoodView from "components/content/detail/GoodView";
 import Slider from "components/common/slide/Slider";
-import CartIcon from "components/common/cart/CartIcon";
+// import CartIcon from "components/common/cart/CartIcon";
 import Axios from "axios";
 import GLOBAL from "@/common/const";
 
@@ -60,7 +60,7 @@ export default {
   components: {
     GoodView,
     Slider,
-    CartIcon
+    // CartIcon
   },
   data() {
     return {

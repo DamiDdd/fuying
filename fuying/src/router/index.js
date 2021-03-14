@@ -32,6 +32,7 @@ const UploadGood = () => import("views/manager/UploadGood");
 const Health = () => import("views/profile/Health");
 const Homepage = () => import("views/homepage/Homepage");
 const NewsDetail = () => import("views/news/NewsDetail");
+const Admin = () => import("views/manager/Admin");
 
 // 1.安装VueRouter
 Vue.use(VueRouter);
@@ -197,6 +198,15 @@ const routes = [
     path: "/homepage",
     component: Home
   },
+  {
+    path: "/admin",
+    component: Admin,
+    meta: {
+      isLogin: true,
+      isAdmin: true,
+      title: "管理员界面"
+    }
+  }
   // {
   //   path: "/login2",
   //   component: Login2,

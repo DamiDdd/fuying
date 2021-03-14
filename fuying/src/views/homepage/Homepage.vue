@@ -137,13 +137,14 @@ export default {
 .menu {
   margin-top: 0rem /* 0/16 */;
   width: 100%;
-  min-width: 60rem /* 1000/16 */;
+  min-width: 65rem /* 1000/16 */;
   height: 56.25rem /* 900/16 */;
   background: url("~assets/img/bg/home-bg.jpg") no-repeat center;
 }
 
 .btn-window {
-  min-width: 24.7%;
+  width: 24.8%;
+  /* min-width: calc(25%-1rem); */
   height: 100%;
   float: left;
   background: #000;

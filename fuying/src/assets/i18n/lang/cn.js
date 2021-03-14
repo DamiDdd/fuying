@@ -55,7 +55,8 @@ const cn = {
     news: "新闻",
     product: "产品",
     login_register: "登录/注册",
-    profile: "个人中心"
+    profile: "个人中心",
+    admin: "管理员中心"
   },
   login: {
     login: "登录",

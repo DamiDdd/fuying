@@ -2,7 +2,7 @@
 
 <template>
   <div class="cartcontrol">
-    <div class="main title">{{ item.title }}</div>
+    <div class="main">{{ item.title }}</div>
     <div class="text">{{ item.desc }}</div>
     <div class="label">
       <div
@@ -12,17 +12,18 @@
         @click="typeChoose(index)"
         :class="active(index)"
       >
-        {{ i.name }}
+        {{ i.name }} / {{ i.tip }}
+        <span>￥{{ i.price }}</span>
       </div>
     </div>
-    <div class="text">
+    <!-- <div class="text">
       {{ item.type[this.index].tip }}
-    </div>
-    <div class="price">
+    </div> -->
+    <!-- <div class="price">
       <span class="price-1">{{ $t("good.price") }}</span>
       <span class="price-2">¥</span>
       <span class="price-3">{{ sumPrice }}</span>
-    </div>
+    </div> -->
     <div class="reduce" @click="reduceCart">
       <img src="~assets/img/common/delete.jpg" />
     </div>
@@ -35,6 +36,7 @@
       @click="changeNum()"
       @mouseenter="changeFocus"
       @mouseleave="removeFocus"
+      title="开启健康检测之旅"
     >
       {{ $t("good.add2cart") }}
     </button>
@@ -43,6 +45,7 @@
       @click="jump2cart"
       @mouseenter="changeFocus"
       @mouseleave="removeFocus"
+      title="即可畅享优质服务！"
     >
       {{ $t("good.buy") }}
     </button>
@@ -176,6 +179,7 @@ export default {
 .cartcontrol {
   width: 34.375rem /* 550/16 */;
   overflow: hidden;
+  /* background: #000; */
 }
 .cartcontrol div {
   margin-top: 1.25rem /* 20/16 */;
@@ -185,15 +189,20 @@ export default {
 }
 .text {
   height: 3.125rem /* 50/16 */;
+  padding-top: 2rem;
   font-size: 1.125rem /* 18/16 */;
   line-height: 1.4375rem /* 23/16 */;
   color: gray;
   overflow: auto;
 }
+.reduce {
+  padding-left: 2rem;
+}
 .reduce,
 .add,
 .type {
   cursor: pointer;
+  padding-bottom: 1rem;
 }
 .reduce,
 .num {
@@ -201,21 +210,23 @@ export default {
 }
 .label {
   width: 37.5rem /* 600/16 */;
-  height: 5rem /* 80/16 */;
-  display: flex;
+  height: 12rem /* 80/16 */;
+  /* display: flex; */
   overflow: auto;
 }
 .type {
-  height: 1.875rem /* 30/16 */;
-  border: 0.0625rem /* 1/16 */ solid wheat;
+  /* height: 3rem; */
+  border: 0.0625rem /* 1/16 */ solid silver;
+  width: 16rem;
   margin-left: 1.25rem /* 20/16 */;
-  padding-top: 0.625rem /* 10/16 */;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
   padding-left: 0.625rem /* 10/16 */;
   padding-right: 0.625rem /* 10/16 */;
 }
-.type:first-of-type {
-  margin-left: 0rem /* 0/16 */;
-}
+/* .type:first-of-type {
+  margin-left: 0rem;
+} */
 .price {
   color: red;
   font-weight: bold;
@@ -233,17 +244,17 @@ export default {
 }
 .reduce img,
 .add img {
-  width: 2.5rem /* 40/16 */;
+  width: 1.5rem /* 40/16 */;
 }
 .num {
-  font-size: 1.875rem /* 30/16 */;
+  font-size: 1.2rem /* 30/16 */;
   margin-left: 1.875rem /* 30/16 */;
   margin-right: 1.875rem /* 30/16 */;
   text-align: center;
   width: 5rem /* 80/16 */;
 }
 .active {
-  border: 0.0625rem /* 1/16 */ solid red;
+  border: 0.0625rem /* 1/16 */ solid black;
   background: url("~assets/img/common/bingo.jpg") no-repeat bottom right;
   background-size: 0.75rem /* 12/16 */ 0.75rem /* 12/16 */;
   font-weight: 600;
@@ -255,22 +266,25 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 1.5rem /* 24/16 */;
-  font-weight: bold;
+  /* font-weight: bold; */
   cursor: pointer;
   border-radius: 0.9375rem /* 15/16 */;
   outline: none;
 }
 #add2cart {
-  background-color: #ffce6b;
+  background-color: transparent;
   color: #6b6b6b;
   margin-right: 2%;
+  border: 0.03125rem /* 0.5/16 */ solid silver;
 }
 #purchase {
+  background-color: transparent;
   margin-top: 1.25rem /* 20/16 */;
-  background-color: #ffb3a7;
-  color: white;
+  color: #6b6b6b;
+  border: 0.03125rem /* 0.5/16 */ solid silver;
 }
 .focus {
-  border: 0.03125rem /* 0.5/16 */ solid gray;
+  /* border: 0.032rem solid black; */
+  font-weight: bold;
 }
 </style>

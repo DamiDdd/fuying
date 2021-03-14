@@ -40,11 +40,16 @@
       </div></nav-bar-item
     >
     <div v-show="isLogin" slot="right">
-      <nav-bar-item link="/profile" class="login"
+      <nav-bar-item v-show="!isAdmin" link="/profile" class="login"
         ><div class="focus" slot="text">
           {{ $t("nav.profile") }}
-        </div></nav-bar-item
-      >
+        </div>
+      </nav-bar-item>
+      <nav-bar-item v-show="isAdmin" link="/admin" class="login"
+        ><div class="focus" slot="text">
+          {{ $t("nav.admin") }}
+        </div>
+      </nav-bar-item>
     </div>
   </nav-bar>
 </template>
@@ -62,6 +67,9 @@ export default {
   computed: {
     isLogin() {
       return this.$store.state.isLogin;
+    },
+    isAdmin() {
+      return this.$store.state.isAdmin;
     }
   },
   methods: {
