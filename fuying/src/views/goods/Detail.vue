@@ -304,8 +304,7 @@ export default {
 }
 
 .btn {
-  background-color: transparent;
-  /* padding: 0.9375rem 3.125rem; */
+  background-color: sliver;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -315,6 +314,7 @@ export default {
   /* font-weight: bold; */
   cursor: pointer;
   border: 0.05rem solid silver;
+  color: black;
   border-radius: 0.5rem /* 15/16 */;
   outline: none;
 }

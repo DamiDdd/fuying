@@ -31,22 +31,13 @@
     <div class="add" @click="addCart">
       <img src="~assets/img/common/add.jpg" />
     </div>
-    <button
-      class="btn"
-      id="add2cart"
-      @click="changeNum()"
-      @mouseenter="changeFocus"
-      @mouseleave="removeFocus"
-      title="开启健康检测之旅"
-    >
+    <button class="btn" id="add2cart" title="开启健康检测之旅">
       {{ $t("good.add2cart") }}
     </button>
     <button
       class="btn"
       id="purchase"
       @click="jump2cart"
-      @mouseenter="changeFocus"
-      @mouseleave="removeFocus"
       title="即可畅享优质服务！"
     >
       {{ $t("good.buy") }}
@@ -166,12 +157,6 @@ export default {
     typeChoose(index) {
       this.item.count = 1;
       this.index = index;
-    },
-    changeFocus(e) {
-      e.currentTarget.className = "focus";
-    },
-    removeFocus(e) {
-      e.currentTarget.className = "unfocus";
     }
   }
 };
@@ -274,22 +259,23 @@ button {
   outline: none;
 }
 #add2cart {
-  background-color: transparent;
   color: #6b6b6b;
   margin-right: 2%;
-  border: 0.03125rem /* 0.5/16 */ solid silver;
+  border: 0.05rem solid silver;
 }
 #purchase {
-  background-color: transparent;
-  margin-top: 1.25rem /* 20/16 */;
+  margin-top: 1.25rem;
   color: #6b6b6b;
-  border: 0.03125rem /* 0.5/16 */ solid silver;
+  border: 0.05rem solid silver;
 }
-.focus {
-  /* border: 0.032rem solid black; */
-  font-weight: bold;
-}
+
 .btn {
   width: 14rem;
+  background: sliver;
+  opacity: 0.8;
+}
+.btn:hover {
+  font-weight: bold;
+  opacity: 1;
 }
 </style>

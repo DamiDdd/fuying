@@ -9,7 +9,7 @@
       :style="customStyle"
       :disabled="btnDisabled"
     >
-      <p class="tipText">TOP</p>
+      <p class="tipText"><span style="margin-left: 0.5rem;">↑</span><br />TOP</p>
     </el-button>
   </transition>
 </template>
@@ -116,9 +116,10 @@ export default {
 }
 
 .tipText {
-  margin-top: -0.75rem /* 12/16 */;
-  margin-left: -0.75rem /* 12/16 */;
+  margin-top: -0.5rem;
+  margin-left: -0.65rem /* 12/16 */;
   font-weight: bold;
   font-size: 0.625rem /* 10/16 */;
+  line-height: 0.9rem;
 }
 </style>

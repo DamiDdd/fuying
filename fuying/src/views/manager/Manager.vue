@@ -87,6 +87,13 @@
           </el-button>
         </template>
       </el-table-column>
+      <el-table-column width="130">
+        <template scope="scope">
+          <el-button @click="handleEdit(scope.$index, scope.row)">
+            {{ scope.row.tips }}
+          </el-button>
+        </template>
+      </el-table-column>
     </el-table>
     <div style="text-align: center;margin-top: 1.875rem /* 30/16 */;">
       <el-pagination
