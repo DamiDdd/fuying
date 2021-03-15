@@ -1,5 +1,6 @@
 <template>
   <div class="windows">
+    <div class="nav-bg"></div>
     <el-row class="topRow">
       <el-input
         class="m-input"
@@ -267,14 +268,19 @@ export default {
 }
 .m-input {
   width: 12.5rem /* 200/16 */;
-  padding-right: .625rem /* 10/16 */;
+  padding-right: 0.625rem /* 10/16 */;
 }
 .s-input {
-  padding-right: .625rem /* 10/16 */;
-  padding-top: .625rem /* 10/16 */;
+  padding-right: 0.625rem /* 10/16 */;
+  padding-top: 0.625rem /* 10/16 */;
 }
 .main-table {
   margin-top: 1.25rem /* 20/16 */;
   margin-left: 20%;
+}
+.nav-bg {
+  width: 100%;
+  min-width: 75rem /* 1200/16 */;
+  height: 5.5rem /* 200/16 */;
 }
 </style>

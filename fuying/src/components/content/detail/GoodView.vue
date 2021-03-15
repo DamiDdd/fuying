@@ -32,6 +32,7 @@
       <img src="~assets/img/common/add.jpg" />
     </div>
     <button
+      class="btn"
       id="add2cart"
       @click="changeNum()"
       @mouseenter="changeFocus"
@@ -41,6 +42,7 @@
       {{ $t("good.add2cart") }}
     </button>
     <button
+      class="btn"
       id="purchase"
       @click="jump2cart"
       @mouseenter="changeFocus"
@@ -210,7 +212,7 @@ export default {
 }
 .label {
   width: 37.5rem /* 600/16 */;
-  height: 12rem /* 80/16 */;
+  min-height: 10rem /* 80/16 */;
   /* display: flex; */
   overflow: auto;
 }
@@ -286,5 +288,8 @@ button {
 .focus {
   /* border: 0.032rem solid black; */
   font-weight: bold;
+}
+.btn {
+  width: 14rem;
 }
 </style>

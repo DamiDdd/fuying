@@ -20,6 +20,11 @@
           {{ $t("nav.product") }}
         </div></nav-bar-item
       >
+      <nav-bar-item v-show="isAdmin" link="/admin" style="width: 8rem;"
+        ><div class="focus" slot="text">
+          {{ $t("nav.admin") }}
+        </div></nav-bar-item
+      >
       <div class="right">
         <el-dropdown placement="bottom" trigger="hover" @command="batchOperate">
           <span class="el-dropdown-link focus btn">
@@ -40,14 +45,9 @@
       </div></nav-bar-item
     >
     <div v-show="isLogin" slot="right">
-      <nav-bar-item v-show="!isAdmin" link="/profile" class="login"
+      <nav-bar-item link="/profile" class="login"
         ><div class="focus" slot="text">
           {{ $t("nav.profile") }}
-        </div>
-      </nav-bar-item>
-      <nav-bar-item v-show="isAdmin" link="/admin" class="login"
-        ><div class="focus" slot="text">
-          {{ $t("nav.admin") }}
         </div>
       </nav-bar-item>
     </div>
@@ -69,7 +69,11 @@ export default {
       return this.$store.state.isLogin;
     },
     isAdmin() {
-      return this.$store.state.isAdmin;
+      if (localStorage.getItem("admin") != null) {
+        return true;
+      } else {
+        return false;
+      }
     }
   },
   methods: {
@@ -113,16 +117,13 @@ export default {
   margin-bottom: 0rem /* 0/16 */;
 }
 
-.focus {
-}
-
-.focus:hover {
-  color: wheat;
-}
-
 .dropdown {
   /* background: #333333; */
   padding-top: 0rem /* 0/16 */;
   /* opacity: 50%; */
+}
+
+.focus:hover {
+  color: wheat;
 }
 </style>

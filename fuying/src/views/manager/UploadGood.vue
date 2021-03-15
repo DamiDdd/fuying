@@ -1,5 +1,6 @@
 <template>
   <div class="main">
+    <div class="nav-bg"></div>
     <div class="center rcorner">
       <div class="input">
         <p class="bigtext-blue">{{ $t("uploadgood.title") }}</p>
@@ -257,9 +258,11 @@ export default {
   min-height: 37.5rem /* 600/16 */;
   width: 100%;
   min-width: 100rem /* 1600/16 */;
+  opacity: 1;
 }
 .center {
-  min-height: 34.375rem /* 550/16 */;
+  min-height: 45rem /* 550/16 */;
+  text-align: left;
   width: 90%;
   margin-left: 5%;
   margin-top: 1.25rem /* 20/16 */;
@@ -267,39 +270,39 @@ export default {
 }
 .imgdiv {
   border-radius: 1.5625rem /* 25/16 */;
-  border: .0625rem /* 1/16 */ solid var(--theme-color);
+  border: 0.0625rem /* 1/16 */ solid var(--theme-color);
   width: 95%;
   height: 10rem /* 160/16 */;
   display: flex;
   margin-left: 2.5%;
-  margin-top: .625rem /* 10/16 */;
-  margin-bottom: .625rem /* 10/16 */;
+  margin-top: 0.625rem /* 10/16 */;
+  margin-bottom: 0.625rem /* 10/16 */;
 }
 .titleInput {
   height: 2.5rem /* 40/16 */;
   width: 6.25rem /* 100/16 */;
   margin-top: 3.75rem /* 60/16 */;
-  margin-right: .625rem /* 10/16 */;
+  margin-right: 0.625rem /* 10/16 */;
   /* background: #000; */
 }
 .lastbtn {
   height: 2.5rem /* 40/16 */;
   width: 2.5rem /* 40/16 */;
   margin-top: 3.75rem /* 60/16 */;
-  margin-left: .625rem /* 10/16 */;
+  margin-left: 0.625rem /* 10/16 */;
 }
 .btn {
   height: 2.5rem /* 40/16 */;
   width: 2.5rem /* 40/16 */;
-  margin-left: .625rem /* 10/16 */;
+  margin-left: 0.625rem /* 10/16 */;
 }
 .text {
   width: 6.25rem /* 100/16 */;
   margin-top: 3.75rem /* 60/16 */;
-  margin-left: .625rem /* 10/16 */;
+  margin-left: 0.625rem /* 10/16 */;
 }
 .imgwin {
-  margin-top: .3125rem /* 5/16 */;
+  margin-top: 0.3125rem /* 5/16 */;
 }
 .submitbtn {
   width: 13.75rem /* 220/16 */;
@@ -317,14 +320,19 @@ export default {
   float: left;
 }
 .input {
-  margin-bottom: .625rem /* 10/16 */;
+  margin-bottom: 0.625rem /* 10/16 */;
   margin-left: 3.125rem /* 50/16 */;
 }
 .left p {
   margin-left: 1.25rem /* 20/16 */;
-  margin-top: .625rem /* 10/16 */;
+  margin-top: 0.625rem /* 10/16 */;
 }
 .last {
   margin-top: 3.125rem /* 50/16 */;
+}
+.nav-bg {
+  width: 100%;
+  min-width: 75rem /* 1200/16 */;
+  height: 5.5rem /* 200/16 */;
 }
 </style>

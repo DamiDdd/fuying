@@ -22,10 +22,9 @@ export default {
   z-index: 10;
   display: flex;
   width: var(--screen-width);
-  min-width: 50rem /* 800/16 */;
+  min-width: 60rem /* 800/16 */;
   line-height: 2.75rem /* 44/16 */;
   text-align: center;
-  overflow: hidden;
   background: #222222;
   opacity: 0.5;
 }
@@ -35,11 +34,11 @@ export default {
 }
 
 .nav-logo {
-  width: 6rem;
+  width: 8rem;
 }
 
 .nav-logo img {
-  /* width: 1.5rem /* 24/16 */
+  width: 7rem;
   height: 2.8125rem /* 45/16 */;
   margin-top: .3125rem /* 5/16 */;
   margin-left: 1.25rem /* 20/16 */;
@@ -48,11 +47,13 @@ export default {
 
 .nav-center {
   flex: 1;
-  margin-left: 6rem;
+  margin-left: 3rem;
+  z-index: 2;
 }
 
 .nav-right {
   width: 7.5rem /* 120/16 */;
   text-align: left;
+  z-index: 1;
 }
 </style>

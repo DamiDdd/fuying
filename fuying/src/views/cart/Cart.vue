@@ -2,6 +2,7 @@
 
 <template>
   <div id="cart">
+    <div class="nav-bg"></div>
     <p class="title">{{ $t("cart.title") }}</p>
     <div class="tips" v-if="!emptyCart">
       <div class="flag">
@@ -384,7 +385,7 @@ export default {
   text-align: right;
   font-weight: bold;
   font-size: 1.25rem /* 20/16 */;
-  padding-top: .625rem /* 10/16 */;
+  padding-top: 0.625rem /* 10/16 */;
   /* color: red; */
 }
 .price {
@@ -392,7 +393,7 @@ export default {
   text-align: center;
   font-weight: bold;
   font-size: 1.875rem /* 30/16 */;
-  padding-top: .3125rem /* 5/16 */;
+  padding-top: 0.3125rem /* 5/16 */;
   color: red;
 }
 #purchase {
@@ -404,7 +405,7 @@ export default {
   font-size: 1.5rem /* 24/16 */;
   font-weight: bold;
   cursor: pointer;
-  border-radius: .9375rem /* 15/16 */;
+  border-radius: 0.9375rem /* 15/16 */;
   outline: none;
   background-color: #ffce6b;
 }
@@ -423,5 +424,10 @@ export default {
 }
 .demo-ruleForm {
   margin-top: 1.25rem /* 20/16 */;
+}
+.nav-bg {
+  width: 100%;
+  min-width: 75rem /* 1200/16 */;
+  height: 5.5rem /* 200/16 */;
 }
 </style>

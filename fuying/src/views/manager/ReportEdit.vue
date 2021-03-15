@@ -2,9 +2,12 @@
 
 <template>
   <div id="report-edit">
+    <div class="nav-bg"></div>
     <div id="report-div">
       <div class="main-div">
-        <p style="text-align: center; line-height: .625rem /* 10/16 */;">蛋白质组检测报告</p>
+        <p style="text-align: center; line-height: .625rem /* 10/16 */;">
+          蛋白质组检测报告
+        </p>
         <div class="profile-div">
           <div class="title-div-white"><p>用户信息</p></div>
           <div class="td-div">
@@ -260,6 +263,7 @@ export default {
     let month = date.getMonth() + 1;
     let day = date.getDate();
     this.dataForm.sample_date = year + "-" + month + "-" + day;
+    // this.dataForm.sample_date = "2021" + "-" + "10" + "-" + "02";
   },
   methods: {
     // excel上传组件,停用
@@ -357,7 +361,7 @@ export default {
   width: var(--paper-width);
   margin-left: auto;
   margin-right: auto;
-  padding-right: .625rem /* 10/16 */;
+  padding-right: 0.625rem /* 10/16 */;
 }
 
 .btn-div {
@@ -365,15 +369,15 @@ export default {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  padding-bottom: .625rem /* 10/16 */;
+  padding-bottom: 0.625rem /* 10/16 */;
 }
 
 .main-div {
   width: var(--paper-width);
-  height: calc(var(--paper-height) + .0625rem /* 1/16 */);
-  margin-bottom: .6625rem /* 10.6/16 */;
+  height: calc(var(--paper-height) + 0.0625rem /* 1/16 */);
+  margin-bottom: 0.6625rem /* 10.6/16 */;
   overflow: hidden;
-  border: .0625rem /* 1/16 */ solid var(--theme-color);
+  border: 0.0625rem /* 1/16 */ solid var(--theme-color);
 }
 
 .main-div p {
@@ -429,23 +433,23 @@ export default {
 }
 
 .profile-div {
-  border: .0625rem /* 1/16 */ solid var(--theme-color);
+  border: 0.0625rem /* 1/16 */ solid var(--theme-color);
   width: 36.25rem /* 580/16 */;
   height: 49.375rem /* 790/16 */;
-  margin-left: .25rem /* 4/16 */;
+  margin-left: 0.25rem /* 4/16 */;
 }
 
 .td-div {
   height: 1.875rem /* 30/16 */;
-  border: .00625rem /* 0.1/16 */ solid #000;
+  border: 0.00625rem /* 0.1/16 */ solid #000;
   display: flex;
 }
 
 .td-div-long {
   height: 5rem /* 80/16 */;
-  border: .00625rem /* 0.1/16 */ solid #000;
+  border: 0.00625rem /* 0.1/16 */ solid #000;
   text-indent: 2rem;
-  padding-top: .625rem /* 10/16 */;
+  padding-top: 0.625rem /* 10/16 */;
 }
 
 .td-div-long textarea {
@@ -460,7 +464,7 @@ export default {
 .s-div,
 .ss-div {
   background: skyblue;
-  border: .00625rem /* 0.1/16 */ solid gray;
+  border: 0.00625rem /* 0.1/16 */ solid gray;
 }
 .ss-div {
   width: 3.125rem /* 50/16 */;
@@ -479,7 +483,7 @@ export default {
 input {
   width: 9.375rem /* 150/16 */;
   border: none;
-  margin-top: .125rem /* 2/16 */;
+  margin-top: 0.125rem /* 2/16 */;
 }
 
 textarea {
@@ -499,7 +503,7 @@ textarea {
 
 .upload-demo {
   padding-left: 1.25rem /* 20/16 */;
-  padding-top: .625rem /* 10/16 */;
+  padding-top: 0.625rem /* 10/16 */;
 }
 
 .short-input input {
@@ -508,7 +512,13 @@ textarea {
 
 .picker {
   width: 12.5rem /* 200/16 */;
-  font-size: .625rem /* 10/16 */;
-  margin-top: -.625rem /* 10/16 */;
+  font-size: 0.625rem /* 10/16 */;
+  margin-top: -0.625rem /* 10/16 */;
+}
+
+.nav-bg {
+  width: 100%;
+  min-width: 75rem /* 1200/16 */;
+  height: 5.5rem /* 200/16 */;
 }
 </style>

@@ -5,7 +5,7 @@
     <!-- <cart-icon :iconStyle="cartIconStyle"></cart-icon> -->
     <div class="num-control">
       <!-- slider未传入图片参数时，默认显示没有相关信息图样 -->
-      <div class="left"><slider :imgWidth="600"></slider></div>
+      <div class="left"><slider></slider></div>
       <div class="right"><good-view :item="good"></good-view></div>
     </div>
     <div class="img-window">
@@ -23,10 +23,25 @@
         </div>
       </div> -->
       <div>
-        <div class="left-window">
-          <p v-for="(i, index) in good.imgs" :key="index" @click="jump(index)">
+        <div class="left-window relative" v-show="!beyond">
+          <button
+            v-for="(i, index) in good.imgs"
+            :key="index"
+            @click="jump(index)"
+            class="btn"
+          >
             {{ i.name }}
-          </p>
+          </button>
+        </div>
+        <div class="left-window fixed" v-show="beyond">
+          <button
+            v-for="(i, index) in good.imgs"
+            :key="index"
+            @click="jump(index)"
+            class="btn"
+          >
+            {{ i.name }}
+          </button>
         </div>
         <div
           v-for="(i, index2) in good.imgs"
@@ -59,7 +74,7 @@ export default {
   name: "Detail",
   components: {
     GoodView,
-    Slider,
+    Slider
     // CartIcon
   },
   data() {
@@ -67,6 +82,8 @@ export default {
       detailUrl: GLOBAL.urlHead + "getproductsdetail/?id=",
       goodId: 0,
       index: 0,
+      beyond: false,
+      visibilityHeight: 600,
       // 关于iconStyle的细节设定
       cartIconStyle: {
         right: "5.875rem /* 94/16 */",
@@ -127,8 +144,16 @@ export default {
         });
       }
     });
+
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
+    handleScroll() {
+      this.beyond = window.pageYOffset > this.visibilityHeight;
+    },
     tagChoose(index) {
       this.index = index;
     },
@@ -202,7 +227,7 @@ export default {
 }
 .left {
   float: left;
-  width: 37.5rem /* 600/16 */;
+  width: 50rem /* 600/16 */;
   min-height: 28.125rem /* 450/16 */;
   margin-top: 5rem /* 80/16 */;
 }
@@ -218,7 +243,7 @@ export default {
   margin-left: 6.25rem /* 100/16 */;
 }
 .img-window {
-  margin-top: 8.125rem /* 130/16 */;
+  /* margin-top: 8.125rem; */
   margin-left: 19%;
   min-height: 37.5rem /* 600/16 */;
   width: 70%;
@@ -231,9 +256,9 @@ export default {
   width: 10%;
   height: 1.875rem /* 30/16 */;
   text-align: center;
-  border: .0625rem /* 1/16 */ solid #ccc;
+  border: 0.0625rem /* 1/16 */ solid #ccc;
   border-style: none solid;
-  padding-top: .5rem /* 8/16 */;
+  padding-top: 0.5rem /* 8/16 */;
   cursor: pointer;
 }
 /* 设定图片菜单选中样式 */
@@ -244,15 +269,24 @@ export default {
 }
 .left-window {
   /* background: #000; */
-  width: 6.25rem /* 100/16 */;
-  height: 6.25rem /* 100/16 */;
-  left: 15.625rem /* 250/16 */;
-  float: left;
+  width: 5rem;
+  margin-left: -7.5rem;
+  /* bottom: 5%; */
+  /* position: fixed; */
+  z-index: 0;
+}
+.fixed {
+  top: 10%;
   position: fixed;
+}
+.relative {
+  margin-top: 1.5rem;
+  float: left;
 }
 .left-window p {
   cursor: pointer;
   color: var(--theme-color);
+  border: 0.05rem solid silver;
 }
 
 .left-window p:hover {
@@ -267,5 +301,21 @@ export default {
   margin-left: auto;
   margin-right: auto;
   /* background: #000; */
+}
+
+.btn {
+  background-color: transparent;
+  /* padding: 0.9375rem 3.125rem; */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 10rem;
+  height: 2.8rem;
+  font-size: 1.5rem /* 24/16 */;
+  /* font-weight: bold; */
+  cursor: pointer;
+  border: 0.05rem solid silver;
+  border-radius: 0.5rem /* 15/16 */;
+  outline: none;
 }
 </style>

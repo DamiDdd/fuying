@@ -16,7 +16,7 @@
             $t("profile.exit")
           }}</el-button>
         </div>
-        <div v-show="admin" class="left-bottom">
+        <!-- <div v-show="admin" class="left-bottom">
           <p class="content-blue">{{ $t("profile.manager") }}</p>
           <el-button @click="jump('/reportEdit')">{{
             $t("profile.upload")
@@ -27,8 +27,7 @@
           <el-button @click="jump('/uploadGood')">{{
             $t("profile.uploadgood")
           }}</el-button>
-          <!-- <el-button @click="jump('/uploadCommend')">管理员上传评价</el-button> -->
-        </div>
+        </div> -->
       </div>
       <div class="right">
         <div class="right-top">
