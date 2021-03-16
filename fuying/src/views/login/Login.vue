@@ -12,7 +12,7 @@
         class="fillWidth"
         v-on:canplay="canplay"
       >
-        <source src="~assets/img/video/Shanghai.mp4" type="video/mp4" />
+        <source src="~assets/img/video/background.mp4" type="video/mp4" />
         浏览器不支持 video 标签，建议升级浏览器。
         <!-- <source src="PATH_TO_WEBM" type="video/webm" />
         浏览器不支持 video 标签，建议升级浏览器。 -->

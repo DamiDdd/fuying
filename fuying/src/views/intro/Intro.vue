@@ -31,6 +31,20 @@
               <h1 class="title">联系我们</h1>
               <el-input
                 type="textarea"
+                style="padding-bottom: 1rem;"
+                :rows="1"
+                v-model="name"
+                placeholder="Add your name here:)"
+              ></el-input>
+              <el-input
+                type="textarea"
+                :rows="1"
+                v-model="email"
+                placeholder="Add your email here:)"
+                style="padding-bottom: 1rem;"
+              ></el-input>
+              <el-input
+                type="textarea"
                 :rows="6"
                 v-model="suggestions"
                 placeholder="Add your suggestions here:)"
@@ -55,7 +69,9 @@ export default {
   name: "Intro",
   data() {
     return {
-      suggestions: ""
+      suggestions: "",
+      name: "",
+      email: ""
     };
   },
   methods: {

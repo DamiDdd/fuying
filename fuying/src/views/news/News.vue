@@ -9,11 +9,11 @@
             v-for="(o, index) in news"
             :key="o"
             :offset="index % 3 == 0 ? 2 : 1"
-            style="padding-bottom: .625rem /* 10/16 */"
+            style="padding-top: 1.625rem;"
           >
             <el-card :body-style="{ padding: '0rem /* 0/16 */' }">
               <img :src="o.img" class="image" />
-              <div style="padding: .875rem /* 14/16 */;">
+              <div style="height: 6rem; padding: .875rem /* 14/16 */;">
                 <span>{{ o.title }}</span>
                 <div class="bottom clearfix">
                   <time class="time">{{ currentDate }}</time>
@@ -33,6 +33,7 @@
 <script>
 import temp1 from "../../assets/img/bg/intro-bg.jpg";
 import temp2 from "../../assets/img/bg/news-bg.jpg";
+import news from "../../assets/img/news/news.png";
 
 export default {
   name: "News",
@@ -40,19 +41,20 @@ export default {
     return {
       currentDate: new Date(),
       news: [
-        { title: "基因", img: temp1 },
+        {
+          title: "Nature Medicine|深度纵向分析揭示衰老标志物和衰老类型",
+          img: news
+        },
         { title: "基因", img: temp2 },
-        { title: "科学", img: temp1 },
-        { title: "科学", img: temp2 },
-        { title: "imean", img: temp2 },
-        { title: "imean", img: temp1 }
-      ]
+        { title: "科学", img: temp1 }
+      ],
+      url: "https://mp.weixin.qq.com/s/NMYSQFMaZa9s1QhhL-Whmg"
     };
   },
   methods: {
     showNews(index) {
       console.log(index);
-      this.$router.push("/newsDetail");
+      window.location.href = this.url;
     }
   }
 };
@@ -101,7 +103,7 @@ export default {
 
 .image {
   width: 25rem /* 400/16 */;
-  height: 18.75rem /* 300/16 */;
+  height: 20.75rem /* 300/16 */;
   display: block;
 }
 

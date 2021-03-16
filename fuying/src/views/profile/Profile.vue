@@ -359,7 +359,7 @@ export default {
 }
 
 .right-middle {
-  width: 80%;
+  width: 60%;
   height: 40%;
 }
 

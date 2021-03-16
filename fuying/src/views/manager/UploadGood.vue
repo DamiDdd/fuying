@@ -258,10 +258,10 @@ export default {
   min-height: 37.5rem /* 600/16 */;
   width: 100%;
   min-width: 100rem /* 1600/16 */;
-  opacity: 1;
 }
 .center {
-  min-height: 45rem /* 550/16 */;
+  min-height: 60rem /* 550/16 */;
+  height: 100%;
   text-align: left;
   width: 90%;
   margin-left: 5%;
@@ -300,6 +300,7 @@ export default {
   width: 6.25rem /* 100/16 */;
   margin-top: 3.75rem /* 60/16 */;
   margin-left: 0.625rem /* 10/16 */;
+  color: black;
 }
 .imgwin {
   margin-top: 0.3125rem /* 5/16 */;
