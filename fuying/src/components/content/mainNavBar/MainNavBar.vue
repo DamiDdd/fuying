@@ -20,6 +20,11 @@
           {{ $t("nav.product") }}
         </div></nav-bar-item
       >
+      <nav-bar-item v-show="isLogin" link="/cart"
+        ><div class="focus" slot="text">
+          {{ $t("nav.cart") }}
+        </div></nav-bar-item
+      >
       <nav-bar-item v-show="isAdmin" link="/admin" style="width: 8rem;"
         ><div class="focus" slot="text">
           {{ $t("nav.admin") }}
@@ -69,11 +74,7 @@ export default {
       return this.$store.state.isLogin;
     },
     isAdmin() {
-      if (localStorage.getItem("admin") != null) {
-        return true;
-      } else {
-        return false;
-      }
+      return this.$store.state.isAdmin;
     }
   },
   methods: {

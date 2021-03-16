@@ -10,24 +10,19 @@
       </el-carousel>
     </div>
     <div class="menu">
-      <div class="btn-window">
+      <div class="btn-window" @click="jump('/news')">
         <div class="icon">
           <img src="~assets/img/common/microscope.png" alt="" />
           <h3>检测手段</h3>
         </div>
       </div>
-      <div class="btn-window">
+      <div class="btn-window" @click="jump('/intro')">
         <div class="icon">
-          <img
-            src="~assets/img/common/detect.png"
-            @click="jump('/intro')"
-            style="cursor:pointer;"
-            alt=""
-          />
+          <img src="~assets/img/common/detect.png" alt="" />
           <h3>技术原理</h3>
         </div>
       </div>
-      <div class="btn-window">
+      <div class="btn-window" @click="jump('/products')">
         <div class="icon">
           <img src="~assets/img/common/listener.png" alt="" />
           <h3>科技服务</h3>
@@ -58,7 +53,7 @@
               shadow="always"
               style="height: 10rem /* 160/16 */;width: 8.75rem /* 140/16 */; cursor:pointer;"
             >
-              <img :src="i.src" @click="goPage(i.href)" />
+              <img :src="i.src" @click="goPage(i.href)" class="card-img" />
             </el-card>
           </el-col>
         </el-row>
@@ -70,12 +65,12 @@
 <script>
 import doctor from "../../assets/img/bg/doctor-bg.jpg";
 import medical from "../../assets/img/bg/medical-bg.jpg";
-import Harvard from "../../assets/img/home/university/Harvard.png";
-import Hopkins from "../../assets/img/home/university/Johns Hopkins.png";
-import Stanford from "../../assets/img/home/university/Stanford.png";
-import Tsinghua from "../../assets/img/home/university/Tsinghua.png";
-import Fudan from "../../assets/img/home/university/Fudan.png";
-import Zhejiang from "../../assets/img/home/university/Zhejiang.png";
+import Fudan from "../../assets/img/home/university/Fudan.jpg";
+import Harvard from "../../assets/img/home/university/Harvard.jpg";
+import Tsinghua from "../../assets/img/home/university/Tsinghua.jpg";
+import ZJ from "../../assets/img/home/university/ZJ.jpg";
+import Stanford from "../../assets/img/home/university/Stanford.jpg";
+import Hopkins from "../../assets/img/home/university/Hopkins.jpg";
 
 export default {
   name: "Homepage",
@@ -83,6 +78,18 @@ export default {
     return {
       imgsrc: [doctor, medical],
       universities: [
+        {
+          src: Fudan,
+          href: "https://www.fudan.edu.cn/"
+        },
+        {
+          src: Tsinghua,
+          href: "https://www.tsinghua.edu.cn/"
+        },
+        {
+          src: ZJ,
+          href: "http://www.zju.edu.cn/"
+        },
         {
           src: Harvard,
           href: "https://www.harvard.edu/"
@@ -94,18 +101,6 @@ export default {
         {
           src: Stanford,
           href: "https://www.stanford.edu/"
-        },
-        {
-          src: Tsinghua,
-          href: "https://www.tsinghua.edu.cn/"
-        },
-        {
-          src: Fudan,
-          href: "https://www.fudan.edu.cn/"
-        },
-        {
-          src: Zhejiang,
-          href: "http://www.zy91.com/"
         }
       ]
     };
@@ -149,7 +144,7 @@ export default {
   float: left;
   background: #000;
   opacity: 0.8;
-  border: .0625rem /* 1/16 */ solid white;
+  border: 0.0625rem /* 1/16 */ solid white;
   color: white;
   cursor: pointer;
 }
@@ -166,7 +161,7 @@ export default {
 .icon img {
   height: 12.5rem /* 200/16 */;
   width: 12.5rem /* 200/16 */;
-  margin-left: .625rem /* 10/16 */;
+  margin-left: 0.625rem /* 10/16 */;
 }
 
 .icon h3 {
@@ -220,7 +215,8 @@ h3 {
 }
 
 .company img {
-  width: 7rem /* 112/16 */;
+  width: 9.5rem /* 112/16 */;
+  margin-left: -1.6rem;
 }
 
 .title {
@@ -229,7 +225,7 @@ h3 {
 
 .el-carousel__item h3 {
   color: #475669;
-  font-size: .875rem /* 14/16 */;
+  font-size: 0.875rem /* 14/16 */;
   opacity: 0.75;
   line-height: 9.375rem /* 150/16 */;
   margin: 0;

@@ -11,7 +11,7 @@ VueRouter.prototype.push = function push(location) {
 };
 
 // 设置懒加载
-const Home = () => import("views/home/Home");
+// const Home = () => import("views/home/Home");
 // const Login2 = () => import("views/login/Login2");
 const Intro = () => import("views/intro/Intro");
 const Login = () => import("views/login/Login");
@@ -194,10 +194,10 @@ const routes = [
     component: NewsDetail,
     title: "新闻详情页"
   },
-  {
-    path: "/homepage",
-    component: Home
-  },
+  // {
+  //   path: "/homepage",
+  //   component: Home
+  // },
   {
     path: "/admin",
     component: Admin,

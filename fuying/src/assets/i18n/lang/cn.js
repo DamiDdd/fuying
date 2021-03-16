@@ -56,7 +56,8 @@ const cn = {
     product: "产品",
     login_register: "登录/注册",
     profile: "个人中心",
-    admin: "管理员中心"
+    admin: "管理员中心",
+    cart: "购物车"
   },
   login: {
     login: "登录",

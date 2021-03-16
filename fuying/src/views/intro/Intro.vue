@@ -21,14 +21,23 @@
           <el-tab-pane label="检测意义"
             ><div class="article">
               <h1 class="title">检测意义</h1>
-              1、 评估生理年龄、基础生理指数，避免不良生活习惯 <br>
-              2、评估免疫功能、代谢功能、神经递质功能、组织器官功能、消化功能等，掌握近期指标水平，提前调养改善机体情况<br>
+              1、 评估生理年龄、基础生理指数，避免不良生活习惯 <br />
+              2、评估免疫功能、代谢功能、神经递质功能、组织器官功能、消化功能等，掌握近期指标水平，提前调养改善机体情况<br />
               3、一次检测可获得当前完备的个人全景生理刻画，定期检测建立长期健康档案，有助于提早发现异常状态，预防疾病的发生
             </div>
           </el-tab-pane>
           <el-tab-pane label="联系我们"
             ><div class="article">
               <h1 class="title">联系我们</h1>
+              <el-input
+                type="textarea"
+                :rows="6"
+                v-model="suggestions"
+                placeholder="Add your suggestions here:)"
+              ></el-input>
+              <el-button type="primary" @click="submitSuggestions" class="btn"
+                >submit</el-button
+              >
             </div>
           </el-tab-pane>
         </el-tabs>
@@ -39,7 +48,19 @@
 
 <script>
 export default {
-  name: "Intro"
+  name: "Intro",
+  data() {
+    return {
+      suggestions: ""
+    };
+  },
+  methods: {
+    submitSuggestions() {
+      if (this.suggestions.length !== 0) {
+        console.log(this.suggestions);
+      }
+    }
+  }
 };
 </script>
 
@@ -78,5 +99,9 @@ export default {
 .article {
   margin-left: 6.25rem /* 100/16 */;
   line-height: 1.875rem /* 30/16 */;
+}
+
+.btn {
+  margin-top: 2rem;
 }
 </style>

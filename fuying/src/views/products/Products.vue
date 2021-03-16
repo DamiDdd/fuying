@@ -3,7 +3,6 @@
 <template>
   <div id="products">
     <img class="nav-bg" src="~assets/img/bg/item-bg.jpg" alt="/" />
-    <cart-icon :iconStyle="cartIconStyle"></cart-icon>
     <!-- <div class="main-div">
       <div
         class="icon"
@@ -28,13 +27,17 @@
           style="cursor: pointer;"
         >
           <div class="text">
-            <p class="title" style="color: white; padding-top: 1rem;">{{ item.title }}</p>
+            <p class="title" style="color: white; padding-top: 1rem;">
+              {{ item.title }}
+            </p>
             <p>{{ item.desc }}</p>
           </div>
         </div>
         <div class="item-div third">
           <div class="text">
-            <p class="title" style="color: white; padding-top: 1rem;">敬请期待</p>
+            <p class="title" style="color: white; padding-top: 1rem;">
+              敬请期待
+            </p>
           </div>
         </div>
       </div>
@@ -44,16 +47,11 @@
 
 <script>
 // import ItemWindow from "components/common/mall/ItemWindow";
-import CartIcon from "components/common/cart/CartIcon";
 import Axios from "axios";
 import GLOBAL from "@/common/const";
 
 export default {
   name: "Products",
-  components: {
-    // ItemWindow,
-    CartIcon
-  },
   data() {
     return {
       cartIconStyle: {
@@ -132,7 +130,7 @@ export default {
   float: left;
   /* background: #000; */
   opacity: 1;
-  border: .0625rem /* 1/16 */ solid white;
+  border: 0.0625rem /* 1/16 */ solid white;
   /* color: white; */
 }
 
@@ -164,7 +162,7 @@ export default {
   padding-left: 1.25rem /* 20/16 */;
 }
 
-.text:hover{
+.text:hover {
   opacity: 1;
 }
 </style>

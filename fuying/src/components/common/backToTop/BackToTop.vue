@@ -117,7 +117,7 @@ export default {
 
 .tipText {
   margin-top: -0.5rem;
-  margin-left: -0.65rem /* 12/16 */;
+  margin-left: -0.7rem /* 12/16 */;
   font-weight: bold;
   font-size: 0.625rem /* 10/16 */;
   line-height: 0.9rem;

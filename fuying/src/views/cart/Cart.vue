@@ -391,10 +391,10 @@ export default {
 .price {
   width: 18%;
   text-align: center;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 1.875rem /* 30/16 */;
   padding-top: 0.3125rem /* 5/16 */;
-  color: red;
+  color: gray;
 }
 #purchase {
   width: 12%;
@@ -402,8 +402,8 @@ export default {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 1.5rem /* 24/16 */;
-  font-weight: bold;
+  font-size: 1.2rem /* 24/16 */;
+  /* font-weight: bold; */
   cursor: pointer;
   border-radius: 0.9375rem /* 15/16 */;
   outline: none;
