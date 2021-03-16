@@ -1,6 +1,6 @@
 <template>
   <div id="news">
-    <img class="nav-bg" src="~assets/img/bg/news-bg.jpg" alt="/" />
+    <div class="nav-bg"></div>
     <div class="bg">
       <div class="main">
         <el-row>
@@ -67,6 +67,8 @@ export default {
   width: 100%;
   min-width: 75rem /* 1200/16 */;
   height: 12.5rem /* 200/16 */;
+  background: url("~assets/img/bg/news-bg.png");
+  background-size: top cover;
 }
 
 .bg {
@@ -83,13 +85,13 @@ export default {
 }
 
 .time {
-  font-size: .8125rem /* 13/16 */;
+  font-size: 0.8125rem /* 13/16 */;
   color: #999;
 }
 
 .bottom {
-  margin-top: .8125rem /* 13/16 */;
-  line-height: .75rem /* 12/16 */;
+  margin-top: 0.8125rem /* 13/16 */;
+  line-height: 0.75rem /* 12/16 */;
 }
 
 .button {

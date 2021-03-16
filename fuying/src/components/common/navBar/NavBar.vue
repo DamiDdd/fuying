@@ -40,7 +40,7 @@ export default {
 .nav-logo img {
   width: 7rem;
   height: 2.8125rem /* 45/16 */;
-  margin-top: .3125rem /* 5/16 */;
+  margin-top: 0.3125rem /* 5/16 */;
   margin-left: 1.25rem /* 20/16 */;
   vertical-align: middle;
 }
@@ -52,8 +52,9 @@ export default {
 }
 
 .nav-right {
-  width: 7.5rem /* 120/16 */;
+  min-width: 6.5rem /* 120/16 */;
   text-align: left;
-  z-index: 1;
+  z-index: 4;
+  display: flex;
 }
 </style>

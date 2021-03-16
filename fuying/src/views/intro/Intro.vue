@@ -1,6 +1,6 @@
 <template>
   <div id="intro">
-    <img class="nav-bg" src="~assets/img/bg/intro-bg.jpg" alt="/" />
+    <div class="nav-bg"></div>
     <div class="bg">
       <div class="main">
         <el-tabs tab-position="left" class="windows">
@@ -35,7 +35,11 @@
                 v-model="suggestions"
                 placeholder="Add your suggestions here:)"
               ></el-input>
-              <el-button type="primary" @click="submitSuggestions" class="btn"
+              <el-button
+                type="primary"
+                @click="submitSuggestions"
+                class="btn"
+                icon="el-icon-s-promotion"
                 >submit</el-button
               >
             </div>
@@ -73,6 +77,8 @@ export default {
   width: 100%;
   min-width: 75rem /* 1200/16 */;
   height: 12.5rem /* 200/16 */;
+  background: url("~assets/img/bg/intro-bg.png");
+  background-size: 100% bottom;
 }
 
 .bg {

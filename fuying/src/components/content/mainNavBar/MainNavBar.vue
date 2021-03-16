@@ -20,11 +20,7 @@
           {{ $t("nav.product") }}
         </div></nav-bar-item
       >
-      <nav-bar-item v-show="isLogin" link="/cart"
-        ><div class="focus" slot="text">
-          {{ $t("nav.cart") }}
-        </div></nav-bar-item
-      >
+
       <nav-bar-item v-show="isAdmin" link="/admin" style="width: 8rem;"
         ><div class="focus" slot="text">
           {{ $t("nav.admin") }}
@@ -33,7 +29,7 @@
       <div class="right">
         <el-dropdown placement="bottom" trigger="hover" @command="batchOperate">
           <span class="el-dropdown-link focus btn">
-            语言/Language
+            语言
           </span>
           <el-dropdown-menu slot="dropdown" class="dropdown">
             <el-dropdown-item class="item" command="cn">中文</el-dropdown-item>
@@ -44,6 +40,12 @@
         </el-dropdown>
       </div>
     </div>
+    <nav-bar-item v-show="isLogin" link="/cart" class="cart" slot="right"
+      ><div class="focus" slot="text">
+        <!-- <img class="icon" src="~assets/img/common/cart.png" alt="" /> -->
+        {{ $t("nav.cart") }}
+      </div></nav-bar-item
+    >
     <nav-bar-item v-show="!isLogin" link="/login" slot="right" class="login"
       ><div class="focus" slot="text">
         {{ $t("nav.login_register") }}
@@ -106,7 +108,7 @@ export default {
   position: absolute;
   margin-top: 0.1875rem /* 3/16 */;
   right: 6.25rem /* 100/16 */;
-  width: 12.5rem /* 200/16 */;
+  width: 15.5rem /* 200/16 */;
   font-size: 1.6875rem /* 27/16 */;
   /* background: gray; */
 }
@@ -126,5 +128,12 @@ export default {
 
 .focus:hover {
   color: wheat;
+}
+.icon {
+  width: 1.5rem;
+  margin-top: 0.4rem;
+}
+
+.cart {
 }
 </style>

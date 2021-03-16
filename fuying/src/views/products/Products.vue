@@ -2,7 +2,7 @@
 
 <template>
   <div id="products">
-    <img class="nav-bg" src="~assets/img/bg/item-bg.jpg" alt="/" />
+    <div class="nav-bg"></div>
     <!-- <div class="main-div">
       <div
         class="icon"
@@ -52,6 +52,7 @@ import GLOBAL from "@/common/const";
 
 export default {
   name: "Products",
+
   data() {
     return {
       cartIconStyle: {
@@ -91,6 +92,8 @@ export default {
   width: 100%;
   min-width: 62.5rem /* 1000/16 */;
   height: 12.5rem /* 200/16 */;
+  background: url("~assets/img/bg/item-bg.jpg");
+  background-size: top cover;
 }
 
 #products {
