@@ -121,7 +121,8 @@ const routes = [
     component: UploadCommend,
     meta: {
       isLogin: true,
-      isAdmin: true
+      isAdmin: true,
+      title: "上传"
     }
   },
   {
