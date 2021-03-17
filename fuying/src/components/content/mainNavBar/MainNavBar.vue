@@ -76,7 +76,12 @@ export default {
       return this.$store.state.isLogin;
     },
     isAdmin() {
-      return this.$store.state.isAdmin;
+      // return this.$store.state.isAdmin;
+      if (localStorage.getItem("admin") != null) {
+        return true;
+      } else {
+        return false;
+      }
     }
   },
   methods: {

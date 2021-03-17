@@ -17,7 +17,7 @@
                 <span>{{ o.title }}</span>
                 <div class="bottom clearfix">
                   <time class="time">{{ currentDate }}</time>
-                  <el-button type="text" class="button" @click="showNews(index)"
+                  <el-button type="text" class="button" @click="showNews(o.url)"
                     >操作按钮</el-button
                   >
                 </div>
@@ -31,9 +31,8 @@
 </template>
 
 <script>
-import temp1 from "../../assets/img/bg/intro-bg.jpg";
-import temp2 from "../../assets/img/bg/news-bg.jpg";
-import news from "../../assets/img/news/news.png";
+import news1 from "../../assets/img/news/news1.png";
+import news2 from "../../assets/img/news/news2.png";
 
 export default {
   name: "News",
@@ -43,18 +42,20 @@ export default {
       news: [
         {
           title: "Nature Medicine|深度纵向分析揭示衰老标志物和衰老类型",
-          img: news
+          img: news1,
+          url: "https://mp.weixin.qq.com/s/NMYSQFMaZa9s1QhhL-Whmg"
         },
-        { title: "基因", img: temp2 },
-        { title: "科学", img: temp1 }
-      ],
-      url: "https://mp.weixin.qq.com/s/NMYSQFMaZa9s1QhhL-Whmg"
+        {
+          title: "Nature Communications|乳腺癌定量蛋白质组和蛋白质基因组图谱",
+          img: news2,
+          url: "https://mp.weixin.qq.com/s/VszRZiI01Z7e0LUVjNiF8g"
+        }
+      ]
     };
   },
   methods: {
-    showNews(index) {
-      console.log(index);
-      window.location.href = this.url;
+    showNews(url) {
+      window.location.href = url;
     }
   }
 };

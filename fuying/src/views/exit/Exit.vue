@@ -24,6 +24,7 @@ export default {
       type: "success",
       message: this.$t("tips.exit")
     });
+    location.reload();
   }
 };
 </script>

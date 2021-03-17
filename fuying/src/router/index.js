@@ -122,7 +122,7 @@ const routes = [
     meta: {
       isLogin: true,
       isAdmin: true,
-      title: "上传"
+      title: "报告查询"
     }
   },
   {
@@ -227,7 +227,7 @@ const router = new VueRouter({
 // 设置各种进入权限判断
 router.beforeEach((to, from, next) => {
   if (to.meta.title) {
-    document.title = to.meta.title;
+    document.title = "iproteome-" + to.meta.title;
   }
 
   let getPhone = localStorage.getItem("userPhone");

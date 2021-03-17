@@ -185,6 +185,7 @@ export default {
                     localStorage.setItem("admin", this.ruleForm["phone"]);
                   }
                   this.$router.push("/home");
+                  location.reload();
                 } else {
                   // 可以改进，后台直接返回汉语错误信息，前台通过msg展示即可
                   if (!data["registered"]) {
