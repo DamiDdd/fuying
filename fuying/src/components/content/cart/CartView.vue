@@ -18,7 +18,9 @@
     </div>
     <div class="price-sum">{{ good.priceSum }}</div>
     <div class="delete">
-      <span @click="deleteReverse">{{ $t("public.delete") }}</span>
+      <el-button class="el-btn" @click="deleteReverse">{{
+        $t("public.delete")
+      }}</el-button>
       <div v-show="this.deleteBtn" class="answer">
         <button class="btn" @click="deleteConfirmed">
           {{ $t("public.confirm") }}
@@ -201,5 +203,9 @@ export default {
   float: left;
   width: 3.75rem /* 60/16 */;
   cursor: pointer;
+}
+.el-btn {
+  margin-left: 0.2rem;
+  margin-top: -0.35rem;
 }
 </style>
