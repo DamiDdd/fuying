@@ -22,7 +22,6 @@ const ReportEdit = () => import("views/manager/ReportEdit");
 const Profile = () => import("views/profile/Profile");
 const Detail = () => import("views/goods/Detail");
 const Cart = () => import("views/cart/Cart");
-const UploadCommend = () => import("views/manager/UploadCommend");
 const ForgetPass = () => import("views/login/ForgetPass");
 const Manager = () => import("views/manager/Manager");
 const Payment = () => import("views/order/Payment");
@@ -98,15 +97,6 @@ const routes = [
       isLogin: true,
       isAdmin: true,
       title: "编辑报告"
-    }
-  },
-  {
-    path: "/uploadCommend",
-    component: UploadCommend,
-    meta: {
-      isLogin: true,
-      isAdmin: true,
-      title: "报告查询"
     }
   },
   {
