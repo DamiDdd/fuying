@@ -11,7 +11,7 @@
             :offset="index % 3 == 0 ? 2 : 1"
             style="padding-top: 1.625rem;"
           >
-            <el-card :body-style="{ padding: '0rem /* 0/16 */' }">
+            <el-card :body-style="{ padding: '0rem' }">
               <img :src="o.img" class="image" />
               <div style="height: 6rem; padding: .875rem /* 14/16 */;">
                 <span>{{ o.title }}</span>
@@ -103,8 +103,8 @@ export default {
 }
 
 .image {
-  width: 25rem /* 400/16 */;
-  height: 20.75rem /* 300/16 */;
+  width: 27rem /* 400/16 */;
+  height: 13.25rem;
   display: block;
 }
 

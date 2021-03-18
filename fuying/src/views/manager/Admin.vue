@@ -46,7 +46,8 @@ export default {
   width: 100%;
   min-width: 75rem /* 1200/16 */;
   height: 12.5rem /* 200/16 */;
-  background: -webkit-linear-gradient(top, white, black);
+  background: url("~assets/img/bg/admin-bg.png");
+  background-size: cover;
 }
 .menu {
   margin-top: 0rem /* 0/16 */;

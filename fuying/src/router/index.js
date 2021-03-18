@@ -17,8 +17,6 @@ const Intro = () => import("views/intro/Intro");
 const Login = () => import("views/login/Login");
 const News = () => import("views/news/News");
 const Products = () => import("views/products/Products");
-const Report = () => import("views/profile/Report");
-const Pdf = () => import("views/profile/Pdf");
 const Exit = () => import("views/exit/Exit");
 const ReportEdit = () => import("views/manager/ReportEdit");
 const Profile = () => import("views/profile/Profile");
@@ -31,9 +29,9 @@ const Payment = () => import("views/order/Payment");
 const UploadGood = () => import("views/manager/UploadGood");
 const Health = () => import("views/profile/Health");
 const Homepage = () => import("views/homepage/Homepage");
-const NewsDetail = () => import("views/news/NewsDetail");
 const Admin = () => import("views/manager/Admin");
 const UploadNews = () => import("views/manager/UploadNews");
+const notfound = () => import("views/404/404");
 
 // 1.安装VueRouter
 Vue.use(VueRouter);
@@ -84,21 +82,6 @@ const routes = [
     component: Products,
     meta: {
       title: "产品"
-    }
-  },
-  {
-    path: "/report",
-    component: Report,
-    meta: {
-      isLogin: true,
-      title: "报告"
-    }
-  },
-  {
-    path: "/pdf",
-    component: Pdf,
-    meta: {
-      isLogin: true
     }
   },
   {
@@ -201,15 +184,6 @@ const routes = [
     }
   },
   {
-    path: "/newsDetail",
-    component: NewsDetail,
-    title: "新闻详情页"
-  },
-  // {
-  //   path: "/homepage",
-  //   component: Home
-  // },
-  {
     path: "/admin",
     component: Admin,
     meta: {
@@ -217,14 +191,15 @@ const routes = [
       isAdmin: true,
       title: "管理员界面"
     }
+  },
+  {
+    path: "*",
+    name: "notfound",
+    component: notfound,
+    meta: {
+      title: "404 not found"
+    }
   }
-  // {
-  //   path: "/login2",
-  //   component: Login2,
-  //   meta: {
-  //     isLogin: false
-  //   }
-  // }
 ];
 
 // 3.创建路由对象

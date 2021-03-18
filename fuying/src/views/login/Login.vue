@@ -3,7 +3,6 @@
 <template>
   <div class="homepage-hero-module">
     <div class="video-container">
-      <div :style="fixStyle" class="filter"></div>
       <video
         :style="fixStyle"
         autoplay

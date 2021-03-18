@@ -234,7 +234,7 @@ export default {
     },
     lastType(i) {
       let length = this.type.length - 1;
-      if (i === length && length <= 3) {
+      if (i === length && length <= 8) {
         return true;
       } else {
         return false;
@@ -243,7 +243,7 @@ export default {
     // 判断是否为最末尾
     lastList(i) {
       let length = this.imgList.length - 1;
-      if (i === length && length <= 3) {
+      if (i === length && length <= 4) {
         return true;
       } else {
         return false;

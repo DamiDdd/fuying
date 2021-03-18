@@ -18,9 +18,10 @@
     </div>
     <div class="price-sum">{{ good.priceSum }}</div>
     <div class="delete">
-      <el-button class="el-btn" @click="deleteReverse">{{
-        $t("public.delete")
-      }}</el-button>
+      <el-button class="el-btn" @click="deleteConfirmed">
+        <!-- <el-button class="el-btn" @click="deleteReverse"> -->
+        {{ $t("public.delete") }}</el-button
+      >
       <div v-show="this.deleteBtn" class="answer">
         <button class="btn" @click="deleteConfirmed">
           {{ $t("public.confirm") }}
