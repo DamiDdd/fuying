@@ -28,7 +28,10 @@
       >
       <div class="right">
         <el-dropdown placement="bottom" trigger="hover" @command="batchOperate">
-          <span class="el-dropdown-link focus btn">
+          <span
+            class="el-dropdown-link focus btn"
+            style="font-size: 1.05rem;"
+          >
             语言
           </span>
           <el-dropdown-menu slot="dropdown" class="dropdown">
@@ -111,11 +114,10 @@ export default {
 
 .right {
   position: absolute;
-  margin-top: 0.1875rem /* 3/16 */;
+  margin-top: 0.1875rem;
   right: 6.25rem /* 100/16 */;
   width: 15.5rem /* 200/16 */;
   font-size: 1.6875rem /* 27/16 */;
-  /* background: gray; */
 }
 
 .el-dropdown-link {

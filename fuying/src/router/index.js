@@ -33,6 +33,7 @@ const Health = () => import("views/profile/Health");
 const Homepage = () => import("views/homepage/Homepage");
 const NewsDetail = () => import("views/news/NewsDetail");
 const Admin = () => import("views/manager/Admin");
+const UploadNews = () => import("views/manager/UploadNews");
 
 // 1.安装VueRouter
 Vue.use(VueRouter);
@@ -123,6 +124,15 @@ const routes = [
       isLogin: true,
       isAdmin: true,
       title: "报告查询"
+    }
+  },
+  {
+    path: "/uploadNews",
+    component: UploadNews,
+    meta: {
+      isLogin: true,
+      isAdmin: true,
+      title: "上传新闻"
     }
   },
   {
@@ -253,10 +263,10 @@ router.beforeEach((to, from, next) => {
         // 有管理员权限
         if (getAdmin !== null) {
           store.state.isAdmin = true;
-          Vue.prototype.$message({
-            type: "success",
-            message: "欢迎 admin：" + getAdmin
-          });
+          // Vue.prototype.$message({
+          //   type: "success",
+          //   message: "欢迎 admin：" + getAdmin
+          // });
           next();
         }
         // 无管理员权限

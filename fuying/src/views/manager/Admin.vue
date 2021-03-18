@@ -20,6 +20,12 @@
           <h3>上架商品</h3>
         </div>
       </div>
+      <div class="btn-window" @click="jump('/uploadNews')">
+        <div class="icon">
+          <img src="~assets/img/common/file.png" alt="" />
+          <h3>添加新闻</h3>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -52,7 +58,7 @@ export default {
 }
 
 .btn-window {
-  width: 33.1%;
+  width: 24.8%;
   /* min-width: calc(25%-1rem); */
   height: 100%;
   float: left;
