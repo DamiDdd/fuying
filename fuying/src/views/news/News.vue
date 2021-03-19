@@ -18,9 +18,9 @@
                   style="height: 6rem; padding: .875rem /* 14/16 */; "
                   @click="showNews(o.url)"
                 >
-                  <span>{{ o.title }}</span>
+                  <span style="font-size: 1.2rem;">{{ o.title }}</span>
                   <div class="bottom clearfix">
-                    <time class="time">{{ currentDate }}</time>
+                    <time class="time">{{ o.date }}</time>
                   </div>
                 </div>
               </el-card>
@@ -51,16 +51,17 @@ export default {
   name: "News",
   data() {
     return {
-      currentDate: new Date(),
       news: [
         {
           title: "Nature Medicine|深度纵向分析揭示衰老标志物和衰老类型",
           img: news1,
+          date: "2021/3/19",
           url: "https://mp.weixin.qq.com/s/NMYSQFMaZa9s1QhhL-Whmg"
         },
         {
           title: "Nature Communications|乳腺癌定量蛋白质组和蛋白质基因组图谱",
           img: news2,
+          date: "2021/3/19",
           url: "https://mp.weixin.qq.com/s/VszRZiI01Z7e0LUVjNiF8g"
         }
       ],

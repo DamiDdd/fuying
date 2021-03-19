@@ -86,6 +86,7 @@ export default {
 
 .icon h3 {
   padding-left: 3.5rem /* 20/16 */;
+  font-size: 1.25rem;
 }
 
 .btn-window:hover {
