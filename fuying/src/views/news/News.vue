@@ -3,28 +3,41 @@
     <div class="nav-bg"></div>
     <div class="bg">
       <div class="main">
-        <el-row>
-          <el-col
-            :span="6"
-            v-for="(o, index) in news"
-            :key="o"
-            :offset="index % 3 == 0 ? 2 : 1"
-            style="padding-top: 1.625rem;"
-          >
-            <el-card :body-style="{ padding: '0rem' }">
-              <img :src="o.img" class="image" />
-              <div style="height: 6rem; padding: .875rem /* 14/16 */;">
-                <span>{{ o.title }}</span>
-                <div class="bottom clearfix">
-                  <time class="time">{{ currentDate }}</time>
-                  <el-button type="text" class="button" @click="showNews(o.url)"
-                    >操作按钮</el-button
-                  >
+        <div class="main2">
+          <el-row>
+            <el-col
+              :span="6"
+              v-for="(o, index) in news"
+              :key="o"
+              :offset="index % 3 == 0 ? 2 : 1"
+              style="padding-top: 1.625rem; cursor: pointer;"
+            >
+              <el-card :body-style="{ padding: '0rem' }">
+                <img :src="o.img" class="image" @click="showNews(o.url)" />
+                <div
+                  style="height: 6rem; padding: .875rem /* 14/16 */; "
+                  @click="showNews(o.url)"
+                >
+                  <span>{{ o.title }}</span>
+                  <div class="bottom clearfix">
+                    <time class="time">{{ currentDate }}</time>
+                  </div>
                 </div>
-              </div>
-            </el-card>
-          </el-col>
-        </el-row>
+              </el-card>
+            </el-col>
+          </el-row>
+        </div>
+        <div class="pagination">
+          <el-pagination
+            :page-size="6"
+            :pager-count="10"
+            layout="prev, pager, next"
+            :total="total"
+            @current-change="handleCurrentChange"
+            hide-on-single-page
+          >
+          </el-pagination>
+        </div>
       </div>
     </div>
   </div>
@@ -50,12 +63,16 @@ export default {
           img: news2,
           url: "https://mp.weixin.qq.com/s/VszRZiI01Z7e0LUVjNiF8g"
         }
-      ]
+      ],
+      total: 2
     };
   },
   methods: {
     showNews(url) {
       window.location.href = url;
+    },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
     }
   }
 };
@@ -83,8 +100,12 @@ export default {
   min-width: 75rem /* 1200/16 */;
   margin-left: auto;
   margin-right: auto;
-  min-height: 50rem /* 800/16 */;
+  min-height: 60rem;
   /* background: gray; */
+}
+
+.main2 {
+  min-height: 50rem;
 }
 
 .time {
@@ -116,5 +137,12 @@ export default {
 
 .clearfix:after {
   clear: both;
+}
+
+.pagination {
+  width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 </style>

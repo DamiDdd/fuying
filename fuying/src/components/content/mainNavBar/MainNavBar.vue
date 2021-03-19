@@ -28,10 +28,7 @@
       >
       <div class="right">
         <el-dropdown placement="bottom" trigger="hover" @command="batchOperate">
-          <span
-            class="el-dropdown-link focus btn"
-            style="font-size: 1.05rem;"
-          >
+          <span class="el-dropdown-link focus btn" style="font-size: 1.05rem; ">
             语言
           </span>
           <el-dropdown-menu slot="dropdown" class="dropdown">
