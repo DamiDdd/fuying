@@ -3,7 +3,7 @@
     <div class="nav-bg"></div>
     <div class="main">
       <div class="contain">
-        <p class="bigtext">上传新闻</p>
+        <p class="bigtext" style="padding-bottom: 1rem;">上传新闻</p>
         <el-row
           ><p class="title">title</p>
           <el-input v-model="title" class="input"></el-input
@@ -35,7 +35,9 @@
         </el-row>
         <img class="tech-img" :src="img" />
         <el-row
-          ><el-button type="primary" class="submitbtn">上传</el-button></el-row
+          ><el-button type="primary" class="submitbtn" @click="handleUpload"
+            >上传</el-button
+          ></el-row
         >
       </div>
     </div>
@@ -43,6 +45,8 @@
 </template>
 
 <script>
+import Axios from "axios";
+import GLOBAL from "@/common/const";
 import notfound from "../../assets/img/common/notfound.png";
 
 export default {
@@ -51,7 +55,9 @@ export default {
     return {
       title: "",
       date: "",
-      img: notfound
+      url: "",
+      img: notfound,
+      uploadurl: GLOBAL.urlHead2 + "uploadNews/"
     };
   },
   methods: {
@@ -64,6 +70,33 @@ export default {
       reader.onload = function() {
         that.img = this.result;
       };
+    },
+    handleUpload() {
+      let that = this;
+      let params = new URLSearchParams();
+      params.append("title", this.title);
+      params.append("date", this.date);
+      params.append("url", this.url);
+      params.append("img", this.img);
+      Axios.post(this.uploadurl, params, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      })
+        .then(function(response) {
+          console.log(response);
+          that.$message({
+            type: "success",
+            message: "上传成功"
+          });
+        })
+        .catch(function(error) {
+          console.log(error);
+          that.$message({
+            type: "warning",
+            message: "请检查上传信息"
+          });
+        });
     }
   }
 };
@@ -105,5 +138,8 @@ export default {
   /* margin-left: 43%; */
   margin-top: 1.25rem /* 20/16 */;
   margin-bottom: 1.25rem /* 20/16 */;
+}
+.title{
+  padding-top: 1.5rem;
 }
 </style>

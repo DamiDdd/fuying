@@ -8,7 +8,7 @@
             <el-col
               :span="6"
               v-for="(o, index) in news"
-              :key="o"
+              :key="index"
               :offset="index % 3 == 0 ? 2 : 1"
               style="padding-top: 1.625rem; cursor: pointer;"
             >
@@ -30,7 +30,6 @@
         <div class="pagination">
           <el-pagination
             :page-size="6"
-            :pager-count="10"
             layout="prev, pager, next"
             :total="total"
             @current-change="handleCurrentChange"
@@ -44,36 +43,59 @@
 </template>
 
 <script>
-import news1 from "../../assets/img/news/news1.png";
-import news2 from "../../assets/img/news/news2.png";
+// import news1 from "../../assets/img/news/news1.png";
+// import news2 from "../../assets/img/news/news2.png";
+import Axios from "axios";
+import GLOBAL from "@/common/const";
 
 export default {
   name: "News",
   data() {
     return {
+      newsUrl: GLOBAL.urlHead + "getNews/?page=",
       news: [
-        {
-          title: "Nature Medicine|深度纵向分析揭示衰老标志物和衰老类型",
-          img: news1,
-          date: "2021/3/19",
-          url: "https://mp.weixin.qq.com/s/NMYSQFMaZa9s1QhhL-Whmg"
-        },
-        {
-          title: "Nature Communications|乳腺癌定量蛋白质组和蛋白质基因组图谱",
-          img: news2,
-          date: "2021/3/19",
-          url: "https://mp.weixin.qq.com/s/VszRZiI01Z7e0LUVjNiF8g"
-        }
+        // {
+        //   title: "Nature Medicine|深度纵向分析揭示衰老标志物和衰老类型",
+        //   img: news1,
+        //   date: "2021/3/19",
+        //   url: "https://mp.weixin.qq.com/s/NMYSQFMaZa9s1QhhL-Whmg"
+        // },
+        // {
+        //   title: "Nature Communications|乳腺癌定量蛋白质组和蛋白质基因组图谱",
+        //   img: news2,
+        //   date: "2021/3/19",
+        //   url: "https://mp.weixin.qq.com/s/VszRZiI01Z7e0LUVjNiF8g"
+        // }
       ],
-      total: 2
+      total: 20
     };
+  },
+  mounted() {
+    this.getNews(1);
   },
   methods: {
     showNews(url) {
       window.location.href = url;
     },
     handleCurrentChange(val) {
+      console.log(val);
       console.log(`当前页: ${val}`);
+      this.getNews(val);
+    },
+    getNews(page) {
+      let url = this.newsUrl + page;
+      Axios.get(url).then(response => {
+        if (response.status === 200) {
+          this.news = response.data["news_list"];
+          this.total = response.data["count"];
+          console.log(this.news);
+        } else {
+          this.$message({
+            type: "warning",
+            message: this.$t("tips.servererror")
+          });
+        }
+      });
     }
   }
 };
