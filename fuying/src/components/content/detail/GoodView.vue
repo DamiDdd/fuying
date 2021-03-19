@@ -210,6 +210,7 @@ export default {
   padding-bottom: 0.6rem;
   padding-left: 0.625rem /* 10/16 */;
   padding-right: 0.625rem /* 10/16 */;
+  font-size: 1rem;
 }
 /* .type:first-of-type {
   margin-left: 0rem;

@@ -5,7 +5,9 @@
     <div class="main">
       <div class="left">
         <div class="left-top">
-          <p class="content-blue">{{ $t("profile.title") }}</p>
+          <p class="content-blue" style="padding-bottom: 1.5rem;">
+            {{ $t("profile.title") }}
+          </p>
           <el-button @click="jump('/cart')">{{ $t("profile.cart") }}</el-button>
           <el-button @click="jump('/health')">{{
             $t("profile.health")
@@ -122,7 +124,9 @@
           <thead>
             <tr>
               <th width="6.25rem /* 100/16 */">{{ $t("profile.orderid") }}</th>
-              <th width="6.25rem /* 100/16 */">{{ $t("profile.transitid") }}</th>
+              <th width="6.25rem /* 100/16 */">
+                {{ $t("profile.transitid") }}
+              </th>
               <th width="6.25rem /* 100/16 */">{{ $t("profile.time") }}</th>
               <th width="12.5rem /* 200/16 */">
                 {{ $t("profile.info")
@@ -451,7 +455,7 @@ input {
 
 .after {
   float: right;
-  margin-right: .625rem /* 10/16 */;
+  margin-right: 0.625rem /* 10/16 */;
   color: lightblue;
   cursor: pointer;
 }

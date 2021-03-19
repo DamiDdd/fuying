@@ -121,6 +121,7 @@ export default {
 .article {
   margin-left: 6.25rem /* 100/16 */;
   line-height: 1.875rem /* 30/16 */;
+  font-size: 1.2rem;
 }
 
 .btn {

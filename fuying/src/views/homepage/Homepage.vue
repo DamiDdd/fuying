@@ -208,6 +208,10 @@ h3 {
   margin-left: 20%;
 }
 
+.showdata h3 {
+  font-size: 1.5rem;
+}
+
 .company {
   width: 62.5rem /* 1000/16 */;
   height: 18.75rem /* 300/16 */;

@@ -30,7 +30,9 @@
             <p class="title" style="color: white; padding-top: 1rem;">
               {{ item.title }}
             </p>
-            <p>{{ item.desc }}</p>
+            <p style="padding-top: 0.5rem; font-size: 1.2rem;">
+              {{ item.desc }}
+            </p>
           </div>
         </div>
         <div class="item-div third">
